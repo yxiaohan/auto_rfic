@@ -61,6 +61,6 @@ if [ ! -x "$CLIENT_SCRIPT" ]; then
     chmod +x "$CLIENT_SCRIPT"
 fi
 
-# Execute the SKILL file
+# Function to load and execute a script
 echo "Executing SKILL file: $SCRIPT_FILE on server $SERVER_HOST:$SERVER_PORT"
 $CLIENT_SCRIPT "$SERVER_HOST" "$SERVER_PORT" -file "$SCRIPT_FILE"

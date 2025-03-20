@@ -4,27 +4,6 @@
 ;; Debug flag - set to t for verbose output
 abSkillServerDebug = nil
 
-;; Function to extract directory path from a filename
-procedure(getDirectoryPath(fileName)
-  let((path)
-    ;; Use parseString to get directory components
-    path = parseString(simplifyFilename(fileName) "/")
-    
-    ;; Remove the last component (the filename itself)
-    path = reverse(cdr(reverse(path)))
-    
-    ;; Join the path components back with "/"
-    path = buildString(mapcar(lambda(p) strcat(p "/")) path)
-    
-    ;; Remove trailing slash if present
-    if(rexMatchp("/$" path) then
-      path = substring(path 1 strlen(path)-1)
-    )
-    
-    path
-  )
-)
-
 ;; Process connection notifications
 procedure(abSkillServerConnection(addr port)
     printf("Connection received from address %s, port %s\n" addr port)
@@ -60,32 +39,17 @@ procedure(abSkillServerListener(ipcId data)
 )
 
 ;; Start the server process
-procedure(startSkillServer(@optional (port "8123") (serverPath nil))
+procedure(startSkillServer(@optional (port "8123"))
     let((cmd)
         ;; Set environment variable for port
         setShellEnvVar("SKILLSERVPORT" port)
         
-        ;; Determine the path to the skillServer script
-        if(serverPath == nil then
-            if(boundp('SKILL_SERVER_PATH) then
-                cmd = SKILL_SERVER_PATH
-            else
-                ;; Try to guess based on this file's path if SCRIPT_FILE is available
-                scriptFile = getShellEnvVar("SCRIPT_FILE")
-                if(scriptFile != nil then
-                    cmd = strcat(getDirectoryPath(scriptFile) "/skillServer")
-                else
-                    ;; Default location
-                    cmd = "/Volumes/990_2t/yuan/Nextcloud/projects/auto_rfic/cadence/skill/skillServer"
-                )
-            )
-        else
-            cmd = serverPath
-        )
+        ;; Build command path - assuming skillServer is in the same directory
+        cmd = strcat(getDirName(getShellEnvVar("SCRIPT_FILE") || "_") "/skillServer")
         
         ;; Check if skillServer is executable
         if(isFile(cmd) then
-            printf("Starting SKILL server on port %s using server at %s\n" port cmd)
+            printf("Starting SKILL server on port %s\n" port)
             abSkillServer = ipcBeginProcess(cmd "" 'abSkillServerListener)
             
             if(abSkillServer != nil then
@@ -97,8 +61,6 @@ procedure(startSkillServer(@optional (port "8123") (serverPath nil))
             )
         else
             printf("Error: skillServer script not found at %s\n" cmd)
-            printf("Please set the SKILL_SERVER_PATH variable to point to the skillServer executable\n")
-            printf("Example: SKILL_SERVER_PATH = \"/path/to/skillServer\"\n")
             nil
         )
     )
@@ -140,20 +102,7 @@ procedure(runScriptFile(filename)
     )
 )
 
-;; Helper to build a string from a list
-procedure(buildString(strList)
-  let((result)
-    result = ""
-    foreach(str strList
-      result = strcat(result str)
-    )
-    result
-  )
-)
-
 ;; Print information about usage
 printf("SKILL Server Interface loaded\n")
-printf("To start server: startSkillServer([\"port\"] [\"serverPath\"])\n")
+printf("To start server: startSkillServer([\"port\"])\n")
 printf("To stop server: stopSkillServer()\n")
-printf("Before starting, set the path to the skillServer script:\n")
-printf("SKILL_SERVER_PATH = \"/full/path/to/skillServer\"\n")
