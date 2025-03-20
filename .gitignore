@@ -1,0 +1,128 @@
+# Cadence specific files and directories
+INCA_libs/
+*.cdslck*
+*.log.cdslck*
+irun.log
+irun.history
+cds.lib
+*.wdb
+*.dsn
+simv*
+*simv.daidir/
+*simv.vdb/
+simv.log
+*.key
+*.sud
+*.tdb
+*.lock
+simout
+*.tmpfiles
+*.tmp
+
+# Cadence ADE files
+*.sdb*
+.simRunData
+.simSetup*
+*.ahdlSimDB/
+hw.ahdlSimDB
+.simNetlistRunDir/
+.QRC_run/
+.nccspec
+.gds2*
+
+# Virtuoso layout
+.dvs
+.dvspreview
+
+# Spectre simulation output files
+*.scs.sim/
+*.psp
+*.pnl
+netlist*
+spectre*/
+maestro*/
+monte*/
+analog*/
+state*/
+.spFiles
+
+# Common simulation output formats
+*.asc
+*.awv
+*.csv
+*.fsdb
+*.tr*
+*.vcd
+*.shm/
+*.wav
+*.ac*
+*.fc
+*.pz
+
+# Operating system specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Log files
+*.log
+log/
+logs/
+
+# Python-related files (for any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Common backup & temporary files
+.~lock.*
+*.tmp
+*.temp
+
+# Binary files often created in RFIC projects
+*.gds
+*.gds2
+*.oasis
+*.oas
+*.db
+*.cdb
+
+# Virtuoso state and environment files
+.cadence/
+.virtuoso/
+layout_pNaN/
+cdsenv
+lib.defs
+display.drf
