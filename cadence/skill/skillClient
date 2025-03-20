@@ -1,130 +1,40 @@
-#!/usr/bin/env tclsh
-#
-# Client for remote SKILL script execution
-# Based on design by A.D.Beckett (Cadence Design Systems Ltd)
-#
+#!/bin/bash
+# Simple SKILL client implementation using netcat
+HOST="$1"
+PORT="$2"
+OPTION="$3"
+FILE="$4"
 
-# Debug mode
-set debug 1
+DEBUG=true
 
-# Process command line arguments
-if {$argc < 2} {
-    puts stderr "Usage: $argv0 <host> <port> \[options\]"
-    puts stderr "Options:"
-    puts stderr "  -file <filename>   File containing SKILL commands to execute"
-    puts stderr "  -cmd <command>     Single SKILL command to execute"
+if [ "$OPTION" != "-file" ]; then
+    echo "Error: Only -file option is supported"
     exit 1
-}
+fi
 
-set host [lindex $argv 0]
-set port [lindex $argv 1]
-
-set command ""
-set filename ""
-
-# Process options
-for {set i 2} {$i < $argc} {incr i} {
-    set option [lindex $argv $i]
-    
-    if {$option eq "-file"} {
-        incr i
-        set filename [lindex $argv $i]
-    } elseif {$option eq "-cmd"} {
-        incr i
-        set command [lindex $argv $i]
-    }
-}
-
-# Function to read a file
-proc readFile {filename} {
-    set content ""
-    if {[catch {
-        set fp [open $filename r]
-        set content [read $fp]
-        close $fp
-    } err]} {
-        puts stderr "Error reading file $filename: $err"
-        exit 1
-    }
-    return $content
-}
-
-# Connect to the server
-puts "Connecting to $host:$port..."
-
-if {[catch {set socket [socket $host $port]} result]} {
-    puts stderr "Failed to connect to $host:$port: $result"
+if [ ! -f "$FILE" ]; then
+    echo "Error: File not found: $FILE"
     exit 1
-}
+fi
 
-# Set up socket configuration
-fconfigure $socket -buffering line
-fileevent $socket readable [list receiveResponse $socket]
+echo "Connecting to $HOST:$PORT..."
+echo "Sending file: $FILE"
 
-# Read file if specified
-if {$filename ne ""} {
-    set command [readFile $filename]
-} elseif {$command eq ""} {
-    # Read from stdin if no command or file
-    set command [read stdin]
-}
+# Print the file content for debugging
+if [ "$DEBUG" = true ]; then
+    echo "DEBUG: Sending command:"
+    cat "$FILE"
+    echo "---"
+fi
 
-# Send command to server
-puts "Sending command to SKILL server..."
-if {$debug} {
-    puts stderr "DEBUG: Sending command: $command"
-}
+# Important: Add a newline after the command to ensure proper processing
+# We also add a unique marker to recognize the end of transmission
+(cat "$FILE"; echo -e "\n__END_OF_COMMAND__\n") | nc -w 30 "$HOST" "$PORT"
 
-if {[catch {puts $socket $command} error]} {
-    puts stderr "Error sending command: $error"
+# Check the exit status of netcat
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to connect to SKILL server at $HOST:$PORT"
     exit 1
-}
-flush $socket
+fi
 
-# Variable to indicate if response received
-set responseReceived 0
-
-# Handle response from server
-proc receiveResponse {socket} {
-    global responseReceived debug
-    
-    if {[eof $socket] || [catch {gets $socket line} result]} {
-        if {[eof $socket]} {
-            puts stderr "Connection closed by server."
-        } else {
-            puts stderr "Error reading from socket: $result"
-        }
-        close $socket
-        set responseReceived 1
-        return
-    }
-    
-    if {$debug} {
-        puts stderr "DEBUG: Raw response: $line"
-    }
-    
-    puts "Result: $line"
-    set responseReceived 1
-}
-
-# Wait for response with timeout
-puts "Waiting for response..."
-set timeout 30
-set start [clock seconds]
-
-while {!$responseReceived} {
-    # Process events
-    update
-    
-    # Check timeout
-    if {[clock seconds] - $start > $timeout} {
-        puts stderr "ERROR: Timeout waiting for response"
-        close $socket
-        exit 1
-    }
-    
-    # Short sleep to prevent CPU hogging
-    after 100
-}
-
-exit 0
+echo "Command sent successfully."

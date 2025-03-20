@@ -7,81 +7,174 @@
 # Set debug mode (1 for more verbose output)
 set debug 1
 
+# Configure logging
+set logDir "/home/zhoulong/projects/auto_rfic/cadence/logs"
+set logFile "$logDir/skillServer.log"
+
+# Create log directory if it doesn't exist
+if {![file exists $logDir]} {
+  file mkdir $logDir
+}
+
+# Initialize log file
+proc initLogFile {} {
+  global logFile
+  
+  if {[catch {open $logFile "a+"} logFH]} {
+    puts stderr "ERROR: Cannot open log file $logFile: $logFH"
+    return 0
+  }
+  
+  # Keep the filehandle open for the duration of the program
+  set ::logFH $logFH
+  
+  # Set up automatic flushing to ensure logs are written immediately
+  fconfigure $logFH -buffering line
+  
+  log "========================================="
+  log "SKILL Server started at [clock format [clock seconds]]"
+  log "========================================="
+  
+  return 1
+}
+
+# Log a message to both stderr and the log file
+proc log {message} {
+  global logFH
+  
+  # Format with timestamp
+  set timestamp [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]
+  set formattedMsg "$timestamp - $message"
+  
+  # Print to stderr
+  puts stderr $formattedMsg
+  
+  # Write to log file if open
+  if {[info exists ::logFH]} {
+    puts $::logFH $formattedMsg
+    flush $::logFH
+  }
+}
+
+# Port configuration
 if [info exists env(SKILLSERVPORT)] {
   set port $env(SKILLSERVPORT)
 } else {
   set port 8123
 }
 
+# Store commands from clients until "__END_OF_COMMAND__" marker
+array set pendingCommands {}
+
 proc listener {channel addr port} {
   global debug
-  if {$debug} {
-    puts stderr "New connection from $addr:$port on channel $channel"
-  }
+  
+  log "New connection from $addr:$port on channel $channel"
+  
+  # Configure the channel for line-based operation
+  fconfigure $channel -buffering line
+  
+  # Initialize the pending command for this channel
+  set ::pendingCommands($channel) ""
+  
   puts "$channel abSkillServerConnection(\"$addr\" \"$port\")"
   flush stdout
-  fconfigure $channel -buffering line
-  fileevent $channel readable [list sendToDFII $channel]
+  
+  fileevent $channel readable [list receiveCommand $channel]
 }
 
-proc sendToDFII {channel} {
-  global debug
-  if {[eof $channel] || [catch {gets $channel line}]} {
-    # end of file
-    if {$debug} {
-      puts stderr "Connection closed for channel $channel"
+proc receiveCommand {channel} {
+  global debug pendingCommands
+  
+  if {[eof $channel] || [catch {gets $channel line} bytesRead]} {
+    # End of file or error
+    log "Connection closed or error for channel $channel"
+    
+    # Clean up
+    if {[info exists pendingCommands($channel)]} {
+      unset pendingCommands($channel)
     }
-    close $channel
-  } else {
-    if {$debug} {
-      puts stderr "Received from client: $line"
-    }
-    puts "$channel $line"
-    flush stdout
+    catch {close $channel}
+    return
   }
+  
+  # If we have an actual line
+  if {$bytesRead >= 0} {
+    if {$debug > 1} {
+      log "Received line: $line"
+    }
+    
+    # Check for end marker
+    if {$line == "__END_OF_COMMAND__"} {
+      log "End of command received, executing..."
+      log "Full command: $pendingCommands($channel)"
+      
+      # Send the complete command to DFII
+      sendToDFII $channel $pendingCommands($channel)
+      
+      # Reset the command buffer
+      set pendingCommands($channel) ""
+    } else {
+      # Append this line to the pending command
+      if {$pendingCommands($channel) != ""} {
+        append pendingCommands($channel) "\n"
+      }
+      append pendingCommands($channel) $line
+    }
+  }
+}
+
+proc sendToDFII {channel command} {
+  global debug
+  
+  log "Sending command to DFII: $command"
+  
+  # Send to DFII through stdout (Cadence will read this)
+  puts "$channel $command"
+  flush stdout
 }
   
 proc sendBack {} {
   global debug
+  
   if {[catch {gets stdin line} result]} {
-    if {$debug} {
-      puts stderr "Error reading from stdin: $result"
-    }
+    log "Error reading from stdin: $result"
     return
   }
   
   if {[string length $line] == 0} {
-    if {$debug} {
-      puts stderr "Warning: Received empty line from Cadence"
-    }
+    log "Warning: Received empty line from Cadence"
     return
   }
   
-  if {[regexp {^(\w+) (.*)$} $line match channel result]} {
-    if {$debug} {
-      puts stderr "Sending to client ($channel): $result"
-    }
+  # Extract channel and response
+  if {[regexp {^(\w+) (.*)$} $line match channel response]} {
+    log "Sending response to client ($channel): $response"
     
     # Check if the channel is still open
-    if {[catch {puts $channel $result; flush $channel} err]} {
-      puts stderr "Error sending to client: $err"
+    if {[catch {puts $channel $response; flush $channel} err]} {
+      log "Error sending to client: $err"
     }
   } else {
-    if {$debug} {
-      puts stderr "Malformed response: $line"
-    }
+    log "Malformed response: $line"
   }
 }
 
-puts stderr "SKILL Server starting on port $port..."
+# Initialize the log file
+initLogFile
+
+log "SKILL Server starting on port $port..."
 fconfigure stdin -buffering line
 fileevent stdin readable sendBack
 
-# Check if we can open the socket - explicitly bind to all interfaces with ""
-if {[catch {socket -server listener "" $port} err]} {
-  puts stderr "ERROR: Failed to open server socket on port $port: $err"
+# Check if we can open the socket - fix the socket command syntax
+if {[catch {socket -server listener $port} err]} {
+  log "ERROR: Failed to open server socket on port $port: $err"
   exit 1
 }
 
-puts stderr "SKILL Server listening on port $port (all interfaces)"
+# If we need to bind to a specific address, we can use:
+# socket -server listener -myaddr 0.0.0.0 $port
+
+log "SKILL Server listening on port $port (all interfaces)"
 vwait forever
