@@ -1,5 +1,5 @@
 ;; remote_server.il - SKILL script server for remote execution
-;; Listens on a socket for incoming SKILL scripts to execute
+;; Uses file-based communication instead of sockets
 
 ;; =================================================================
 ;; Server Configuration
@@ -7,11 +7,11 @@
 procedure(skillServerConfig()
   let((config)
     config = makeTable("SkillServerConfig")
-    config["port"] = 8765
+    config["inboxDir"] = "/tmp/skill_inbox"
+    config["outboxDir"] = "/tmp/skill_outbox"
     config["logFile"] = "skill_server.log"
-    config["allowedClients"] = list("localhost" "0.0.0.0") ;; Add other IPs as needed
-    config["timeout"] = 300 ;; Seconds
-    return(config)
+    config["pollInterval"] = 1.0 ;; Seconds
+    config  ;; Implicit return
   )
 )
 
@@ -21,154 +21,101 @@ procedure(skillServerConfig()
 
 ;; Start the SKILL server
 procedure(startSkillServer(@optional (config nil))
-  let((serverSocket port logFile)
+  let((inboxDir outboxDir logFile)
     ;; Get configuration or use default
     if(config == nil then
       config = skillServerConfig()
     )
     
-    port = config["port"]
+    inboxDir = config["inboxDir"]
+    outboxDir = config["outboxDir"]
     logFile = config["logFile"]
     
     ;; Initialize logging
-    serverLog("INFO" "Starting SKILL server" logFile)
+    serverLog("INFO" "Starting SKILL File-based Server" logFile)
     
-    ;; Create server socket
-    serverSocket = ipcBeginServer(port "TCP")
-    if(serverSocket == nil then
-      serverLog("ERROR" sprintf(nil "Failed to start server on port %d" port) logFile)
-      return(nil)
-    )
+    ;; Create directories if they don't exist
+    system(sprintf(nil "mkdir -p %s" inboxDir))
+    system(sprintf(nil "mkdir -p %s" outboxDir))
     
-    serverLog("INFO" sprintf(nil "Server started on port %d" port) logFile)
-    printf("SKILL Server started on port %d. Waiting for connections...\n" port)
+    serverLog("INFO" sprintf(nil "Server watching directory %s" inboxDir) logFile)
+    printf("SKILL Server started. Watching directory: %s\n" inboxDir)
+    printf("Results will be written to: %s\n" outboxDir)
     
-    ;; Start listening for connections
-    skillServerListenLoop(serverSocket config)
+    ;; Start the polling loop in a separate thread/process
+    startPollingForScripts(config)
     
-    return(t)
+    t  ;; Implicit return
   )
 )
 
-;; Server listening loop
-procedure(skillServerListenLoop(serverSocket config)
-  let((clientSocket logFile)
+;; Start watching for incoming script files
+procedure(startPollingForScripts(config)
+  let((inboxDir)
+    inboxDir = config["inboxDir"]
+    
+    ;; Create a global variable to track if server is running
+    _skillServerRunning = t
+    
+    ;; Register a scheduled callback to check for scripts
+    when((_skillServerRunning)
+      checkForScripts(config)
+      ;; Reschedule after poll interval
+      after(config["pollInterval"] startPollingForScripts(config))
+    )
+  )
+)
+
+;; Stop the server
+procedure(stopSkillServer()
+  _skillServerRunning = nil
+  serverLog("INFO" "SKILL Server stopped")
+  printf("SKILL Server stopped\n")
+  t
+)
+
+;; Check for new scripts to process
+procedure(checkForScripts(config)
+  let((inboxDir outboxDir logFile files)
+    inboxDir = config["inboxDir"]
+    outboxDir = config["outboxDir"]
     logFile = config["logFile"]
     
-    while(t
-      ;; Wait for client connection
-      clientSocket = ipcWaitForConnect(serverSocket)
-      if(clientSocket != nil then
-        serverLog("INFO" "Client connected" logFile)
+    ;; Get list of .il files in inbox
+    files = getDirFiles(inboxDir)
+    files = setof(file files rexMatchp("\\.il$" file))
+    
+    foreach(file files
+      scriptFile = strcat(inboxDir "/" file)
+      
+      ;; Check for a ".lock" file to avoid processing files being uploaded
+      lockFile = strcat(scriptFile ".lock")
+      if(!isFile(lockFile) then
+        ;; Process the script
+        serverLog("INFO" sprintf(nil "Processing script: %s" file) logFile)
         
-        ;; Handle client in a safe manner
-        errset(
-          handleClientConnection(clientSocket config)
-          (lambda (reason)
-            serverLog("ERROR" sprintf(nil "Error handling client: %L" reason) logFile)
-          )
-        )
+        ;; Execute script and save output
+        outputFile = strcat(outboxDir "/" file ".out")
+        executeScriptToFile(scriptFile outputFile logFile)
         
-        ;; Close client connection
-        ipcClose(clientSocket)
-      else
-        ;; Sleep briefly to prevent CPU hogging if accept fails
-        sleep(1)
+        ;; Mark script as processed
+        removeSkillFile(scriptFile)
       )
     )
   )
 )
 
-;; Handle client connection
-procedure(handleClientConnection(clientSocket config)
-  let((request scriptContent scriptFile response logFile)
-    logFile = config["logFile"]
-    
-    ;; Read request from client
-    request = readClientRequest(clientSocket logFile)
-    
-    if(request != nil then
-      ;; Extract script content
-      scriptContent = request
-      
-      ;; Create temporary file for the script
-      scriptFile = makeString(1024)
-      sprintf(scriptFile "/tmp/remote_skill_%d.il" getpid())
-      
-      ;; Write script to temporary file
-      writeScriptToFile(scriptFile scriptContent logFile)
-      
-      ;; Execute the script and capture output
-      response = executeSkillScript(scriptFile logFile)
-      
-      ;; Send response back to client
-      sendResponseToClient(clientSocket response logFile)
-      
-      ;; Clean up temporary file
-      removeSkillFile(scriptFile)
-    )
-  )
-)
-
-;; Read request from client
-procedure(readClientRequest(clientSocket logFile)
-  let((request bytesRead)
-    serverLog("INFO" "Reading client request" logFile)
-    
-    request = ""
-    done = nil
-    
-    ;; Read until we get end marker or error
-    while(!done
-      data = ipcReadSocket(clientSocket 1024)
-      if(data != nil && data != "" then
-        request = strcat(request data)
-        ;; Check for end marker
-        if(rexMatchp("__END_OF_SCRIPT__" data) then
-          done = t
-        )
-      else
-        done = t
-      )
-    )
-    
-    ;; Remove end marker if present
-    request = regsub("__END_OF_SCRIPT__" request "")
-    
-    serverLog("INFO" sprintf(nil "Received script of length %d" strlen(request)) logFile)
-    return(request)
-  )
-)
-
-;; Write script to temporary file
-procedure(writeScriptToFile(scriptFile scriptContent logFile)
-  let((fileId)
-    serverLog("INFO" sprintf(nil "Writing script to %s" scriptFile) logFile)
-    
-    fileId = outfile(scriptFile)
-    if(fileId != nil then
-      fprintf(fileId "%s" scriptContent)
-      close(fileId)
-      return(t)
-    else
-      serverLog("ERROR" sprintf(nil "Failed to write script to %s" scriptFile) logFile)
-      return(nil)
-    )
-  )
-)
-
-;; Execute SKILL script and capture output
-procedure(executeSkillScript(scriptFile logFile)
-  let((outputFile result output)
+;; Execute script and save output to file
+procedure(executeScriptToFile(scriptFile outputFile logFile)
+  let((result output savedOutput fileId)
     serverLog("INFO" sprintf(nil "Executing script %s" scriptFile) logFile)
     
-    ;; Create output capture file
-    outputFile = strcat(scriptFile ".out")
-    
-    ;; Redirect output, load script, restore output
-    savedOutput = poport
+    ;; Open output file
     fileId = outfile(outputFile)
     fprintf(fileId "===== SCRIPT EXECUTION OUTPUT =====\n")
+    
+    ;; Redirect output during execution
+    savedOutput = poport
     poport = fileId
     
     ;; Execute script in safe mode and capture result
@@ -180,63 +127,42 @@ procedure(executeSkillScript(scriptFile logFile)
     )
     
     ;; Restore output
-    fprintf(fileId "\n===== END OF EXECUTION =====\n")
-    close(fileId)
     poport = savedOutput
     
-    ;; Read execution output
-    output = readOutputFile(outputFile)
+    ;; Write the result to the file
+    fprintf(fileId "\n===== EXECUTION RESULT =====\n")
+    fprintf(fileId "%L\n" result)
+    fprintf(fileId "\n===== END OF EXECUTION =====\n")
+    close(fileId)
     
-    ;; Clean up output file
-    removeSkillFile(outputFile)
-    
-    ;; Combine result and output
-    response = sprintf(nil "Result: %L\n\nOutput:\n%s" result output)
     serverLog("INFO" "Script execution complete" logFile)
-    
-    return(response)
   )
 )
 
-;; Read output from file
-procedure(readOutputFile(outputFile)
-  let((fileId line output)
-    output = ""
-    fileId = infile(outputFile)
-    
-    if(fileId != nil then
-      while(gets(line fileId)
-        output = strcat(output line "\n")
-      )
-      close(fileId)
-    )
-    
-    return(output)
-  )
-)
-
-;; Send response to client
-procedure(sendResponseToClient(clientSocket response logFile)
-  let((result)
-    serverLog("INFO" sprintf(nil "Sending response of length %d" strlen(response)) logFile)
-    
-    ;; Add end marker
-    response = strcat(response "\n__END_OF_RESPONSE__")
-    
-    ;; Send response
-    result = ipcWriteSocket(clientSocket response)
-    
-    if(result == nil then
-      serverLog("ERROR" "Failed to send response to client" logFile)
-    )
-    
-    return(result)
-  )
-)
-
-;; Utility: Delete file - renamed from deleteFile to removeSkillFile
+;; Utility: Remove file
 procedure(removeSkillFile(filename)
   system(sprintf(nil "rm -f %s" filename))
+)
+
+;; Utility: Get directory files
+procedure(getDirFiles(dirPath)
+  let((tmpFile files cmd)
+    tmpFile = "/tmp/dir_listing.tmp"
+    cmd = sprintf(nil "ls %s > %s" dirPath tmpFile)
+    system(cmd)
+    
+    files = list()
+    if(isFile(tmpFile) then
+      inPort = infile(tmpFile)
+      while(gets(line inPort)
+        files = cons(line files)
+      )
+      close(inPort)
+      removeSkillFile(tmpFile)
+    )
+    
+    nreverse(files)
+  )
 )
 
 ;; Logging function
@@ -255,6 +181,38 @@ procedure(serverLog(level message @optional (logFile "skill_server.log"))
   )
 )
 
+;; Get current time as string
+procedure(getCurrentTime()
+  let((timeStr)
+    timeStr = buildString(sprintf(nil "date +'%%Y-%%m-%%d %%H:%%M:%%S'"))
+    while(rexMatchp("[\r\n]" timeStr)
+      timeStr = substring(timeStr 1 strlen(timeStr)-1)
+    )
+    timeStr
+  )
+)
+
+;; Execute system command and return output
+procedure(buildString(cmd)
+  let((tmpfile content)
+    tmpfile = "/tmp/skill_cmd_output.tmp"
+    system(sprintf(nil "%s > %s" cmd tmpfile))
+    
+    content = ""
+    if(isFile(tmpfile) then
+      inPort = infile(tmpfile)
+      while(gets(line inPort)
+        content = strcat(content line "\n")
+      )
+      close(inPort)
+      removeSkillFile(tmpfile)
+    )
+    
+    content
+  )
+)
+
 ;; Initialize the server when this file is loaded
 printf("SKILL Remote Execution Server loaded\n")
 printf("To start the server, call: startSkillServer()\n")
+printf("To stop the server, call: stopSkillServer()\n")
