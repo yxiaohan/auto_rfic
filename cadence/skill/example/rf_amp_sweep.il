@@ -44,6 +44,36 @@ procedure(getParameterValue(paramName defaultValue)
   )
 )
 
+;; Remote server initialization function - add this function
+procedure(initializeRemoteServer()
+  let((serverScript)
+    rfLog("INFO" "Setting up remote SKILL execution server...")
+    
+    ;; Define path to the server script
+    serverScript = sprintf(nil "%s/../remote_server.il" 
+                          getDirName(getShellEnvVar("SCRIPT_FILE") || "_"))
+    
+    ;; Try to load the server script
+    if(isFile(serverScript) then
+      load(serverScript)
+      rfLog("INFO" sprintf(nil "Remote server script loaded from %s" serverScript))
+      
+      ;; Start the server
+      if(fboundp('startSkillServer) then
+        startSkillServer()
+        rfLog("INFO" "Remote SKILL server started successfully")
+        return(t)
+      else
+        rfLog("ERROR" "startSkillServer function not found after loading server script")
+        return(nil)
+      )
+    else
+      rfLog("ERROR" sprintf(nil "Server script not found at %s" serverScript))
+      return(nil)
+    )
+  )
+)
+
 ;; =================================================================
 ;; Schematic Manipulation Functions
 ;; =================================================================
@@ -238,6 +268,9 @@ procedure(rfSweepExample()
     ;; Get configuration parameters
     libName = getParameterValue("RF_LIB" "RFDesign")
     cellName = getParameterValue("CELL_NAME" "rf_amplifier")
+    
+    ;; Initialize remote server
+    initializeRemoteServer()
     
     ;; Create initial amplifier
     createRFAmplifier(libName cellName "schematic")
