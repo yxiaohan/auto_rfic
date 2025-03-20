@@ -1,0 +1,2 @@
+alias virtuoso='virtuoso -64 &'
+	/opt/cadence/IC617/tools/dfII/bin/virtuoso
