@@ -1,0 +1,78 @@
+#!/usr/bin/env tclsh
+# 
+# Author     A.D.Beckett
+# Group      Custom IC, Cadence Design Systems Ltd
+# Machine    SUN
+# Date       Jun 13, 2003 
+# Modified   
+# By         
+# 
+# Simple command interface which allows executing SKILL commands
+# Usage:
+#   skillClient hostname port "skillFunction()"
+#   skillClient hostname port -file scriptFile.il
+#
+
+# Get command line arguments
+if {[llength $argv] < 3} {
+    puts "Usage: skillClient <hostname> <port> <command>"
+    puts "  or:  skillClient <hostname> <port> -file <filename>"
+    exit 1
+}
+
+set hostname [lindex $argv 0]
+set port [lindex $argv 1]
+set arg3 [lindex $argv 2]
+
+# Handle file input or direct command
+if {$arg3 == "-file"} {
+    if {[llength $argv] < 4} {
+        puts "Error: Missing filename after -file option"
+        exit 1
+    }
+    
+    set filename [lindex $argv 3]
+    if {![file exists $filename]} {
+        puts "Error: File $filename not found"
+        exit 1
+    }
+    
+    # Read the file content
+    set f [open $filename r]
+    set command [read $f]
+    close $f
+} else {
+    # Direct command mode
+    set command $arg3
+    
+    # Handle additional arguments as a single command
+    if {[llength $argv] > 3} {
+        for {set i 3} {$i < [llength $argv]} {incr i} {
+            append command " " [lindex $argv $i]
+        }
+    }
+}
+
+# Connect to the server
+puts "Connecting to $hostname:$port..."
+if {[catch {set sock [socket $hostname $port]} result]} {
+    puts "Error: Cannot connect to $hostname:$port - $result"
+    exit 1
+}
+
+# Configure socket
+fconfigure $sock -buffering line
+
+# Send the command
+puts "Sending command to SKILL server..."
+puts $sock $command
+flush $sock
+
+# Get the response
+puts "Waiting for response..."
+gets $sock response
+puts "Result: $response"
+
+# Close the connection
+close $sock
+exit 0

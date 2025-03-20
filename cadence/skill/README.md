@@ -4,37 +4,42 @@ This framework allows testing SKILL scripts remotely by sending them from a clie
 
 ## Components
 
-1. `remote_server.il` - SKILL server that runs inside Virtuoso and executes scripts from a specified directory
-2. `run_il.sh` - Client script for sending SKILL files to the server
-3. Example integration with existing SKILL files
+1. `skillServer` - Tcl script that acts as a server, listening for incoming connections
+2. `skillServer.il` - SKILL script that launches the server process and handles commands
+3. `skillClient` - Tcl script for sending commands to the Virtuoso session
+4. `run_il.sh` - Shell script wrapper for executing SKILL files remotely
 
 ## How It Works
 
-This solution uses a file-based approach:
+This solution uses a socket-based approach:
 
-1. The server monitors a directory (`/tmp/skill_inbox`) for new SKILL scripts
-2. When a script is found, it's executed and the results are saved to an output directory (`/tmp/skill_outbox`)
-3. The client sends scripts to the inbox directory and waits for results in the outbox directory
+1. The server (running in Virtuoso) listens on a socket for incoming commands
+2. The client sends SKILL commands or script files to the server
+3. The server executes the commands and returns the results
 
 ## Setup Instructions
 
 ### Server Side (Virtuoso)
 
-1. Start Virtuoso on the server
-2. In the CIW (Command Interpreter Window), load the server script:
-
-   ```
-   load("/path/to/remote_server.il")
+1. Make sure the scripts are executable:
+   ```bash
+   chmod +x skillServer skillClient
    ```
 
-3. Start the server:
+2. Start Virtuoso on the server
 
+3. In the CIW (Command Interpreter Window), load the server script:
    ```
-   startSkillServer()
+   load("/path/to/skillServer.il")
    ```
 
-4. To stop the server:
+4. Start the server (optional port parameter):
+   ```
+   startSkillServer()  ; Uses default port 8123
+   startSkillServer("9000")  ; Uses port 9000
+   ```
 
+5. To stop the server:
    ```
    stopSkillServer()
    ```
@@ -42,54 +47,46 @@ This solution uses a file-based approach:
 ### Client Side
 
 1. Make sure the `run_il.sh` script is executable:
-
    ```bash
    chmod +x run_il.sh
    ```
 
 2. Use the script to send SKILL files for remote execution:
-
    ```bash
-   ./run_il.sh path/to/your_script.il [server_host]
+   ./run_il.sh path/to/your_script.il [server_host] [server_port]
    ```
 
-3. The script will be transferred to the server, executed, and the results displayed on your terminal.
+3. You can also use the skillClient directly:
+   ```bash
+   ./skillClient server_host port "dbOpenCellView(\"library\" \"cell\" \"view\")"
+   ./skillClient server_host port -file script.il
+   ```
 
 ## Integration with Existing Scripts
 
-You can integrate the remote server initialization with existing scripts by adding the following to your main SKILL file:
+You can add server initialization code to your SKILL scripts:
 
 ```skill
-;; Load and start the remote server
-procedure(initializeRemoteServer()
+;; Load and start the server
+procedure(initializeSkillServer(@optional (port "8123"))
   let((serverScript)
-    serverScript = sprintf(nil "%s/../remote_server.il" 
+    serverScript = sprintf(nil "%s/skillServer.il" 
                          getDirName(getShellEnvVar("SCRIPT_FILE") || "_"))
     
     if(isFile(serverScript) then
       load(serverScript)
       if(fboundp('startSkillServer) then
-        startSkillServer()
-        t
-      else
-        nil
+        startSkillServer(port)
       )
-    else
-      nil
     )
   )
 )
+
+;; Initialize the server
+initializeSkillServer()
 ```
 
-Then add a call to this function in your main script:
+## Credits
 
-```skill
-;; Initialize remote server capability
-initializeRemoteServer()
-```
-
-## Requirements
-
-- SSH access between client and server
-- Proper permissions on the inbox and outbox directories
-- The client must have SSH key-based authentication set up with the server for passwordless login
+This implementation is based on the design by A.D.Beckett (Cadence Design Systems Ltd)
+as shared in the comp.cad.cadence newsgroup.

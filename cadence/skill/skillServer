@@ -1,0 +1,64 @@
+#!/usr/bin/env tclsh
+# 
+# Author     A.D.Beckett
+# Group      Custom IC, Cadence Design Systems Ltd
+# Machine    SUN
+# Date       Jun 13, 2003 
+# Modified   
+# By         
+# 
+# Simple server interface. Is started by DFII, using ipcBeginProcess(),
+# see skillServer.il.
+# 
+# Opens a server socket, and listens for incoming connections.
+# When data comes in on that incoming connection, it passes it through
+# to DFII (via this process's stdout). Then DFII sends back the result
+# to this process's stdin. The protocol is that the Tcl channel ID is
+# sent as the first word on the data sent to DFII, and also, the channel
+# ID is the first word of the result. This allows us to know where to send
+# the result back to if multiple channels are open
+#
+# the UNIX env var $SKILLSERVPORT defines the port number, and defaults
+# to 8123.
+#
+
+if [info exists env(SKILLSERVPORT)] {
+  set port $env(SKILLSERVPORT)
+} else {
+  set port 8123
+}
+
+puts "SKILL Server starting on port $port..."
+
+proc listener {channel addr port} {
+  puts "$channel abSkillServerConnection(\"$addr\" \"$port\")"
+  flush stdout
+  fconfigure $channel -buffering line
+  fileevent $channel readable [list sendToDFII $channel]
+}
+
+proc sendToDFII {channel} {
+  if {[eof $channel] || [catch {gets $channel line}]} {
+    # end of file
+    close $channel
+  } else {
+    puts "$channel $line"
+    flush stdout
+  }
+}
+  
+proc sendBack {} {
+  gets stdin line
+  regsub {^(\w+) .*$} $line {\1} channel
+  regsub {^\w+ (.*)$} $line {\1} result
+
+  if {![eof $channel]} {
+    puts $channel $result
+  }
+}
+
+fconfigure stdin -buffering line
+fileevent stdin readable sendBack
+
+socket -server listener $port
+vwait forever
