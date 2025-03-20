@@ -16,12 +16,12 @@ procedure(rfLog(level message @optional (logFile "rf_automation.log"))
     
     ;; Also log to file
     fileId = outfile(logFile "a")
-    fprintf(fileId "[%s] %s: %s\n" getCurrentTime() level message)
+    fprintf(fileId "[%s] %s: %s\n" rfGetCurrentTime() level message)
     close(fileId)
   )
 )
 
-procedure(getCurrentTime()
+procedure(rfGetCurrentTime()
   let((timeStr)
     timeStr = stringToLower(piGetCurrentTime())
     return(timeStr)
