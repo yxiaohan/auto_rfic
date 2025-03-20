@@ -7,16 +7,31 @@
 
 ;; Get directory name from a file path
 procedure(getDirName(filePath)
-  let((index result)
+  let((index result strFilePath)
+    ;; Handle nil case
+    if(filePath == nil then
+      return(".")
+    )
+    
+    ;; Ensure filePath is a string
+    strFilePath = sprintf(nil "%s" filePath)
+    
+    ;; Special case for root files like "/rf_amp_sweep.il"
+    if(substring(strFilePath 1 1) == "/" && rindex(strFilePath "/") == 0 then
+      return("/")
+    )
+    
     ;; Find the last slash in the path
-    index = rindex(filePath "/")
+    index = rindex(strFilePath "/")
     
     ;; If no slash found, return current directory "." 
     if(index == nil then
       result = "."
     else
       ;; Otherwise, return everything up to the last slash
-      result = substring(filePath 1 index)
+      ;; Make sure index is an integer
+      index = fix(index)
+      result = substring(strFilePath 1 index)
     )
     
     result  ; Return result
