@@ -23,8 +23,8 @@ procedure(rfLog(level message @optional (logFile "rf_automation.log"))
 
 procedure(rfGetCurrentTime()
   let((timeStr)
-    timeStr = stringToLower(piGetCurrentTime())
-    return(timeStr)
+    timeStr = getCurrentTime()
+    timeStr  ; Return value implicitly (no explicit 'return' needed)
   )
 )
 
