@@ -3,10 +3,9 @@
 # Server for remote SKILL script execution
 # Based on design by A.D.Beckett (Cadence Design Systems Ltd)
 # 
-# Opens a server socket and listens for incoming connections.
-# When data comes in, it passes it to DFII via stdout.
-# DFII sends results back via this process's stdin.
-#
+
+# Set debug mode (1 for more verbose output)
+set debug 1
 
 if [info exists env(SKILLSERVPORT)] {
   set port $env(SKILLSERVPORT)
@@ -15,6 +14,10 @@ if [info exists env(SKILLSERVPORT)] {
 }
 
 proc listener {channel addr port} {
+  global debug
+  if {$debug} {
+    puts stderr "New connection from $addr:$port on channel $channel"
+  }
   puts "$channel abSkillServerConnection(\"$addr\" \"$port\")"
   flush stdout
   fconfigure $channel -buffering line
@@ -22,28 +25,63 @@ proc listener {channel addr port} {
 }
 
 proc sendToDFII {channel} {
+  global debug
   if {[eof $channel] || [catch {gets $channel line}]} {
     # end of file
+    if {$debug} {
+      puts stderr "Connection closed for channel $channel"
+    }
     close $channel
   } else {
+    if {$debug} {
+      puts stderr "Received from client: $line"
+    }
     puts "$channel $line"
     flush stdout
   }
 }
   
 proc sendBack {} {
-  gets stdin line
-  regsub {^(\w+) .*$} $line {\1} channel
-  regsub {^\w+ (.*)$} $line {\1} result
-
-  if {![eof $channel]} {
-    puts $channel $result
+  global debug
+  if {[catch {gets stdin line} result]} {
+    if {$debug} {
+      puts stderr "Error reading from stdin: $result"
+    }
+    return
+  }
+  
+  if {[string length $line] == 0} {
+    if {$debug} {
+      puts stderr "Warning: Received empty line from Cadence"
+    }
+    return
+  }
+  
+  if {[regexp {^(\w+) (.*)$} $line match channel result]} {
+    if {$debug} {
+      puts stderr "Sending to client ($channel): $result"
+    }
+    
+    # Check if the channel is still open
+    if {[catch {puts $channel $result; flush $channel} err]} {
+      puts stderr "Error sending to client: $err"
+    }
+  } else {
+    if {$debug} {
+      puts stderr "Malformed response: $line"
+    }
   }
 }
 
-puts "SKILL Server starting on port $port..."
+puts stderr "SKILL Server starting on port $port..."
 fconfigure stdin -buffering line
 fileevent stdin readable sendBack
 
-socket -server listener $port
+# Check if we can open the socket - explicitly bind to all interfaces with ""
+if {[catch {socket -server listener "" $port} err]} {
+  puts stderr "ERROR: Failed to open server socket on port $port: $err"
+  exit 1
+}
+
+puts stderr "SKILL Server listening on port $port (all interfaces)"
 vwait forever

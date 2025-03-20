@@ -2,7 +2,19 @@
 ;; Based on design by A.D.Beckett (Cadence Design Systems Ltd)
 
 ;; Debug flag - set to t for verbose output
-abSkillServerDebug = nil
+abSkillServerDebug = t  ;; Enable debugging by default
+
+;; Define the missing getDirName function
+procedure(getDirName(path)
+    let((idx)
+        idx = strrchr(path "/")
+        if(idx then
+            substr(path 1 idx)
+        else
+            "./"
+        )
+    )
+)
 
 ;; Process connection notifications
 procedure(abSkillServerConnection(addr port)
@@ -12,48 +24,64 @@ procedure(abSkillServerConnection(addr port)
 ;; Process commands from server
 procedure(abSkillServerListener(ipcId data)
     let((channel command result)
+        printf("Received data: %s\n" data)
+        
         rexCompile("^\\([^ ]*\\) \\(.*\\)$")
-        channel = rexReplace(data "\\1" 1)
-        command = rexReplace(data "\\2" 1)
-        
-        when(abSkillServerDebug
-            printf("COMMAND: %L\n" command)
-        )
-        
-        ;; Execute the command safely
-        unless(errset(result = evalstring(command))
+        if(rexMatchp(data) then
+            channel = rexReplace(data "\\1" 1)
+            command = rexReplace(data "\\2" 1)
+            
             when(abSkillServerDebug
-                printf("ERROR: %L\n" errset.errset)
+                printf("COMMAND: [%s] %s\n" channel command)
             )
-            ipcWriteProcess(ipcId sprintf(nil "%s ERROR %L\n" 
-                channel errset.errset))
+            
+            ;; Execute the command safely
+            unless(errset(result = evalstring(command))
+                errMsg = errset.errset
+                printf("ERROR: %L\n" errMsg)
+                ipcWriteProcess(ipcId sprintf(nil "%s ERROR %L\n" channel errMsg))
+                return(nil)
+            )
+            
+            when(abSkillServerDebug
+                printf("RESULT: %L\n" result)
+            )
+            
+            ;; Send result back to client
+            ipcWriteProcess(ipcId sprintf(nil "%s %L\n" channel result))
+        else
+            printf("ERROR: Invalid command format: %s\n" data)
+            return(nil)
         )
-        
-        when(abSkillServerDebug
-            printf("RESULT: %L\n" result)
-        )
-        
-        ;; Send result back to client
-        ipcWriteProcess(ipcId sprintf(nil "%s %L\n" channel result))
     )
 )
 
 ;; Start the server process
 procedure(startSkillServer(@optional (port "8123"))
-    let((cmd)
+    let((cmd skillDir)
         ;; Set environment variable for port
         setShellEnvVar("SKILLSERVPORT" port)
         
-        ;; Build command path - assuming skillServer is in the same directory
-        cmd = strcat(getDirName(getShellEnvVar("SCRIPT_FILE") || "_") "/skillServer")
+        ;; Get location of skill directory
+        skillDir = getShellEnvVar("CDS_SITE") || "."
+        skillDir = strcat(skillDir "/skill")
+        
+        ;; Build command path - using absolute path
+        cmd = strcat(skillDir "/skillServer")
         
         ;; Check if skillServer is executable
-        if(isFile(cmd) then
+        if(isReadable(cmd) then
+            ;; Check if executable
+            system(sprintf(nil "test -x \"%s\" || chmod +x \"%s\"" cmd cmd))
+            
             printf("Starting SKILL server on port %s\n" port)
+            printf("Using server executable: %s\n" cmd)
+            
             abSkillServer = ipcBeginProcess(cmd "" 'abSkillServerListener)
             
             if(abSkillServer != nil then
-                printf("SKILL server started successfully\n")
+                printf("SKILL server started successfully (Process ID: %L)\n" 
+                       abSkillServer)
                 t
             else
                 printf("Failed to start SKILL server\n")
@@ -61,6 +89,7 @@ procedure(startSkillServer(@optional (port "8123"))
             )
         else
             printf("Error: skillServer script not found at %s\n" cmd)
+            printf("Current directory: %s\n" getCurrentDir())
             nil
         )
     )

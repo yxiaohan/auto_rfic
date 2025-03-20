@@ -4,7 +4,7 @@
 # Usage: run_il.sh file_to_execute.il [server_host] [server_port]
 
 # Default configuration
-SERVER_HOST="localhost"
+SERVER_HOST="home.ling60.com"
 SERVER_PORT=8123
 TIMEOUT=30
 

@@ -1,67 +1,130 @@
 #!/usr/bin/env tclsh
-# 
-# Client script for sending SKILL commands to Virtuoso
+#
+# Client for remote SKILL script execution
 # Based on design by A.D.Beckett (Cadence Design Systems Ltd)
-# 
-# Usage: skillClient <hostname> <port> <command>
-# Or:    skillClient <hostname> <port> -file <filename>
 #
 
-# Get the command line arguments
-if {[llength $argv] < 3} {
-    puts "Usage: skillClient <hostname> <port> <command>"
-    puts "  or:  skillClient <hostname> <port> -file <filename>"
+# Debug mode
+set debug 1
+
+# Process command line arguments
+if {$argc < 2} {
+    puts stderr "Usage: $argv0 <host> <port> \[options\]"
+    puts stderr "Options:"
+    puts stderr "  -file <filename>   File containing SKILL commands to execute"
+    puts stderr "  -cmd <command>     Single SKILL command to execute"
     exit 1
 }
 
-set hostname [lindex $argv 0]
+set host [lindex $argv 0]
 set port [lindex $argv 1]
-set arg3 [lindex $argv 2]
 
-# Handle file input or direct command
-if {$arg3 == "-file"} {
-    set filename [lindex $argv 3]
-    if {![file exists $filename]} {
-        puts "Error: File $filename not found"
+set command ""
+set filename ""
+
+# Process options
+for {set i 2} {$i < $argc} {incr i} {
+    set option [lindex $argv $i]
+    
+    if {$option eq "-file"} {
+        incr i
+        set filename [lindex $argv $i]
+    } elseif {$option eq "-cmd"} {
+        incr i
+        set command [lindex $argv $i]
+    }
+}
+
+# Function to read a file
+proc readFile {filename} {
+    set content ""
+    if {[catch {
+        set fp [open $filename r]
+        set content [read $fp]
+        close $fp
+    } err]} {
+        puts stderr "Error reading file $filename: $err"
         exit 1
     }
-    
-    # Read the file content
-    set f [open $filename r]
-    set command [read $f]
-    close $f
-} else {
-    # Direct command mode
-    set command $arg3
-    
-    # Handle additional arguments as a single command
-    if {[llength $argv] > 3} {
-        for {set i 3} {$i < [llength $argv]} {incr i} {
-            append command " " [lindex $argv $i]
-        }
-    }
+    return $content
 }
 
 # Connect to the server
-puts "Connecting to $hostname:$port..."
-if [catch {set sock [socket $hostname $port]} result] {
-    puts "Error: Cannot connect to $hostname:$port - $result"
+puts "Connecting to $host:$port..."
+
+if {[catch {set socket [socket $host $port]} result]} {
+    puts stderr "Failed to connect to $host:$port: $result"
     exit 1
 }
 
-# Configure socket
-fconfigure $sock -buffering line
+# Set up socket configuration
+fconfigure $socket -buffering line
+fileevent $socket readable [list receiveResponse $socket]
 
-# Send the command
+# Read file if specified
+if {$filename ne ""} {
+    set command [readFile $filename]
+} elseif {$command eq ""} {
+    # Read from stdin if no command or file
+    set command [read stdin]
+}
+
+# Send command to server
 puts "Sending command to SKILL server..."
-puts $sock $command
-flush $sock
+if {$debug} {
+    puts stderr "DEBUG: Sending command: $command"
+}
 
-# Get the response
+if {[catch {puts $socket $command} error]} {
+    puts stderr "Error sending command: $error"
+    exit 1
+}
+flush $socket
+
+# Variable to indicate if response received
+set responseReceived 0
+
+# Handle response from server
+proc receiveResponse {socket} {
+    global responseReceived debug
+    
+    if {[eof $socket] || [catch {gets $socket line} result]} {
+        if {[eof $socket]} {
+            puts stderr "Connection closed by server."
+        } else {
+            puts stderr "Error reading from socket: $result"
+        }
+        close $socket
+        set responseReceived 1
+        return
+    }
+    
+    if {$debug} {
+        puts stderr "DEBUG: Raw response: $line"
+    }
+    
+    puts "Result: $line"
+    set responseReceived 1
+}
+
+# Wait for response with timeout
 puts "Waiting for response..."
-gets $sock response
-puts "Result: $response"
+set timeout 30
+set start [clock seconds]
 
-# Close the connection
-close $sock
+while {!$responseReceived} {
+    # Process events
+    update
+    
+    # Check timeout
+    if {[clock seconds] - $start > $timeout} {
+        puts stderr "ERROR: Timeout waiting for response"
+        close $socket
+        exit 1
+    }
+    
+    # Short sleep to prevent CPU hogging
+    after 100
+}
+
 exit 0
