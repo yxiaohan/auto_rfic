@@ -4,160 +4,214 @@
 # Based on design by A.D.Beckett (Cadence Design Systems Ltd)
 # 
 
-# Set debug mode (1 for more verbose output)
-set debug 1
+# Set debug mode (0=minimal, 1=normal, 2=verbose)
+set debug 2
 
 # Configure logging
 set logDir "/home/zhoulong/projects/auto_rfic/cadence/logs"
 set logFile "$logDir/skillServer.log"
 
-# Create log directory if it doesn't exist
-if {![file exists $logDir]} {
-  file mkdir $logDir
+# For MacOS, check if the log directory exists and is writable, if not use a local directory
+if {![file exists $logDir] || ![file writable $logDir]} {
+    set logDir "/Volumes/990_2t/yuan/Nextcloud/projects/auto_rfic/cadence/logs"
+    if {![file exists $logDir]} {
+        file mkdir $logDir
+    }
+    set logFile "$logDir/skillServer.log"
 }
 
 # Initialize log file
 proc initLogFile {} {
-  global logFile
-  
-  if {[catch {open $logFile "a+"} logFH]} {
-    puts stderr "ERROR: Cannot open log file $logFile: $logFH"
-    return 0
-  }
-  
-  # Keep the filehandle open for the duration of the program
-  set ::logFH $logFH
-  
-  # Set up automatic flushing to ensure logs are written immediately
-  fconfigure $logFH -buffering line
-  
-  log "========================================="
-  log "SKILL Server started at [clock format [clock seconds]]"
-  log "========================================="
-  
-  return 1
+    global logFile logDir
+    
+    # Ensure log directory exists
+    if {![file exists $logDir]} {
+        if {[catch {file mkdir $logDir} err]} {
+            puts stderr "ERROR: Cannot create log directory $logDir: $err"
+            puts stderr "Using current directory for logs instead."
+            set logFile "./skillServer.log"
+        }
+    }
+    
+    if {[catch {open $logFile "a+"} logFH]} {
+        puts stderr "ERROR: Cannot open log file $logFile: $logFH"
+        puts stderr "Using stderr for logging only."
+        return 0
+    }
+    
+    # Keep the filehandle open for the duration of the program
+    set ::logFH $logFH
+    
+    # Set up automatic flushing to ensure logs are written immediately
+    fconfigure $logFH -buffering line
+    
+    log "========================================="
+    log "SKILL Server started at [clock format [clock seconds]]"
+    log "Using log file: $logFile"
+    log "Debug level: $::debug"
+    log "Running as user: [exec whoami]"
+    log "Working directory: [pwd]"
+    log "========================================="
+    
+    return 1
 }
 
 # Log a message to both stderr and the log file
 proc log {message} {
-  global logFH
-  
-  # Format with timestamp
-  set timestamp [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]
-  set formattedMsg "$timestamp - $message"
-  
-  # Print to stderr
-  puts stderr $formattedMsg
-  
-  # Write to log file if open
-  if {[info exists ::logFH]} {
-    puts $::logFH $formattedMsg
-    flush $::logFH
-  }
+    global logFH
+    
+    # Format with timestamp
+    set timestamp [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]
+    set formattedMsg "$timestamp - $message"
+    
+    # Print to stderr
+    puts stderr $formattedMsg
+    
+    # Write to log file if open
+    if {[info exists ::logFH]} {
+        puts $::logFH $formattedMsg
+        flush $::logFH
+    }
 }
 
 # Port configuration
 if [info exists env(SKILLSERVPORT)] {
-  set port $env(SKILLSERVPORT)
+    set port $env(SKILLSERVPORT)
+    log "Using port from environment: $port"
 } else {
-  set port 8123
+    set port 8123
+    log "Using default port: $port"
 }
 
 # Store commands from clients until "__END_OF_COMMAND__" marker
 array set pendingCommands {}
 
 proc listener {channel addr port} {
-  global debug
-  
-  log "New connection from $addr:$port on channel $channel"
-  
-  # Configure the channel for line-based operation
-  fconfigure $channel -buffering line
-  
-  # Initialize the pending command for this channel
-  set ::pendingCommands($channel) ""
-  
-  puts "$channel abSkillServerConnection(\"$addr\" \"$port\")"
-  flush stdout
-  
-  fileevent $channel readable [list receiveCommand $channel]
+    global debug
+    
+    log "New connection from $addr:$port on channel $channel"
+    
+    # Configure the channel for line-based operation
+    fconfigure $channel -buffering line
+    
+    # Initialize the pending command for this channel
+    set ::pendingCommands($channel) ""
+    
+    # Send connection acknowledgment to DFII
+    puts "$channel abSkillServerConnection(\"$addr\" \"$port\")"
+    flush stdout
+    
+    # Set up a read event handler for this client
+    fileevent $channel readable [list receiveCommand $channel]
+    
+    # Log active connections
+    log "Active connections: [array names ::pendingCommands]"
 }
 
 proc receiveCommand {channel} {
-  global debug pendingCommands
-  
-  if {[eof $channel] || [catch {gets $channel line} bytesRead]} {
-    # End of file or error
-    log "Connection closed or error for channel $channel"
+    global debug pendingCommands
     
-    # Clean up
-    if {[info exists pendingCommands($channel)]} {
-      unset pendingCommands($channel)
-    }
-    catch {close $channel}
-    return
-  }
-  
-  # If we have an actual line
-  if {$bytesRead >= 0} {
-    if {$debug > 1} {
-      log "Received line: $line"
+    if {[eof $channel] || [catch {gets $channel line} bytesRead]} {
+        # End of file or error
+        log "Connection closed or error for channel $channel"
+        
+        # Clean up
+        if {[info exists pendingCommands($channel)]} {
+            unset pendingCommands($channel)
+        }
+        catch {close $channel}
+        return
     }
     
-    # Check for end marker
-    if {$line == "__END_OF_COMMAND__"} {
-      log "End of command received, executing..."
-      log "Full command: $pendingCommands($channel)"
-      
-      # Send the complete command to DFII
-      sendToDFII $channel $pendingCommands($channel)
-      
-      # Reset the command buffer
-      set pendingCommands($channel) ""
-    } else {
-      # Append this line to the pending command
-      if {$pendingCommands($channel) != ""} {
-        append pendingCommands($channel) "\n"
-      }
-      append pendingCommands($channel) $line
+    # If we have an actual line
+    if {$bytesRead >= 0} {
+        if {$debug > 1} {
+            log "Received from client: $line"
+        }
+        
+        # Check for end marker
+        if {$line == "__END_OF_COMMAND__"} {
+            log "End of command received on $channel, executing..."
+            
+            if {$debug > 0} {
+                log "Full command for $channel: $pendingCommands($channel)"
+            }
+            
+            # Send the complete command to DFII
+            sendToDFII $channel $pendingCommands($channel)
+            
+            # Reset the command buffer
+            set pendingCommands($channel) ""
+        } else {
+            # Append this line to the pending command
+            if {$pendingCommands($channel) != ""} {
+                append pendingCommands($channel) "\n"
+            }
+            append pendingCommands($channel) $line
+        }
     }
-  }
 }
 
 proc sendToDFII {channel command} {
-  global debug
-  
-  log "Sending command to DFII: $command"
-  
-  # Send to DFII through stdout (Cadence will read this)
-  puts "$channel $command"
-  flush stdout
+    global debug
+    
+    log "Sending command to DFII via channel $channel"
+    
+    # Send to DFII through stdout (Cadence will read this)
+    puts "$channel $command"
+    flush stdout
+    
+    # Log successful sending
+    log "Command sent to DFII, waiting for response"
 }
   
 proc sendBack {} {
-  global debug
-  
-  if {[catch {gets stdin line} result]} {
-    log "Error reading from stdin: $result"
-    return
-  }
-  
-  if {[string length $line] == 0} {
-    log "Warning: Received empty line from Cadence"
-    return
-  }
-  
-  # Extract channel and response
-  if {[regexp {^(\w+) (.*)$} $line match channel response]} {
-    log "Sending response to client ($channel): $response"
+    global debug
     
-    # Check if the channel is still open
-    if {[catch {puts $channel $response; flush $channel} err]} {
-      log "Error sending to client: $err"
+    if {[catch {gets stdin line} result]} {
+        log "Error reading from stdin: $result"
+        return
     }
-  } else {
-    log "Malformed response: $line"
-  }
+    
+    # Handle empty lines from Cadence (common during idle periods)
+    if {[string length $line] == 0} {
+        # Use a counter to log empty lines occasionally instead of every time
+        if {![info exists ::emptyLineCount]} {
+            set ::emptyLineCount 1
+        } else {
+            incr ::emptyLineCount
+        }
+        
+        # Only log once every 100 empty lines or if debug is high
+        if {$::emptyLineCount == 1 || $::emptyLineCount % 100 == 0 || $debug > 1} {
+            log "Info: Received empty line from Cadence (count: $::emptyLineCount)"
+        }
+        return
+    }
+    
+    # Reset empty line counter when we get actual content
+    set ::emptyLineCount 0
+    
+    # Log the raw response from DFII for debugging
+    if {$debug > 1} {
+        log "Raw response from DFII: $line"
+    }
+    
+    # Extract channel and response
+    if {[regexp {^(\w+) (.*)$} $line match channel response]} {
+        log "Sending response to client ($channel): $response"
+        
+        # Check if the channel is still open
+        if {[catch {puts $channel $response; flush $channel} err]} {
+            log "Error sending to client: $err"
+            log "Channel $channel may be closed, removing from tracking"
+            if {[info exists ::pendingCommands($channel)]} {
+                unset ::pendingCommands($channel)
+            }
+        }
+    } else {
+        log "Malformed response from DFII: $line"
+    }
 }
 
 # Initialize the log file
@@ -167,14 +221,51 @@ log "SKILL Server starting on port $port..."
 fconfigure stdin -buffering line
 fileevent stdin readable sendBack
 
-# Check if we can open the socket - fix the socket command syntax
+# Check if we can open the socket - explicitly bind to all interfaces
 if {[catch {socket -server listener $port} err]} {
-  log "ERROR: Failed to open server socket on port $port: $err"
-  exit 1
+    log "ERROR: Failed to open server socket on port $port: $err"
+    log "Trying explicit binding to all interfaces (0.0.0.0)..."
+    if {[catch {socket -server listener -myaddr 0.0.0.0 $port} err2]} {
+        log "ERROR: Failed to bind to all interfaces: $err2"
+        exit 1
+    }
 }
 
-# If we need to bind to a specific address, we can use:
-# socket -server listener -myaddr 0.0.0.0 $port
+# Log successful startup with IP addresses
+set hostname [exec hostname]
+log "SKILL Server hostname: $hostname"
 
-log "SKILL Server listening on port $port (all interfaces)"
+# Try multiple methods to get network interfaces
+if {[catch {exec ifconfig} ifoutput]} {
+    if {[catch {exec ip addr} ipoutput]} {
+        if {[catch {exec hostname -i} hostip]} {
+            log "Could not determine network interfaces with standard methods"
+            # Try different approaches for MacOS
+            if {[catch {exec ipconfig getifaddr en0} en0ip]} {
+                # One more attempt with system_profiler on MacOS
+                if {![catch {exec system_profiler SPNetworkDataType | grep "IPv4 Addresses" | awk '{print $3}'} macips]} {
+                    log "Network interfaces (MacOS): $macips"
+                } else {
+                    log "WARNING: No network interface detected. Server may not be reachable from remote hosts."
+                    log "Check firewall settings and ensure port $port is open for incoming connections."
+                }
+            } else {
+                log "Network interface en0: $en0ip"
+            }
+        } else {
+            log "Host IP address: $hostip"
+        }
+    } else {
+        log "Network interfaces (ip addr):\n$ipoutput"
+    }
+} else {
+    log "Network interfaces (ifconfig):\n$ifoutput"
+}
+
+# Print a clear message about listening status
+log "======================================================================"
+log "SKILL Server ACTIVE and listening on ALL INTERFACES (0.0.0.0:$port)"
+log "You can connect remotely using: skillClient [hostname] $port -file script.il"
+log "======================================================================"
+
 vwait forever

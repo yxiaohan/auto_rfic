@@ -1,116 +1,202 @@
 #!/bin/bash
+# check_server_logs.sh - Comprehensive diagnostic tool for skillServer
+# Usage: ./check_server_logs.sh [host] [port]
 
-# Script to check and analyze SKILL server logs
+# Configuration
+HOST=${1:-"home.ling60.com"}
+PORT=${2:-"8123"}
+LOGS_DIR="/home/zhoulong/projects/auto_rfic/cadence/logs"
+CADENCE_LOGS_DIR="."  # Current directory where Cadence might be running
 
-LOG_FILE="/home/zhoulong/projects/auto_rfic/cadence/logs/skillServer.log"
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Checking skillServer logs and communication"
+echo "=================================================================="
 
-# Function to show help
-show_help() {
-  echo "Usage: $0 [options]"
-  echo ""
-  echo "Options:"
-  echo "  -h, --help       Show this help message"
-  echo "  -l, --last N     Show last N lines (default: 20)"
-  echo "  -f, --follow     Follow the log file in real time"
-  echo "  -e, --errors     Show only errors"
-  echo "  -c, --connections Show only connection events"
-  echo "  -s, --status     Show server status"
-  echo ""
-  echo "Examples:"
-  echo "  $0 -l 50         Show last 50 lines of the log"
-  echo "  $0 -f            Follow log in real time"
-  echo "  $0 -e            Show only error messages"
-}
+# Check connection to server
+echo "1. Testing network connectivity to $HOST:$PORT"
+if nc -z -w3 "$HOST" "$PORT"; then
+    echo "✅ Connection successful to $HOST:$PORT"
+else
+    echo "❌ Cannot connect to $HOST:$PORT"
+    echo "   Please check if skillServer is running on the target machine."
+fi
+echo ""
 
-# Default values
-LINES=20
-FOLLOW=0
-FILTER=""
-STATUS=0
+# Check skillServer logs
+echo "2. Checking skillServer logs"
+SERVER_LOG="$LOGS_DIR/skillServer.log"
+if [ -f "$SERVER_LOG" ]; then
+    echo "✅ Found log file: $SERVER_LOG"
+    echo "   Last 5 log entries:"
+    tail -n 5 "$SERVER_LOG"
+else
+    echo "❌ skillServer log file not found at $SERVER_LOG"
+    echo "   Searching for logs in current directory..."
+    
+    if [ -f "./skillServer.log" ]; then
+        echo "✅ Found log in current directory"
+        echo "   Last 5 log entries:"
+        tail -n 5 "./skillServer.log"
+    else
+        echo "❌ No skillServer logs found"
+    fi
+fi
+echo ""
 
-# Parse command line arguments
-while [[ $# -gt 0 ]]; do
-  case $1 in
-    -h|--help)
-      show_help
-      exit 0
-      ;;
-    -l|--last)
-      LINES="$2"
-      shift 2
-      ;;
-    -f|--follow)
-      FOLLOW=1
-      shift
-      ;;
-    -e|--errors)
-      FILTER="ERROR\\|Error\\|Failed"
-      shift
-      ;;
-    -c|--connections)
-      FILTER="connection\\|Connection"
-      shift
-      ;;
-    -s|--status)
-      STATUS=1
-      shift
-      ;;
-    *)
-      echo "Unknown option: $1"
-      show_help
-      exit 1
-      ;;
-  esac
+# Check Cadence SKILL-side logs
+echo "3. Checking for Cadence-side SKILL server logs"
+echo "   Looking for logs in SKILL environment..."
+SKILL_LOGS=(
+    "skillServer_connections.log"
+    "skillServer_commands.log"
+    "skillServer_startup.log"
+    "skillServer_results.log"
+    "skillServer_errors.log"
+)
+
+FOUND_LOGS=0
+for LOG in "${SKILL_LOGS[@]}"; do
+    if [ -f "$CADENCE_LOGS_DIR/$LOG" ]; then
+        echo "✅ Found SKILL log: $CADENCE_LOGS_DIR/$LOG"
+        echo "   Last 5 entries:"
+        tail -n 5 "$CADENCE_LOGS_DIR/$LOG"
+        echo ""
+        FOUND_LOGS=1
+    fi
 done
 
-# Check if log file exists
-if [ ! -f "$LOG_FILE" ]; then
-  echo "Error: Log file not found at $LOG_FILE"
-  echo "The server may not have been started or logs are in a different location."
-  exit 1
+if [ $FOUND_LOGS -eq 0 ]; then
+    echo "❌ No Cadence SKILL logs found. This suggests:"
+    echo "   1. skillServer.il is not loaded in Cadence"
+    echo "   2. startSkillServer() was not called"
+    echo "   3. Log files are being written to a different directory"
+fi
+echo ""
+
+# Socket diagnostic
+echo "4. Full connection diagnostic"
+echo "   Creating test command for advanced diagnosis..."
+
+# Create a test command with special markers
+TEST_FILE=$(mktemp)
+cat > "$TEST_FILE" << EOF
+;; ==== TEST COMMAND START ====
+printf("TEST_COMMAND_MARKER: Connection test at %s\\n" getCurrentTime())
+;; Command ID: $(date +%s%N | md5sum | head -c 10)
+;; Insert special character sequence for tracking: ###TRACK_ME_$(date +%s)###
+abSkillServerDebug = t
+printf("TEST_COMMAND_MARKER: End of test command\\n")
+;; ==== TEST COMMAND END ====
+EOF
+
+echo "__END_OF_COMMAND__" >> "$TEST_FILE"
+
+# Show test command
+echo "   Sending test command with unique markers for tracking:"
+cat "$TEST_FILE" | grep -v "__END_OF_COMMAND__"
+echo "   (End marker added)"
+echo ""
+
+# Send the test command
+echo "   Attempting connection with verbose output..."
+(cat "$TEST_FILE"; echo "__END_OF_COMMAND__") | nc -v -w 5 "$HOST" "$PORT" 2>&1
+RESULT=$?
+
+echo "   Connection test exit code: $RESULT"
+echo ""
+
+# Check if the test command appears in logs
+echo "5. Checking for test command in logs (may require a few seconds)"
+sleep 2  # Give time for logs to be written
+
+# Search for the marker in all possible log files
+echo "   Searching for test command marker in logs..."
+MARKER_FOUND=0
+
+# Search in skillServer.log
+if [ -f "$SERVER_LOG" ]; then
+    if grep -q "TEST_COMMAND_MARKER" "$SERVER_LOG"; then
+        echo "✅ Test command found in skillServer.log"
+        grep -A 2 "TEST_COMMAND_MARKER" "$SERVER_LOG" | tail -n 3
+        MARKER_FOUND=1
+    fi
 fi
 
-# Check server status
-if [ $STATUS -eq 1 ]; then
-  echo "=== SKILL Server Status ==="
-  
-  # Check if server process is running
-  SERVER_PROCESS=$(ps aux | grep skillServer | grep -v grep)
-  
-  if [ -z "$SERVER_PROCESS" ]; then
-    echo "Status: NOT RUNNING"
-  else
-    echo "Status: RUNNING"
-    echo "Process info:"
-    echo "$SERVER_PROCESS"
-  fi
-  
-  # Show last start time from logs
-  LAST_START=$(grep "SKILL Server started at" "$LOG_FILE" | tail -1)
-  if [ ! -z "$LAST_START" ]; then
-    echo "Last start time: $LAST_START"
-  fi
-  
-  # Show socket status
-  SOCKET_STATUS=$(grep "listening on port" "$LOG_FILE" | tail -1)
-  if [ ! -z "$SOCKET_STATUS" ]; then
-    echo "Socket: $SOCKET_STATUS"
-  fi
-  
-  exit 0
-fi
+# Search in Cadence SKILL logs
+for LOG in "${SKILL_LOGS[@]}"; do
+    if [ -f "$CADENCE_LOGS_DIR/$LOG" ]; then
+        if grep -q "TEST_COMMAND_MARKER" "$CADENCE_LOGS_DIR/$LOG"; then
+            echo "✅ Test command found in $LOG"
+            grep -A 2 "TEST_COMMAND_MARKER" "$CADENCE_LOGS_DIR/$LOG" | tail -n 3
+            MARKER_FOUND=1
+        fi
+    fi
+done
 
-# Display logs based on options
-if [ $FOLLOW -eq 1 ]; then
-  if [ -z "$FILTER" ]; then
-    tail -f "$LOG_FILE"
-  else
-    tail -f "$LOG_FILE" | grep --color=auto "$FILTER"
-  fi
+if [ $MARKER_FOUND -eq 0 ]; then
+    echo "❌ Test command not found in any logs. This indicates:"
+    echo "   1. Command never reached Cadence SKILL environment"
+    echo "   2. Logs are being written to a location we didn't check"
+    echo "   3. There may be a problem with the skillServer.il code"
+fi
+echo ""
+
+# Process details
+echo "6. Checking for skillServer process"
+echo "   Local skillServer processes:"
+ps aux | grep skillServer | grep -v grep
+
+echo ""
+echo "   Remote skillServer processes (if possible):"
+if command -v ssh &> /dev/null && [ "$HOST" != "localhost" ] && [ "$HOST" != "127.0.0.1" ]; then
+    if ssh -o ConnectTimeout=5 "$HOST" "ps aux | grep skillServer | grep -v grep" 2>/dev/null; then
+        echo "✅ Found skillServer process on remote host"
+    else
+        echo "❌ Could not find or check skillServer process on remote host"
+    fi
 else
-  if [ -z "$FILTER" ]; then
-    tail -n "$LINES" "$LOG_FILE"
-  else
-    grep --color=auto "$FILTER" "$LOG_FILE" | tail -n "$LINES"
-  fi
+    echo "   (Cannot check remote processes - SSH not available or localhost)"
 fi
+echo ""
+
+# Summary
+echo "=================================================================="
+echo "DIAGNOSTIC SUMMARY:"
+
+if [ $RESULT -eq 0 ]; then
+    echo "✅ Network connection: Connection to $HOST:$PORT SUCCESSFUL"
+else
+    echo "❌ Network connection: FAILED to connect to $HOST:$PORT"
+fi
+
+if [ -f "$SERVER_LOG" ] || [ -f "./skillServer.log" ]; then
+    echo "✅ Server logs: FOUND"
+else
+    echo "❌ Server logs: NOT FOUND"
+fi
+
+if [ $FOUND_LOGS -eq 1 ]; then
+    echo "✅ SKILL-side logs: FOUND"
+else
+    echo "❌ SKILL-side logs: NOT FOUND"
+fi
+
+if [ $MARKER_FOUND -eq 1 ]; then
+    echo "✅ Test command tracing: SUCCESSFUL"
+else
+    echo "❌ Test command tracing: FAILED"
+fi
+
+echo ""
+echo "TROUBLESHOOTING RECOMMENDATIONS:"
+echo "1. Ensure skillServer.il is loaded in Cadence SKILL environment"
+echo "2. Run the following commands in Cadence SKILL console:"
+echo "   load(\"skillServer.il\")"
+echo "   restartSkillServer(\"$PORT\")"
+echo "   checkSkillServerStatus()"
+echo "3. Look for any error messages in the Cadence console"
+echo "4. Verify that the skillServer tcl script is running with:"
+echo "   ps aux | grep skillServer"
+echo "=================================================================="
+
+# Clean up
+rm -f "$TEST_FILE"

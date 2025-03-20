@@ -1,10 +1,13 @@
 #!/bin/bash
-# Simple SKILL client implementation using netcat
+# Enhanced SKILL client implementation using netcat
+# Usage: skillClient host port -file filename
+
 HOST="$1"
 PORT="$2"
 OPTION="$3"
 FILE="$4"
 
+# Enable debug output
 DEBUG=true
 
 if [ "$OPTION" != "-file" ]; then
@@ -17,24 +20,35 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
-echo "Connecting to $HOST:$PORT..."
-echo "Sending file: $FILE"
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Connecting to $HOST:$PORT..."
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Sending file: $FILE"
+
+# Testing connection before sending file
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Testing connection to $HOST:$PORT..."
+if nc -z -w5 "$HOST" "$PORT"; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Connection successful, port is open"
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR: Cannot connect to $HOST:$PORT"
+    exit 1
+fi
 
 # Print the file content for debugging
 if [ "$DEBUG" = true ]; then
-    echo "DEBUG: Sending command:"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - DEBUG: Sending command:"
     cat "$FILE"
     echo "---"
 fi
 
-# Important: Add a newline after the command to ensure proper processing
-# We also add a unique marker to recognize the end of transmission
-(cat "$FILE"; echo -e "\n__END_OF_COMMAND__\n") | nc -w 30 "$HOST" "$PORT"
+# Create a marker for the end of the command
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Sending command with end marker..."
+(cat "$FILE"; echo "__END_OF_COMMAND__") | nc -v -w 30 "$HOST" "$PORT" 2>&1
 
 # Check the exit status of netcat
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to connect to SKILL server at $HOST:$PORT"
+EXIT_CODE=$?
+if [ $EXIT_CODE -ne 0 ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Failed to connect to SKILL server at $HOST:$PORT (Exit code: $EXIT_CODE)"
     exit 1
 fi
 
-echo "Command sent successfully."
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Command sent successfully."
+exit 0

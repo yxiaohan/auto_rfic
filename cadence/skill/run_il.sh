@@ -160,7 +160,11 @@ if [ "$DEBUG" = true ]; then
     echo "---"
 fi
 
+# Add the end-of-command marker
+echo "__END_OF_COMMAND__" >> "$TMP_FILE"
+
 # Use longer timeout to wait for response
+echo "Sending command with end-of-command marker..."
 $CLIENT_SCRIPT "$SERVER_HOST" "$SERVER_PORT" -file "$TMP_FILE"
 EXIT_CODE=$?
 
