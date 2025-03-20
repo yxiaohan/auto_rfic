@@ -5,6 +5,24 @@
 ;; Utility Functions
 ;; =================================================================
 
+;; Get directory name from a file path
+procedure(getDirName(filePath)
+  let((index result)
+    ;; Find the last slash in the path
+    index = rindex(filePath "/")
+    
+    ;; If no slash found, return current directory "." 
+    if(index == nil then
+      result = "."
+    else
+      ;; Otherwise, return everything up to the last slash
+      result = substring(filePath 1 index)
+    )
+    
+    result  ; Return result
+  )
+)
+
 ;; Error handling and logging
 procedure(rfLog(level message @optional (logFile "rf_automation.log"))
   let((fileId)
@@ -40,18 +58,21 @@ procedure(getParameterValue(paramName defaultValue)
       value = defaultValue
     )
     
-    return(value)
+    value  ; Return value implicitly
   )
 )
 
 ;; Remote server initialization function - add this function
 procedure(initializeRemoteServer()
-  let((serverScript)
+  let((serverScript result)
     rfLog("INFO" "Setting up remote SKILL execution server...")
     
+    ;; Get the current script's directory
+    ;; First try using environment variable, fall back to CIW working directory
+    scriptDir = getDirName(getShellEnvVar("SKILL_SERVER_PATH") || getWorkingDir())
+    
     ;; Define path to the server script
-    serverScript = sprintf(nil "%s/../remote_server.il" 
-                          getDirName(getShellEnvVar("SCRIPT_FILE") || "_"))
+    serverScript = sprintf(nil "%s/../remote_server.il" scriptDir)
     
     ;; Try to load the server script
     if(isFile(serverScript) then
@@ -62,15 +83,17 @@ procedure(initializeRemoteServer()
       if(fboundp('startSkillServer) then
         startSkillServer()
         rfLog("INFO" "Remote SKILL server started successfully")
-        return(t)
+        result = t
       else
         rfLog("ERROR" "startSkillServer function not found after loading server script")
-        return(nil)
+        result = nil
       )
     else
-      rfLog("ERROR" sprintf(nil "Server script not found at %s" serverScript))
-      return(nil)
+      rfLog("WARN" sprintf(nil "Server script not found at %s - skipping remote server initialization" serverScript))
+      result = nil
     )
+    
+    result  ; Return result implicitly
   )
 )
 
@@ -80,7 +103,7 @@ procedure(initializeRemoteServer()
 
 ;; Create a simple RF amplifier schematic
 procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0.18u) (fingers 8))
-  let((cv schematicId transistorId)
+  let((cv schematicId transistorId result)
     rfLog("INFO" sprintf(nil "Creating RF amplifier with W=%s L=%s fingers=%d" width length fingers))
     
     ;; Create or open the cell view
@@ -116,7 +139,7 @@ procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0
     dbClose(cv)
     
     rfLog("INFO" sprintf(nil "RF amplifier %s/%s/%s created successfully" libName cellName viewName))
-    return(t)
+    t  ; Return t (true) implicitly
   )
 )
 
@@ -124,7 +147,7 @@ procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0
 procedure(createPin(cv name type orient location)
   let((pin)
     pin = dbCreatePin(cv name type orient location)
-    return(pin)
+    pin  ; Return pin implicitly
   )
 )
 
@@ -142,7 +165,7 @@ procedure(wireComponents(cv netName pinName instanceId)
       dbAddNetToPin(pin net)
     )
     
-    return(t)
+    t  ; Return t (true) implicitly
   )
 )
 
@@ -168,7 +191,7 @@ procedure(setupSimulation(libName cellName)
     asiSetSaveOption(session "nestlvl" "all")
     
     rfLog("INFO" "Simulation setup complete")
-    return(session)
+    session  ; Return session implicitly
   )
 )
 
@@ -224,21 +247,25 @@ procedure(runParameterSweep(libName cellName paramName startVal endVal stepSize)
     reportResults(libName cellName paramName results)
     
     rfLog("INFO" "Parameter sweep complete")
-    return(results)
+    results  ; Return results implicitly
   )
 )
 
 ;; Placeholder for result extraction functions
 procedure(extractGain(session)
-  ;; In a real implementation, this would extract the gain from simulation results
-  ;; For this example, we'll return a dummy value
-  return(20.0)
+  let((result)
+    ;; In a real implementation, this would extract the gain from simulation results
+    ;; For this example, we'll return a dummy value
+    20.0  ; Return value implicitly
+  )
 )
 
 procedure(extractBandwidth(session)
-  ;; In a real implementation, this would extract the bandwidth from simulation results
-  ;; For this example, we'll return a dummy value
-  return(5.0e9)
+  let((result)
+    ;; In a real implementation, this would extract the bandwidth from simulation results
+    ;; For this example, we'll return a dummy value
+    5.0e9  ; Return value implicitly
+  )
 )
 
 ;; Report results
@@ -262,7 +289,7 @@ procedure(reportResults(libName cellName paramName results)
 ;; =================================================================
 
 procedure(rfSweepExample()
-  let((libName cellName)
+  let((libName cellName result)
     rfLog("INFO" "Starting RF amplifier parameter sweep example")
     
     ;; Get configuration parameters
@@ -279,9 +306,37 @@ procedure(rfSweepExample()
     runParameterSweep(libName cellName "width" 5.0e-6 20.0e-6 2.5e-6)
     
     rfLog("INFO" "Example completed successfully")
-    return(t)
+    t  ; Return t (true) implicitly
   )
 )
 
-;; Run the example
-rfSweepExample()
+;; Safe initialization function that catches errors
+procedure(safeInitialize()
+  let((result)
+    rfLog("INFO" "Starting SKILL script initialization...")
+    
+    ;; Try to initialize the remote server, but catch errors
+    errset(
+      result = initializeRemoteServer()
+      t
+    )
+    
+    ;; Run the example if everything is configured
+    if(getShellEnvVar("RF_RUN_EXAMPLE") == "1" then
+      rfLog("INFO" "Running RF sweep example automatically...")
+      
+      ;; Try to run the example, but catch errors
+      errset(
+        rfSweepExample()
+        t
+      )
+    else
+      rfLog("INFO" "RF sweep example available. Run rfSweepExample() to execute.")
+    )
+    
+    rfLog("INFO" "SKILL script initialization complete.")
+  )
+)
+
+;; Run the initialization when this script is loaded
+safeInitialize()

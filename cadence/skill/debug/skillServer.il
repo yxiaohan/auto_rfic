@@ -19,10 +19,10 @@ procedure(getDirName(path)
 ;; Process connection notifications
 procedure(abSkillServerConnection(addr port)
     printf("Connection received from address %s, port %s\n" addr port)
-    printf("Connection time: %s\n" getCurrentTime())
+    printf("Connection time: %s\n" skillServerGetTime())
     
     ;; Optional: write to a log file for debugging
-    logentry = sprintf(nil "New connection from %s:%s at %s" addr port getCurrentTime())
+    logentry = sprintf(nil "New connection from %s:%s at %s" addr port skillServerGetTime())
     appendStringToFile(logentry "skillServer_connections.log")
     
     t ;; Return true to acknowledge the connection
@@ -45,7 +45,7 @@ procedure(abSkillServerListener(ipcId data)
         printf("Received data: %s\n" data)
         
         ;; Log the raw data received
-        logEntry = sprintf(nil "Raw data received at %s: %s" getCurrentTime() data)
+        logEntry = sprintf(nil "Raw data received at %s: %s" skillServerGetTime() data)
         appendStringToFile(logEntry "skillServer_commands.log")
         
         ;; Special handling for end-of-command marker
@@ -90,15 +90,18 @@ procedure(abSkillServerListener(ipcId data)
     )
 )
 
-;; Get current date and time as string
-procedure(getCurrentTime()
-    sprintf(nil "%d/%02d/%02d %02d:%02d:%02d"
-        getdate().year
-        getdate().month 
-        getdate().day
-        getdate().hour
-        getdate().minute
-        getdate().second
+;; Get current date and time as string (renamed to avoid conflict with internal function)
+procedure(skillServerGetTime()
+    let((date)
+        date = getdate()
+        sprintf(nil "%d/%02d/%02d %02d:%02d:%02d"
+            date->year
+            date->month 
+            date->day
+            date->hour
+            date->minute
+            date->second
+        )
     )
 )
 
@@ -131,11 +134,11 @@ procedure(startSkillServer(@optional (port "8123"))
             
             printf("Starting SKILL server on port %s\n" port)
             printf("Using server executable: %s\n" cmd)
-            printf("Current time: %s\n" getCurrentTime())
+            printf("Current time: %s\n" skillServerGetTime())
             
             ;; Create a startup log entry
             startupLog = sprintf(nil "Starting skillServer at %s with port %s from path %s"
-                            getCurrentTime() port cmd)
+                            skillServerGetTime() port cmd)
             appendStringToFile(startupLog "skillServer_startup.log")
             
             ;; Start the server process
@@ -213,7 +216,7 @@ procedure(checkSkillServerStatus()
 )
 
 ;; Print information about usage
-printf("SKILL Server Interface loaded at %s\n" getCurrentTime())
+printf("SKILL Server Interface loaded at %s\n" skillServerGetTime())
 printf("To start server: startSkillServer([\"port\"])\n")
 printf("To restart server: restartSkillServer([\"port\"])\n")
 printf("To check status: checkSkillServerStatus()\n")
