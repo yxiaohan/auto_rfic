@@ -189,16 +189,15 @@ procedure(autoRficHelpFunction(functionName)
 
 ;; Add main functions to the namespace
 autoRfic = append(autoRfic list(
-  'init autoRficInit
   'help autoRficHelp
   'helpFunction autoRficHelpFunction
 ))
 
-;; Initialize the auto_rfic framework
-autoRficInit()
-
-;; Create the auto_rfic namespace
-autoRficCreateNamespace()
-
 ;; Export the auto_rfic namespace
 autoRfic
+
+;; Add the init function to the namespace
+autoRfic = append(autoRfic list('init autoRficInit))
+
+;; Initialize the auto_rfic framework
+autoRficInit()

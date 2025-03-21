@@ -27,8 +27,13 @@ printf("Loading Auto RFIC framework...\n")
 autoRficPath = strcat(getShellEnvVar("AUTO_RFIC_DIR") "/main.il")
 
 if(isFile(autoRficPath) then
-    load(autoRficPath)
-    printf("Auto RFIC framework loaded successfully from %s\n" autoRficPath)
+    error = nil
+    error = errset(load(autoRficPath))
+    if(error == nil then
+        printf("Auto RFIC framework loaded successfully from %s\n" autoRficPath)
+    else
+        printf("ERROR: Failed to load Auto RFIC framework\n")
+    )
 else
     printf("ERROR: Auto RFIC framework file not found at %s\n" autoRficPath)
 )
