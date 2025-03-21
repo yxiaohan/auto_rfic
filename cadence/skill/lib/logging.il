@@ -2,7 +2,7 @@
 ;; This file contains functions for logging messages at different severity levels
 
 ;; Load required dependencies
-load("utils.il")
+load("/home/zhoulong/projects/auto_rfic/cadence/skill/lib/utils.il")
 
 ;; Define the logging namespace
 autoRficLogging = list(nil)

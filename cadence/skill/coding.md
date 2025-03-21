@@ -11,8 +11,8 @@
 
 1. **Function Name Spacing**
    - SKILL requires whitespace between function name and parameter list
-   - Correct: `defun myFunction (args)`
-   - Incorrect: `defun myFunction(args)`
+   - Correct: `defun(myFunction (args))`
+   - Incorrect: `defun(myFunction(args))`
 
 2. **Return Statement Usage**
    - The `return` statement can only be used within a `prog` block
@@ -20,12 +20,12 @@
    - In a `let` block, the last expression evaluated becomes the return value
 
 3. **Block Structure**
-   - Every block (`let`, `when`, `if`, etc.) must be properly closed with a parenthesis
-   - Function bodies should be enclosed in proper parentheses
+   - Function bodies should be wrapped in a `let` or `prog` block
+   - Every block (`let`, `when`, `if`, etc.) must be properly closed
    - Example:
      ```lisp
      defun(myFunction (args)
-         (let((var1 var2)
+         let((vars)
              ;; function body
              result
          )
@@ -33,8 +33,26 @@
      ```
 
 4. **Dependencies**
-   - Dependencies must be explicitly loaded using `load()` at the start of the file
-   - Example: `load("utils.il")`
+   - Dependencies must be loaded using absolute paths
+   - Example: `load("/path/to/utils.il")`
+   - This ensures consistent loading regardless of current directory
+
+## Configuration Management
+
+1. **Table-Based Config**
+   - Use tables for configuration storage
+   - Initialize config tables before use with `makeTable()`
+   - Access config values with table syntax: `configTable[key]`
+
+2. **Variable Initialization**
+   - Always check if variables exist before use with `boundp()`
+   - Initialize shared variables at the start of library files
+   - Example:
+     ```lisp
+     unless(boundp('configTable)
+         configTable = makeTable("")
+     )
+     ```
 
 ## SKILL Documentation Files
 
