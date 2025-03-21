@@ -164,7 +164,7 @@ procedure(autoRficGradientOptimize(paramNames initialValues stepSizes evaluation
         converged = foreach(mapcar step stepSizes
           step < convergenceThreshold
         )
-        converged = && (converged)
+        converged = and(converged)
       )
     )
     

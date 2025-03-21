@@ -12,13 +12,13 @@ defun(autoRficGetConfigValue (configTable paramName)
     )
 )
 
-defun(autoRficGetParameter (paramName @optional defaultValue)
+defun(autoRficGetParameter (paramName optional defaultValue)
     let((value)
         ;; Try to get from config table
         value = autoRficGetConfigValue(autoRficConfig paramName)
         
         ;; If not found and default provided, use default
-        when(&& null(value) boundp('defaultValue)
+        when(and null(value) boundp('defaultValue)
             value = defaultValue
         )
         value

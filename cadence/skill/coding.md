@@ -55,7 +55,7 @@
 2. **Function Definitions**
    - Define all functions before adding them to the namespace
    - Use proper error handling with `error()` function
-   - Use optional parameters with `@optional` keyword
+   - Use optional parameters with `optional` keyword (no @ symbol)
    - Check input validity before performing operations
 
 ## Function Definitions
@@ -65,12 +65,19 @@
    - Correct: `defun(myFunction (args))`
    - Incorrect: `defun(myFunction(args))`
 
-2. **Return Statement Usage**
+2. **Optional Parameters**
+   - Use `optional` keyword followed by parameter name
+   - Correct: `(paramName optional defaultValue)`
+   - Incorrect: `(paramName (optional defaultValue))`
+   - No parentheses around optional parameters
+   - No @ symbol prefix for optional parameters
+
+3. **Return Statement Usage**
    - The `return` statement can only be used within a `prog` block
    - Do not use `return` statements within a `let` block
    - In a `let` block, the last expression evaluated becomes the return value
 
-3. **Block Structure**
+4. **Block Structure**
    - Function bodies should be wrapped in a `let` or `prog` block
    - Every block (`let`, `when`, `if`, etc.) must be properly closed
    - Example:
@@ -83,7 +90,7 @@
      )
      ```
 
-4. **Dependencies**
+5. **Dependencies**
    - Dependencies must be loaded using absolute paths
    - Example: `load("/path/to/utils.il")`
    - This ensures consistent loading regardless of current directory
@@ -213,9 +220,6 @@ The function performs these safety checks:
 ## Logical Operators
 
 1. **Boolean Operations**
-   - Use `&&` for logical AND (not `and`)
-   - Use `||` for logical OR (not `or`)
-   - Use `~` for logical NOT (not `not`)
 
 2. **Conditional Expressions**
    - Use `when` for single-condition blocks
