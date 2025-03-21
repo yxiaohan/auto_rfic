@@ -121,7 +121,7 @@ procedure(getParameterValue(paramName defaultValue)
 ;; Create a simple RF amplifier schematic
 procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0.18u) (fingers 8))
   let((cv schematicId transistorId result)
-    rfLog("INFO" sprintf(nil "Creating RF amplifier with W=%s L=%s fingers=%d" width length fingers))
+    rfLog("INFO" sprintf(nil "Creating RF amplifier with W=%g L=%g fingers=%d" width length fingers))
     
     ;; Create or open the cell view
     cv = ddGetObj(libName cellName viewName)
