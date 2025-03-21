@@ -19,6 +19,18 @@
    - Correct: `namespace['functionName] = 'functionSymbol`
    - Avoid: using makeTable() with a long list of functions
 
+## Module Dependencies
+
+1. **Dependency Loading**
+   - Don't load dependencies directly in module files
+   - Let the main entry point (main.il) handle module loading order
+   - Example: Remove direct `load()` calls from module files
+
+2. **Function Definitions**
+   - Define each function exactly once
+   - Avoid reloading modules that define functions
+   - Use main.il to control the loading sequence
+
 ## Function Definitions
 
 1. **Function Name Spacing**
@@ -81,6 +93,45 @@
          configTable = makeTable("")
      )
      ```
+
+## Table Operations
+
+1. **Table Creation**
+   - `makeTable()` accepts at most 3 arguments:
+     - name (required): string identifying the table
+     - size (optional): initial size hint
+     - default value (optional): value for unassigned entries
+   - Example: `myTable = makeTable("myTable")`
+
+2. **Table Population**
+   - Use individual assignments for table entries
+   - Use table['key] syntax for setting values
+   - Example:
+     ```lisp
+     myTable = makeTable("myTable")
+     myTable['key1] = value1
+     myTable['key2] = value2
+     ```
+
+## GUI Programming
+
+1. **Virtuoso UI Functions**
+   - Use hiUI functions for Virtuoso GUI operations
+   - hiUI functions are built-in, no need to load additional packages
+   - Common functions:
+     ```lisp
+     hiDisplayDialog()    ; For message and confirmation dialogs
+     hiCreateStringField() ; For text input fields
+     hiCreateProgressBar() ; For progress indicators
+     hiCreateAppForm()    ; For complex forms
+     ```
+
+2. **Dialog Types**
+   - Use appropriate icon types:
+     - "information" for info messages
+     - "warning" for warnings
+     - "error" for errors
+     - "question" for confirmations
 
 ## SKILL Documentation Files
 

@@ -1,42 +1,20 @@
 ;; logging.il - Logging system for auto_rfic
 ;; This file contains functions for logging messages at different severity levels
 
-;; Load required dependencies
-load("/home/zhoulong/projects/auto_rfic/cadence/skill/lib/utils.il")
-
 ;; Initialize the logging namespace
 unless(boundp('autoRficLogging)
     autoRficLogging = makeTable("logging" nil)
 )
 
 ;; Define log levels in the namespace
-autoRficLogging['levels] = makeTable(
-    'debug    0
-    'info     1
-    'warning  2
-    'error    3
-    'none     4
-)
+autoRficLogging['levels] = makeTable("levels")
+autoRficLogging['levels]['debug] = 0
+autoRficLogging['levels]['info] = 1
+autoRficLogging['levels]['warning] = 2
+autoRficLogging['levels]['error] = 3
+autoRficLogging['levels]['none] = 4
 
-;; Function to get numeric log level from string
-defun(autoRficGetLogLevel (levelStr)
-    let((level)
-        level = get(autoRficLogging['levels] levelStr)
-        if(numberp(level) level 1) ; Default to info level if not found
-    )
-)
-
-;; Function to check if a message should be logged based on current log level
-defun(autoRficShouldLog (messageLevel)
-    let((configLevelStr configLevel messageLevelNum)
-        configLevelStr = autoRficGetParameter('logLevel "info")
-        configLevel = autoRficGetLogLevel(configLevelStr)
-        messageLevelNum = autoRficGetLogLevel(messageLevel)
-        messageLevelNum >= configLevel
-    )
-)
-
-;; Core logging function
+;; Core logging functions - define these first so they can be used later
 defun(autoRficLog (level message @optional details)
     let((timestamp logFile fileId formattedMessage)
         when(autoRficShouldLog(level)
@@ -64,7 +42,23 @@ defun(autoRficLog (level message @optional details)
     )
 )
 
-;; Convenience functions for different log levels
+defun(autoRficGetLogLevel (levelStr)
+    let((level)
+        level = get(autoRficLogging['levels] levelStr)
+        if(numberp(level) level 1) ; Default to info level if not found
+    )
+)
+
+defun(autoRficShouldLog (messageLevel)
+    let((configLevelStr configLevel messageLevelNum)
+        configLevelStr = autoRficGetParameter('logLevel "info")
+        configLevel = autoRficGetLogLevel(configLevelStr)
+        messageLevelNum = autoRficGetLogLevel(messageLevel)
+        messageLevelNum >= configLevel
+    )
+)
+
+;; Convenience logging functions
 defun(autoRficLogDebug (message @optional details)
     autoRficLog('debug message details)
 )
@@ -82,15 +76,13 @@ defun(autoRficLogError (message @optional details)
 )
 
 ;; Add all logging functions to the namespace
-autoRficLogging = makeTable(
-    'log        autoRficLog
-    'debug      autoRficLogDebug
-    'info       autoRficLogInfo
-    'warning    autoRficLogWarning
-    'error      autoRficLogError
-    'getLogLevel autoRficGetLogLevel
-    'shouldLog   autoRficShouldLog
-)
+autoRficLogging['log] = 'autoRficLog
+autoRficLogging['debug] = 'autoRficLogDebug
+autoRficLogging['info] = 'autoRficLogInfo
+autoRficLogging['warning] = 'autoRficLogWarning
+autoRficLogging['error] = 'autoRficLogError
+autoRficLogging['getLogLevel] = 'autoRficGetLogLevel
+autoRficLogging['shouldLog] = 'autoRficShouldLog
 
 ;; Export the logging namespace
 autoRficLogging
