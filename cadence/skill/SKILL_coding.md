@@ -268,6 +268,35 @@ The function performs these safety checks:
      logMessage = strcat(autoRficTimestamp() message)
      ```
 
+## Logging System Implementation
+
+1. **Log Level Handling**
+   - Convert log levels to numbers as early as possible
+   - Never mix string/symbol comparisons with numeric comparisons
+   - Use a helper function to handle all log level conversions
+   ```lisp
+   ;; Good - Convert to number early
+   levelNum = getLogLevelNumber(level)
+   if(levelNum >= minLevel ...)
+   
+   ;; Bad - Mixing types
+   if(get(logLevels level) >= minLevel ...)
+   ```
+
+2. **Type Safety in Logging**
+   - Always validate input types before operations
+   - Use `cond` for multi-type handling
+   - Default to safe values for invalid inputs
+   - Keep timestamp strings separate from level handling
+   - Example:
+   ```lisp
+   levelSymbol = cond(
+       (symbolp(level) level)
+       (stringp(level) convertToSymbol(level))
+       (t 'info)  ; safe default
+   )
+   ```
+
 ## Data Type Conversions
 
 1. **String to Symbol Conversion**
@@ -325,3 +354,31 @@ Short index:
 cadence/skill/skill_ref/skdfref/related.xml
 Full index:
 cadence/skill/skill_ref/skdfref/skdfref.xml
+
+## Function Variable Declaration
+
+1. **Variable Declaration in Let Blocks**
+   - Always declare ALL variables at the start of let blocks
+   - Variables used in function must be declared before use
+   - Example:
+   ```lisp
+   defun(myFunction (arg)
+       let((var1 var2 resultVar tempVar)  ;; declare ALL variables
+           var1 = getValue()
+           var2 = processValue(var1)
+           resultVar = finalProcess(var2)
+           resultVar
+       )
+   )
+   ```
+
+2. **Variable Naming**
+   - Use descriptive prefixes for variables that hold specific types
+   - Use 'current' prefix for variables holding transformed input
+   Example:
+   ```lisp
+   let((currentLevel currentValue result)
+       currentLevel = processLevel(inputLevel)
+       currentValue = getValue(currentLevel)
+   )
+   ```

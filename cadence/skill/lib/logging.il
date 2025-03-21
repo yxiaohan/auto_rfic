@@ -14,33 +14,38 @@ autoRficLogging['levels]['warning] = 2
 autoRficLogging['levels]['error] = 3
 autoRficLogging['levels]['none] = 4
 
-;; Helper function to format log messages
-defun(autoRficFormatLogMessage (timestamp level message @optional details)
-    let((formattedMessage)
-        ;; Format the basic message with timestamp and level
-        formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp level message)
-        
-        ;; Add details if provided
-        when(boundp('details)
-            formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
+;; Helper function to safely get log level number
+defun(autoRficGetLevelNumber (level)
+    let((levelSymbol levelNum)
+        ;; Convert string to symbol if needed, or use directly if already a symbol
+        levelSymbol = cond(
+            (symbolp(level) level)
+            (stringp(level) car(parseString(strcat("(" level ")"))))
+            (t 'info)  ; default to info level for invalid inputs
         )
-        formattedMessage
+        
+        ;; Get numeric value from levels table
+        levelNum = get(autoRficLogging['levels] levelSymbol)
+        if(numberp(levelNum) levelNum 1)  ; default to info (1) if not found
     )
 )
 
 ;; Core logging functions - define these first so they can be used later
 defun(autoRficLog (level message @optional details)
-    let((timestamp logFile fileId formattedMessage levelSymbol)
-        ;; Convert level to symbol if it's a string
-        levelSymbol = if(stringp(level) 
-                        ;; Proper string to symbol conversion in SKILL
-                        car(parseString(strcat("(" level ")")))
-                        level)
+    let((timestamp logFile fileId formattedMessage currentLevel configLevel)
+        ;; Get configured log level first
+        configLevel = autoRficGetLevelNumber(autoRficGetParameter('logLevel "info"))
+        currentLevel = autoRficGetLevelNumber(level)
         
-        when(autoRficShouldLog(levelSymbol)
+        ;; Only log if current level is at or above config level
+        when(currentLevel >= configLevel
             timestamp = autoRficTimestamp()
-            ;; Use the helper function to format the message
-            formattedMessage = autoRficFormatLogMessage(timestamp levelSymbol message details)
+            formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp level message)
+            
+            ;; Add details if provided
+            when(boundp('details)
+                formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
+            )
             
             ;; Print to CIW
             printf("%s\n" formattedMessage)
@@ -58,37 +63,16 @@ defun(autoRficLog (level message @optional details)
     )
 )
 
-defun(autoRficGetLogLevel (levelStr)
-    let((level)
-        ;; Make sure we only try to look up valid symbol keys
-        ;; If levelStr is not a symbol (like a timestamp string), return default info level
-        if(symbolp(levelStr)
-            prog(()
-                level = get(autoRficLogging['levels] levelStr)
-                if(numberp(level) level 1) ; Default to info level if not found
-            )
-            1 ; Default to info level for non-symbol inputs
-        )
-    )
-)
-
-defun(autoRficShouldLog (messageLevel)
-    let((configLevelStr configLevel messageLevelNum)
-        ;; Get log level, default to info if not found
+defun(autoRficShouldLog (messageLevelNum)
+    let((configLevelStr configLevelNum)
+        ;; Get configured log level, default to info if not found
         configLevelStr = autoRficGetParameter('logLevel "info")
+        configLevelNum = autoRficGetLevelNumber(configLevelStr)
         
-        ;; Make sure we're working with symbols, not strings
-        configLevel = if(stringp(configLevelStr) 
-                         autoRficGetLogLevel(car(parseString(strcat("(" configLevelStr ")"))))
-                         autoRficGetLogLevel(configLevelStr))
-        
-        messageLevelNum = autoRficGetLogLevel(messageLevel)
-        
-        ;; Make sure both values are numbers before comparison
-        ;; Default to displaying the message if there's any uncertainty
-        if(numberp(messageLevelNum) && numberp(configLevel)
-            messageLevelNum >= configLevel
-            t  ;; If either value is nil or not numeric, allow the log message
+        ;; Compare numeric levels, allowing the message if levels are equal or message is more severe
+        if(numberp(messageLevelNum) && numberp(configLevelNum)
+            messageLevelNum >= configLevelNum
+            t  ;; If either level is not a number, allow the message
         )
     )
 )

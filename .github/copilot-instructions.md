@@ -5,7 +5,7 @@ This document provides instructions for GitHub Copilot when working with SKILL l
 ## SKILL Language Specifics
 
 **Needs Update**
-You can update and take notes of (cadence/skill/coding.md) as a coding guideline, if finding something needs special treatment for coding with SKILL, during error corrections.
+You can update and take notes of (cadence/skill/SKILL_coding.md) as a coding guideline, if finding something needs special treatment for coding with SKILL, during error corrections.
 
 ## Documentation References
 
