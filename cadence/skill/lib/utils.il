@@ -1,27 +1,7 @@
 ;; utils.il - Utility functions for auto_rfic
 ;; This file contains general utility functions used throughout the auto_rfic system
 
-;; Initialize configuration tables if not already defined
-unless(boundp('autoRficConfig)
-    autoRficConfig = makeTable("")
-)
-
-;; First define all functions in the global namespace
-defun(autoRficGetParameter (paramName @optional defaultValue)
-    let((value)
-        ;; Try to get from config
-        value = autoRficGetConfigValue(autoRficConfig paramName)
-        
-        ;; If not found and default provided, use default
-        when(and null(value) boundp('defaultValue)
-            value = defaultValue
-        )
-        
-        value
-    )
-)
-
-;; Helper function to extract a value from a config table
+;; First define all functions globally before using them in any namespace
 defun(autoRficGetConfigValue (configTable paramName)
     let((value)
         if(tablep(configTable)
@@ -32,7 +12,19 @@ defun(autoRficGetConfigValue (configTable paramName)
     )
 )
 
-;; Function to safely set a configuration parameter
+defun(autoRficGetParameter (paramName @optional defaultValue)
+    let((value)
+        ;; Try to get from config table
+        value = autoRficGetConfigValue(autoRficConfig paramName)
+        
+        ;; If not found and default provided, use default
+        when(and null(value) boundp('defaultValue)
+            value = defaultValue
+        )
+        value
+    )
+)
+
 defun(autoRficSetParameter (paramName paramValue)
     let(()
         ;; Store in config table
@@ -41,11 +33,10 @@ defun(autoRficSetParameter (paramName paramValue)
     )
 )
 
-;; Function to create a timestamp string
 defun(autoRficTimestamp ()
     let((timestamp)
         timestamp = getCurrentTime()
-        sprintf(nil "%d-%02d-%02d %02d:%02d:%02d"
+        sprintf(nil "%d-%02d-%02d %02d:%02d %02d"
             timestamp->year
             timestamp->month
             timestamp->day
@@ -56,12 +47,10 @@ defun(autoRficTimestamp ()
     )
 )
 
-;; Function to check if a file exists
 defun(autoRficFileExists (filePath)
     isFile(filePath)
 )
 
-;; Function to create a directory if it doesn't exist
 defun(autoRficEnsureDirectory (dirPath)
     unless(isDir(dirPath)
         system(sprintf(nil "mkdir -p %s" dirPath))
@@ -69,7 +58,6 @@ defun(autoRficEnsureDirectory (dirPath)
     isDir(dirPath)
 )
 
-;; Function to safely read a file
 defun(autoRficReadFile (filePath)
     let((fileId content line)
         when(autoRficFileExists(filePath)
@@ -84,7 +72,6 @@ defun(autoRficReadFile (filePath)
     )
 )
 
-;; Function to safely write to a file
 defun(autoRficWriteFile (filePath content)
     let((fileId)
         fileId = outfile(filePath)
@@ -94,16 +81,24 @@ defun(autoRficWriteFile (filePath content)
     )
 )
 
-;; Define the utility namespace at the end after all functions are defined
-autoRficUtils = makeTable(
-    'getParameter        autoRficGetParameter
-    'setParameter        autoRficSetParameter
-    'timestamp          autoRficTimestamp
-    'fileExists         autoRficFileExists
-    'ensureDirectory    autoRficEnsureDirectory
-    'readFile           autoRficReadFile
-    'writeFile          autoRficWriteFile
+;; Initialize configuration tables if not already defined
+unless(boundp('autoRficConfig)
+    autoRficConfig = makeTable("")
 )
+
+;; Initialize the utility namespace
+unless(boundp('autoRficUtils)
+    autoRficUtils = makeTable("utils" nil)
+)
+
+;; Add utility functions to the namespace
+autoRficUtils['getParameter] = 'autoRficGetParameter
+autoRficUtils['setParameter] = 'autoRficSetParameter
+autoRficUtils['timestamp] = 'autoRficTimestamp
+autoRficUtils['fileExists] = 'autoRficFileExists
+autoRficUtils['ensureDirectory] = 'autoRficEnsureDirectory
+autoRficUtils['readFile] = 'autoRficReadFile
+autoRficUtils['writeFile] = 'autoRficWriteFile
 
 ;; Export the utilities namespace
 autoRficUtils

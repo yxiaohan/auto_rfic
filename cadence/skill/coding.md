@@ -7,6 +7,18 @@
 
 # SKILL Programming Style Guide
 
+## File Organization
+
+1. **Function Definition Order**
+   - Define all functions at the top of the file before using them
+   - Initialize namespaces and tables after function definitions
+   - Add functions to namespaces at the end of the file
+
+2. **Namespace Population**
+   - Use table assignment syntax for adding functions to namespaces
+   - Correct: `namespace['functionName] = 'functionSymbol`
+   - Avoid: using makeTable() with a long list of functions
+
 ## Function Definitions
 
 1. **Function Name Spacing**
@@ -36,6 +48,22 @@
    - Dependencies must be loaded using absolute paths
    - Example: `load("/path/to/utils.il")`
    - This ensures consistent loading regardless of current directory
+
+## Variable and Namespace Initialization
+
+1. **Table Initialization**
+   - Always initialize tables before use
+   - Use unless(boundp()) to check for existence
+   ```lisp
+   unless(boundp('myTable)
+       myTable = makeTable("myTable" nil)
+   )
+   ```
+
+2. **Table Access**
+   - Use get() for safe table value access
+   - Use table index syntax for assignment: table[key] = value
+   - Check tablep() before accessing a table
 
 ## Configuration Management
 
