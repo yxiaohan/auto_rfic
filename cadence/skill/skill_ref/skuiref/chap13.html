@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 13</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="13">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="chap14.html">
+<META NAME="PageCount" CONTENT="12">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap12.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiAppendInputCmd(w_window t_cmd ) => t / nil,hiEncap([ g_boxSpec ][ t_cmd ][ t_title ]) => w_window / nil,hiFocusToEncap(w_encap [ w_window ] ) => t / nil,hiGetEncapSkillCmd(w_window ) => t_skillCmd,hiSetEncapHistory(w_window t_msg[ g_redraw ] ) => t / nil,hiSetEncapPrompt(w_window t_prompt ) => t / nil,hiSetEncapSkillCmd(w_windowIdt_skillCmd ) => t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 13">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap12.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap14.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>13<a name="876677">&nbsp;</a></h1>
+      <h1><a name="876678">Encapsulation Window</a></h1>
+      <p><a name="878149">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845391" title="13" name="878153"><font color="#0000ff"><u>Encapsulation Window Overview</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845402" title="13" name="878229"><font color="#0000ff"><u>hiEncap</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845424" title="13" name="878234"><font color="#0000ff"><u>hiSetEncapSkillCmd</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845451" title="13" name="878239"><font color="#0000ff"><u>hiGetEncapSkillCmd</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845466" title="13" name="878244"><font color="#0000ff"><u>hiSetEncapPrompt</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845484" title="13" name="878249"><font color="#0000ff"><u>hiSetEncapHistory</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845500" title="13" name="878254"><font color="#0000ff"><u>hiAppendInputCmd</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#845526" title="13" name="878259"><font color="#0000ff"><u>hiFocusToEncap</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="845391">Encapsulation Window Overview</a></h2>
+      <p><a name="845392">An Encapsulation window is similar to the CIW except that it does not have a mouse binding display.</a></p>
+      <p><a name="878829">The optional window manager border contains the title "Encapsulation." You can replace this name using the SKILL</a> functions <a href="chap9.html#732797" title="9"><font color="#0000ff"><u>hiSetWindowName</u></font></a> or <a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>. The banner contains pulldown menus providing the default system menu that contains the SKILL <a href="chap9.html#671714" title="9"><font color="#0000ff"><u>hiCloseWindow</u></font></a> function.</p>
+      <p><a name="878833">Each command line is copied into the output area from the input line as it is accepted for execution. The input command line is then placed with the user&#45;specifiable SKILL command wrapper through the </a><a href="#845424" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiSetEncapSkillCmd</u></font></a> command<strong>. </strong>The SKILL command and any error messages or output produced by that command are displayed in the CIW<strong> </strong>output area. Only the input history of the encapsulation session is copied into the Encapsulation output window.</p>
+      <p><a name="845395">The input window behaves like the input window of the CIW.</a></p>
+      <p><a name="845396">You control the size and location of the Encapsulation window. The display manager defaults to a certain minimum window size.</a></p>
+      <p><a name="845397">The following properties can be set on an encapsulation window:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="845398"><font size="2" face="'Courier New'" color="#000000">sendAllInput</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="878773">When set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, the encapsulation window accepts a single carriage return as input. When this property is not set (or set to <font size="2" face="'Courier New'" color="#000000">nil</font>), single carriage returns are ignored by the encapsulation window. (This is the default behavior.) See <a href="#845424" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiSetEncapSkillCmd</u></font></a>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="845399"><font size="2" face="'Courier New'" color="#000000">noAutoNewline</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="878774">See </a><a href="#845484" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiSetEncapHistory</u></font></a>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="845400"><font size="2" face="'Courier New'" color="#000000">obeySpecialChars</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="878775">See </a><a href="#845500" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiAppendInputCmd</u></font></a>.</blockquote>
+      <p><a name="845401">The following commands support Encapsulation windows.</a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiEncap
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiEncap"></a><a name="845402">hiEncap</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845403">hiEncap(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_boxSpec</em></font> ]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> t_cmd</em></font> ]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> t_title</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="852117">Description</a></h4>
+      <p><a name="845407">Invokes an encapsulation session by creating and displaying an encapsulation window. </a></p>
+      <p><a name="845408">The window created has a widget type of "encap" and an application type of "encap". (See </a><a href="chap9.html#963819" title="9"><font color="#0000ff"><u>hiCreateWindow</u></font></a>.)</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="874729">If you get the warning message &#34;Cannot allocate colormap entry for default background,&#34;, you can ignore it. This message is displayed if you have set </a><font size="2" face="'Courier New'" color="#000000">CDS_USE_PRIVATE_CMAP</font> to &#34;true&#34; or have used a private colormap. It does not affect the encapsulation window.</p>
+      <h4><a name="852132">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881490"><font size="2" face="'Courier New'" color="#000000"><em>g_boxSpec</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="881492">Screen coordinates specifying the lower left and upper right corners of the window (assuming 0:0 to be the lower left corner of the screen). If </a><font size="2" face="'Courier New'" color="#000000"><em>boxSpec</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, either you are prompted with a rubberbanding box to enter a window size or a default size is used depending on the value of the global variable <font size="2" face="'Courier New'" color="#000000">hivWinStyle</font>. The <font size="2" face="'Courier New'" color="#000000">'default</font> and <font size="2" face="'Courier New'" color="#000000">'interactive</font> symbols are also acceptable values for the <font size="2" face="'Courier New'" color="#000000"><em>boxSpec</em></font> argument.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881494"><font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881496">SKILL function to which all input sent to the Encapsulation window is redirected. This function acts as a wrapper function to the input command line entered during the current encapsulation session. (See </a><a href="#845424" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiSetEncapSkillCmd</u></font></a>.)</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881498"><font size="2" face="'Courier New'" color="#000000"><em>t_title</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881500">String that appears in the window manager banner of the encapsulation window. If not specified, the string </a><font size="2" face="'Courier New'" color="#000000">"Encapsulation"</font> appears.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852153">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881512"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="881514">Opens an encapsulation window and returns the ID of the window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881516"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881518">Cannot open a window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852180">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="845421">hiEncap( ) <br></a>=&#62; window:2 </font>
+      </p>
+      <p><a name="878350">Opens an encapsulation window and returns</a> its <font size="2" face="'Courier New'" color="#000000"><em>windowId</em></font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetEncapSkillCmd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSetEncapSkillCmd"></a><a name="845424">hiSetEncapSkillCmd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845425">hiSetEncapSkillCmd(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId<dd>t_skillCmd</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="852205">Description</a></h4>
+      <p><a name="845429">Registers the SKILL function that wraps or embraces the input command line entered during the current encapsulation session. </a></p>
+      <p><a name="845430">Any input entered in the input window of the encapsulation window is redirected to the SKILL function </a><font size="2" face="'Courier New'" color="#000000"><em>t_skillCmd</em></font>. This function should accept only one argument--the string that is the line of input to the encapsulation window.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="845431">If the property </a><font size="2" face="'Courier New'" color="#000000">sendAllInput</font> is set to <font size="2" face="'Courier New'" color="#000000">t</font> on the encapsulation window, an empty string is passed to the <font size="2" face="'Courier New'" color="#000000"><em>t_skillCmd</em></font> function. If the property is not set, the default action is that single carriage returns are ignored.</p>
+      <h4><a name="852244">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881526"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="881528">Encapsulation window ID returned by</a> <a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881530"><font size="2" face="'Courier New'" color="#000000"><em>t_skillCmd</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881532">SKILL function to use as the wrapper function.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852289">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881540"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="881542">The function is registered.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881544"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881546">The function is not registered. A warning is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852340">Example</a></h4>
+      <p><a name="845441">Create the procedure to be used as the wrapper:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="845442">procedure(processString(input &#34;t&#34;)<br>;process the input string typed to the encapsulation <br>;window<br>...<br>)</a></font>
+      </p>
+      <p><a name="845443">Create an encapsulation window:</a></p>
+      <p>
+        <font size="2" face="Courier" color="#000000"><a name="845444"><font size="2" face="'Courier New'" color="#000000">w = hiEncap(list(100:100 500:500))</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="Courier" color="#000000"><a name="845445"><font size="2" face="'Courier New'" color="#000000">hiSetEncapSkillCmd(w &#34;processString&#34;)</font></a></font>
+      </p>
+      <p><a name="845446">When input is typed in the encapsulation window:</a></p>
+      <p>
+        <font size="2" face="Courier" color="#000000"><a name="845447"><font size="2" face="'Courier New'" color="#000000">countAll</font></a></font>
+      </p>
+      <p><a name="845448">the wrapper function is set up, using the encapsulation window input as its argument:</a></p>
+      <p>
+        <font size="2" face="Courier" color="#000000"><a name="878166"><font size="2" face="'Courier New'" color="#000000">processString(&#34;countAll&#34;)</font></a></font>
+      </p>
+      <p><a name="845450">The </a><font size="2" face="'Courier New'" color="#000000">processString</font> function then processes the input string and either redirects it to another process or calls the appropriate function.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetEncapSkillCmd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="845451">hiGetEncapSkillCmd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845452">hiGetEncapSkillCmd(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_skillCmd</em></font></font>
+      </dl>
+      <h4><a name="852471">Description</a></h4>
+      <p><a name="845456">Returns the SKILL function associated with a window. </a></p>
+      <h4><a name="852486">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881553"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="881555">Encapsulation window ID returned from </a><a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852507">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881563"><font size="2" face="'Courier New'" color="#000000"><em>t_skillCmd</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="881565">The SKILL wrapper function string associated with the encapsulation window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852540">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="845464">hiGetEncapSkillCmd(w)<br></a>=&#62; &#34;processString&#34;</font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetEncapPrompt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="845466">hiSetEncapPrompt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845467">hiSetEncapPrompt(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_window <dd>t_prompt</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="852565">Description</a></h4>
+      <p><a name="845471">Sets the prompt for an encapsulation window.</a></p>
+      <h4><a name="852604">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881572"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="881574">Encapsulation window ID returned by</a> <a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881576"><font size="2" face="'Courier New'" color="#000000"><em>t_prompt</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881578">String to be used as the prompt. The default prompt is the greater than character (&#62;).</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852649">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881586"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="881588">The prompt is set.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881590"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881592">The prompt is not set. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852700">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="845481">hiSetEncapPrompt(w &#34;What_now?&#34;)</a></font>
+      </p>
+      <p><a name="845482">Returns</a> <font size="2" face="'Courier New'" color="#000000">t</font> and displays the prompt <font size="2" face="'Courier New'" color="#000000">"What_now?"</font> directly above the input line in the encapsulation window.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetEncapHistory
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSetEncapHistory"></a><a name="845484">hiSetEncapHistory</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845485">hiSetEncapHistory(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_msg<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_redraw </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="852781">Description</a></h4>
+      <p><a name="845489">Copies a message into the next available insertion position in an encapsulation output window.</a></p>
+      <h4><a name="852820">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881599"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="881601">Encapsulation window ID returned from </a><a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881603"><font size="2" face="'Courier New'" color="#000000"><em>t_msg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881605">String that you want appended (inserted) to the last line of the output portion of the encapsulation window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881607"><font size="2" face="'Courier New'" color="#000000"><em>g_redraw</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881609">Either </a><font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font> to determine whether a message sent to the encapsulation output window is displayed or saved. If set to <font size="2" face="'Courier New'" color="#000000">nil</font>, messages sent to the encapsulation window are buffered (saved) and are not displayed until a newline character is explicitly specified in <font size="2" face="'Courier New'" color="#000000"><em>t_msg</em></font>. For performance reasons, this flag should be set when sending long strings to the window. If set to <font size="2" face="'Courier New'" color="#000000">t</font> (the default), all messages sent to the encapsulation window are immediately displayed with a newline automatically appended.</p>
+            <p><a name="881640"><font color="#000000"><strong>Note:</strong></font></a> If the property <font size="2" face="'Courier New'" color="#000000">noAutoNewline</font> on the encapsulation window is set to <font size="2" face="'Courier New'" color="#000000">t</font>, the newline is not automatically appended to the <font size="2" face="'Courier New'" color="#000000"><em>t_msg</em></font> string, and a <font size="2" face="'Courier New'" color="#000000">'\n' </font>character must be explicitly specified in the string before the string is sent and displayed to the window output.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852865">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881653"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="881655">The string is copied to the encapsulation output window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881657"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881659">The string is not copied to the encapsulation output window. A warning is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiAppendInputCmd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiAppendInputCmd"></a><a name="845500">hiAppendInputCmd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845501">hiAppendInputCmd(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="852908">Description</a></h4>
+      <p><a name="845505">Appends a command to the input area of an encapsulation window. </a></p>
+      <p><a name="845506">If the encapsulation window has the property </a><font size="2" face="'Courier New'" color="#000000">obeySpecialChars</font> set to <font size="2" face="'Courier New'" color="#000000">t</font>, this function treats the character '<font size="2" face="'Courier New'" color="#000000">\n' </font>in <font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font> as a newline (equivalent to pressing the carriage return key in the encapsulation window). If this property is not set, the <font size="2" face="'Courier New'" color="#000000">'\n' </font>and any characters following this in <font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font> are ignored.</p>
+      <h4><a name="852941">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881668"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="881670">Encapsulation window ID returned from </a><a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881672"><font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881674">SKILL function string to append to the input area.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="852980">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881682"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="881684">The string is appended to the input area.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881686"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881688">The window specified by </a><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font> is invalid or if the function <font size="2" face="'Courier New'" color="#000000"><em>t_cmd</em></font> is null. A warning message is also issued.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="853025">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="845516">w = hiEncap(list(100:100 500:500) &#34;&#34; &#34;encap&#34;)<br>w&#45;&#62;obeySpecialChars = t<br>hiAppendInputCmd(w &#34;ab&#34;)&nbsp;&nbsp;&nbsp;; input has 'ab'<br>hiAppendInputCmd(w &#34;cd&#34;) &nbsp;&nbsp;&nbsp;; input has 'abcd'<br>hiAppendInputCmd(w &#34;\n&#34;)&nbsp;&nbsp;&nbsp;; sends 'abcd' to output<br>hiAppendInputCmd(w &#34;ab\ncd\nef&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;; sends 'ab' to output<br>&nbsp;&nbsp;&nbsp;; sends 'cd' to output<br>&nbsp;&nbsp;&nbsp;; input has 'ef'<br>hiAppendInputCmd(w &#34;gh\n&#34;)&nbsp;&nbsp;&nbsp;; sends 'efgh' to output</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiFocusToEncap
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="845526">hiFocusToEncap</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="845527">hiFocusToEncap(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_encap</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>w_window </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="853102">Description</a></h4>
+      <p><a name="845531">Temporarily focuses the keyboard input to an encapsulation window. </a></p>
+      <p><a name="845532">The keyboard focus to the encapsulation window is maintained until a carriage return is entered or until the pointer focus is moved from one window into another.</a></p>
+      <h4><a name="853141">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881695"><font size="2" face="'Courier New'" color="#000000"><em>w_encap</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="881697">Encapsulation window ID returned from </a><a href="#845402" title="13"><font size="2" face="'Courier New'" color="#0000ff"><u>hiEncap</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881699"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881701">Window from which the keyboard focus is being transferred. If not specified, the current window is used.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="853186">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="881709"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="881711">The focus is transferred to the encapsulation window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881713"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="881715">The focus is not transferred. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="878921">&nbsp;</a></p>
+      <p><a name="881271">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="882006">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap12.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap14.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

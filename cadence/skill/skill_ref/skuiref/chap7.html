@@ -1,0 +1,1234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 7</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801826">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="7">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801826">
+<META NAME="NextFile" CONTENT="chap8.html">
+<META NAME="PageCount" CONTENT="24">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap6.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="colorIndex( l_rgb ) => x_index ,hiCreateColorArray( ) => a_iconColorArray ,hiLoadIconData(t_fileName[ t_formatName ])=> l_hiIcon / nil,hiLoadIconFile(t_fileNamex_widthx_height)=> l_hiIcon / nil,hiLoadImageFile(t_fileNamex_widthx_height)=> l_hiImage / nil,hiMatchColor( l_RGBcolor ) => x_colormapIndex ,hiMatchColorByName(  t_colorName ) => x_colormapIndex ,hiSaveIconData(l_hiIcont_fileName[ t_formatName ])=> t / nil,hiSetDisabledIcon(g_icong_disabledIcon)=> t / nil,hiStringToIcon(  a_colorArray t_iconString x_width x_height ) => l_hiIcon / nil,nameToColor( S_colorName ) => l_RGBColor / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 7">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap6.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap8.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>7<a name="67511">&nbsp;</a></h1>
+      <h1><a name="353433">Icons</a></h1>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <font size="3"><img src="images/important.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <font size="3"><a name="355126">From IC6.1.x, Cadence uses Qt GUI architecture (previously for IC5.1.41 Xt&#47;Motif was used) which does not support arbitrary sized icons (image pixmaps) for menu button and menu&#45;item creation. The only permitted size is now 16x16 with adjacent text.</a></font>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="356889">This chapter describes functions used for creating icons in a format that can be used in user interface (hi) functions. </a></p>
+      <p><a name="355143">The following function loads an icon&#47;image file of any format supported by Qt, such as PNG, and is the preferred method of creating icons:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#355448" title="7" name="355795"><font color="#0000ff"><u>hiLoadIconFile</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#357552" title="7" name="357887"><font color="#0000ff"><u>hiLoadImageFile</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="355447">The following functions convert a pixmap from any format supported by Qt, such as PNG, to a format that can be used in </a><font size="2" face="'Courier New'" color="#000000">hi</font> functions and vice versa:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#355185" title="7" name="355129"><font color="#0000ff"><u>hiLoadIconData</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#355204" title="7" name="355133"><font color="#0000ff"><u>hiSaveIconData</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="353437">The following functions create icons from SKILL through an ASCII string description:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36104" title="7" name="355158"><font color="#0000ff"><u>hiCreateColorArray</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#354044" title="7" name="355162"><font color="#0000ff"><u>hiMatchColor</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36123" title="7" name="355166"><font color="#0000ff"><u>hiMatchColorByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36143" title="7" name="355170"><font color="#0000ff"><u>hiStringToIcon</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="36102">Each pixel of an icon is described by an ASCII alphabetic character (a&#45;z or A&#45;Z) or as one of the following special characters: </a><font size="2" face="'Courier New'" color="#000000">.</font>, <font size="2" face="'Courier New'" color="#000000">0</font>, or <font size="2" face="'Courier New'" color="#000000">1</font>. Each of these characters (except <font size="2" face="'Courier New'" color="#000000">0</font> and <font size="2" face="'Courier New'" color="#000000">1</font>) can be set to a different color, giving the user 27 color possibilities per icon pixel (the characters <font size="2" face="'Courier New'" color="#000000">0</font> and <font size="2" face="'Courier New'" color="#000000">1</font> are hardcoded to white and black, respectively). </blockquote>
+      <blockquote><a name="36103">This is not a preferred method of creating icons; use </a><font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>,  <font size="2" face="'Courier New'" color="#000000">hiLoadIconData</font>, or <font size="2" face="'Courier New'" color="#000000">geCellViewToDlist</font> and <font size="2" face="'Courier New'" color="#000000">dlDlistToIcon</font> instead.</blockquote>
+      <p><a name="355346">The following function associates a disabled icon with an icon:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#355348" title="7" name="355347"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Specifying Icons for hi Functions
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Specifying Icons for hi Functions"></a><a name="355901">Specifying Icons for hi Functions</a></h3>
+      <p><a name="355906">Most </a><font size="2" face="'Courier New'" color="#000000">hi</font> functions that take icons as arguments (such as <font size="2" face="'Courier New'" color="#000000">hiCreateButton</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateLabel</font>, and <font size="2" face="'Courier New'" color="#000000">hiCreateTreeItem</font>) accept icons in any of the following formats:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355911"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="355912">String specifying the name of the icon file. See also </a><a href="#356008" title="7"><font face="'Courier New'" color="#000000"><u><em>t_fileName</em></u></font></a>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355928"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="355947">where </a><a href="#356008" title="7"><font face="'Courier New'" color="#000000"><u><em>t_fileName</em></u></font></a> is the name of the icon file, <font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font> is the desired width of the icon, and <font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font> is the desired height of the icon.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355969"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>x_iconHandle</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="355970">where </a><font size="2" face="'Courier New'" color="#000000"><em>x_iconHandle</em></font> is the handle of the icon, <font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font> is the desired width of the icon, and <font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font> is the desired height of the icon. Menu icons can only be 16x16 pixels in size. If the icon is larger than 16x16 pixels, it will be reduced in size.</blockquote>
+      <blockquote><a name="355979">This list, which was the only format accepted in releases prior to IC 6.1.2, can be obtained through the </a><font size="2" face="'Courier New'" color="#000000">hiStringToIcon</font>, <font size="2" face="'Courier New'" color="#000000">hiLoadIconData</font>, <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>, and <font size="2" face="'Courier New'" color="#000000">dlDlistToIcon</font> functions.</blockquote>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="358977">The </a><font size="2" face="'Courier New'" color="#000000">hiCreateMenuItem</font> function takes icons as an argument in the following format: <font size="2" face="'Courier New'" color="#000000">list(x_iconHandle x_width x_height)</font>.</p>
+      <p><a name="fileName"></a><a name="356008"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a>: If <font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> in any of the above options is an absolute path (starting with <font size="2" face="'Courier New'" color="#000000">&#47;</font>), the file is loaded directly. If <font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font>  is a relative path, the Cadence Search File mechanism (CSF) is used to search for the icon file. For each location in your <font size="2" face="'Courier New'" color="#000000">setup.loc</font> file, the following subdirectories are searched. The names of the subdirectory represent the resolution of the image files in them, for example:</p>
+      <p><a name="356009"><font size="2" face="'Courier New'" color="#000000">icons&#47;16x16</font></a></p>
+      <p><a name="356888">The first file found for each resolution is loaded into the icon. When the icon is used, the appropriate resolution is used.</a></p>
+      <p><a name="356033">For more information about CSF, see the </a><a href="../caiuser/chap3.html" target="external_window"><font color="#0000ff"><u><em>Cadence Application Infrastructure User Guide</em></u></font></a>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiLoadIconFile
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiLoadIconFile"></a><a name="355448">hiLoadIconFile</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="355453">hiLoadIconFile(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName<dd>x_width<dd>x_height<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="355454">Description</a></h4>
+      <p><a name="355455">Loads an icon file of any format, such as </a><font size="2" face="'Courier New'" color="#000000">PNG</font>, and returns the icon in a format that can be used with <font size="2" face="'Courier New'" color="#000000">hi</font> functions that accept icons. If <font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is a relative path, the Cadence Search File mechanism (CSF) is used to search for the file. </p>
+      <p><a name="355537">Multiple resolutions of the icon are loaded, if found. The appropriate resolution is used when the icon is used.</a></p>
+      <p><a name="355820">This function provides you the ability to add your own icons for custom toolbars, menus, and forms. You can place these icons in a subdirectory of your home directory. Similarly, central groups can provide icons for your entire site in a different location. Any icons you provide must be placed in an </a><font size="2" face="'Courier New'" color="#000000">icons&#47;16x16</font>, <font size="2" face="'Courier New'" color="#000000">icons&#47;24x24</font>, <font size="2" face="'Courier New'" color="#000000">icons&#47;32x32</font>, or <font size="2" face="'Courier New'" color="#000000">icons&#47;48x48</font> subdirectory of a directory found by CSF. These directories should represent the resolution of the image files in them. </p>
+      <p><a name="355818">Follow these guidelines when you create icons:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355819">While any format supported by Qt is supported, PNG is preferred.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355825">Limit icons to 256 color.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="355826">Use a consistent icon palette.</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="355456">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="363787"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="363789">The name of the icon file to load. </a></p>
+            <p><a name="363860">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is an absolute path (starting with <font size="2" face="'Courier New'" color="#000000">&#47;</font>), then the file is loaded directly. Only a single resolution is available in this case.</p>
+            <p><a name="363875">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is a relative path, then CSF rules are used to search for all resolutions of the file. For each location in your <font size="2" face="'Courier New'" color="#000000">setup.loc</font> file, the following subdirectories are searched. The names of these subdirectories represent the resolution of the image files in them.</p>
+            <p><a name="363890"><font size="2" face="'Courier New'" color="#000000">icons&#47;16x16</font></a></p>
+            <p><a name="363905"><font size="2" face="'Courier New'" color="#000000">icons&#47;24x24</font></a></p>
+            <p><a name="363920"><font size="2" face="'Courier New'" color="#000000">icons&#47;32x32</font></a></p>
+            <p><a name="363935"><font size="2" face="'Courier New'" color="#000000">icons&#47;48x48</font></a></p>
+            <p><a name="363950">Whichever resolutions are found are loaded into the icon. When the icon is used, the appropriate resolution is used.</a></p>
+            <p><a name="363965">For more information about CSF, see the </a><a href="../caiuser/chap3.html" target="external_window"><font color="#0000ff"><u><em>Cadence Application Infrastructure User Guide</em></u></font></a>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="363823"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="363825">The desired width of the icon. </a></p>
+            <p><a name="363990">The icon that is returned is not sized to the width and height specified; these values are added to the return value of this function and applied when the icon is used. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="363831"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="363833">The desired height of the icon.</a></p>
+            <p><a name="364012">The icon that is returned is not sized to the width and height specified; these values are added to the return value of this function and applied when the icon is used. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355458">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364030"><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364032">The icon handle, which can be used with any user interface  function that accepts icons. </a><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> is of the following form:</p>
+            <p><a name="364058"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>handle</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364038"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364040"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a> is not found or there was an error in loading it. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="359212">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="359213">?itemIcon hiLoadIconFile( &#34;wire.png&#34; 16 16 )</a></font>
+      </p>
+      <h4><a name="359214">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="359233"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiLoadImageFile
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiLoadImageFile"></a><a name="357552">hiLoadImageFile</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="357554">hiLoadImageFile(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName<dd>x_width<dd>x_height<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_hiImage</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="357555">Description</a></h4>
+      <p><a name="357557">Loads an image file of any format, such as </a><font size="2" face="'Courier New'" color="#000000">PNG</font>, and returns the image in a format that can be used with <font size="2" face="'Courier New'" color="#000000">hi</font> functions that accept icons. If <font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is a relative path, the Cadence Search File mechanism (CSF) is used to search for the file.</p>
+      <p><a name="357558">Multiple resolutions of the icon are loaded, if found. The appropriate resolution is used when the icon is used.</a></p>
+      <p><a name="357559">This function provides you the ability to add your own images (icons) for custom toolbars, menus, and forms. You can place these icons in a subdirectory of your home directory. Similarly, central groups can provide icons for your entire site in a different location. Any icons you provide must be placed in an </a><font size="2" face="'Courier New'" color="#000000">icons&#47;16x16</font>, <font size="2" face="'Courier New'" color="#000000">icons&#47;24x24</font>, <font size="2" face="'Courier New'" color="#000000">icons&#47;32x32</font>, or <font size="2" face="'Courier New'" color="#000000">icons&#47;48x48</font> subdirectory of a directory found by CSF. These directories should represent the resolution of the image files in them.</p>
+      <p><a name="357560">Follow these guidelines when you create icons:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="357561">While any format supported by Qt is supported, PNG is preferred.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="357562">Limit icons to 256 color.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="357563">Use a consistent icon palette.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="357649">To this point, the above use description is identical to that of </a><font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>. However if the file being referred to has changed on disk, a new image referring to the updated image will be returned, rather than the cached image that is returned by <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>.</p>
+      <p><a name="357690">The </a><font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font> command returns the most recently cached version of a file, so although multiple calls to <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font> will return the same value, even if the file has changed on disk, if <font size="2" face="'Courier New'" color="#000000">hiLoadImageFile</font> is called for this same icon, <strong>and</strong> it has changed on disk, then the next call to <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font> will return the newly&#45;cached version, not the original version.</p>
+      <p><a name="357733">The </a><font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font> command will always return the cached version of an icon for performance reasons (the filesystem search for an icon should only occur once during the initial call to <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>). Alternatively, <font size="2" face="'Courier New'" color="#000000">hiLoadImageFile</font> will search for an updated version of the icon upon each invocation. It should therefore only be used in cases where the image file may change during the lifetime of the program, and it is desirable to always have the most recent version.</p>
+      <p><a name="357665">The most common use then of </a><font size="2" face="'Courier New'" color="#000000">hiLoadImageFile</font> is to load thumbnail images for cellviews, as these are typically updated when a view is saved, and will therefore change during the lifetime of the program. Displaying an incorrect thumbnail image may be misleading, hence it is desirable to call <font size="2" face="'Courier New'" color="#000000">hiLoadImageFile</font> to check for updates, rather than always using the original image returned by <font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font>.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="357778">Unless there is a good reason to perform such filesystem checks, you should use </a><font size="2" face="'Courier New'" color="#000000">hiLoadIconFile</font> in order to avoid repeated checks.</p>
+      <h4><a name="357564">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364071"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364073">The name of the image file to load. </a></p>
+            <p><a name="364148">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is an absolute path (starting with <font size="2" face="'Courier New'" color="#000000">&#47;</font>), then the file is loaded directly. Only a single resolution is available in this case.</p>
+            <p><a name="364163">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> is a relative path, then CSF rules are used to search for all resolutions of the file. For each location in your <font size="2" face="'Courier New'" color="#000000">setup.loc</font> file, the following subdirectories are searched. The names of these subdirectories represent the resolution of the image files in them.</p>
+            <p><a name="364195"><font size="2" face="'Courier New'" color="#000000">icons&#47;16x16</font></a></p>
+            <p><a name="364210"><font size="2" face="'Courier New'" color="#000000">icons&#47;24x24</font></a></p>
+            <p><a name="364225"><font size="2" face="'Courier New'" color="#000000">icons&#47;32x32</font></a></p>
+            <p><a name="364240"><font size="2" face="'Courier New'" color="#000000">icons&#47;48x48</font></a></p>
+            <p><a name="364255">Whichever resolutions are found are loaded into the image. When the image is used, the appropriate resolution is used.</a></p>
+            <p><a name="364270">For more information about CSF, see the </a><a href="../caiuser/chap3.html" target="external_window"><font color="#0000ff"><u><em>Cadence Application Infrastructure User Guide</em></u></font></a>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364111"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364113">The desired width of the image. </a></p>
+            <p><a name="364295">The image that is returned is not sized to the width and height specified; these values are added to the return value of this function and applied when the icon is used. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364119"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364121">The desired height of the image.</a></p>
+            <p><a name="364319">The image that is returned is not sized to the width and height specified; these values are added to the return value of this function and applied when the image is used. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="357612">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364332"><font size="2" face="'Courier New'" color="#000000"><em>l_hiImage</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="364334">The image handle, which can be used with any user interface  function that accepts icons. </a><font size="2" face="'Courier New'" color="#000000"><em>l_hiImage</em></font> is of the following form:</p>
+            <p><a name="364360"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>handle</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364340"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364342"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a> is not found or there was an error in loading it. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="357810">Example</a></h4>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="357829">Error checking steps have been omitted for brevity of detail.</a></p>
+      <p><a name="357831">Load the thumbnail for </a><font size="2" face="'Courier New'" color="#000000">myLib&#47;myCell&#47;myView</font> into an icon:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="357870">myView = ddGetObj( myLib myCell myView)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="357821">hiLoadImageFile( sprintf(nil &#34;%s&#47;%s&#34; ddGetObjReadPath(myView) hiGetThumbnailFilename())) 64 64)</a></font>
+      </p>
+      <h4><a name="357616">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="357588"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiLoadIconData
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiLoadIconData"></a><a name="355185">hiLoadIconData</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="355186">hiLoadIconData(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName<dd></em></font><font size="2" face="'Courier New'" color="#000000">[ </font><font size="2" face="'Courier New'" color="#000000"><em>t_formatName </em></font><font size="2" face="'Courier New'" color="#000000">]<dd></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="362901">Description</a></h4>
+      <p><a name="362903">Loads a pixmap and returns it in a format that can be used with any </a><font size="2" face="'Courier New'" color="#000000">hi</font> function that accepts icons, such as <font size="2" face="'Courier New'" color="#000000">hiCreateMenuItem</font> or <font size="2" face="'Courier New'" color="#000000">hiCreateButton</font>. This function can load files that are in any of the image formats supported by Qt; currently these are:  BMP, JPG, PNG, PPM, XBM, and XPM. PNG is the recommended format.</p>
+      <h4><a name="362904">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364373"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364375">The pixmap file, in one of the following formats:  BMP, JPG, PNG, PPM, XBM, and XPM.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364377"><font size="2" face="'Courier New'" color="#000000"><em>t_formatName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364379">The image format name. </a></p>
+            <p><a name="364401">The default value of this argument is </a><font size="2" face="'Courier New'" color="#000000">&#34;PNG&#34;</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355192">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364414"><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="364416">The icon handle, which can be used with any user interface function that accepts icons. </a><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> is of the following form:</p>
+            <p><a name="364442"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>handle</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364422"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364424">There was an error in loading </a><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355195">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="355196">zoomPixmap = hiLoadIconData( &#34;zoom.png&#34; &#34;png&#34; )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="355197">hiCreateMenuItem ( ?name 'zoom ?itemIcon zoomPixmap )</a></font>
+      </p>
+      <h4><a name="355198">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355202"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSaveIconData
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSaveIconData"></a><a name="355204">hiSaveIconData</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="355205">hiSaveIconData(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon<dd>t_fileName<dd></em></font><font size="2" face="'Courier New'" color="#000000">[ </font><font size="2" face="'Courier New'" color="#000000"><em>t_formatName </em></font><font size="2" face="'Courier New'" color="#000000">]<dd></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="355206">Description</a></h4>
+      <p><a name="355207">Saves a loaded pixmap to a file in the format that you specify. This function accepts an </a><font size="2" face="'Courier New'" color="#000000">hi</font> pixmap description and converts it to any of the image formats supported by Qt; currently, these are: BMP, JPG, PNG, PPM, XBM, and XPM. However, PNG is the recommended format.</p>
+      <h4><a name="355208">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364455"><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="364457">The pixmap handle, which is the return value of </a><a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a> or <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364459"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364461">The name of the file to which you want to save the pixmap.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364463"><font size="2" face="'Courier New'" color="#000000"><em>t_formatName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364465">The format in which you want to save the pixmap.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355218">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364478"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="364480">The pixmap was saved in the format you specified.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364482"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364484">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355221">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="355222">hiSaveIconData ( legacyPixmap &#34;legacy.png&#34; &#34;png&#34; )</a></font>
+      </p>
+      <h4><a name="355223">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355230"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=colorIndex
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="colorIndex"></a><a name="354023">colorIndex</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="354025">colorIndex( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_rgb</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_index</em></font> </font>
+      </dl>
+      <h4><a name="354026">Description</a></h4>
+      <p><a name="354028">Returns the pixel value for the colormap index of the specified RGB value. This function is an alias for </a><a href="#354044" title="7"><font size="2" face="'Courier New'" color="#0000ff"><u>hiMatchColor</u></font></a>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nameToColor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nameToColor"></a><a name="362937">nameToColor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="362939">nameToColor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_colorName</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_RGBColor &#47; </em></font><font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="362940">Description</a></h4>
+      <p><a name="362942">Specifies the color name as string or symbol.</a></p>
+      <p><a name="363112">This function returns a list of three integers representing the red, green, and blue (RGB) components of the color in Virtuoso color coordinates (ranging from 0 to 1000, as opposed to the standard RGB coordinates that range from 0 to 255).</a></p>
+      <h4><a name="363007">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364491"><font size="2" face="'Courier New'" color="#000000"><em>S_colorName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="364493">A color name string or symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="363017">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364500"><font size="2" face="'Courier New'" color="#000000"><em>l_RGBColor</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="364502">A list of the RGB values in Virtuoso color coordinates, which can be passed to the </a><a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a> function or the other Virtuoso color functions that take an RGB list.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364504"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364506">The color name is not recognized and the warning message is displayed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="363020">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363090">nameToColor(&#34;red&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363091">=&#62; (1000 0 0)</a></font>
+      </p>
+      <p><a name="363133">Returns the list of RGB values for the color, </a><font size="2" face="'Courier New'" color="#000000">red</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363092">nameToColor(&#34;blue&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363093">=&#62; (0 0 1000)</a></font>
+      </p>
+      <p><a name="363146">Returns the list of RGB values for the color, </a><font size="2" face="'Courier New'" color="#000000">blue</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363094">nameToColor(&#34;#ff0000&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363095">=&#62; (1000 0 0)</a></font>
+      </p>
+      <p><a name="363184">Returns the list of RGB values for the color symbol, </a><font size="2" face="'Courier New'" color="#000000">#ff0000</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363096">nameToColor(&#34;seafoam&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363097">=&#62; *WARNING* nameToColor: could not parse color string &#34;seafoam&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363098">=&#62; nil</a></font>
+      </p>
+      <p><a name="363222">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> and displays the warning message because the color name is not valid.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363099">nameToColor(&#34;seagreen&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="363021">=&#62; (180 545 341)</a></font>
+      </p>
+      <p><a name="362920">Returns the list of RGB values for the color, </a><font size="2" face="'Courier New'" color="#000000">seagreen</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiCreateColorArray
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiCreateColorArray"></a><a name="36104">hiCreateColorArray</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36105">hiCreateColorArray( ) <dd></a>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>a_iconColorArray</em></font> </font>
+      </dl>
+      <h4><a name="45547">Description</a></h4>
+      <p><a name="36108">Returns a 27&#45;element color array that can be used in a call to </a><a href="#36143" title="7"><font size="2" face="'Courier New'" color="#0000ff"><u>hiStringToIcon</u></font></a>. The first 26 items correspond to the letters in the alphabet; the 27th item corresponds to a period (<font size="2" face="'Courier New'" color="#000000">.</font>).</p>
+      <p><a name="362412">Example: </a><font size="2" face="'Courier New'" color="#000000">colorArray[0]</font> is represented by<font size="2" face="'Courier New'" color="#000000"> a</font> or<font size="2" face="'Courier New'" color="#000000"> A</font>; <font size="2" face="'Courier New'" color="#000000">colorArray[12]</font> is represented by <font size="2" face="'Courier New'" color="#000000">m</font> or <font size="2" face="'Courier New'" color="#000000">M</font>; <font size="2" face="'Courier New'" color="#000000">colorArray[26]</font> is represented by a period (<font size="2" face="'Courier New'" color="#000000">.</font>).</p>
+      <p><a name="36109">To set these array elements, use </a><a href="#36123" title="7"><font size="2" face="'Courier New'" color="#0000ff"><u>hiMatchColorByName</u></font></a> or <a href="#354044" title="7"><font size="2" face="'Courier New'" color="#0000ff"><u>hiMatchColor</u></font></a>. </p>
+      <h4><a name="45562">Arguments</a></h4>
+      <p><a name="36111">None.</a></p>
+      <h4><a name="45583">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364516"><font size="2" face="'Courier New'" color="#000000"><em>a_iconColorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364518">A 27&#45;element SKILL array. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355597">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355607"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiMatchColor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiMatchColor"></a><a name="354044">hiMatchColor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="354048">hiMatchColor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_RGBcolor</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_colormapIndex</em></font> </font>
+      </dl>
+      <h4><a name="362745">Description</a></h4>
+      <p><a name="362747">Returns a layer color index corresponding to the specified RGB color. It creates a new color index if the color specified does not have any corresponding index.</a></p>
+      <h4><a name="362730">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364525"><font size="2" face="'Courier New'" color="#000000"><em>l_RGBcolor</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="364527">List of red, green, and blue integer coordinates in the range </a><font size="2" face="'Courier New'" color="#000000">0&#45;1000</font> representing a color, such that it can be returned by the <a href="#362937" title="7"><font color="#0000ff"><u>nameToColor</u></font></a> function.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="354057">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364537"><font size="2" face="'Courier New'" color="#000000"><em>x_colormapIndex</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364539">A color index representing the layer color that matches the color specification. Returns the new color index, if the color specified does not have any corresponding index.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="354060">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362804">hiMatchColor(&#39;(1000 0 0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362805">6 20</a></font>
+      </p>
+      <p><a name="362833">Returns a color index corresponding to a list of specified integer coordinates.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362806">hiMatchColor(nameToColor(&#34;red&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362807">8 20</a></font>
+      </p>
+      <p><a name="362849">Returns a color index corresponding to the color, </a><font size="2" face="'Courier New'" color="#000000">red</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362808">hiMatchColor(nameToColor(&#34;#FF0000))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="354066">10 20</a></font>
+      </p>
+      <p><a name="362823">Returns a color index corresponding to the RGB string, </a><font size="2" face="'Courier New'" color="#000000">#FF0000</font>. </p>
+      <h4><a name="355628">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355638"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiMatchColorByName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiMatchColorByName"></a><a name="36123">hiMatchColorByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36124">hiMatchColorByName(  <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_colorName</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_colormapIndex</em></font> </font>
+      </dl>
+      <h4><a name="45727">Description</a></h4>
+      <p><a name="36127">Returns a layer color index corresponding to the specified color name. </a></p>
+      <h4><a name="45760">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364546"><font size="2" face="'Courier New'" color="#000000"><em>t_colorname</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="364548">Specify the color name, such as </a><font size="2" face="'Courier New'" color="#000000">red</font> or <font size="2" face="'Courier New'" color="#000000">green</font> or an RGB string, such as <font size="2" face="'Courier New'" color="#000000">#ff0000</font> (red) or <font size="2" face="'Courier New'" color="#000000">#00ff00</font> (green).</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="353924">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364559"><font size="2" face="'Courier New'" color="#000000"><em>x_colormapIndex</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="364561">Returns a layer color index if the color name is valid. Otherwise, a warning a message is displayed and the index of the editor background color is returned.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="362604">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362626">hiMatchColorByName(&#34;red&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362627">=&#62; 6 20</a></font>
+      </p>
+      <p><a name="362628">Returns the layer color index for the color, </a><font size="2" face="'Courier New'" color="#000000">red</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362657">hiMatchColorByName(&#34;#ff0000&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362629">=&#62; 8 20</a></font>
+      </p>
+      <p><a name="362664">Returns the layer color index for the RGB string, </a><font size="2" face="'Courier New'" color="#000000">#ff0000</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362630">hiMatchColorByName(&#34;bad name&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362631">=&#62; 10 *WARNING* nameToColor: could not parse color string &#34;bad name&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="362632">=&#62; 11 *WARNING* hiMatchColorByName: defaulting to editor background color for color name &#34;bad name&#34;</a></font>
+      </p>
+      <p><a name="362605">Returns the warning message because the color name is not valid.</a></p>
+      <h4><a name="362596">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355681"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiStringToIcon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiStringToIcon"></a><a name="36143">hiStringToIcon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36144">hiStringToIcon(  <dd></a><font size="2" face="'Courier New'" color="#000000"><em>a_colorArray <dd>t_iconString <dd>x_width <dd>x_height</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="45838">Description</a></h4>
+      <p><a name="36147">Returns an icon description that can be used in hi functions that accept icons, such as  </a><font size="2" face="'Courier New'" color="#000000">hiCreatePulldownMenu</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateMenuItem</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateSliderMenuItem</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateButton</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateCyclicField</font>, <font size="2" face="'Courier New'" color="#000000">hiCreateLabel</font>, and <font size="2" face="'Courier New'" color="#000000">hiAddCyclicChoice</font>.</p>
+      <h4><a name="45871">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364575"><font size="2" face="'Courier New'" color="#000000"><em>a_colorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="364577">Array created by </a><a href="#36104" title="7"><font size="2" face="'Courier New'" color="#0000ff"><u>hiCreateColorArray</u></font></a>. Each element of this array describes a pixel color to use within the icon.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364579"><font size="2" face="'Courier New'" color="#000000"><em>t_iconString</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364581">ASCII description of the icon. The maximum string length for </a><font size="2" face="'Courier New'" color="#000000"><em>t_iconString</em></font> is 8K (8192) characters.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364583"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364585">Width of the icon.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364587"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364589">Height of the icon.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="45910">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364597"><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="364599">The icon handle, which can be used with any hi function that accepts icons. </a><font size="2" face="'Courier New'" color="#000000"><em>l_hiIcon</em></font> is of the following form:</p>
+            <p><a name="364625"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>handle</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>width</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>height</em></font><font size="2" face="'Courier New'" color="#000000">)</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364605"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364607">An error occurred. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="45958">Example</a></h4>
+      <p><a name="36161">For convenience, the character `0' represents white; the character `1' represents black. Example: to describe an 8x8 pixel icon of a red square surrounded by blue, then thistle on a black background, execute the following (here, spaces are ignored):</a></p>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36162">myColorArray = hiCreateColorArray( )<br>myColorArray[0] = </a><a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>( &#34;thistle&#34;) <br>&nbsp;&nbsp;&nbsp;; `a' denotes thistle</font>
+      </blockquote>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36164">myColorArray[12] = </a><a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>( list( 1000 0 0 )) <br>&nbsp;&nbsp;&nbsp;; `m' denotes red</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36165">myColorArray[4] = hiMatchColor( list( 0 0 1000)) <br>&nbsp;&nbsp;&nbsp;; `e' denotes blue</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36166">iconString = &#34;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;1\<br>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;1&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36168">myIcon = </a><a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a> (myColorArray iconString 8 8)</font>
+      </p>
+      <h4><a name="355688">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355708"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetDisabledIcon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSetDisabledIcon"></a><a name="355348">hiSetDisabledIcon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="362469">hiSetDisabledIcon(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_icon<dd>g_disabledIcon<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="362470">Description</a></h4>
+      <p><a name="355351">Specifies a disabled icon for an icon, which will be displayed whenever the icon is disabled. This function only applies to icons used in menus, not to icons used in form fields or buttons.</a></p>
+      <p><a name="355381">This function must be called before the menu is instantiated for the disabled icon to be used.</a></p>
+      <h4><a name="355358">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364638"><font size="2" face="'Courier New'" color="#000000"><em>g_icon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="364640">The icon. See </a><a href="#355901" title="7"><font color="#0000ff"><u>Specifying Icons for hi Functions</u></font></a> in Chapter 7 for information about how to specify an icon.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364642"><font size="2" face="'Courier New'" color="#000000"><em>g_disabledIcon</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364644">The disabled icon. See </a><a href="#355901" title="7"><font color="#0000ff"><u>Specifying Icons for hi Functions</u></font></a> in Chapter 7 for information about how to specify an icon.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355369">Return Values</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="364657"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="364659">The function was successful.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364661"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="364663">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="355727">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#355448" title="7" name="355737"><font color="#0000ff"><u>hiLoadIconFile</u></font></a>, <a href="#357552" title="7"><font color="#0000ff"><u>hiLoadImageFile</u></font></a>, <a href="#355185" title="7"><font color="#0000ff"><u>hiLoadIconData</u></font></a>, <a href="#355204" title="7"><font color="#0000ff"><u>hiSaveIconData</u></font></a>, <a href="#36104" title="7"><font color="#0000ff"><u>hiCreateColorArray</u></font></a>, <a href="#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>, <a href="#36123" title="7"><font color="#0000ff"><u>hiMatchColorByName</u></font></a>, <a href="#36143" title="7"><font color="#0000ff"><u>hiStringToIcon</u></font></a>, <a href="#355348" title="7"><font color="#0000ff"><u>hiSetDisabledIcon</u></font></a></font>
+      </p>
+      <p><a name="358606">&nbsp;</a></p>
+      <p><a name="362146">&nbsp;</a></p>
+      <p><a name="363518">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="365119">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap6.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap8.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

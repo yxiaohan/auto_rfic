@@ -1,0 +1,1405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 15</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="15">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="chap16.html">
+<META NAME="PageCount" CONTENT="20">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap14.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiHelp( s_objTypeS_objName [ g_objDetail ][ g_moreDetail ])=> t / nil ,hiLookupHRFtag(S_tagNameS_fileName)=> l_command / nil,hiModalDBoxHelp(t_helpString [ t_dboxName ])=> t / nil,hiModelessDBoxHelp(t_helpString [ t_dboxName ])=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 15">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap14.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap16.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>15<a name="1032955">&nbsp;</a></h1>
+      <h1><a name="1034913">Online Help Mechanism</a></h1>
+      <p><a name="1039461">This chapter provides information about the online help mechanism and describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036514" title="15" name="1039462"><font color="#0000ff"><u>Online Help Overview</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036297" title="15" name="1039467"><font color="#0000ff"><u>Using the .tgf Help File Mechanism</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036865" title="15" name="1039471"><font color="#0000ff"><u>Specifying Your Own Callback for Help</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1037068" title="15" name="1039475"><font color="#0000ff"><u>Help Response File (.HRF) Compatibility</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1037069" title="15" name="1039479"><font color="#0000ff"><u>Online Help Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1038669" title="15" name="1039483"><font color="#0000ff"><u>Debugging Help</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="1036514">Online Help Overview</a></h2>
+      <p><a name="1036588">The online help mechanism described in this chapter handles help requests from applications integrated into the Virtuoso environment. </a></p>
+      <p><a name="1036535">You request help by</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036536">Clicking a </a><font color="#000000"><em>Help</em></font> button on a form, dialog box, or window</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036539">Selecting a form field or menu item and pressing the </a><font size="2" face="'Courier New'" color="#000000">Help</font> key on your keyboard (or the <font size="2" face="'Courier New'" color="#000000">F1</font> key, if your keyboard does not have a <font size="2" face="'Courier New'" color="#000000">Help</font> key)</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1036516">Virtuoso responds to your help request by sending contextual information to the help service function, </a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font>. <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses this information to do one of the following:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036560">Display online help information in Cadence Help using tag files (</a><font size="2" face="'Courier New'" color="#000000">.tgf</font> files) and the Cadence Help Application Programming Interface (API)</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1036564">Cadence Help is the Cadence online documentation system, which displays HTML pages. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036563">Execute the callback function associated with the help request, if any</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1036587">As a user interface developer, you can control the contextual information that is sent to </a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font> in the following ways:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036589">By specifying the </a><font size="2" face="'Courier New'" color="#000000"><em>help</em></font> argument when you create a form with <font size="2" face="'Courier New'" color="#000000">hiCreateAppForm()</font>, a dialog box with <font size="2" face="'Courier New'" color="#000000">hiDisplayAppDBox()</font>, or a window with <font size="2" face="'Courier New'" color="#000000">hiCreateWindow()</font> or <font size="2" face="'Courier New'" color="#000000">hiDisplayWindow()</font></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036592">By setting the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> properties</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036600">By setting the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property on a form or dialog box, or specifying a custom help menu item for a window, and providing your own callback function (if you do not want to use <font size="2" face="'Courier New'" color="#000000">.tgf</font> files and Cadence Help)</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1036300">The following diagram illustrates how the help system works.</a></p>
+      <p align="left"><a name="1036632"><img src="images/chap15.18.1.1.png" width="668" height="603" alt=""><br></a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1036621">Cadence no longer supports help response files (</a><font size="2" face="'Courier New'" color="#000000">.HRF</font> files) and recommends that you convert your old <font size="2" face="'Courier New'" color="#000000">.HRF</font> files to <font size="2" face="'Courier New'" color="#000000">.tgf</font> files. If you must use your old <font size="2" face="'Courier New'" color="#000000">.HRF</font> files, see <a href="#1037068" title="15"><font color="#0000ff"><u>Help Response File (.HRF) Compatibility</u></font></a>.</p>
+      <p><a name="1036617">The following sections provide details about the help system: </a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036297" title="15" name="1036608"><font color="#0000ff"><u>Using the .tgf Help File Mechanism</u></font></a> </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036865" title="15" name="1036609"><font color="#0000ff"><u>Specifying Your Own Callback for Help</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1037068" title="15" name="1036610"><font color="#0000ff"><u>Help Response File (.HRF) Compatibility</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1037069" title="15" name="1036633"><font color="#0000ff"><u>Online Help Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1038669" title="15" name="1038712"><font color="#0000ff"><u>Debugging Help</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1036634">Additional Information</a></h4>
+      <p><a name="1037986">You can find additional information about </a><font size="2" face="'Courier New'" color="#000000">.tgf</font> files as well as information on how to add your own documents to Cadence Help in the following document:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1037981"><font color="#000000"><em>Cadence Help Topics</em></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="1036297">Using the .tgf Help File Mechanism</a></h2>
+      <p><a name="1037672">Cadence help documents are found through </a><font size="2" face="'Courier New'" color="#000000">.tgf</font> help files, which contain a mapping between help symbols and help documents. Typically, there is one <font size="2" face="'Courier New'" color="#000000">.tgf</font> file for each application. Help documents are displayed in Cadence Help, the Cadence online documentation system. </p>
+      <p><a name="1037995">When a user clicks </a><font color="#000000"><em>Help</em></font> on a form, dialog box or window, or presses the <font color="#000000"><em>Help</em></font> key while a menu is selected, the <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> function is called. <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> is the main service routine of the help mechanism. <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses the information it receives from the help call to </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038040">Identify the </a><font size="2" face="'Courier New'" color="#000000">.tgf</font> file that it needs to call </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1038046"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> identifies the application ID (appID), converts it to lowercase, removes leading and trailing spaces, changes any spaces within it to underscores, and appends a <font size="2" face="'Courier New'" color="#000000">.tgf</font> suffix to it to get the <font size="2" face="'Courier New'" color="#000000">.tgf</font> file name (<font size="2" face="'Courier New'" color="#000000"><em>appid</em></font><font size="2" face="'Courier New'" color="#000000">.tgf</font>). </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038045">Construct the help symbol that it needs to find in the </a><font size="2" face="'Courier New'" color="#000000">.tgf</font> file</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1038051"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> then calls the Cadence Help API, which accesses the <font size="2" face="'Courier New'" color="#000000">.tgf</font> file, searches for the help symbol, finds the document that corresponds to the help symbol, starts Cadence Help, and displays the document. </p>
+      <p><a name="1038023">As a user interface or application developer, you can control the contextual information that is sent to </a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font> when a user clicks <font color="#000000"><em>Help</em></font>. The following sections provide information about how to do so for forms, dialog boxes, windows, and menus.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Form and Dialog Box Help
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Form and Dialog Box Help"></a><a name="1037834">Form and Dialog Box Help</a></h3>
+      <p><a name="1038139">You can specify the appID and help symbol for forms and dialog boxes in two ways:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038056">By specifying the </a><font size="2" face="'Courier New'" color="#000000"><em>g_help</em></font> argument of <font size="2" face="'Courier New'" color="#000000">hiCreateAppForm()</font> or <font size="2" face="'Courier New'" color="#000000">hiDisplayAppDBox()</font> when you create the form or dialog box</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1038057">If you want to set the appID only, specify a single string or symbol as the value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_help</em></font>. This sets the <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property. </blockquote>
+      <blockquote><a name="1039039">If you want to set both the appID and the help symbol, specify a list of two strings or symbols as the value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_help</em></font>. The first element in the list sets the <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property and the second element sets the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property. </blockquote>
+      <blockquote><a name="1039040">If you want to specify the help symbol only, specify a list of two strings or symbols as the value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_help</em></font>, with <font size="2" face="'Courier New'" color="#000000">nil</font> as the first element of the list and the help symbol as the second element. This sets the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property without setting the <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038065">By attaching the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> properties to the symbol that represents the form name or dialog box name, after the form or dialog box is created</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1038095">For example:</a></blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038066">   putprop('formSymbol 'propValue 'hiHelpAppName)</a></font>
+      </blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038067">   putprop('formSymbol 'propValue 'hiHelpSymName)</a></font>
+      </blockquote>
+      <blockquote><a name="1039345">You can also specify </a><font size="2" face="'Courier New'" color="#000000">nil</font> as the property value to clear any previously&#45;set properties.</blockquote>
+      <p><a name="1038068">When a user clicks </a><font color="#000000"><em>Help</em></font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> is called. <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> first checks for the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> and properties. If <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> is set, its value is used as the help symbol, otherwise <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses the form name or dialog box name as the help symbol.</p>
+      <p><a name="1039315">If </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> is set, its value is used as the appID. If <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> is not set or its value is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> calls <font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> to get the application name of the current window, which it uses as the appID. If the application name on the current window is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses <font size="2" face="'Courier New'" color="#000000">dfii</font> as the appID.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1039304">When multiple applications share forms and dialog boxes or when applications are encapsulated, you cannot rely on </a><font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> to return the correct application name. Therefore, you should set <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> for all forms and dialog boxes. If one application sets this property, all other applications that share the form or dialog box should also set this property or assign it to <font size="2" face="'Courier New'" color="#000000">nil</font> before displaying the form or dialog box.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Window Help
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Window Help"></a><a name="1038136">Window Help</a></h3>
+      <p><a name="1039170">You can specify the help symbol for windows in the following ways:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039171">By specifying the </a><font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font> argument of <font size="2" face="'Courier New'" color="#000000">hiCreateWindow()</font> or <font size="2" face="'Courier New'" color="#000000">hiOpenWindow()</font> when you create the window. This value becomes the return value of <font size="2" face="'Courier New'" color="#000000">hiGetHelp()</font>, which is passed to <font size="2" face="'Courier New'" color="#000000">hiHelp()</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039172">By placing the </a><font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property on a symbol of the same name as the help string you specified as the <font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font> argument, after the window is created.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1039173">For example:</a></blockquote>
+      <blockquote>
+        <font size="2" face="Courier" color="#000000"></font>
+        <font size="2" face="Courier" color="#000000"><a name="1039174"><font size="2" face="'Courier New'" color="#000000">hiOpenWindow( ?appType &#34;MyApp&#34; ?help &#34;MyAppHelp&#34;)<br>putprop( 'MyAppHelp &#34;MyHelpSymbol&#34; 'hiHelpSymName)</font></a></font>
+      </blockquote>
+      <p><a name="1039175">You can specify the appID by putting the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property on a symbol of the same name as the help string you specified as the <font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font> argument to <font size="2" face="'Courier New'" color="#000000">hiCreateWindow()</font> or <font size="2" face="'Courier New'" color="#000000">hiOpenWindow()</font>. For example:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038138">hiOpenWindow( ?appType &#34;MyApp&#34; ?help &#34;MyAppHelp&#34;)<br>putprop( 'MyAppHelp &#34;MyApp&#34; 'hiHelpAppName)</a></font>
+      </p>
+      <p><a name="1039168">When a user clicks </a><font color="#000000"><em>Help</em></font> in a window, the <font size="2" face="'Courier New'" color="#000000">hiGetHelp()</font> function is called and its return value is passed to <font size="2" face="'Courier New'" color="#000000">hiHelp()</font>. If you specified the <font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font> argument of <font size="2" face="'Courier New'" color="#000000">hiCreateWindow()</font> or <font size="2" face="'Courier New'" color="#000000">hiOpenWindow()</font>, its value is used as the return value of <font size="2" face="'Courier New'" color="#000000">hiGetHelp()</font>. If you did not specify this argument, the return value of <font size="2" face="'Courier New'" color="#000000">hiGetHelp()</font> is the value of the <font size="2" face="'Courier New'" color="#000000"><em>t_appType</em></font> argument that you set when you created the window. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1038189">For windows help to work correctly, either the </a><font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font> or <font size="2" face="'Courier New'" color="#000000"><em>t_appType</em></font> argument or both must be set when you create the window.</p>
+      <p><a name="1038152"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> first calls <font size="2" face="'Courier New'" color="#000000">hiGetCommandName()</font> to see if a command is running; if it is, the return value of <font size="2" face="'Courier New'" color="#000000">hiGetCommandName()</font> is used as the help symbol. If a command is not running, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> checks the help string it received from <font size="2" face="'Courier New'" color="#000000">hiGetHelp()</font> for the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> properties. If the help string has the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property set, its value is used as the help symbol, otherwise <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses the help string as the help symbol. </p>
+      <p><a name="1038153">If the help string has the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property set, its value is used as the appID. If the property is not set or its value is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> calls <font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> to get the application name of the current window, which it uses as the appID. If the application name on the current window is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses <font size="2" face="'Courier New'" color="#000000">dfii</font> as the appID.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Menu Help
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Menu Help"></a><a name="1038233">Menu Help</a></h3>
+      <p><a name="1038246">You can specify the help symbol and appID for a menu by setting the </a><font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> properties on the menu symbol. You can use the <font size="2" face="'Courier New'" color="#000000">putprop()</font> function to set the properties. For example:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039198">putprop( 'myMenuSymbol &#34;MyHelpSymbol&#34; 'hiHelpSymName)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039199">putprop( 'myMenuSymbol &#34;MyApp&#34; 'hiHelpAppName)</a></font>
+      </p>
+      <p><a name="1038450">When a user selects a menu and presses the </a><font color="#000000"><em>Help</em></font> key (or the <font color="#000000"><em>F1</em></font> key if the keyboard does not have a <font color="#000000"><em>Help</em></font> key), <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> is called. The help that is invoked applies to the entire menu, not just to a menu item.</p>
+      <p><a name="1038252"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> checks the menu symbol for the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> and <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> properties. If the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property is set, its value is used as the help symbol. Otherwise the menu symbol is used as the help symbol.</p>
+      <p><a name="1038270">If the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property is set, its value is used as the appID. If the property is not set or its value is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> calls <font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> to get the application name of the current window, which it uses as the appID. If the application name on the current window is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses <font size="2" face="'Courier New'" color="#000000">dfii</font> as the appID.</p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="ownHelpCall"></a><a name="1036865">Specifying Your Own Callback for Help</a></h2>
+      <p><a name="1036923">If you do not want to use the default </a><font size="2" face="'Courier New'" color="#000000">.tgf</font> help file mechanism, you can specify your own action for the <font color="#000000"><em>Help</em></font> button on forms and dialog boxes by providing a callback function and by setting the <font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property. When a user clicks <font color="#000000"><em>Help</em></font>, the <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> function is called. <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> then executes the callback function associated with the <font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property, instead of referencing a <font size="2" face="'Courier New'" color="#000000">.tgf</font> file.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1037863">You cannot set the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property on windows. See <a href="#1037892" title="15"><font color="#0000ff"><u>Specifying Your Own Callback for Windows</u></font></a> for information on how to specify your own help callback for windows.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Setting the hiHelpAction Property on a Form or Dialog Box
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Setting the hiHelpAction Property on a Form or Dialog Box"></a><a name="1036915">Setting the hiHelpAction Property on a Form or Dialog Box</a></h3>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036924">After you create a form or dialog box, add the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property to the symbol that represents the form or dialog box name. Use the following syntax:</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1036933">putprop( </a><font size="2" face="'Courier New'" color="#000000"><em>formOrDBoxSymbol</em></font> <font size="2" face="'Courier New'" color="#000000"><em>propertyValue</em></font> 'hiHelpAction)</font>
+      </blockquote>
+      <blockquote><a name="1036934">where </a><font size="2" face="'Courier New'" color="#000000"><em>formOrDBoxSymbol</em></font> is the symbol that represents the form or dialog box name and <font size="2" face="'Courier New'" color="#000000"><em>propertyValue</em></font> is the name (symbol or string) of the callback function that you provide. </blockquote>
+      <blockquote><a name="1036932">For example, if your form symbol is </a><font size="2" face="'Courier New'" color="#000000">'myForm</font> and your callback function is <font size="2" face="'Courier New'" color="#000000">myHelpCB()</font>, you would do the following:</blockquote>
+      <blockquote>
+        <font size="2" face="Courier" color="#000000"></font>
+        <font size="2" face="Courier" color="#000000"><a name="1036916"><font size="2" face="'Courier New'" color="#000000">putprop( 'myForm 'myHelpCB 'hiHelpAction)</font></a></font>
+      </blockquote>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1037048">If you do not want your callback function to be passed the default arguments, you must specify the value of </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> as a string that contains parentheses. See <a href="#1036917" title="15"><font color="#0000ff"><u>Writing a Callback Function for a Form or Dialog Box</u></font></a> for details.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Writing a Callback Function for a Form or Dialog Box
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Writing a Callback Function for a Form or Dialog Box"></a><a name="1036917">Writing a Callback Function for a Form or Dialog Box</a></h3>
+      <p><a name="1037051">If you want your callback function to be passed the default arguments,</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1036940">Create a callback function that takes four arguments, each of which is a symbol. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1036939">The callback function will be passed the following arguments: </a></blockquote>
+      <table summary="" border="0" cellpadding="4" cellspacing="0" bordercolor="#D3D3D3" width="615">
+        <tr>
+          <td cellpadding="4" valign="top" width="156">
+            <p><a name="1036881"><font size="2" face="'Courier New'" color="#000000">objType</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="458">
+            <p><a name="1036883"><font size="2" face="'Courier New'" color="#000000">'form</font></a> or <font size="2" face="'Courier New'" color="#000000">'dbox</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036885"><font size="2" face="'Courier New'" color="#000000">objName</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036887">Symbol name of the form or dialog box</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036889"><font size="2" face="'Courier New'" color="#000000">objDetail</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036891">Always </a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036893"><font size="2" face="'Courier New'" color="#000000">moreDetail</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1036895"><font size="2" face="'Courier New'" color="#000000">nil</font></a> if the <font color="#000000"><em>Help</em></font> button is clicked</p>
+            <p><a name="1036896">Symbol name of the field if the </a><font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is over a field</p>
+            <p><a name="1036897"><font size="2" face="'Courier New'" color="#000000">'hiFormNoField</font></a> if the <font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is not over a field</p>
+          </td>
+        </tr>
+      </table>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1037029">These are the same arguments that are passed to </a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font>. </blockquote>
+      <p><a name="1038247">If you do not want your callback function to be passed the default arguments,</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037055">Create the callback function to your own specifications.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037056">Set the value of the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property to a string that contains parentheses. See Example 2 below for details.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1037941">Your callback function does not have to return any specific values--</a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font> ignores the return values from your callback.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Examples
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Examples"></a><a name="1037003">Examples</a></h3>
+      <h4>
+        <em></em>
+        <em><a name="1037006">Example 1</a></em>
+      </h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1036900">myForm = hiCreateAppForm( ?name 'myForm ...)<br>putprop( 'myForm 'myHelpCB 'hiHelpAction)<br>procedure( myHelpCB( objType objName objDetail moreDetail &#34;ssgg&#34; )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hiDisplayAppDBox( ?name 'myHelpDBox ?dboxBanner &#34;My Help&#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?dboxText strcat( &#34;My Help Text for &#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get_pname( objType) &#34;&#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get_pname( objName) ) )</a></font>
+      </p>
+      <h4>
+        <em></em>
+        <em><a name="1036901">Example 2</a></em>
+      </h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1036902">myForm2 = hiCreateAppForm( ?name 'myForm2 ...)<br>putprop( 'myForm2 &#34;myHelpFunc( \&#34;no help for myForm2\&#34;)&#34; 'hiHelpAction)<br>procedure( myHelpFunc( helpText &#34;t&#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hiDisplayAppDBox(?name 'myHelpDBox2 ?dboxBanner &#34;My Other Help&#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?dboxText helpText)<br>)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Specifying Your Own Callback for Windows
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Specifying Your Own Callback for Windows"></a><a name="1037892">Specifying Your Own Callback for Windows</a></h3>
+      <p><a name="1037895">You cannot set the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property on windows. If you want to specify your own help callback for windows, you can override the default <font color="#000000"><em>Help</em></font> button with a pulldown menu and add your own callback as a menu item.</p>
+      <p><a name="1037902">To specify your own callback for windows,</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037903">Write your callback function.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037912">Create a menu item with </a><font size="2" face="'Courier New'" color="#000000">hiCreateMenuItem()</font> and specify your callback function as the <font size="2" face="'Courier New'" color="#000000">?callback</font> argument.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037911">Create a menu with </a><font size="2" face="'Courier New'" color="#000000">hiCreateMenu()</font> and specify <font size="2" face="'Courier New'" color="#000000">&#34;Help&#34;</font> as the menu title.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1037906">Insert the menu in the window banner with </a><font size="2" face="'Courier New'" color="#000000">hiInsertBannerMenu()</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1037893">Specify </a><font size="2" face="'Courier New'" color="#000000">99</font> as the value of the <font size="2" face="'Courier New'" color="#000000"><em>x_menuPosition</em></font> argument to ensure that the <font color="#000000"><em>Help</em></font> menu is displayed at the right end of the banner.</blockquote>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1037068">Help Response File (.HRF) Compatibility</a></h2>
+      <p><a name="1037956">Cadence no longer supports help response files (</a><font size="2" face="'Courier New'" color="#000000">.HRF</font> files) and recommends that you convert your old <font size="2" face="'Courier New'" color="#000000">.HRF</font> files to <font size="2" face="'Courier New'" color="#000000">.tgf</font> files. </p>
+      <p><a name="1037978">If you want to use your old </a><font size="2" face="'Courier New'" color="#000000">.HRF</font> files, do the following:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039748">Read and follow the instructions in the following file:</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+        <font size="2" face="Courier" color="#000000"></font>
+        <font size="2" face="Courier" color="#000000"><a name="1037971"><font size="2" face="'Courier New'" color="#000000"><em>your_install_dir</em></font></a><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;dfII&#47;samples&#47;local&#47;hrfHelp.il</font></font>
+      </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039751">Load the </a><font size="2" face="'Courier New'" color="#000000">hrfHelp.il</font> file.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1039968">There is also a new function, </a><font size="2" face="'Courier New'" color="#000000">hiLookupHRFtag</font>, which you can use to look up help tags in <font size="2" face="'Courier New'" color="#000000">.HRF</font> files. The function is described below; for an example of its usage, see the <font size="2" face="'Courier New'" color="#000000">hrfHelp.il</font> file.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiLookupHRFtag
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiLookupHRFtag"></a><a name="1039969">hiLookupHRFtag</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039970">hiLookupHRFtag(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_tagName<dd>S_fileName<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_command</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039980">Description</a></h4>
+      <p><a name="1039981">Returns the command that has been defined as the help response for a help tag in a </a><font size="2" face="'Courier New'" color="#000000">.HRF</font> file. You can get more information about the usage of this function from the <font size="2" face="'Courier New'" color="#000000"><em>your_install_dir</em></font><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;dfII&#47;samples&#47;local&#47;hrfHelp.il</font> file. </p>
+      <h4><a name="1039982">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1043941"><font size="2" face="'Courier New'" color="#000000"><em>S_tagName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1043943">The help tag for which you want to find the help response.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043945"><font size="2" face="'Courier New'" color="#000000"><em>S_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043947">The </a><font size="2" face="'Courier New'" color="#000000">.HRF</font> file in which you want to look for the help response. The contents of this file must be sorted in C sort order and must be in the following format:</p>
+            <p><a name="1043977"><font size="2" face="'Courier New'" color="#000000"><em>tagName</em></font></a> <font size="2" face="'Courier New'" color="#000000"><em>command</em></font></p>
+            <p><a name="1043992">where </a><font size="2" face="'Courier New'" color="#000000"><em>tagName</em></font> is the name of the help tag and <font size="2" face="'Courier New'" color="#000000"><em>command</em></font> is the SKILL function that defines the response to the help request. <font size="2" face="'Courier New'" color="#000000"><em>tagName</em></font> cannot contain spaces. Anything following <font size="2" face="'Courier New'" color="#000000"><em>tagName</em></font> (including spaces) is considered a SKILL command. Each <font size="2" face="'Courier New'" color="#000000"><em>tagName</em></font> entry can span only one line.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039984">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044005"><font size="2" face="'Courier New'" color="#000000"><em>l_command</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1044007">The command that has been defined as the help response for the help tag.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044009"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044011">The help tag does not exist in the file specified; the file does not exist; or the file is not sorted in C sort order, in which case the tag may not be found even if it exists in the file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039986">Example</a></h4>
+      <p><a name="1039987">See </a><font size="2" face="'Courier New'" color="#000000"><em>your_install_dir</em></font><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;dfII&#47;samples&#47;local&#47;hrfHelp.il</font> for more information about how this function is used.</p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1037069">Online Help Functions</a></h2>
+      <p><a name="1037076">This section describes the SKILL functions that support the help mechanism. While these functions are available for your use, you typically do not not need to use them directly. They are described here because they are used by the default help system. </a></p>
+      <p><a name="1037096">The following SKILL functions are described in this section:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1037100" title="15" name="1037082"><font color="#0000ff"><u>hiHelp</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1037200" title="15" name="1037083"><font color="#0000ff"><u>hiModalDBoxHelp()</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1037201" title="15" name="1037084"><font color="#0000ff"><u>hiModelessDBoxHelp()</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiHelp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiHelp"></a><a name="1037100">hiHelp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037206">hiHelp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_objType<dd>S_objName</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_objDetail </em></font>]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_moreDetail </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1037207">Description</a></h4>
+      <p><a name="1037208">Constructs a help symbol from its arguments and invokes the Cadence Help API to display the help document associated with the help symbol. If the </a><font size="2" face="'Courier New'" color="#000000">hiHelpAction</font> property is set, <font size="2" face="'Courier New'" color="#000000">hiHelp</font> executes the callback associated with the property, instead of calling the Cadence Help API. <font size="2" face="'Courier New'" color="#000000">hiHelp</font> is the main service routine for the online help system.</p>
+      <p><a name="1039223">Clicking on a help button in a Virtuoso application invokes a call to </a><font size="2" face="'Courier New'" color="#000000">hiHelp()</font>. You can also execute <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> from the CIW, as a callback from a form selection menu, or as a call from any SKILL procedure. </p>
+      <h4><a name="1037210">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044019"><font size="2" face="'Courier New'" color="#000000"><em>s_objType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1044021">Symbol that identifies the category of the help request. </a><font size="2" face="'Courier New'" color="#000000"><em>s_objType</em></font> is one of the following: <font size="2" face="'Courier New'" color="#000000">'form</font>, <font size="2" face="'Courier New'" color="#000000">'menu</font>, <font size="2" face="'Courier New'" color="#000000">'command</font>, <font size="2" face="'Courier New'" color="#000000">'window</font>, <font size="2" face="'Courier New'" color="#000000">'dbox</font>, <font size="2" face="'Courier New'" color="#000000">'helpError</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044023"><font size="2" face="'Courier New'" color="#000000"><em>S_objName</em></font></a> | <font size="2" face="'Courier New'" color="#000000"><em>g_objDetail</em></font> | <font size="2" face="'Courier New'" color="#000000"><em>g_moreDetail</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044025">The meanings of these arguments depend upon the value of </a><font size="2" face="'Courier New'" color="#000000"><em>objType</em></font> as defined below:</p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="648">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="120">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1037215">objType</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="136">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1037217">objName</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="106">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1037219">objDetail</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="286">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1037221">moreDetail</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037223"><font size="2" face="'Courier New'" color="#000000">'form</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037225">form name</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037227"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1039372"><font size="2" face="'Courier New'" color="#000000">nil</font></a> if the <font color="#000000"><em>Help</em></font> button is clicked</p>
+            <p><a name="1039373">Symbol name of the field if the </a><font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is over a field</p>
+            <p><a name="1039374"><font size="2" face="'Courier New'" color="#000000">'hiFormNoField</font></a> if the <font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is not over a field</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037231"><font size="2" face="'Courier New'" color="#000000">'menu</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037233">menu name</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037235"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037237">n&#47;a</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037239"><font size="2" face="'Courier New'" color="#000000">'command</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037241">command name</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037243">command argument</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037245">n&#47;a</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037247"><font size="2" face="'Courier New'" color="#000000">'window</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037249">help string set on the window or the application name set on the window</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037251">window ID</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037253">current command name</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037255"><font size="2" face="'Courier New'" color="#000000">'dbox</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037257">dialog box name</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1037259">n&#47;a</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1039382"><font size="2" face="'Courier New'" color="#000000">nil</font></a> if the <font color="#000000"><em>Help</em></font> button is clicked</p>
+            <p><a name="1039383">Symbol name of the field if the </a><font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is over a field</p>
+            <p><a name="1039384"><font size="2" face="'Courier New'" color="#000000">'hiFormNoField</font></a> if the <font color="#000000"><em>Help</em></font> or <font color="#000000"><em>F1</em></font> key is pressed when the cursor is not over a field</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037263"><font size="2" face="'Courier New'" color="#000000">'helpError</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037265">error name</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037267">n&#47;a</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1037269">n&#47;a</a></p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044041">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1044043"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> uses the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font> and, in some cases, the <font size="2" face="'Courier New'" color="#000000"><em>objDetail</em></font> to identify the help symbol and appID that are used to reference a <font size="2" face="'Courier New'" color="#000000">.tgf</font> file.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044045">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044047"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> first checks the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font> for the <font size="2" face="'Courier New'" color="#000000">hiHelpSymName</font> property. If the property is set, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> uses its value as the help symbol. Applications can set this property on the symbol that is passed as the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font>. If it is not set, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> constructs the help symbol. This feature is useful for those forms and windows that are defined dynamically and where the name of the form or window is not known until run time. (See <a href="#1036297" title="15"><font color="#0000ff"><u>Using the .tgf Help File Mechanism</u></font></a> for details on how <font size="2" face="'Courier New'" color="#000000">hiHelp</font> determines the help symbol.)</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044049">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044051"><font size="2" face="'Courier New'" color="#000000">hiHelp</font></a> also checks the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font> for the <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> property. Applications can control the name of their own application&#45;specific <font size="2" face="'Courier New'" color="#000000">.tgf</font> file by setting this property on the object that is passed as the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font>. If this property is set and its value is not <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">hiHelp</font> uses its value as the appID.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044053">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044055">If </a><font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> is not set, <font size="2" face="'Courier New'" color="#000000">hiHelp()</font> gets the appID by calling <font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> on the current window, which returns the application name of the current window.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044057">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044059"><font color="#000000"><strong>Note:</strong></font></a> When multiple applications share forms and dialog boxes or when applications are encapsulated, you cannot rely on <font size="2" face="'Courier New'" color="#000000">hiGetAppType()</font> to return the correct application name. Therefore, you should set <font size="2" face="'Courier New'" color="#000000">hiHelpAppName</font> for all forms and dialog boxes. If one application sets this property, all the other applications that share the form or dialog box should also set this property or assign it to <font size="2" face="'Courier New'" color="#000000">nil</font> before displaying the form or dialog box.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044061">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044063">See </a><a href="#1036297" title="15"><font color="#0000ff"><u>Using the .tgf Help File Mechanism</u></font></a> for more information on how <font size="2" face="'Courier New'" color="#000000">hiHelp</font> determines the appID. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044065">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044067"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> then converts the appID to lowercase, removes leading and trailing spaces, and changes any spaces within it to underscores. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044069">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044071"><font size="2" face="'Courier New'" color="#000000">hiHelp()</font></a> determines the name of the <font size="2" face="'Courier New'" color="#000000">.tgf</font> file by appending the <font size="2" face="'Courier New'" color="#000000">.tgf</font> suffix to the appID.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037311">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044100"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1044102">The function is successful. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044104"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044106">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037314">Example</a></h4>
+      <p><a name="1037317">In the following menu, </a><font size="2" face="'Courier New'" color="#000000">myMenu</font>:</p>
+      <p align="left"><a name="1037327"><img src="images/chap15.18.1.2.png" width="310" height="97" alt=""><br></a></p>
+      <p><a name="1037328">the </a><font color="#000000"><em>HELP</em></font> menu item is programmed with the following callback:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037329">hiHelp( 'menu &#34;myMenu&#34;)</a></font>
+      </p>
+      <p><a name="1037330">When a user selects </a><font color="#000000"><em>HELP</em></font>, the request generates the help symbol <font size="2" face="'Courier New'" color="#000000">myMenu</font>. If the application ID is <font size="2" face="'Courier New'" color="#000000">exampleApp</font>, then the Cadence Help API will look for the help symbol <font size="2" face="'Courier New'" color="#000000">myMenu</font> in <font size="2" face="'Courier New'" color="#000000">exampleApp.tgf</font> and will display the document associated with it.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiModalDBoxHelp()
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiModalDBoxHelp()"></a><a name="1037200">hiModalDBoxHelp()</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037367">hiModalDBoxHelp(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_helpString</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>t_dboxName </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1037368">Description</a></h4>
+      <p><a name="1037370">Displays a message in a modal dialog box. A modal dialog box is a blocking dialog box--it waits for an acknowledgement before allowing the application to continue.</a></p>
+      <p><a name="1037371"><font size="2" face="'Courier New'" color="#000000">hiModalDBoxHelp</font></a> is a service routine for the online help system. </p>
+      <h4><a name="1037372">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044113"><font size="2" face="'Courier New'" color="#000000"><em>t_helpString</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1044115">The string to be formatted into the modal dialog box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044117"><font size="2" face="'Courier New'" color="#000000"><em>t_dboxName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044119">The name of the modal dialog box. If you do not provide this argument, the dialog box is assigned the name </a><font size="2" face="'Courier New'" color="#000000">modalDBoxHelp</font>. Clicking the <font color="#000000"><em>Help</em></font> button on this dialog box generates a call to <font size="2" face="'Courier New'" color="#000000">hiHelp</font> with <font size="2" face="'Courier New'" color="#000000">dbox</font> as <font size="2" face="'Courier New'" color="#000000"><em>objType</em></font> and the dialog box name as <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037375">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044126"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1044128">The dialog box is displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044130"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044132">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037378">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037379">hiModalDBoxHelp( &#34;This is a help message.&#34;) </a></font>
+      </p>
+      <p><a name="1037466">displays the following dialog box:</a></p>
+      <p align="left"><a name="1037471"><img src="images/chap15.18.1.3.png" width="299" height="139" alt=""><br></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiModelessDBoxHelp()
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiModelessDBoxHelp()"></a><a name="1037201">hiModelessDBoxHelp()</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037395">hiModelessDBoxHelp(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_helpString</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>t_dboxName </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1037396">Description</a></h4>
+      <p><a name="1037398">Displays a message in a modeless dialog box. A modeless dialog box is a non&#45;blocking dialog box--it does not wait for an acknowledgement before allowing the application to continue. </a></p>
+      <p><a name="1037463"><font size="2" face="'Courier New'" color="#000000">hiModelessDBoxHelp</font></a> is a service routine for the online help system.</p>
+      <h4><a name="1037399">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044143"><font size="2" face="'Courier New'" color="#000000"><em>t_helpString</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1044145">The string to be formatted into the modeless dialog box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044147"><font size="2" face="'Courier New'" color="#000000"><em>t_dboxName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044149">The name of the modeless dialog box. If you do not provide this argument, the dialog box is assigned the name </a><font size="2" face="'Courier New'" color="#000000">modelessDBoxHelp</font>. Clicking the <font color="#000000"><em>Help</em></font> button on this dialog box generates a call to <font size="2" face="'Courier New'" color="#000000">hiHelp</font> with <font size="2" face="'Courier New'" color="#000000">dbox</font> as the <font size="2" face="'Courier New'" color="#000000"><em>objType</em></font> and the dialog box name as the <font size="2" face="'Courier New'" color="#000000"><em>objName</em></font>. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037402">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044160"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1044162">The function is successful.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044164"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044166">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037405">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037406">hiModelessDBoxHelp( &#34;This is a help message.&#34;) </a></font>
+      </p>
+      <p><a name="1037407">displays the following dialog box:</a></p>
+      <p align="left"><a name="1038304"><img src="images/chap15.18.1.4.png" width="270" height="139" alt=""><br></a></p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1038669">Debugging Help</a></h2>
+      <p><a name="1038670">To display information about any help call in the Command Interpreter Window (CIW), do the following:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1038683">In the CIW, select </a><font color="#000000"><em>Options</em></font> - <font color="#000000"><em>Log Filter</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1038684">In the Set Log File Display Filter form, select the </a><font color="#000000"><em>Show Output: user</em></font> option. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1038694">The online help system prints various messages in the CIW, including the help symbol and application ID, for each help request.</a></blockquote>
+      <p><a name="1038671">For more detailed debugging information, do the following:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038703">In the CIW, set the </a><font size="2" face="'Courier New'" color="#000000">helpDebug</font> variable by typing:</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038693">helpDebug = t</a></font>
+      </blockquote>
+      <blockquote><a name="1038692">Whenever </a><font size="2" face="'Courier New'" color="#000000">helpDebug</font> is set to anything except <font size="2" face="'Courier New'" color="#000000">nil</font>, the help mechanism displays additional debugging information in the CIW.</blockquote>
+      <p><a name="1040427">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap14.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap16.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

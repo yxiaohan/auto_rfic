@@ -1,0 +1,1234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 1</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="1">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="chap2.html">
+<META NAME="PageCount" CONTENT="12">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="preface.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 1">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="preface.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap2.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>1<a name="115216">&nbsp;</a></h1>
+      <h1><a name="115671">Introduction</a></h1>
+      <p><a name="470139">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#115680" title="1" name="470140"><font color="#0000ff"><u>Access to the User Interface</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472517" title="1" name="470145"><font color="#0000ff"><u>Callback Routines</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#473361" title="1" name="473398"><font color="#0000ff"><u>Configuring Clipboard&#47;Selection Behavior</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="115680">Access to the User Interface</a></h2>
+      <p><a name="116656">At system start&#45;up, the look and feel of the system is determined by a configurable system start&#45;up file. Once the system is running, changing the system's look and feel, creating new objects, and object manipulation is possible through SKILL and C user interface access routines. The goal of these interface routines is to provide layered, controlled access to the user interface and its objects. </a></p>
+      <p><a name="115228">Access is available through high&#45;level objects, composed of primitive user interface elements: menus, scroll bars, popup menus, labels, command buttons, and so forth, or through primitive objects themselves. Several layers of start&#45;up configuration files are supplied. You can customize the functionality on each level.</a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Bottom&#45;Up Construction
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="115396">Bottom&#45;Up Construction</a></h3>
+      <p><a name="115231">Larger, composite</a> user&#45;interface objects must be created in a bottom&#45;up fashion; that is, each sub&#45;object that makes up a composite object must be created before the composite object is created. A menu is an example of a composite object. Each menu item must be created before the call to <font size="2" face="'Courier New'" color="#000000">hiCreateMenu</font>, which accepts menu item objects as arguments. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Global Symbols
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="115409">Global Symbols</a></h3>
+      <p><a name="115236">Most of the user interface objects you create (that is, forms, menus, list boxes, non&#45;blocking dialog boxes) are used and accessed in more than one SKILL routine. For this reason it is necessary to use a unique</a><strong> </strong>global SKILL symbol as the SKILL handle in the creation routines. The user interface code depends on this. </p>
+      <p><a name="115229">For example, when the form is created and the SKILL handle passed to </a><font size="2" face="'Courier New'" color="#000000">hiCreateAppForm</font> or <font size="2" face="'Courier New'" color="#000000">hiCreateForm</font> is not global, any attempts to bring this form down (via the <font color="#000000"><em>OK</em></font> or <font color="#000000"><em>Cancel</em></font> button) will fail. This is because the user interface code cannot access the form contents if the form symbol is not global.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="471967">When defining names for forms, fields, or other user interface objects, do not use any characters other than alphanumerics, underscore, and question mark  Also, do not begin the name with a numeric character or a question mark.</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Destroying
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="115426">Destroying</a></h3>
+      <p><a name="115235">Do not try to destroy a user&#45;interface object by resetting its SKILL handle to </a><font size="2" face="'Courier New'" color="#000000">nil</font>. This will destroy the SKILL contents of the object, but will leave the memory associated with the object unreferenced, and impossible to free. For menus and forms, use the appropriate delete function (that is, <font size="2" face="'Courier New'" color="#000000">hiDeleteMenu</font> or <font size="2" face="'Courier New'" color="#000000">hiDeleteForm</font>). List boxes and dialog boxes will be properly destroyed when they are removed from the screen.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=SKILL Coding
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="115447">SKILL Coding</a></h3>
+      <p><a name="115217">General information about programming in SKILL is available in the </a><font color="#000000"><em>Cadence SKILL Language User Guide</em></font> and the <font color="#000000"><em>Cadence SKILL Language Reference</em></font>. Understand the coding techniques described in these documents before accessing the user interface.</p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="callbackroutine"></a><a name="472517">Callback Routines</a></h2>
+      <p><a name="472518">User interface objects can have callback routines associated with them. A callback is a SKILL routine that is asynchronously "called back" if some triggering user action takes place. Examples of such actions would be values being changed on forms, menu item selection, or dialog box confirmation. Typically, callbacks analyze and process data that you provide. In the case of forms, for example, a callback can be specified for each form field or for the form itself.</a></p>
+      <p><a name="472519">This section describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472541" title="1" name="472522"><font color="#0000ff"><u>Types of Callback</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472551" title="1" name="472526"><font color="#0000ff"><u>Callbacks Supported by HI Forms and Fields</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472658" title="1" name="472530"><font color="#0000ff"><u>Function Object Callbacks</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472660" title="1" name="472534"><font color="#0000ff"><u>Callback Syntax</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#472702" title="1" name="472538"><font color="#0000ff"><u>Function Object Callbacks with Additional Arguments</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Types of Callback
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="472541">Types of Callback</a></h3>
+      <p><a name="472542">SKILL callbacks can be strings, symbols, or function objects. In either case, the string, the function specified by its symbol, or the function object, is evaluated in SKILL at the time the callback is triggered. </a></p>
+      <p><a name="472543">If the callback is:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472544">a string, it must be a complete, valid SKILL expression, because this string is passed directly to SKILL for evaluation. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472545">a symbol, it is assumed that the value of this symbol is a function, and a predetermined set of arguments is passed to that function.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472546">a function object, a predetermined set of arguments are passed to that function.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="472547">A function object callback offers the following main advantages over the string and symbol types:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472548">The string and symbol callbacks are required to be in the global namespace. However, you need not define a function object type callback in the global namespace and if you define it in SKILL++, it is evaluated in the same environment in which it is defined.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472549">When string and symbol callbacks are used, to access a field, you have to know where that field is used at the callback creation time. However, for a function object, you do not need to know the location of the field where it is to be used.</a></td>
+          </tr>
+        </table>
+      </div>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Callbacks Supported by HI Forms and Fields
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="472551">Callbacks Supported by HI Forms and Fields</a></h3>
+      <p><a name="472552">In HI forms, you can define callbacks for the OK and Cancel buttons, customized callbacks in </a><font size="2" face="'Courier New'" color="#000000">?buttonLayout</font>, and mapCallback. In HI fields, the most common callback is the common value change callback (<font size="2" face="'Courier New'" color="#000000">?callback</font>). However, there are 22 different types of HI fields and you can define callbacks to handle different events for these fields. For example, for the type&#45;in fields you can define the <font size="2" face="'Courier New'" color="#000000">?modifyCallback</font> and <font size="2" face="'Courier New'" color="#000000">?focusInCallback</font>. For report and tree fields, you can define callbacks to handle pointer events. </p>
+      <p><a name="472656">The following table lists the various callbacks supported by HI forms and fields.</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="600">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="300">
+            <p><a name="472555"><font color="#000000">HI Form&#47;Field Name</font></a></p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="300">
+            <p><a name="472557">Callback Name</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="472559">hiCreateAppForm </a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472561"><font size="2" face="'Courier New'" color="#000000">?callback<br></font></a>?mapCB </font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472563">hiChangeFormCallback </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472565"><font size="2" face="'Courier New'" color="#000000">?callback </font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472567">hiCreateStringField</a></p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="472568">hiCreateFileSelectorField supports the same callbacks as hiCreateStringField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472570"><font size="2" face="'Courier New'" color="#000000">?callback<br>?modifyCallback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472572">hiCreateIntField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472574"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472576">hiCreateFloatField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472578"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472580">hiCreateListField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472582"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472584">hiCreatePointField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472586"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472588">hiCreateBBoxField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472590"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472592">hiCreateComboField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472594"><font size="2" face="'Courier New'" color="#000000">?callback<br>?modifyCallback<br>?focusInCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472596">hiCreateMLTextField </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472598"><font size="2" face="'Courier New'" color="#000000">?callback<br>?focusInCallback<br>?changeCB</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472600">hiCreateToggleField </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472602"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472604">hiCreateRadioField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472606"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472608">hiCreateCyclicField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472610"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472612">hiCreateButtonBoxField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472614"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472616">hiCreateSpinBox</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472618"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472620">hiCreateFloatSpinBox</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472622"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472624">hiCreateScaleField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472626"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472628">hiCreateHypertextField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472630"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472632">hiCreateButton</a></p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="472633">hiCreateFormButton is an alias to hiCreateButton and therefore the arguments will be the same for both the functions</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472635"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472637">hiCreateBooleanButton</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472639"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472641">hiCreateTabField </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472643"><font size="2" face="'Courier New'" color="#000000">?callback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472645">hiCreateListBoxField </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472647"><font size="2" face="'Courier New'" color="#000000">?callback<br>?changeCB<br>?doubleClickCB</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472649">hiCreateReportField </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472651"><font size="2" face="'Courier New'" color="#000000">?callback<br>?doubleClickCB<br>?sortCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="472653">hiCreateTreeTable </a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p>
+              <font size="2" face="Courier" color="#000000"><a name="472655"><font size="2" face="'Courier New'" color="#000000">?callback<br>?expandCallback<br>?collapseCallback<br>?hiDoubleClickCallback<br>?sortCallback</font></a></font>
+            </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Function Object Callbacks
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="472658">Function Object Callbacks</a></h3>
+      <h4><a name="472660">Callback Syntax</a></h4>
+      <p><a name="472661">The syntax of a function object callback is the following:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472662">&#60;</a><font size="2" face="'Courier New'" color="#000000"><em>callback</em></font>&#62; (<font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope</em></font> @<font size="2" face="'Courier New'" color="#000000"><em>rest_args</em></font>)</font>
+      </p>
+      <p><a name="472663">where,</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472664"><font size="2" face="'Courier New'" color="#000000"><em>o_field</em></font></a><font size="2" face="'Courier New'" color="#000000"> </font>is the field whose callback is triggered. It can be used to access the properties of the field (<font size="2" face="'Courier New'" color="#000000"><em>o_field</em></font><font size="2" face="'Courier New'" color="#000000">&#45;&#62;</font><font size="2" face="'Courier New'" color="#000000"><em>value</em></font><font size="2" face="'Courier New'" color="#000000">)</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472665"><font size="2" face="'Courier New'" color="#000000"><em>g_scope</em></font></a> is the location where the field is instantiated. It can be a HI form, a scroll&#45;region field, or a page of a tab field. It can be used to access fields that are placed in the same scroll&#45;region, tab page, or form where the field (<font size="2" face="'Courier New'" color="#000000"><em>o_field</em></font>) for which the callback is triggered placed. To access the fields in the same form but outside <font size="2" face="'Courier New'" color="#000000"><em>g_scope</em></font>, a function is provided. The function name is hiGetFieldScope.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="472666">The syntax for hiGetFieldScope is </a><font size="2" face="'Courier New'" color="#000000">(hiGetFieldScope </font><font size="2" face="'Courier New'" color="#000000"><em>g_field</em></font><font size="2" face="'Courier New'" color="#000000">)</font>. <br>When the given <font size="2" face="'Courier New'" color="#000000"><em>g_field</em></font> is a HI field, which can be a scroll&#45;region, tab or tab&#45;page field, the function returns the scope containing the field. The return value can be a scroll&#45;region, a tab page, a tab field, form, or nil.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="472667"><font size="2" face="'Courier New'" color="#000000">@</font></a><font size="2" face="'Courier New'" color="#000000"><em>rest_args</em></font> is a variable argument list that is used for those fields whose callback expects one or more additional arguments.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="472668">Example 1:</a></p>
+      <p><a name="472669">In this example, the function </a><font size="2" face="'Courier New'" color="#000000">make_radians_degrees_fields()</font> creates two type&#45;in fields, <font size="2" face="'Courier New'" color="#000000">Radians</font> and <font size="2" face="'Courier New'" color="#000000">Degrees</font> with a local callback <font size="2" face="'Courier New'" color="#000000">converter</font>. The callback is used to set the value of the <font size="2" face="'Courier New'" color="#000000">Radians</font> field based on the value of the <font size="2" face="'Courier New'" color="#000000">Degrees </font>field and vice versa. Also, in this example, the callback is not defined in the global namespace and that there is no need to know where the two type&#45;in fields are to be placed.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472670">(defun make_radians_degrees_fields ()</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472671">&nbsp;&nbsp;&nbsp;&nbsp;(let ((scale 180.0&#47;3.14159265))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472672">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472673">&nbsp;&nbsp;&nbsp;&nbsp;;; a local callback shared by radians, and degrees</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472674">&nbsp;&nbsp;&nbsp;&nbsp;(define (converter field scope)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472675">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(caseq field&#45;&#62;hiFieldSym</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472676">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(radians scope&#45;&#62;degrees&#45;&#62;value = (round field&#45;&#62;value * scale))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472677">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(degrees scope&#45;&#62;radians&#45;&#62;value = field&#45;&#62;value &#47; scale)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472678">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(t (assert &#34;this shouldn&#39;t happen&#34;))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472679">(list</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472680">(hiCreateFloatField ?name &#39;radians ?callback converter ?prompt &#34;Radians&#34; ?value<br>0.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472681">(hiCreateIntField ?name &#39;degrees ?callback converter ?prompt &#34;Degrees&#34; ?value<br>0))))</a></font>
+      </p>
+      <p><a name="472682">Example 2:</a></p>
+      <p><a name="472683">In this example, the function </a><font size="2" face="'Courier New'" color="#000000">list_png_files()</font> searches for all the <font size="2" face="'Courier New'" color="#000000">.png</font> files in the given directory, lists them in a cyclic field, and prints the filename when an icon is selected from the cyclic field.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472684">(defun list_png_files ( dir )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472685">  (let ((png_files (rexMatchList &#34;.png$&#34; (getDirFiles dir)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472686">        (png_table (makeTable &#34;icon to .png file name&#34; nil)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472687">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472688">    ;; establish mapping</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472689">    (mapcar (lambda (x) png_table[ (hiLoadIconFile x 24 24) ] = x) png_files)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472690">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472691">    (hiDisplayForm</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472692">     (hiCreateAppForm</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472693">      ?name &#39;png_list_form ?formTitle &#34;PNG List&#34; ?buttonLayout &#39;Close</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472694">      ?fields (list (hiCreateCyclicField</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472695">                     ?name &#39;icons ?prompt &#34;Icons&#34; ?choices png_table&#45;&#62;?</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472696">                     ?callback (lambda (field scope item)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472697">                                 (printf &#34;selected item is %L\n&#34; png_table[ item]))))))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472698">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472699">(list_png_files (prependInstallPath &#34;..&#47;..&#47;share&#47;cdssetup&#47;icons&#47;24x24&#34;))</a></font>
+      </p>
+      <h4><a name="472702">Function Object Callbacks with Additional Arguments</a></h4>
+      <p><a name="472703">Callbacks of function object type for certain HI fields require arguments in addition to </a><font size="2" face="'Courier New'" color="#000000"><em>o_field</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_scope</em></font>. The following table lists such callbacks:</p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="648">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="192">
+            <p><a name="472706">HI Form&#47;Field Names</a></p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="156">
+            <p><a name="472708">Callback Name</a></p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="300">
+            <p><a name="472710">Callback Syntax</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="472712">hiCreateToggleField </a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472714">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472716">&#60; toggle field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope s_item g_value</em></font>)</font>
+            </p>
+            <p><a name="472717">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>s_item</em></font> is the name of the item specified as a symbol.<br><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> specifies the value of the toggle item whose value was changed.</p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="472718">If the toggle field is instantiated at multiple places, </a><font size="2" face="'Courier New'" color="#000000"><em>g_scope</em></font> passed to a toggle field callback can be different from the one in which the toggle field is placed. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472720">hiCreateButtonBoxField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472722">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472724">&#60; button box field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope t_button_text</em></font>)</font>
+            </p>
+            <p><a name="472725">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>t_button_text</em></font> specifies the text string of the button that was pressed.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472727">hiCreateBooleanButton</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472729">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472731">&#60; boolean button field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope g_value</em></font>) </font>
+            </p>
+            <p><a name="472732">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> specifies the value of the boolean button.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472734">hiCreateRadioField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472736">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472738">&#60; radio field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope t_selection</em></font>) </font>
+            </p>
+            <p><a name="472739">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>t_selection</em></font> specifies the string representing the radio item that was selected.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472741">hiCreateCyclicField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472743">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472745">&#60; cyclic field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope g_item</em></font> )</font>
+            </p>
+            <p><a name="472746">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>g_item </em></font>specifies the item selected, which can be either text or icon.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472748">hiCreateReportField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472750">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472752">&#60; report callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope l_selected_items</em></font> )</font>
+            </p>
+            <p><a name="472753">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>l_selected_items</em></font> specifies a list of integers representing the selected items of the report.</p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="472754">The </a><font size="2" face="'Courier New'" color="#000000"><em>g_scope</em></font> argument passed to a report field callback can be different from the one in which the report field is placed, if the report field is instantiated multiple times. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472756">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472758">?doubleClickCB</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472760"> &#60; double click callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope x_item_index</em></font> )</font>
+            </p>
+            <p><a name="472761">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>x_item_index</em></font> specifies an integer representing the item that was double&#45;clicked.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472763">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472765">?sortCallback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472767">&#60; sort callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope l_sort_property </em></font>)</font>
+            </p>
+            <p><a name="472768">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>l_sort_property</em></font> is a list (columnToSort sortDirection), where columnToSort is an integer indicating the column to sort and sortDirection is t or nil, indicating descending or ascending order, respectively. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472770">hiCreateTreeTable</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472772">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472774"> &#60; tree table callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope l_items</em></font> )</font>
+            </p>
+            <p><a name="472775">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>l_items</em></font><font size="2" face="'Courier New'" color="#000000"> </font>is the list of selected items (symbols).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472777">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472779">?sortCallback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472781">&#60; sort callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope l_sort_property </em></font>)</font>
+            </p>
+            <p><a name="472782">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>l_sort_property</em></font> is a list (columnToSort sortDirection), where columnToSort is an integer indicating the column to sort and sortDirection is t or nil, indicating descending or ascending order, respectively.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472784">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472786">?expandCallback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472788">&#60; expand callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope s_item</em></font> )</font>
+            </p>
+            <p><a name="472789">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>s_item</em></font> is the symbol of the item being expanded.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472791">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472793">?collapseCallback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472795">&#60; collapse callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope s_item</em></font> )</font>
+            </p>
+            <p><a name="472796">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>s_item </em></font>is the symbol of the item being collapsed</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472798">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472800">?doubleClickCB</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472802">&#60; double click callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope s_item</em></font> )</font>
+            </p>
+            <p><a name="472803">where,<br></a><font size="2" face="'Courier New'" color="#000000"><em>s_item</em></font> is the symbol of the item being double&#45;clicked</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472805">hiCreateStringField<br>hiCreateComboField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="472807"><font color="#000000">?modifyCallback</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472809">&#60; field modify callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope t_latestTextValue g_sourceOfChange</em></font>) </font>
+            </p>
+            <p><a name="472810">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>t_latestTextValue</em></font> is the latest text value of the field<br><font size="2" face="'Courier New'" color="#000000"><em>g_sourceOfChange </em></font>is<font size="2" face="'Courier New'" color="#000000"> t</font> or <font size="2" face="'Courier New'" color="#000000">nil,</font> where <font size="2" face="'Courier New'" color="#000000">t </font>indicates that the change was made through the program (by changing the value of the field) and <font size="2" face="'Courier New'" color="#000000">nil</font> indicates that the change was made by a user action.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472812">hiCreateHyperTextField</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472814">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472816">&#60; hypertext field callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>o_field g_scope t_hyperlinkName t_hyperlinkRef</em></font>)</font>
+            </p>
+            <p><a name="472817">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>t_hyperlinkName</em></font> is the name of the hyperlink.</p>
+            <p><a name="472818"><font size="2" face="'Courier New'" color="#000000"><em>t_hyperlinkRef</em></font></a> is the URL associated with the link.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="472820">hiCreateAppForm</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472822">?callback</a></font>
+            </p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472824">&#60; form callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>r_form </em></font>)</font>
+            </p>
+            <p><a name="472825">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>r_form</em></font> is the form for which an OK, Cancel, or custom action is triggered</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="472827">hiChangeFormCallback</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="472829"><font color="#000000">?callback</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p>
+              <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="472831">&#60; form callback &#62; ( </a><font size="2" face="'Courier New'" color="#000000"><em>r_form </em></font>)</font>
+            </p>
+            <p><a name="472832">where, <br></a><font size="2" face="'Courier New'" color="#000000"><em>r_form</em></font> is the form for which an OK, Cancel, or custom action is triggered</p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="115735">&nbsp;</a></p>
+      <p><a name="472886"><font color="#000000"><strong>Restrictions</strong></font></a></p>
+      <p><a name="472879">There are a few restrictions on the functionality of callback routines:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="115737">They cannot return data on the stack. Instead, callback expressions that return a value might do so in this manner: </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="471165"><font size="2" face="'Courier New'" color="#000000">someSymbol</font></a> = hiSomeRoutine(y)</font>
+      </blockquote>
+      <blockquote><a name="471169">In this example, </a><font size="2" face="'Courier New'" color="#000000">someSymbol</font> is a global SKILL symbol to be accessed later. </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="115224">Make callbacks as short and as clean as possible. In particular, be careful to avoid corrupting program data. As an example, the results can be unpredictable if a form callback modifies the form itself. Callbacks with destructive actions such as form modification should be associated with actions that cannot be reversed, and cannot be done programmatically; that is, do not have a destructive action associated with a toggle button press (the toggle button has two states). Because this process can be simulated programmatically, doing so may unintentionally execute the destructive callback multiple times. In this case, the callback should be associated with a form button, which is an irreversible, non&#45;programmatic action. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="115225">Avoid recursion in programming callbacks. This is a common mistake, and is easily demonstrated by a field callback which again sets the value of the field itself. Since callbacks are called when the value of the field changes, this would recursively continue calling the field callback, which sets the field value, which calls the field's callback, which sets the field's value, and so on.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="115226">If an error is detected in a callback routine, a dialog box should be brought up to flag the error, or an error logged in the CIW output panel. The field (type&#45;in fields only) can be highlighted as well.</a></p>
+      <h2><a name="473361">Configuring Clipboard&#47;Selection Behavior</a></h2>
+      <p><a name="473365">To configure the clipboard&#47;selection behavior, click </a><font color="#000000"><em>Klipper - Clipboard tool</em></font> <img src="images/clipboard1.gif" width="29" height="27" alt=""> icon from the right side of the bottom panel and choose <font color="#000000"><em>Configure Klipper</em></font> from the context menu.</p>
+      <p><a name="473366">The Configure - KDE Panel dialog box is displayed.</a></p>
+      <p align="left"><a name="473370"><img src="images/clipboard.gif" width="396" height="458" alt=""><br></a></p>
+      <p><a name="473387">In the General tab, you can choose one of the following options:</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="644">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="311">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="473373">Option</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="332">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="473375">Description</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="473377"><font color="#000000"><em>Synchronize contents of the clipboard and the selection</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="473379">Synchronizes the content of clipboard and selection buffers.</a></p>
+            <p><a name="473380">If this option is selected, the return value of </a><font size="2" face="'Courier New'" color="#000000">hiGetClipboard( &#39;clipboard )</font> and <font size="2" face="'Courier New'" color="#000000">hiGetClipboard( &#39;selection )</font> APIs will be the same.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="473382"><font color="#000000"><em>Separate clipboard and selection</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="473384">Keeps the clipboard and selection buffers separate. </a></p>
+            <p><a name="473385">If this option is selected, the </a><font size="2" face="'Courier New'" color="#000000">hiGetClipboard( &#39;clibpoard )</font> will return the text saved using the Copy (Ctrl+v) operation. However, the <font size="2" face="'Courier New'" color="#000000">hiGetClipboard( &#39;selection )</font> will return the selected text.</p>
+            <p><a name="473386">This option is selected by default in KDE 3.x.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="473353">&nbsp;</a></p>
+      <p><a name="471192">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="473190">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="preface.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap2.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 20</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="20">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="">
+<META NAME="PageCount" CONTENT="5">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="appC.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiGetStrokeBBox( ) => l_boundingBox / nil ,hiGetStrokeFirstPt( ) => l_point / nil ,hiGetStrokeLastPt( ) => l_point / nil,hiStroke( [ l_point ]) => t / nil ">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 20">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="appC.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td height="20">
+          <img src="images/nav2_next_b.gif" alt="Previous">
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="59">
+          <img src="images/nav_next_b.gif" alt="Next" border="0">
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>20<a name="1014134">&nbsp;</a></h1>
+      <h1><a name="1016295">Strokes</a></h1>
+      <p><a name="1016296">This appendix describes functions related to strokes. </a></p>
+      <p><a name="1016322">A stroke is a unique shape that users draw in a window by pressing and holding a mouse button (typically the right button). Each stroke invokes a command. Files of predefined strokes are shipped with the Cadence software and must be installed.</a></p>
+      <p><a name="1016298">Strokes are most commonly used by the Virtuoso layout editor and the Preview floorplanning tool. For more information, see Chapter 1 of the </a><a href="../vlehelp/chap1.html" target="external_window"><font color="#0000ff"><u><em>Virtuoso Layout Suite L User Guide</em></u></font></a><font color="#000000"><em>.</em></font></p>
+      <p><a name="1016608">This chapter describes the following functions:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1016176" title="20" name="1016609"><font color="#0000ff"><u>hiGetStrokeBBox</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1016200" title="20" name="1016613"><font color="#0000ff"><u>hiGetStrokeFirstPt</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1016224" title="20" name="1016617"><font color="#0000ff"><u>hiGetStrokeLastPt</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1016248" title="20" name="1016621"><font color="#0000ff"><u>hiStroke</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetStrokeBBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetStrokeBBox "></a><a name="1016176">hiGetStrokeBBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1016178">hiGetStrokeBBox( ) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>l_boundingBox</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1016179">Description</a></h4>
+      <p><a name="1016181">Returns the bounding box of the stroke when within a callback initiated by a stroke.</a></p>
+      <h4><a name="1016182">Arguments</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None.</nobr>
+              </div>
+            </td>
+            <td><a name="1016183">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1016184">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1018411"><font size="2" face="'Courier New'" color="#000000"><em>l_boundingBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1018413">Bounding box of the stroke in user units.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018415"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018417">There is no current window or no valid application associated with the current window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016187">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1016200" title="20" name="1016197"><font color="#0000ff"><u>hiGetStrokeFirstPt</u></font></a>, <a href="#1016224" title="20"><font color="#0000ff"><u>hiGetStrokeLastPt</u></font></a>, <a href="#1016248" title="20"><font color="#0000ff"><u>hiStroke</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetStrokeFirstPt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetStrokeFirstPt"></a><a name="1016200">hiGetStrokeFirstPt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1016202">hiGetStrokeFirstPt( ) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1016203">Description</a></h4>
+      <p><a name="1016205">Returns the point location of the first pixel of a stroke when within a callback initiated by a stroke.</a></p>
+      <h4><a name="1016206">Arguments</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None.</nobr>
+              </div>
+            </td>
+            <td><a name="1016207">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1016208">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1018424"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1018426">First pixel of the stroke, expressed in user units.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018428"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018430">There is no current window or no valid application associated with the current window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016211">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1016176" title="20" name="1016221"><font color="#0000ff"><u>hiGetStrokeBBox</u></font></a>, <a href="#1016224" title="20"><font color="#0000ff"><u>hiGetStrokeLastPt</u></font></a>, <a href="#1016248" title="20"><font color="#0000ff"><u>hiStroke</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetStrokeLastPt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetStrokeLastPt"></a><a name="1016224">hiGetStrokeLastPt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1016226">hiGetStrokeLastPt( ) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1016227">Description</a></h4>
+      <p><a name="1016229">Returns the point location of the last pixel of a stroke when within a callback initiated by a stroke.</a></p>
+      <h4><a name="1016230">Argument</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None.</nobr>
+              </div>
+            </td>
+            <td><a name="1016231">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1016232">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1018437"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1018439">Last pixel of the stroke, expressed in user units.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018441"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018443">There is no current window or no valid application associated with the current window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016235">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1016176" title="20" name="1016245"><font color="#0000ff"><u>hiGetStrokeBBox</u></font></a>, <a href="#1016200" title="20"><font color="#0000ff"><u>hiGetStrokeFirstPt</u></font></a>, <a href="#1016248" title="20"><font color="#0000ff"><u>hiStroke</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiStroke
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiStroke"></a><a name="1016248">hiStroke</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1016250">hiStroke( <dd></a><font size="2" face="'Courier New'" color="#000000">[ </font><font size="2" face="'Courier New'" color="#000000"><em>l_point </em></font><font size="2" face="'Courier New'" color="#000000">]<dd></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1016251">Description</a></h4>
+      <p><a name="1016253">Mouse callback that initiates a stroke command.</a></p>
+      <p><a name="1016254">This command is bound to the right mouse button when the stroke files are loaded, see the </a><a href="../vlehelp/chap1.html" target="external_window"><font color="#0000ff"><u><em>Virtuoso Layout Suite L User Guide</em></u></font></a>. This command only works if the strokes files are loaded.</p>
+      <h4><a name="1016255">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1018450"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1018452">Starting point for the stroke.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016257">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1018459"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1018461">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> if the stroke is not canceled.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018463"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1018465">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if there is no current window, if there is no valid application for the window, or if the stroke is canceled.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016260">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1016176" title="20" name="1016270"><font color="#0000ff"><u>hiGetStrokeBBox</u></font></a>, <a href="#1016200" title="20"><font color="#0000ff"><u>hiGetStrokeFirstPt</u></font></a>, <a href="#1016224" title="20"><font color="#0000ff"><u>hiGetStrokeLastPt</u></font></a></font>
+      </p>
+      <p><a name="1016172">&nbsp;</a></p>
+      <p><a name="1016606">&nbsp;</a></p>
+      <p><a name="1018277">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1018618">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="appC.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td height="20">
+            <img src="images/nav2_next_b.gif" alt="Previous">
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="59">
+            <img src="images/nav_next_b.gif" alt="Next" border="0">
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

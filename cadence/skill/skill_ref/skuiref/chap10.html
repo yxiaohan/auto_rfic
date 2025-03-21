@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 10</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="10">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="chap11.html">
+<META NAME="PageCount" CONTENT="14">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap9.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiChangeBannerLabel(w_windowId t_bannerLabel x_labelPosition ) => t / nil,hiDeleteBannerLabel(w_windowId x_labelPosition ) => t / nil,hiDeleteBannerMenu(w_windowId x_menuPosition )=> t / nil ,hiDeleteBannerMenus(w_windowId )=> t / nil ,hiGetBannerLabels(w_windowID)=> l_labels / nil,hiGetBannerMenus(w_windowId )=> l_menuSymbols / nil,hiGetNumMenus(w_windowId )=> x_numMenus ,hiInsertBannerMenu(w_windowId g_menu x_menuPosition ) => t / nil ,hiIsMenuSlotFilled(w_windowId x_position) => t / nil ,hiReplaceAllBannerMenus(w_windowId l_menulist) => t / nil ">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 10">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap9.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap11.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>10<a name="69565">&nbsp;</a></h1>
+      <h1><a name="69566">Window Banner Functions</a></h1>
+      <p><a name="661969">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36660" title="10" name="661981"><font color="#0000ff"><u>Window Banners</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#664021" title="10" name="662063"><font color="#0000ff"><u>hiChangeBannerLabel</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36676" title="10" name="662068"><font color="#0000ff"><u>hiDeleteBannerLabel</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36702" title="10" name="662078"><font color="#0000ff"><u>hiDeleteBannerMenu</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36713" title="10" name="662083"><font color="#0000ff"><u>hiDeleteBannerMenus</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#663120" title="10" name="663154"><font color="#0000ff"><u>hiGetBannerLabels</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36733" title="10" name="663119"><font color="#0000ff"><u>hiGetBannerMenus</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36743" title="10" name="662098"><font color="#0000ff"><u>hiGetNumMenus</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#663050" title="10" name="663105"><font color="#0000ff"><u>hiInsertBannerMenu</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36753" title="10" name="662103"><font color="#0000ff"><u>hiIsMenuSlotFilled</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36765" title="10" name="662108"><font color="#0000ff"><u>hiReplaceAllBannerMenus</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="36660">Window Banners</a></h2>
+      <p><a name="36661">This chapter describes functions that are used for adding menus and labels to a window. Menus are added to the menu bar and labels are added to the banner bar of a window.</a></p>
+      <p align="left"><a name="663523"><img src="images/chap10.13.1.1.png" width="675" height="236" alt=""><br></a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Menu Bar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Menu Bar"></a><a name="663445">Menu Bar</a></h3>
+      <p><a name="663803">The menu bar is a fixed bar at the top of the window. You add menus to the menu bar with the </a><a href="#663050" title="10"><font color="#0000ff"><u>hiInsertBannerMenu</u></font></a> function. You must create the menu with the <a href="chap3.html#978137" title="3"><font color="#0000ff"><u>hiCreatePulldownMenu</u></font></a> function before placing it on a window. </p>
+      <p><a name="663835">The menu bar also contains a </a><font color="#000000"><em>Help</em></font> button at the far right. You cannot move or delete this button but you can convert it to a <font color="#000000"><em>Help</em></font> menu by adding a pulldown menu with the title <font size="2" face="'Courier New'" color="#000000">&#34;Help&#34;</font>.</p>
+      <p><a name="663808">You can delete menus with the </a><a href="#36702" title="10"><font size="2" face="'Courier New'" color="#0000ff"><u>hiDeleteBannerMenu</u></font></a> or <a href="#36713" title="10"><font color="#0000ff"><u>hiDeleteBannerMenus</u></font></a> functions.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Banner Bar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Banner Bar"></a><a name="663446">Banner Bar</a></h3>
+      <p><a name="663804">The banner bar provides application data such as cursor readout and selected objects. You can add labels to the banner bar with the </a><a href="#664021" title="10"><font color="#0000ff"><u>hiChangeBannerLabel</u></font></a> function and delete them with the <a href="#36676" title="10"><font size="2" face="'Courier New'" color="#0000ff"><u>hiDeleteBannerLabel</u></font></a> function. If there are no labels or application data, the banner bar is not displayed. </p>
+      <p><a name="663852">In standalone windows (windows that are not in a session window), you can move the banner bar to your preferred location. The default location is at the top of the window. </a></p>
+      <p><a name="664078">In session windows, you cannot move the banner bar; it is always located at the bottom of the window. This also applies to all graphics windows because graphics windows are always enclosed within a session window. </a></p>
+      <p><a name="664054">To set the location of the banner bar for standalone windows,</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="663865">Add the following variable to your </a><font size="2" face="'Courier New'" color="#000000">.cdsenv</font> file:</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="663783">ui showBannerBar cyclic </a><font size="2" face="'Courier New'" color="#000000"><em>location</em></font></font>
+      </blockquote>
+      <blockquote><a name="663787">where </a><font size="2" face="'Courier New'" color="#000000"><em>location</em></font> is <font size="2" face="'Courier New'" color="#000000">&#34;Top&#34;</font>, <font size="2" face="'Courier New'" color="#000000">&#34;Bottom&#34;</font>, or <font size="2" face="'Courier New'" color="#000000">&#34;None&#34;</font>. <font size="2" face="'Courier New'" color="#000000">&#34;None&#34;</font> indicates floating. </blockquote>
+      <blockquote><a name="664105">&nbsp;</a></blockquote>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiChangeBannerLabel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiChangeBannerLabel"></a><a name="664021">hiChangeBannerLabel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="53093">hiChangeBannerLabel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_bannerLabel</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_labelPosition</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="51713">Description</a></h4>
+      <p><a name="51714">Overwrites an existing label or adds a new label in the banner bar of a window. </a></p>
+      <h4><a name="38198">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667773"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="667775">Window to which you want to add the label.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667777"><font size="2" face="'Courier New'" color="#000000"><em>t_bannerLabel</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667779">Label text. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667781"><font size="2" face="'Courier New'" color="#000000"><em>x_labelPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667783">Integer specifying the position for the label. 0 represents the leftmost user&#45;defined label, 1 the one to its right, and so on. If a label already exists at the position you specify, it is overwritten. Otherwise, if </a><font size="2" face="'Courier New'" color="#000000"><em>x_labelPosition</em></font> is greater than the current number of labels, the new label is added to the right of the existing labels. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38219">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="640">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667798"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="448">
+            <p><a name="667800">The label was added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667802"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667804">The label was not added. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38246">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36675">hiChangeBannerLabel(hiGetCurrentWindow( ) &#34;Label 1&#34; 0)<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="663185">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#36676" title="10" name="663183"><font color="#0000ff"><u>hiDeleteBannerLabel</u></font></a>, <a href="#663120" title="10"><font color="#0000ff"><u>hiGetBannerLabels</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiDeleteBannerLabel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiDeleteBannerLabel"></a><a name="36676">hiDeleteBannerLabel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36677">hiDeleteBannerLabel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_labelPosition</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="38279">Description</a></h4>
+      <p><a name="36680">Deletes a label from the banner bar of a window.</a></p>
+      <h4><a name="38361">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667811"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667813">Window from which you want to delete the label.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667815"><font size="2" face="'Courier New'" color="#000000"><em>x_labelPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667817">Integer specifying the position of the label that you want to delete. 0 represents the leftmost user&#45;defined label, 1 the one to its right, and so on. If the label being deleted was the only label on the banner bar and there is no application data associated with the window, the banner bar is also removed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38409">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667824"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667826">The label was deleted. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667828"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667830">The label was not deleted. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38460">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36686">hiDeleteBannerLabel(hiGetCurrentWindow( ) 0)<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="663169">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#664021" title="10" name="663167"><font color="#0000ff"><u>hiChangeBannerLabel</u></font></a>, <a href="#663120" title="10"><font color="#0000ff"><u>hiGetBannerLabels</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiDeleteBannerMenu
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiDeleteBannerMenu"></a><a name="36702">hiDeleteBannerMenu</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36703">hiDeleteBannerMenu(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId <dd>x_menuPosition <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font><em> </em></font>
+      </dl>
+      <h4><a name="38743">Description</a></h4>
+      <p><a name="36706">Deletes a menu from the menu bar of a window.</a></p>
+      <h4><a name="38758">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667837"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="667839">Window from which to delete the menu.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667841"><font size="2" face="'Courier New'" color="#000000"><em>x_menuPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667843">Integer specifying the position of the menu that you want to delete. 0 represents the leftmost user&#45;defined menu on the menu bar, 1 the one to its right, and so on. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38779">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667850"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667852">The menu is deleted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667854"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667856">The menu is not deleted. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38806">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36712">hiDeleteBannerMenu(hiGetCurrentWindow( ) 0)<br>=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiDeleteBannerMenus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="36713">hiDeleteBannerMenus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36714">hiDeleteBannerMenus(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="38831">Description</a></h4>
+      <p><a name="36717">Deletes all menus</a> from the menu bar of a window. </p>
+      <h4><a name="38870">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667863"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="667865">Window from which to delete all menus.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38915">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667872"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667874">The menus are deleted. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667876"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667878">The menus are not deleted. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="38966">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36722">hiDeleteBannerMenus(window(3))<br>=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBannerLabels
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="663120">hiGetBannerLabels</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="663124">hiGetBannerLabels(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowID<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_labels</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="663125">Description</a></h4>
+      <p><a name="663126">Returns the list of labels that are in the banner bar of a window. (These labels were added with the  </a><font size="2" face="'Courier New'" color="#000000">?labels</font> argument to the <font size="2" face="'Courier New'" color="#000000">hiOpenWindow</font> function when the window was created or with the <font size="2" face="'Courier New'" color="#000000">hiChangeBannerLabel</font> function.)</p>
+      <h4><a name="663127">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667887"><font size="2" face="'Courier New'" color="#000000"><em>w_windowID</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="667889">Window from which you want to retrieve labels.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="663129">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667896"><font size="2" face="'Courier New'" color="#000000"><em>l_labels</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667898">List of labels in the banner bar of the window you specified.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667900"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667902">There are no labels in the banner bar.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="663131">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="663132">hiGetBannerLabels( window( 3 ) )</a></font>
+      </p>
+      <h4><a name="663133">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#664021" title="10" name="663134"><font color="#0000ff"><u>hiChangeBannerLabel</u></font></a>, <a href="#36676" title="10"><font color="#0000ff"><u>hiDeleteBannerLabel</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBannerMenus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="36733">hiGetBannerMenus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36734">hiGetBannerMenus(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_menuSymbols</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="39167">Description</a></h4>
+      <p><a name="36737">Returns a list of the menus that are in the menu bar of a window.</a></p>
+      <h4><a name="39206">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667909"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="667911">Window from which the menus are retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="39251">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667918"><font size="2" face="'Courier New'" color="#000000"><em>l_menuSymbols</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="667920">A list of all menu symbols contained in the menu bar. The menu symbols are returned in the order in which they appear on the menu bar, from left to right. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667922"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667924">There are no menus in the menu bar.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="39302">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36742">hiGetBannerMenus( hiGetCIWindow ( ) )<br>=&#62; (hiOpenMenu hiDMMenu tcMenu hiPlotMenu hiFrameworkMenu transMenu)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetNumMenus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="36743">hiGetNumMenus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36744">hiGetNumMenus(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_numMenus</em></font> </font>
+      </dl>
+      <h4><a name="39335">Description</a></h4>
+      <p><a name="36747">Returns the number of menus in the menu bar of a window. </a></p>
+      <h4><a name="667931">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667938"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="667940">The window ID.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="667933">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667947"><font size="2" face="'Courier New'" color="#000000"><em>x_numMenus</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="667949">The number of menus in the window.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="39470">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36752">hiGetNumMenus( hiGetCIWindow ( ) )<br>=&#62; 6</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiInsertBannerMenu
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiInsertBannerMenu"></a><a name="663050">hiInsertBannerMenu</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="663054">hiInsertBannerMenu(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId <dd>g_menu <dd>x_menuPosition</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="663055">Description</a></h4>
+      <p><a name="663058">Inserts a menu into the menu bar of a window. If the menu symbol that you specify already exists on the window, a warning message is issued and the menu is not placed on the window.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="664758">There is a maximum number of 40 window banner menus that can be added.</a></p>
+      <h4><a name="663063">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="667956"><font color="#000000"> </font></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="667958">Window to which you want to add a menu.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667960"><font size="2" face="'Courier New'" color="#000000"><em>g_menu</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667962">Menu that you want to insert. The menu must be the value returned from </a><a href="chap3.html#978137" title="3"><font size="2" face="'Courier New'" color="#0000ff"><u>hiCreatePulldownMenu</u></font></a>, or a symbol representing that value. The title of this menu is displayed as text on the menu bar. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667964"><font size="2" face="'Courier New'" color="#000000"><em>x_menuPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="667966">Location in the banner where the menu is to be positioned. The menu positions are numbered from 0, starting with the leftmost user&#45;defined menu contained in the menu bar. </a></p>
+            <p><a name="667997">This function does not overwrite an existing menu. If a menu already exists at the position you specify, the function inserts the new menu into the specified position and moves the existing menus to the right. If </a><font size="2" face="'Courier New'" color="#000000"><em>x_menuPostion</em></font> is greater than the current number of user&#45;defined menus, the function adds the new menu to the right of all other menus (except the <font color="#000000"><em>Help</em></font> button or menu). </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="663069">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="668012"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="668014">The menu is inserted in the menu bar.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668016"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668018">The menu is not inserted. An error message is also issued.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="663072">Example 1</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="663073">menu=hiCreatePulldownMenu( ... )<br>hiInsertBannerMenu(window menu 0)<br></a>=&#62; t</font>
+      </p>
+      <h4><a name="663074">Example 2</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="663075">hiInsertBannerMenu(window hiCreatePulldownMenu( ... ) 0)<br></a>=&#62; t</font>
+      </p>
+      <h4><a name="663076">Example 3</a></h4>
+      <p><a name="663077">The following example inserts a pull&#45;down menu in the leftmost position of the CIW. Before using this example, see the </a><a href="chap3.html#978137" title="3"><font size="2" face="'Courier New'" color="#0000ff"><u>hiCreatePulldownMenu</u></font></a> example to find out how to create the pull&#45;down menu used in this example.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="663079">hiInsertBannerMenu( window(1) trPulldownMenu 0 )</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiIsMenuSlotFilled
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="36753">hiIsMenuSlotFilled</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36754">hiIsMenuSlotFilled(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId <dd>x_position<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="39503">Description</a></h4>
+      <p><a name="36757">Checks whether a menu already exists in the specified position in the menu bar of a window. </a></p>
+      <h4><a name="39542">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="668029"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="668031">The window ID.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668033"><font size="2" face="'Courier New'" color="#000000"><em>x_position</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668035">Integer specifying the position in the menu bar that you want to check. Positions on the menu bar are numbered from left to right, starting at 0. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="39587">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="668042"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="668044">The specified position contains a menu.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668046"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668048">The specified position does not contain a menu.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="39638">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36763">hiIsMenuSlotFilled( hiGetCIWindow( ) 5 )<br>=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiReplaceAllBannerMenus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="36765">hiReplaceAllBannerMenus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36766">hiReplaceAllBannerMenus(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId <dd>l_menulist<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="40641">Description</a></h4>
+      <p><a name="36769">Replaces all menus in a window with new menus.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="664786">There is a maximum number of 40 window banner menus that can be added.</a></p>
+      <h4><a name="40680">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="668056"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="668058">Window in which you want to replace menus.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668060"><font size="2" face="'Courier New'" color="#000000"><em>l_menulist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668062">List of menus that will replace the existing menus. These menus must be listed in the order in which you want them to be placed. Each menu must have been created with </a><a href="chap3.html#978137" title="3"><font size="2" face="'Courier New'" color="#0000ff"><u>hiCreatePulldownMenu</u></font></a>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="40725">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="668074"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="668076">The menus are replaced.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668078"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="668080"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a> or any of the menus in the list is invalid, or the same menu appears more than once in the list.</p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="661998">&nbsp;</a></p>
+      <p><a name="664198">&nbsp;</a></p>
+      <p><a name="667456">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="668567">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap9.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap11.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,1029 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 16</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="16">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="appA.html">
+<META NAME="PageCount" CONTENT="12">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap15.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="nrDialogAccept(o_dialogBox)=> t / nil,nrListColumnMove(o_listViewx_positionx_newPosition)=> t / nil,nrListColumnSort(o_listViewx_position)=> t / nil,nrListItemAction(o_listViewt_position)=> t / nil,nrListItemExpand(o_listViewt_listItemg_expandedOrCollapsed)=> t / nil,nrListItemRename(o_listViewt_itemNamex_columnIndext_newItemName)=> t / nil,nrResizeWindow(o_windowl_coordinates)=> t / nil,nrSetCurrentWindow(o_window[ t_subWindowName ])=> t / nil,nrSetFileFilter(o_dialogt_filter)=> t / nil,nrSetWindowVisibility(o_windowt_showOrHide)=> t / nil,nrUpdateMenu(o_popupMenu)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 16">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap15.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="appA.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>16<a name="1032955">&nbsp;</a></h1>
+      <h1><a name="1035250">QtReplay Functions</a></h1>
+      <p><a name="1035457">This chapter describes QtReplay functions, which are SKILL functions that log and replay graphical user interface (GUI) actions. These functions are used for GUI elements that are created directly with Qt instead of user interface SKILL (HI). These GUIs could be part of either a mixed HI&#47;Qt application or a non&#45;HI based Qt application. </a></p>
+      <p><a name="1035482">QtReplay functions have the prefix </a><font size="2" face="'Courier New'" color="#000000">nr</font>. </p>
+      <p><a name="1035483">Like other replay functions, you do not call these functions directly. They are logged in the log file when the user performs an action, such as clicking </a><font color="#000000"><em>OK</em></font> in a dialog box. When the file is replayed, the functions are called.</p>
+      <p><a name="1036579">The following functions are described in this chapter:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035503" title="16" name="1036580"><font color="#0000ff"><u>nrDialogAccept</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035524" title="16" name="1036589"><font color="#0000ff"><u>nrListColumnMove</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035954" title="16" name="1036593"><font color="#0000ff"><u>nrListColumnSort</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035565" title="16" name="1036597"><font color="#0000ff"><u>nrListItemAction</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036424" title="16" name="1036601"><font color="#0000ff"><u>nrListItemExpand</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036402" title="16" name="1036605"><font color="#0000ff"><u>nrListItemRename</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035638" title="16" name="1036609"><font color="#0000ff"><u>nrResizeWindow</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035718" title="16" name="1036613"><font color="#0000ff"><u>nrSetCurrentWindow</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035756" title="16" name="1036617"><font color="#0000ff"><u>nrSetFileFilter</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035782" title="16" name="1036622"><font color="#0000ff"><u>nrSetWindowVisibility</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035831" title="16" name="1036626"><font color="#0000ff"><u>nrUpdateMenu</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrDialogAccept
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035503">nrDialogAccept</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035504">nrDialogAccept(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_dialogBox<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035505">Description</a></h4>
+      <p><a name="1035506">Function logged when a dialog box is accepted, that is, when the </a><font color="#000000"><em>Return</em></font> key is pressed or buttons such as <font color="#000000"><em>OK</em></font>, <font color="#000000"><em>Yes</em></font>, or <font color="#000000"><em>Done</em></font> in the dialog box are clicked. This function is logged only for native Qt dialog boxes. This function is intended only for replay use and should not be called explicitly. </p>
+      <h4><a name="1035509">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041759"><font size="2" face="'Courier New'" color="#000000"><em>o_dialogBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1041761">The dialog box name.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035517">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="644">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041768"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="451">
+            <p><a name="1041770">The dialog was accepted or this function was called from SKILL to replay the action of accepting the dialog.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041772"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041774">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrListColumnMove
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035524">nrListColumnMove</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035525">nrListColumnMove(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listView<dd>x_position<dd>x_newPosition<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035526">Description</a></h4>
+      <p><a name="1035527">Function logged when a column in a list&#47;tree view (created with the Qt </a><font size="2" face="'Courier New'" color="#000000">QListView</font> class) is moved. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1035528">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041781"><font size="2" face="'Courier New'" color="#000000"><em>o_listView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1041783">The list view.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041785"><font size="2" face="'Courier New'" color="#000000"><em>x_position</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041787">The current position of the column. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041789"><font size="2" face="'Courier New'" color="#000000"><em>x_newPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041791">The new position of the column. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035530">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041798"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1041800">A column in a list&#45;tree view was moved or this function was called from SKILL to replay the moving of the column.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041802"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041804">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035945">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035954" title="16" name="1035952"><font color="#0000ff"><u>nrListColumnSort</u></font></a>, <a href="#1035565" title="16"><font color="#0000ff"><u>nrListItemAction</u></font></a>, <a href="#1036402" title="16"><font color="#0000ff"><u>nrListItemRename</u></font></a>, <a href="#1036424" title="16"><font color="#0000ff"><u>nrListItemExpand</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrListColumnSort
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035954">nrListColumnSort</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035567">nrListColumnSort(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listView<dd>x_position<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035568">Description</a></h4>
+      <p><a name="1035569">Function logged when a column in a list&#47;tree view (created with the Qt </a><font size="2" face="'Courier New'" color="#000000">QListView</font> class) is sorted. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1035570">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041811"><font size="2" face="'Courier New'" color="#000000"><em>o_listView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1041813">The list view.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041815"><font size="2" face="'Courier New'" color="#000000"><em>x_position</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041817">The position of the column that is sorted. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035574">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041824"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1041826">A column in a list&#45;tree view was sorted or this function was called from SKILL to replay the action of sorting the column. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041828"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041830">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035577">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035524" title="16" name="1035578"><font color="#0000ff"><u>nrListColumnMove</u></font></a>, <a href="#1035565" title="16"><font color="#0000ff"><u>nrListItemAction</u></font></a>, <a href="#1036402" title="16"><font color="#0000ff"><u>nrListItemRename</u></font></a>, <a href="#1036424" title="16"><font color="#0000ff"><u>nrListItemExpand</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrListItemAction
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035565">nrListItemAction</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035608">nrListItemAction(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listView<dd>t_position<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035609">Description</a></h4>
+      <p><a name="1035610">Function logged when the action associated with an item in a list&#47;tree view (created with the Qt </a><font size="2" face="'Courier New'" color="#000000">QListView</font> class) is invoked by double&#45;clicking on the item. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1035611">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041837"><font size="2" face="'Courier New'" color="#000000"><em>o_listView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1041839">The list view. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041841"><font size="2" face="'Courier New'" color="#000000"><em>t_position</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041843">The index of the item in the list for which the action was invoked.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035614">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041850"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1041852">The action associated with a list view item was invoked or this function was called from SKILL to replay the invocation of the action.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041854"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041856">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035617">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1036402" title="16" name="1036423"><font color="#0000ff"><u>nrListItemRename</u></font></a>, <a href="#1035524" title="16"><font color="#0000ff"><u>nrListColumnMove</u></font></a>, <a href="#1035954" title="16"><font color="#0000ff"><u>nrListColumnSort</u></font></a>, <a href="#1036424" title="16"><font color="#0000ff"><u>nrListItemExpand</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrListItemExpand
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1036424">nrListItemExpand</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1036429">nrListItemExpand(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listView<dd>t_listItem<dd>g_expandedOrCollapsed<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1036430">Description</a></h4>
+      <p><a name="1036431">Function logged when an item in a list&#47;tree view (created with the Qt </a><font size="2" face="'Courier New'" color="#000000">QListView</font> class) is expanded or collapsed. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1036432">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041863"><font size="2" face="'Courier New'" color="#000000"><em>o_listView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1041865">The list view.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041867"><font size="2" face="'Courier New'" color="#000000"><em>t_listItem</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041869">The list item that is expanded or collapsed. The item name is relative to the root node of the tree, for example: </a><font size="2" face="'Courier New'" color="#000000">"NewLib&#47;buffer&#47;symbol"</font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1041897"><font size="2" face="'Courier New'" color="#000000"><em>g_expandedOrCollapsed</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041871"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041873"><font size="2" face="'Courier New'" color="#000000">t</font></a> or <font size="2" face="'Courier New'" color="#000000">nil</font>. <font size="2" face="'Courier New'" color="#000000">t</font> indicates the list item was expanded, <font size="2" face="'Courier New'" color="#000000">nil</font> indicates the list item was collapsed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036436">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041884"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1041886">A list&#45;tree view item was expanded or collapsed, or this function was called from SKILL. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041888"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041890">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036439">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1036440">nrListItemExpand( cdsLibManager&#45;&#62;listTree "NewLib&#47;buffer" t )</a></font>
+      </p>
+      <h4><a name="1036441">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035524" title="16" name="1036454"><font color="#0000ff"><u>nrListColumnMove</u></font></a>, <a href="#1035954" title="16"><font color="#0000ff"><u>nrListColumnSort</u></font></a>, <a href="#1035565" title="16"><font color="#0000ff"><u>nrListItemAction</u></font></a>, <a href="#1036402" title="16"><font color="#0000ff"><u>nrListItemRename</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrListItemRename
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1036402">nrListItemRename</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035640">nrListItemRename(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listView<dd>t_itemName<dd>x_columnIndex<dd>t_newItemName<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035641">Description</a></h4>
+      <p><a name="1035642">Function logged when an item in a list&#47;tree view (created with the Qt </a><font size="2" face="'Courier New'" color="#000000">QListView</font> class) is renamed. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1035643">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041905"><font size="2" face="'Courier New'" color="#000000"><em>o_listView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1041907">The list view.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041909"><font size="2" face="'Courier New'" color="#000000"><em>t_itemName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041911">The name of the item.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041913"><font size="2" face="'Courier New'" color="#000000"><em>x_columnIndex</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041915">The column index.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041917"><font size="2" face="'Courier New'" color="#000000"><em>t_newItemName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041919">The new name for the item. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035646">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041926"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1041928">A list view item was renamed or this function was called from SKILL to replay the action of renaming of the item. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041930"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041932">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035649">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035565" title="16" name="1035650"><font color="#0000ff"><u>nrListItemAction</u></font></a>, <a href="#1035524" title="16"><font color="#0000ff"><u>nrListColumnMove</u></font></a>, <a href="#1035954" title="16"><font color="#0000ff"><u>nrListColumnSort</u></font></a>, <a href="#1036424" title="16"><font color="#0000ff"><u>nrListItemExpand</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrResizeWindow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035638">nrResizeWindow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035720">nrResizeWindow(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_window<dd>l_coordinates<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035721">Description</a></h4>
+      <p><a name="1035722">Function logged when a window is resized or moved. This function is intended only for replay use and should not be called explicitly.</a></p>
+      <h4><a name="1035723">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="644">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041939"><font size="2" face="'Courier New'" color="#000000"><em>o_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="451">
+            <p><a name="1041941">The window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041943"><font size="2" face="'Courier New'" color="#000000"><em>l_coordinates</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041945">The window's new screen coordinates, specified as a list of the following format:</a></p>
+            <p><a name="1041967"><font size="2" face="'Courier New'" color="#000000">'(x y width height)</font></a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035725">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041980"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1041982">A window was resized or moved, or this function was called from SKILL</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041984"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041986">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035728">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1035904">nrResizeWindow( cdsLibManager list(107 35 551 483 ) )</a></font>
+      </p>
+      <h4><a name="1035903">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035718" title="16" name="1035732"><font color="#0000ff"><u>nrSetCurrentWindow</u></font></a>, <a href="#1035782" title="16"><font color="#0000ff"><u>nrSetWindowVisibility</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrSetCurrentWindow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035718">nrSetCurrentWindow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035751">nrSetCurrentWindow(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_window<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_subWindowName </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035758">Description</a></h4>
+      <p><a name="1035759">Function logged when the current window is set. This function is intended only for replay use and should not be called explicitly.</a></p>
+      <h4><a name="1035760">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041993"><font size="2" face="'Courier New'" color="#000000"><em>o_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1041995">The window that has become the current window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041997"><font size="2" face="'Courier New'" color="#000000"><em>t_subWindowName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041999">Optional argument that specifies the subwindow name in the context of a QWorkSpace multi&#45;window widget.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035763">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042006"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1042008">The current window is set or this function was called from SKILL.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042010"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042012">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035766">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1035894">nrSetCurrentWindow( cdsLibManager )</a></font>
+      </p>
+      <h4><a name="1035893">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035638" title="16" name="1035767"><font color="#0000ff"><u>nrResizeWindow</u></font></a>, <a href="#1035782" title="16"><font color="#0000ff"><u>nrSetWindowVisibility</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrSetFileFilter
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035756">nrSetFileFilter</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035788">nrSetFileFilter(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_dialog<dd>t_filter<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1036151">Description</a></h4>
+      <p><a name="1036152">Function logged when a file filter is selected in a file dialog box. This function is intended only for replay use and should not be called explicitly.</a></p>
+      <h4><a name="1036153">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042019"><font size="2" face="'Courier New'" color="#000000"><em>o_dialog</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1042021">The dialog box that contains the file filter list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042023"><font size="2" face="'Courier New'" color="#000000"><em>t_filter</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042025">A string specifying the file filter item that was selected.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036156">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042032"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1042034">A file filter is set for the dialog or this function was called from SKILL to replay the action of setting the filter.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042036"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042038">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036159">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1036160">nrSetFileFilter( cdsLibManager&#45;&#62;LoadDefaultEnvironment &#34;All Files ( * )&#34; )</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrSetWindowVisibility
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035782">nrSetWindowVisibility</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035787">nrSetWindowVisibility(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_window<dd>t_showOrHide<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1035802">Description</a></h4>
+      <p><a name="1035803">Function logged when a window is displayed, removed from the screen, or iconified. When a window is displayed, the second argument of this function is the string </a><font size="2" face="'Courier New'" color="#000000">show</font>, when a window is removed, the second argument is <font size="2" face="'Courier New'" color="#000000">hide</font>, and when a window is iconified, the second argument is <font size="2" face="'Courier New'" color="#000000">min</font>. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1035804">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="644">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042045"><font size="2" face="'Courier New'" color="#000000"><em>o_window</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="451">
+            <p><a name="1042047">The window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042049"><font size="2" face="'Courier New'" color="#000000"><em>t_showOrHide</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042051">When a window is displayed, this argument is the string </a><font size="2" face="'Courier New'" color="#000000">"show"</font>; when a window is removed from the screen, this argument is <font size="2" face="'Courier New'" color="#000000">"hide"</font>; and when a window is minimized, this argument is <font size="2" face="'Courier New'" color="#000000">&#34;min&#34;</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035807">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042062"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1042064">A window was displayed, closed, or iconified, or this function was called from SKILL.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042066"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042068">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035810">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1035896">nrSetWindowVisibility( basicRenameForm "show" )</a></font>
+      </p>
+      <h4><a name="1035895">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1035638" title="16" name="1035811"><font color="#0000ff"><u>nrResizeWindow</u></font></a>, <a href="#1035718" title="16"><font color="#0000ff"><u>nrSetCurrentWindow</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nrUpdateMenu
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1035831">nrUpdateMenu</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035887">nrUpdateMenu(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_popupMenu<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1036267">Description</a></h4>
+      <p><a name="1036299">Function logged when the contents of a dynamic popup menu are modified. This function is logged for menus derived from the </a><font size="2" face="'Courier New'" color="#000000">nrReplayPopupMenu</font> class, which is a part of the native Qt replay library. The function is logged whenever the <font size="2" face="'Courier New'" color="#000000">contentsChanged</font> signal is emitted from the menu. This function is intended only for replay use and should not be called explicitly.</p>
+      <h4><a name="1036269">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042076"><font size="2" face="'Courier New'" color="#000000"><em>o_popupMenu</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1042078">The popup menu.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036273">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042085"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1042087">A popup menu's contents were modified, or this function was called from SKILL to replay the action of the menu's contents changing.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042089"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042091">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036318">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038632">nrUpdateMenu( cdsLibManager&#45;&#62;popupMenu )</a></font>
+      </p>
+      <p>
+        <font size="2" face="Helvetica" color="#000000"><strong><a name="1036319">&nbsp;</a></strong></font>
+      </p>
+      <p><a name="1041474">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1042586">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap15.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="appA.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

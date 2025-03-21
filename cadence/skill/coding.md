@@ -115,9 +115,17 @@
 
 ## GUI Programming
 
-1. **Virtuoso UI Functions**
-   - Use hiUI functions for Virtuoso GUI operations
-   - hiUI functions are built-in, no need to load additional packages
+1. **Virtuoso UI Initialization**
+   - Use hiDrLoadLibrary() to load UI libraries
+   - Example:
+     ```lisp
+     hiDrLoadLibrary("basic")
+     hiSetBindKeys("Emacs")
+     ```
+   - Never use Allegro-specific functions (axlUI*)
+
+2. **Virtuoso UI Functions**
+   - hiUI functions are built into Virtuoso - no need for explicit loading
    - Common functions:
      ```lisp
      hiDisplayDialog()    ; For message and confirmation dialogs
@@ -126,7 +134,7 @@
      hiCreateAppForm()    ; For complex forms
      ```
 
-2. **Dialog Types**
+3. **Dialog Types**
    - Use appropriate icon types:
      - "information" for info messages
      - "warning" for warnings

@@ -1,0 +1,2234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 11</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="11">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="chap12.html">
+<META NAME="PageCount" CONTENT="38">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap10.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiBindKeyModifiers([ s_type ])=> l_modifiers,hiConfigureBindKeys(?showOnlyApps l_apps?showAllChildren g_showAllChildren?selectApp t_appname?selectKeyBinding t_keyBinding?showEmptyApps g_showEmptyApps?showInheritedBindings g_showInheritedBindings) => t / nil,hiDisableAsstBindKeyPrefix(t_prefix )=> t,hiEnableAsstBindKeyPrefix(t_prefix )=> t / nil ,hiGetBindKey([ t_applicationType ] [ t_key ] ) => t_skill_cmd / nil ,hiGetBindKeyInheritAlias(t_applicationType ) => l_application / nil ,hiGetBindKeyInheritRoot(t_applicationType ) => t_application / nil ,hiGetBindKeyPrefixList() => l_application,hiGetBindKeys(t_applicationType[ g_alsoInherited ])=> l_bindkeyList / nil,hiGetDisabledAsstBindKeyPrefixes()=> l_list / nil,hiInheritBindKey(t_applicationType t_from_app_type ) => t / nil ,hiRegSetBindKeyProc(t_applicationS_function[ g_notInherited ])=> t / nil,hiRegisterBindKeyPrefix(t_applicationType[ t_ignored ]) => t / nil ,hiSetBindKey([ t_applicationType ] [ t_key ] [ t_skill_cmd ] ) => t / nil ,hiSetBindKeys(t_applicationType l_bindKeyList ) => t / nil ,hiShowBindKeys([ g_appTypeOrWindow ][ g_showInheritBindings ])=> t / nil,hiShowBindKeysByAppType(w_window1t_applicationType[ g_showInheritBindings ])=> t / nil,hiShowBindKeysByWindow([ w_window1 ][ w_window2 ])=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 11">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap10.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap12.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>11<a name="387502">&nbsp;</a></h1>
+      <h1><a name="387503">Bindkeys</a></h1>
+      <p><a name="387431">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36171" title="11" name="387432"><font color="#0000ff"><u>Bindkeys Overview</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#36975" title="11" name="387504"><font color="#0000ff"><u>hiSetBindKey</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#385069" title="11" name="387509"><font color="#0000ff"><u>hiSetBindKeys</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#388684" title="11" name="388835"><font color="#0000ff"><u>hiRegSetBindKeyProc</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37022" title="11" name="387514"><font color="#0000ff"><u>hiGetBindKey</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#388592" title="11" name="388840"><font color="#0000ff"><u>hiGetBindKeys</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#388510" title="11" name="387519"><font color="#0000ff"><u>hiShowBindKeys</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37051" title="11" name="387524"><font color="#0000ff"><u>hiShowBindKeysByAppType</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37063" title="11" name="387529"><font color="#0000ff"><u>hiShowBindKeysByWindow</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#60659" title="11" name="387534"><font color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37085" title="11" name="387539"><font color="#0000ff"><u>hiInheritBindKey</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37098" title="11" name="387544"><font color="#0000ff"><u>hiGetBindKeyInheritRoot</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#37107" title="11" name="387549"><font color="#0000ff"><u>hiGetBindKeyInheritAlias</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#382262" title="11" name="387554"><font color="#0000ff"><u>hiGetBindKeyPrefixList</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#391590" title="11" name="391375"><font color="#0000ff"><u>hiConfigureBindKeys</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#395448" title="11" name="395577"><font color="#0000ff"><u>hiEnableAsstBindKeyPrefix</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#395489" title="11" name="395587"><font color="#0000ff"><u>hiDisableAsstBindKeyPrefix</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#395516" title="11" name="395597"><font color="#0000ff"><u>hiGetDisabledAsstBindKeyPrefixes</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="36171">Bindkeys Overview </a></h2>
+      <p><a name="36632">This section describes how you can use SKILL functions to automate repetitive tasks by tying commands to short key strokes or key stroke combinations.</a></p>
+      <p><a name="36971">You can tie commands to single keys, key combinations, or mouse sequences. After you have defined a key or key combination to execute a certain command or a list of commands, you can use this bindkey to speed up your work. Binding keys to a task or a whole series of tasks also reduces typing mistakes.</a></p>
+      <p><a name="36973">The application name is used as the bindkey prefix and should be registered with the Design Editor via the </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> function. If you need to define the bindkeys for a non&#45;Design Editor application (one that is not registered through <font size="2" face="'Courier New'" color="#000000">deRegApp</font>), register the application name with the <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a> function. </p>
+      <p><a name="36974">For performance reasons, a group of application names can share the same set of bindkeys through bindkey inheritance. One application name can be an alias and inherit bindkeys using the </a><a href="#37085" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiInheritBindKey</u></font></a> call from another application that has bindkeys defined. </p>
+      <p><a name="392943">Bindkeys may be defined for alias applications (also know as &#34;sub&#45;applications&#34; or &#34;sub&#45;apps&#34;) that will override those bindkeys inherited from the &#34;root application&#34;. Only one level of inheritance is permitted however, and an alias application cannot inherit from another alias application. In addition, bindkeys can also be defined for plugins, which will override the bindkeys for the root application and&#47;or alias application. If multiple plugins are installed on the same window, the bindkeys for the most recently added plugin will override the bindkeys of the previously added plugin.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <font size="3"><img src="images/important.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <font size="3"><a name="389174"><font size="2" face="'Courier New'" color="#000000">Alt</font></a> cannot be used as a modifier in bindkeys (except with function keys and for mouse bindings), unless menu access keys are disabled. This is because <font size="2" face="'Courier New'" color="#000000">Alt</font> is used as a modifier for menu access keys. Use the <a href="#389036" title="11"><font color="#0000ff"><u>hiBindKeyModifiers</u></font></a> to get a list of legal modifiers for bindkeys.</font>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiBindKeyModifiers
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="389036">hiBindKeyModifiers</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="389041">hiBindKeyModifiers(<dd>[</a><font size="2" face="'Courier New'" color="#000000"><em> s_type </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_modifiers</em></font></font>
+      </dl>
+      <h4><a name="389042">Description</a></h4>
+      <p><a name="389043">Returns the list of modifiers that can be used with bindkeys in the current session. You can specify the type of keys for which you want the list of legal modifiers: printable, mouse, or function. </a></p>
+      <p><a name="389083">By default </a><font size="2" face="'Courier New'" color="#000000">Alt</font> cannot be used as a modifier with any printable characters (alphanumeric and special characters) because it is used as a modifier for menu access keys. <font size="2" face="'Courier New'" color="#000000">Alt</font> can be used with function keys and for mouse bindings. However, if menu access keys are disabled, <font size="2" face="'Courier New'" color="#000000">Alt</font> is a legal modifier for all keys, including printable characters. </p>
+      <p><a name="389192">To enable </a><font size="2" face="'Courier New'" color="#000000">Alt</font> for printable characters in bindkeys,</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="389196">Disable menu access keys. See </a><a href="chap3.html#981094" title="3"><font color="#0000ff"><u>Disabling Menu Access Keys</u></font></a> of Chapter 3 for more information on how to do so.</td>
+          </tr>
+        </table>
+      </div>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="389091">If a window manager or desktop, such as CDE, predefines an </a><font size="2" face="'Courier New'" color="#000000">Alt+</font><font size="2" face="'Courier New'" color="#000000"><em>key</em></font> or <font size="2" face="'Courier New'" color="#000000">Alt+</font><font size="2" face="'Courier New'" color="#000000"><em>mouseButton</em></font> binding, then that combination will not work as a menu access key or bindkey on that system.</p>
+      <h4><a name="389089">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="397587"><font size="2" face="'Courier New'" color="#000000"><em>s_type</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="397589">The type of keys for which to return legal modifiers. One of the following symbols:</a></p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" border="0" cellpadding="4" cellspacing="0" bordercolor="#D3D3D3" width="453">
+        <tr>
+          <td cellpadding="4" valign="top" width="144">
+            <p><a name="389062"><font size="2" face="'Courier New'" color="#000000">'printable</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="308">
+            <p><a name="389064">For printable ASCII characters: alphanumeric and special characters</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="389066"><font size="2" face="'Courier New'" color="#000000">'mouse</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="389068">For mouse buttons (click, drag, double&#45;click)</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="389070"><font size="2" face="'Courier New'" color="#000000">'function</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="389072">For function keys. The following keys are considered function keys: </a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="389077">Any key whose name begins with </a><font size="2" face="'Courier New'" color="#000000">F#</font> or <font size="2" face="'Courier New'" color="#000000">KP_</font> (for keypad keys) or <font size="2" face="'Courier New'" color="#000000">osf</font> (for OSF virtual key binding names)</td>
+                </tr>
+              </table>
+            </div>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="392984">Support of Xt&#47;Motif will be removed from a future Virtuoso release. Resultantly, the use of OSF virtual key names will no longer be possible, as that facility is specific to Xt&#47;Motif. They should therefore be avoided.</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="389090">Any of the following keys: </a><font size="2" face="'Courier New'" color="#000000">Activate, AddMode, Again, Back, BackSpace, BackTab, Begin, BeginLine, Break, Cancel, Clear, Copy, Cut, Del, Delete, Down, End, EndLine, Enter, Esc, Escape, Find, Forward, Front, Help, Home, Ins, Insert, Left, Menu, MenuBar, Next, Open, PageDown, PageLeft, PageRight, PageUp, Paste, Pause, PgDn, PgUp, PrimaryPaste, Print, PrintScreen, Prior, Props, QuickPaste, Redo, Refresh, Return, Right, ScrollDown, ScrollUp, Select, Space, Stop, SysReq, Tab, Undo, Up</font></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="389046">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="397598"><font size="2" face="'Courier New'" color="#000000"><em>l_modifiers</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="397600">List of modifiers that can be used with the type of keys specified.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="389048">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="389049">hiBindKeyModifiers('printable)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="389084">=&#62; (&#34;Shift&#34; &#34;Ctrl&#34; &#34;Meta&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="389160">hiBindKeyModifiers('function)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="389161">=&#62; (&#34;Shift&#34; &#34;Ctrl&#34; &#34;Alt&#34; &#34;Meta&#34;)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetBindKey
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSetBindKey"></a><a name="36975">hiSetBindKey</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36976">hiSetBindKey(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> ] <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> t_skill_cmd</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil </font></font>
+      </dl>
+      <h4><a name="40762">Description</a></h4>
+      <p><a name="36979">Binds a SKILL command string</a> to a keyboard key or a mouse sequence for an application. </p>
+      <p><a name="36972">Before setting bindkeys, the application should be registered either through </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> or <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>. Cadence applications are already registered. You can get a list of registered bindkey prefixes for applications that you are running with the <a href="#382262" title="11"><font color="#0000ff"><u>hiGetBindKeyPrefixList</u></font></a> function or the Key or Mouse Binding form (choose <font color="#000000"><em>Options - Bindkeys</em></font> in the CIW to get the form).</p>
+      <p><a name="388912">If the </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> or <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> arguments are not specified, a bindkey form is displayed.</p>
+      <p><a name="389821">To set multiple bindkeys, use the </a><a href="#385069" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiSetBindKeys</u></font></a>() function, which is much more efficient than multiple calls to <font size="2" face="'Courier New'" color="#000000">hiSetBindKey()</font>.</p>
+      <p><a name="37116">The following restrictions apply to setting bindkeys:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="37117">When specifying a bindkey, you must ensure that it is spelt correctly and in the correct case.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="393788">Normally, the keyname should be spelt as it appears on the keyboard. One method to ensure that you are using the correct name is to look at the file: </a><font size="2" face="'Courier New'" color="#000000">&#47;usr&#47;include&#47;X11&#47;keysymdef.h</font></blockquote>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="394877">Warnings due to incorrectly spelt keynames will appear in the </a><font size="2" face="'Courier New'" color="#000000">CDS.log</font> file.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="394879">Do not assign the following printable keys to the CIW or to an encapsulation window:</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="384418">a through z, A through Z, or 0 through 9</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="384437">! @ # $ % &#94; &amp; * ( ) _ &#45; + = | \ ~ ` { [ } ] : ; &#34; ' &#60; , &#62; . ? &#47; </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="384450">If you assigned any of the above keys accidentally, the key can be restored by specifying an empty string for </a><font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font>. If the key was modified in the CIW, use the bindkey form to restore the behavior, since you will not be able to type the key you are trying to restore in the CIW anymore.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="37118">Do not use the left or middle mouse buttons for setting bindings in the CIW and encapsulation windows. Setting bindings for these buttons conflicts with their normal actions.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="37119">Do not assign anything to F3 or F4 function keys. Cadence software uses the F3 key to display options forms and the F4 key for partial selection in graphics windows.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="36173">Do not assign anything to the following keys, depending on your window manager:</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="389257">Motif and OpenLook window managers use the F1 key for help and the F10 key for highlighting menus. F1 key is usually only used for Help if no explicit Help key exists on the keyboard. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="382498">Sun Solaris reserves the F11 and F12 function keys, and they cannot be overridden. This restriction might apply to other platforms as well.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="382524">The unmodified F10 function key is used for </a><font size="2" face="'Courier New'" color="#000000">osfMenuBar</font> and cannot be overridden on Sun Solaris. This restriction might apply to other platforms as well.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="392995">In future releases, those keys with names that begin with &#34;osf&#34; may no longer be used. Therefore, their use should be avoided.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="389215">By default, </a><font size="2" face="'Courier New'" color="#000000">Alt</font> cannot be used as a modifier with any printable characters (alphanumeric and special characters) because it is used as a modifier for menu access keys. <font size="2" face="'Courier New'" color="#000000">Alt</font> can be used with function keys and for mouse bindings. However, if menu access keys are disabled, <font size="2" face="'Courier New'" color="#000000">Alt</font> is a legal modifier for all keys, including printable characters. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="389307">For information on disabling menu access keys, see </a><a href="chap3.html#981094" title="3"><font color="#0000ff"><u>Disabling Menu Access Keys</u></font></a> of <a href="chap3.html#80532" title="3"><font color="#0000ff"><u>Chapter&nbsp;3, "Menus."</u></font></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="389840">If a window manager or desktop, such as CDE, predefines an </a><font size="2" face="'Courier New'" color="#000000">Alt+</font><font size="2" face="'Courier New'" color="#000000"><em>key</em></font> or <font size="2" face="'Courier New'" color="#000000">Alt+</font><font size="2" face="'Courier New'" color="#000000"><em>mouseButton</em></font> binding, then that combination will not work as a menu access key or bindkey on that system.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="400806">Bindkeys are not supported in form windows.</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="398110">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398050"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="398052">Any user&#45;definable string that has been registered through </a><a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a> or a Cadence application type. You can get a list of registered bindkey prefixes for applications that you are running with the <a href="#382262" title="11"><font color="#0000ff"><u>hiGetBindKeyPrefixList</u></font></a> function or the Key or Mouse Binding form (choose <font color="#000000"><em>Options - Bindkey</em></font> in the CIW to get the form).</p>
+            <p><a name="398057">If this argument is not specified, a bindkey form is displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398059"><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398061">String specifying the key sequence, the operator, detail, and occurrences. If not specified, a bindkey form is displayed. Items in this list are:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398062"><font size="2" face="'Courier New'" color="#000000"><em>modifier_list</em></font></a> (optional)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398063"><font size="2" face="'Courier New'" color="#000000"><em>operator</em></font></a></td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398064"><font size="2" face="'Courier New'" color="#000000"><em>detail</em></font></a> (optional)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398065"><font size="2" face="'Courier New'" color="#000000"><em>occurrences</em></font></a> (optional) </td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="398066">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> ends with "EF", the SKILL command is used in <font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode. Otherwise, it is a non&#45;<font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode command. If there is no <font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode command defined when a key or mouse event happens in <font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode, the non&#45;<font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode command for this key is used.</p>
+            <p><a name="398067">Defining an empty string for a command is the equivalent to not defining the command in the first place. A bindkey defined for an alias application that has an empty string for the command, will inherit from the root application. If an enterfunction command is defined as an empty string, then the non&#45;enterfunction command will be used.</a></p>
+            <p><a name="398068">When using an enterfunction in an alias application, the enterfunction binding for the alias application will be checked first, then, if that is not defined, the enterfunction binding for the root application will be checked. If that is not defined, then the non&#45;enterfunction binding for the alias application is checked, finally followed by the non&#45;enterfunction binding for the root application.</a></p>
+            <p><a name="398069">To define &#34;no action&#34; for a binding and stop inheritance, specify the string &#34;</a><font size="2" face="'Courier New'" color="#000000">nil</font>&#34; for the command.</p>
+            <p><a name="398070">You would use </a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> in the following syntax:</p>
+            <p><a name="398071"><font size="2" face="'Courier New'" color="#000000">"modifier_list&#60;operator&#62;detail(occurrences)"</font></a></p>
+            <p><a name="398075">Use the </a><a href="#389036" title="11"><font color="#0000ff"><u>hiBindKeyModifiers</u></font></a> functions to get a list of legal modifiers for your session. The following modifiers could be in that list:</p>
+            <p><a name="398076">&nbsp;</a></p>
+          </td>
+        </tr>
+      </table>
+<ul>      <table summary="" border="1" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF" width="444">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="188">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="398079">Legal modifiers</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="256">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="398081">&nbsp;</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398083"><font size="2" face="'Courier New'" color="#000000">Ctrl</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398085">Control modifier bit</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398087"><font size="2" face="'Courier New'" color="#000000">Shift</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398089">Shift modifier bit</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398091"><font size="2" face="'Courier New'" color="#000000">Meta</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398093">Meta key modifier</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398095"><font size="2" face="'Courier New'" color="#000000">Hyper</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398097">Hyper key modifier</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398099"><font size="2" face="'Courier New'" color="#000000">Super</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398101">Super key modifier</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398103"><font size="2" face="'Courier New'" color="#000000">Alt</font></a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398105">Alt key modifier (legal only for mouse bindings and function keys, not for printable characters)</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398107"><font size="2" face="'Courier New'" color="#000000">None</font></a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398109">No modifiers</a></p>
+          </td>
+        </tr>
+      </table></ul>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398172">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="398174"><font color="#000000"><strong>Note:</strong></font></a> All modifiers except <font size="2" face="'Courier New'" color="#000000">Ctrl</font> and <font size="2" face="'Courier New'" color="#000000">Shift</font> will be checked to ensure they are assigned to keys on the current keyboard. A warning message will be issued, and the bindkey will not be defined for any modifier that is not assigned to a keyboard key. The <font size="2" face="'Courier New'" color="#000000">Ctrl</font> and <font size="2" face="'Courier New'" color="#000000">Shift</font> modifiers are guaranteed to be assigned. The Caps Lock (&#34;Lock&#34;) key cannot be specified as a modifier. <font size="2" face="'Courier New'" color="#000000">Alt</font> can be specified only with function keys and mouse bindings, not with printable characters (unless menu access keys are disabled.)</p>
+            <p><a name="398216">An exclamation point or a tilde is illegal in a bindkey string.</a></p>
+            <p><a name="398231">If </a><font size="2" face="'Courier New'" color="#000000">None</font> is specified, it means no modifiers can be asserted. This is also the equivalent of having no modifiers.</p>
+            <p><a name="398246">None &#60;event&#62; detail</a></p>
+            <p><a name="398261">&#60;event&#62; detail</a></p>
+          </td>
+        </tr>
+      </table>
+<ul>      <table summary="" border="1" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF" width="470">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="257">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="398118">Supported operators</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="212">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="398120">&nbsp;</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398122">Btn1Down</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398124">Button 1 Press</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398126">Btn2Down</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398128">Button 2 Press</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398130">Btn3Down</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398132">Button 3 Press</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398134">Btn4Down</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398136">Mouse scroll wheel up</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398138">Btn5Down</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398140">Mouse scroll wheel down</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" valign="top">
+            <p><font color="#000000"><strong>Note: </strong></font><a name="398142">Btn4Down(2) and Btn5Down(2) will be ignored.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398146">Key</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398148">Key Press</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398150">DrawThru1</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398152">Button 1 Press and Motion</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="398154">DrawThru2</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="398156">Button 2 Press and Motion</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398158">DrawThru3</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="398160">Button 3 Press and Motion</a></p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="398161">When performing a DrawThru operation, keyboard keys will be ignored except for the following keys which are hardcoded to the listed commands during DrawThru operations:</a></p>
+            <p><a name="398162"><font size="2" face="'Courier New'" color="#000000">Esc</font></a> &#45; which cancels the command.</p>
+            <p><a name="398163"><font size="2" face="'Courier New'" color="#000000">Arrow Keys</font></a> &#45; which pan by 20% in the appropriate direction.</p>
+            <p><a name="398164"><font size="2" face="'Courier New'" color="#000000">Z</font></a> &#45; which zooms in at the mouse.</p>
+            <p><a name="398165"><font size="2" face="'Courier New'" color="#000000">Shift+Z</font></a> &#45; which zooms out at the mouse.</p>
+          </td>
+        </tr>
+      </table></ul>
+      <h4><a name="398167">Examples:</a></h4>
+      <p><a name="36980">For single&#45;click Button 1 Down with Shift and Meta, use this specification:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36986">&#34;Shift Meta&#60;Btn1Down&#62;&#34;</a></font>
+      </p>
+      <p><a name="37005">For double&#45;click Button 1 Down with Shift, use this specification:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37006">&#34;Shift&#60;Btn1Down&#62;(2)&#34;</a></font>
+      </p>
+      <p><a name="36792">A double click event is detected when the mouse button is pressed twice rapidly in succession without moving the mouse pointer (namely, button down, button up, button down). The time interval between the two button down events must be within a specified double click time. (This interval defaults to 200 milliseconds, but it can be reset from the User Preferences Form of the CIW Utilities Menu.)</a></p>
+      <p><a name="37008">For drawthru on button 3, use this specification:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37009">&#34;&#60;DrawThru3&#62;&#34;</a></font>
+      </p>
+      <p><a name="37010">Drawthru is detected by pressing the mouse button and dragging the mouse before releasing the button. This operator should be specified only for graphics windows.</a></p>
+      <p><a name="37011">The following are examples of various key bindings:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37012">&#34;Shift&#60;Key&#62;F2&#34;  (Shift key + F2 key)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="387928">&#34;Ctrl Shift&#60;Key&#62;Escape&#34; (Control key + Shift key + Esc key)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="387929">&#34;&#60;Key&#62;3&#34;   (3 key)</a></font>
+      </p>
+      <p><a name="387936">When setting a bindkey to the comma key, spell out the word comma rather than using the comma character (,). </a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="387937">&#34;&#60;Key&#62;comma&#34;<br>&#34;Shift&#60;Key&#62;comma&#34;</a></font>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font></nobr>
+              </div>
+            </td>
+            <td><a name="68421">SKILL function to be executed with the translation in </a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font>. If you wish to specify more than one function, separate each one with a space. If a function is not specified, a bindkey form is displayed.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="68422">The maximum string length for the SKILL command is 511 characters. If multiple commands are to be executed, it is recommended to define a SKILL procedure and call the SKILL procedure rather than coding the entire procedure into the bindkey command string.</a></p>
+      <p><a name="393206"><font color="#000000"><strong>Note:</strong></font></a> To unset a previously set bindkey, you can set the <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font> to <font size="2" face="'Courier New'" color="#000000">&#34;&#34;</font>. This is the equivalent to not defining a command in the first place. To define &#34;no action&#34; for a binding, and stop inheritance, you should specify the string &#34;<font size="2" face="'Courier New'" color="#000000">nil</font>&#34; for the command. Note also that a non&#45;empty string, even one that contains only spaces, is treated as a legal command even if it does not do anything.</p>
+      <h4><a name="398285">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398292"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="398294">The bindkeys are set.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398296"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398298"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> or <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> is invalid or the <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font> string is longer than 511 characters. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="44118">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37018">hiSetBindKey(&#34;Command Interpreter&#34; &#34;None&#60;Key&#62;F6&#34; <br>&#34;hiQuit( )&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37019">hiSetBindKey(&#34;Schematics&#34; &#34;Shift&#60;Key&#62;z&#34; <br>&nbsp;&nbsp;&nbsp;&#34;hiZoomIn(hiGetCurrentWindow( ))&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="72283">hiSetBindKey(&#34;Schematics&#34; &#34;Shift Ctrl&#60;Key&#62;s&#34; <br>&nbsp;&nbsp;&nbsp;&#34;{println(\&#34;Editing selected object \&#34;) <br>&nbsp;&nbsp;&nbsp;hiEditPropList(car(geGetSelectedSet( )))}&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37021">hiSetBindKey(&#34;Schematics&#34; &#34;None &#60;Btn1Down&#62; EF&#34;<br>&nbsp;&nbsp;&nbsp;&#34;mouseAddPt( )&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="37016">hiSetBindKey(&#34;Schematics&#34; &#34;&#60;DrawThru3&#62;&#34; &#34;hiZoomIn( )&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="71626">hiSetBindKey(&#34;Show File&#34; &#34;&#60;Key&#62;F8&#34; <br>&nbsp;&nbsp;&nbsp;&#34;hiUnselectTextAll(hiGetCurrentWindow())&#34;)<br></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiSetBindKeys
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiSetBindKeys"></a><a name="385069">hiSetBindKeys</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="385073">hiSetBindKeys(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType <dd>l_bindKeyList <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="385074">Description</a></h4>
+      <p><a name="385076">Sets multiple bindkeys for an application at one time. For memory and performance efficiency, use this function instead of </a><font size="2" face="'Courier New'" color="#000000">hiSetBindKey</font> if you are setting multiple bindkeys. For information about restrictions, see <font size="2" face="'Courier New'" color="#000000">hiSetBindKey</font>.</p>
+      <h4><a name="385572">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398305"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="398307">Any user&#45;definable string that has been registered through </a><a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a> or a Cadence application type. </p>
+            <p><a name="398374">You can get a list of registered bindkey prefixes for applications that you are running with the </a><a href="#382262" title="11"><font color="#0000ff"><u>hiGetBindKeyPrefixList</u></font></a> function or the Key or Mouse Binding form (choose <font color="#000000"><em>Options - Bindkeys</em></font> in the CIW to get the form).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398313"><font size="2" face="'Courier New'" color="#000000"><em>l_bindKeyList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398315">The list of bindkey lists. Each list is a bindkey setting with the following format:</a></p>
+            <dl>
+              <font size="2" face="'Courier New'" color="#000000"><a name="398399">list( <dd>t_key<dd>t_skill_cmd<dd>[ t_EFskill_cmd ]<dd>)</a></font>
+            </dl>
+            <p><a name="398474">For information about </a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font>, see the<a href="#36975" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u> hiSetBindKey</u></font></a> function. <font size="2" face="'Courier New'" color="#000000"><em>t_EFskill_cmd</em></font> is the same as <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font> when the <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> argument ends with &#34;EF&#34; (<font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode). Do NOT add EF to the end of the <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> argument.</p>
+            <p><a name="398490"><font color="#000000"><strong>Note:</strong></font></a> The only way to invalidate a command is to replace it with another command or with an empty string. If you set the <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font> argument to <font size="2" face="'Courier New'" color="#000000">nil</font> when a non&#45;<font size="2" face="'Courier New'" color="#000000">enterfunction</font> command is already defined for the key, it will not be changed. This rule also applies to <font size="2" face="'Courier New'" color="#000000"><em>t_EFskill_cmd</em></font> and <font size="2" face="'Courier New'" color="#000000">enterfunction</font> commands if they are <font size="2" face="'Courier New'" color="#000000">nil</font> or if they are not passed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="388473">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398550"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="398552">The bindkeys are set.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398554"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398556">There was an error.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiRegSetBindKeyProc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="388684">hiRegSetBindKeyProc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="388685">hiRegSetBindKeyProc(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_application<dd>S_function<dd>[ g_notInherited ]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="388686">Description</a></h4>
+      <p><a name="388687">Registers a SKILL function that will be called after a bindkey is set for the specified application with the </a><font size="2" face="'Courier New'" color="#000000">hiSetBindKey</font> function or the CIW's Key or Mouse Binding form, or after a set of bindkeys is defined with the <font size="2" face="'Courier New'" color="#000000">hiSetBindKeys</font> function.</p>
+      <p><a name="388817">If there are any errors while setting a bindkey with </a><font size="2" face="'Courier New'" color="#000000">hiSetBindKey</font>, the function will not be called. If an error prevents <font size="2" face="'Courier New'" color="#000000">hiSetBindKeys</font> from setting any bindkeys, the function will not be called; however, errors during the setting of individual keys will not prevent the function from being called. The function will be called even if no change occurred as a result of calling <font size="2" face="'Courier New'" color="#000000">hiSetBindKey</font> or <font size="2" face="'Courier New'" color="#000000">hiSetBindKeys</font>. </p>
+      <p><a name="388824">If you are registering an application that inherits bindkeys from another application, you should also register the function with the root application that it inherits them from. This will allow you to view all changes made to the bindkeys that apply to the alias application. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="393220">You can use the </a><a href="#37098" title="11"><font color="#0000ff"><u>hiGetBindKeyInheritRoot</u></font></a> function to get the base application.</p>
+      <h4><a name="388688">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="644">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398563"><font size="2" face="'Courier New'" color="#000000"><em>t_application</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="451">
+            <p><a name="398565">Application prefix registered with </a><font size="2" face="'Courier New'" color="#000000">hiRegisterBindkeyPrefix.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398567"><font size="2" face="'Courier New'" color="#000000"><em>S_function</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398569">Name or symbol of the SKILL function to be called whenever a bindkey is set for the application. </a></p>
+            <p><a name="398605">The function will be passed two arguments. The first argument is a string specifying the bindkey prefix. The second argument is a list of the bindkeys that were updated (each item in the list is a list containing the bindkey and the command it was set to, in the same format as the </a><font size="2" face="'Courier New'" color="#000000"><em>l_bindkeyList</em></font> argument of <font size="2" face="'Courier New'" color="#000000">hiSetBindKeys</font>). The return value of the function will be ignored.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398575"><font size="2" face="'Courier New'" color="#000000">g_notInherited</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398577">If this argument is specified, and it not set as </a><font size="2" face="'Courier New'" color="#000000">nil</font> and the <font size="2" face="'Courier New'" color="#000000">applicationType</font> specified is an alias, then inherited commands will not be returned.</p>
+            <p><a name="398627">If the argument is not specified, or it is </a><font size="2" face="'Courier New'" color="#000000">nil</font>, then the command returned may be inherited from the root application.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="388690">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398642"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="398644">The function was registered.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398646"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398648"><font size="2" face="'Courier New'" color="#000000"><em>t_application</em></font></a> is not registered, <font size="2" face="'Courier New'" color="#000000"><em>t_application</em></font> inherits from another application prefix, or <font size="2" face="'Courier New'" color="#000000"><em>S_function</em></font> is not a valid name or symbol. A warning is also displayed.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBindKey
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="37022">hiGetBindKey</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37023">hiGetBindKey(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> t_key</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="44131">Description</a></h4>
+      <p><a name="37026">Returns the SKILL command string bound to a key or mouse button for an application. </a></p>
+      <p><a name="37131">If</a> <font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> or <font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> is not specified, a bindkey form is displayed.</p>
+      <h4><a name="44146">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398656"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="398658">Any user&#45;type string that has been registered using </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> or <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>. If not specified, a bindkey form is displayed. The application type can be a string like one of the following:</p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" border="0" cellpadding="4" cellspacing="0" bordercolor="#D3D3D3" width="450">
+        <tr>
+          <td cellpadding="4" valign="top" width="173">
+            <p><a name="44374">Command Interpreter</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="276">
+            <p><a name="44390">Command Interpreter Window (CIW)</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="44184">Schematics </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="44186"> Schematics Window</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="44188">Show File </a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="44190"> Show File Window</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="44192">wa</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="44194"> Waveform Window</a></p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398668"><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="398670">String specifying the key sequence, the operator, detail, and occurrences. If not specified, a bindkey form is displayed. Items in this list are:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398712"><font size="2" face="'Courier New'" color="#000000">modifier_list</font></a> (optional)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398704"><font size="2" face="'Courier New'" color="#000000">operator</font></a></td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398748"><font size="2" face="'Courier New'" color="#000000">detail</font></a> (optional)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398763"><font size="2" face="'Courier New'" color="#000000">occurrences</font></a> (optional) </td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="398793">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> ends with "EF", the SKILL function is used in <font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode. If not, it is a non&#45;<font size="2" face="'Courier New'" color="#000000">enterfunction</font> mode command.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="44769">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398810"><font size="2" face="'Courier New'" color="#000000"><em>t_skill_cmd</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="398812">The associated SKILL function string if one is associated with the specified application type and key sequence.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398814"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398816"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> or <font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBindKeys
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="388592">hiGetBindKeys</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="388597">hiGetBindKeys(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType<dd>[ g_alsoInherited ]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_bindkeyList</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="388598">Description</a></h4>
+      <p><a name="388603">Returns the list of bindkeys that are set for an application. </a></p>
+      <h4><a name="388604">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398828"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="398830">Application types that have been registered using either</a> <a href="#60659" title="11"><font color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a> or <font size="2" face="'Courier New'" color="#000000">deRegApp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398832"><font size="2" face="'Courier New'" color="#000000">[g_alsoInherited]</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398834">If this argument is specified, and it is not </a><font size="2" face="'Courier New'" color="#000000">nil</font> nor is the <font size="2" face="'Courier New'" color="#000000">applicationType</font> specified an alias, then the returned list will also include bindkeys that have been defined for the root application.</p>
+            <p><a name="398863">The inherited keys are listed first. Therefore, if a key appears twice in the list, then the second listed will be the one that is defined for the alias application. Otherwise, there is no way to distinguish one from the other if </a><font size="2" face="'Courier New'" color="#000000">g_alsoInherited</font> is not <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="388606">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="398878"><font size="2" face="'Courier New'" color="#000000"><em>l_bindkeyList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="398880">A list, each element of which is a list of the following form:</a></p>
+            <p><a name="398929"><font color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font> <font size="2" face="'Courier New'" color="#000000"><em>t_function</em></font>&#47;nil [<font size="2" face="'Courier New'" color="#000000"><em>t_EFfunction</em></font>])</p>
+            <p><a name="398921">where:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398967"><font size="2" face="'Courier New'" color="#000000"><em>t_key</em></font></a> is a string specifying the key sequence, such as <font size="2" face="'Courier New'" color="#000000">&#34;Ctrl&#60;Key&#62;w&#34;</font>.</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398982"><font size="2" face="'Courier New'" color="#000000"><em>t_function</em></font></a> is a string specifying the SKILL function to which the key is bound. If the key is not bound to any function but does have an enterfunction binding, <font size="2" face="'Courier New'" color="#000000"><em>t_function</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>. </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="398997"><font size="2" face="'Courier New'" color="#000000"><em>t_EFfunction</em></font></a> is an optional string specifying the enterfunction binding for the key. </td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="399015">For more information, see the </a><a href="#36975" title="11"><font color="#0000ff"><u>hiSetBindKey</u></font></a> function. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398906"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="398908">There are no bindkeys set for </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font>, or <font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> is not registered.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiShowBindKeys
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="388510">hiShowBindKeys</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36179">hiShowBindKeys(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_appTypeOrWindow</em></font> ]<dd>[ <em>g_showInheritBindings </em>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="44818">Description</a></h4>
+      <p><a name="36312">Displays the bindkeys for an application type or window in a Viewfile window. </a></p>
+      <p><a name="37133">You can save the window contents to a file by selecting </a><font color="#000000"><em>Save</em></font> or <font color="#000000"><em>Save As</em></font> from the <font color="#000000"><em>File</em></font> pulldown menu or using the <font size="2" face="'Courier New'" color="#000000">hiSaveViewfile</font>() or <font size="2" face="'Courier New'" color="#000000">hiSaveAsViewfile</font>() functions. After saving the file, you can load it into another Opus session using the <font size="2" face="'Courier New'" color="#000000">load()</font> or <font size="2" face="'Courier New'" color="#000000">loadi()</font> SKILL functions.</p>
+      <p><a name="384775">If there is any bindkey inheritance for this bindkey table, the application aliases are displayed at the top of the window. If</a> <font size="2" face="'Courier New'" color="#000000"><em>g_appTypeOrWindow</em></font> is missing, a bindkey form is displayed. </p>
+      <p><a name="37132">This is a wrapper function. Depending on the type of the argument, it calls </a><a href="#37051" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiShowBindKeysByAppType</u></font></a> or <a href="#37063" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiShowBindKeysByWindow</u></font></a>.</p>
+      <h4><a name="44833">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399032"><font size="2" face="'Courier New'" color="#000000"><em>g_appTypeOrWindow</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="399034">String or window ID. If it is a string, the argument is interpreted as an application type and the bindkeys are displayed using the </a><font size="2" face="'Courier New'" color="#000000">hiShowBindKeysByAppType</font> function. If it is a window ID, the bindkeys are displayed using the <font size="2" face="'Courier New'" color="#000000">hiShowBindKeysByWindow</font> function. </p>
+            <p><a name="399074">If </a><font size="2" face="'Courier New'" color="#000000">g_appTypeOrWindow</font> is not specified, or is an empty string, then the <a href="../wincfg/appBindkeys.html#configureBindkeys" target="external_window"><font color="#0000ff"><u>Bindkey Editor</u></font></a> is displayed.</p>
+            <p><a name="399090">If the application type is specified, it must have been previously registered either through </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> or <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="400830"><font size="2" face="'Courier New'" color="#000000"><em>g_showInheritBindings</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399044"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399108">If the </a><font size="2" face="'Courier New'" color="#000000">g_appTypeOrWindow</font> argument is an application type, then this argument is passed to <font size="2" face="'Courier New'" color="#000000">hiShowBindKeysAppType</font>. Otherwise, it is ignored.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="388877">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399125"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399127">The bindkey is displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399129"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399131"><font size="2" face="'Courier New'" color="#000000"><em>g_appTypeOrWindow</em></font></a> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiShowBindKeysByAppType
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiShowBindKeysByAppType"></a><a name="37051">hiShowBindKeysByAppType</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37052">hiShowBindKeysByAppType(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_window1<dd>t_applicationType<dd>[ g_showInheritBindings ]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="44881">Description</a></h4>
+      <p><a name="37053">Displays the bindkeys for an application in a Viewfile window. </a></p>
+      <p><a name="384935">You can save the window contents to a file by selecting </a><font color="#000000"><em>Save</em></font> or <font color="#000000"><em>Save As</em></font> from the <font color="#000000"><em>File</em></font> pulldown menu or using the <font size="2" face="'Courier New'" color="#000000">hiSaveViewfile</font> or <font size="2" face="'Courier New'" color="#000000">hiSaveAsViewfile</font> functions. After saving the file, you can load it into another Opus session using the <font size="2" face="'Courier New'" color="#000000">load()</font> or <font size="2" face="'Courier New'" color="#000000">loadi()</font> SKILL functions.</p>
+      <p><a name="384927">If there is any bindkey inheritance for this bindkey table, the application aliases are displayed at the top of the window.</a></p>
+      <p><a name="393487">If </a><font size="2" face="'Courier New'" color="#000000">t_applicationType</font> is an alias application, then only the bindkeys specifically defined for the alias application (which will override any bindkeys inherited from the root application) will be displayed.</p>
+      <h4><a name="44914">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399138"><font size="2" face="'Courier New'" color="#000000"><em>w_window1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="399140">The window in which you want to display the bindkeys.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399142"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399144">Any application type previously registered with </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> or <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399184"><font size="2" face="'Courier New'" color="#000000"><em>g_showInheritBindings</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399146"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399171">If </a><font size="2" face="'Courier New'" color="#000000">g_showInheritBindings</font> is specified, and it is not set as <font size="2" face="'Courier New'" color="#000000">nil</font>, nor is <font size="2" face="'Courier New'" color="#000000">t_applicationType</font> set as a root application, then the window contents will also include any bindings that have been defined for any alias application that has bindkeys defined.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="44953">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399192"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399194">The bindkey is displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399196"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399198"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiShowBindKeysByWindow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiShowBindKeysByWindow"></a><a name="37063">hiShowBindKeysByWindow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="60602">hiShowBindKeysByWindow(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>w_window1 </em></font>]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>w_window2</em></font> ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="44992">Description</a></h4>
+      <p><a name="37066">Displays the bindkeys for a window in a Viewfile window. </a></p>
+      <p><a name="384969">You can save the window contents to a file by selecting </a><font color="#000000"><em>Save</em></font> or <font color="#000000"><em>Save As</em></font> from the <font color="#000000"><em>File</em></font> pulldown menu or using the <font size="2" face="'Courier New'" color="#000000">hiSaveViewfile()</font> or <font size="2" face="'Courier New'" color="#000000">hiSaveAsViewfile()</font> functions. After saving the file, you can load it into another Opus session using the <font size="2" face="'Courier New'" color="#000000">load()</font> or <font size="2" face="'Courier New'" color="#000000">loadi()</font> SKILL functions.</p>
+      <p><a name="384955">If there is any bindkey inheritance for this bindkey table, the application aliases are displayed at the top of the window.</a></p>
+      <p><a name="393508">If the application type for </a><font size="2" face="'Courier New'" color="#000000">w_window2</font> is set to an alias application, then the bindkey text window will display bindkeys defined both for the root application that the alias application inherits from, as well as any bindkeys defined specifically for the alias application (which will override root application bindkeys).</p>
+      <h4><a name="45025">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399205"><font size="2" face="'Courier New'" color="#000000"><em>w_window1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399207">Text window in which you want to display the bindkeys.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399209"><font size="2" face="'Courier New'" color="#000000"><em>w_window2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399211">Window associated with the application for which you want to see the bindkeys.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="63442">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399222"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399224">The bindkey is displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399226"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399228"><font size="2" face="'Courier New'" color="#000000"><em>w_window</em></font></a> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiRegisterBindKeyPrefix
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiRegisterBindKeyPrefix"></a><a name="60659">hiRegisterBindKeyPrefix</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37072">hiRegisterBindKeyPrefix(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_ignored </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="45106">Description</a></h4>
+      <p><a name="37075">Registers an application bindkey prefix. Use this function to register prefixes that you do not want to register with the Design Editor application. Cadence applications are already registered.</a></p>
+      <p><a name="37140">This function should be called only when you want to have bindkeys for the application. The Design Editor application should be registered via the </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> call that calls this routine. </p>
+      <h4><a name="45139">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399236"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="400849">The name of the application set as the </a><font size="2" face="'Courier New'" color="#000000"><em>appType</em></font> of the window or the name of the plugin for which bindkeys are to be defined. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399240"><font size="2" face="'Courier New'" color="#000000"><em>t_ignored</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399271">Optional. This argument is ignored.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="45178">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399284"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="399286">The bindkey prefix is registered.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399288"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399290"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> has already been registered. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiInheritBindKey
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiInheritBindKey"></a><a name="37085">hiInheritBindKey</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37086">hiInheritBindKey(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType <dd>t_from_app_type <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="45217">Description</a></h4>
+      <p><a name="37089">Causes a registered application to inherit bindkeys from another application. </a></p>
+      <p><a name="37142">Nested inheritance is not allowed, that is, </a><font size="2" face="'Courier New'" color="#000000"><em>t_from_app_type</em></font> cannot inherit bindkeys from another application. </p>
+      <p><a name="68503">Bindkeys defined for an application that inherits bindkeys will override those that are inherited from the root application. Also, an application can only inherit from one application and multiple inheritance is not allowed. However, any number of applications can inherit from any particular application.</a></p>
+      <h4><a name="45250">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399298"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="399300">Application type (previously registered using </a>deRegApp or <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>) to inherit the bindkeys.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399302"><font size="2" face="'Courier New'" color="#000000"><em>t_from_app_type</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399304">Application type (previously registered using </a><font size="2" face="'Courier New'" color="#000000">deRegApp</font> or <font size="2" face="'Courier New'" color="#000000">hiRegisterBindKeyPrefix</font>) that has or will have bindkeys defined.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="45289">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399316"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="399318">The bindkeys are inherited.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399320"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399322"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> or <font size="2" face="'Courier New'" color="#000000"><em>t_from_app_type</em></font> is invalid, <font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> already has bindkeys defined, or <font size="2" face="'Courier New'" color="#000000"><em>t_from_app_type</em></font> inherited its bindkeys from another application. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBindKeyInheritRoot
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="37098">hiGetBindKeyInheritRoot</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37099">hiGetBindKeyInheritRoot(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_application</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="45331">Description</a></h4>
+      <p><a name="37102">Returns the application name from which </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> inherits its bindkeys. </p>
+      <p><a name="37090">If</a> <font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> does not inherit bindkeys from another application, returns <font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font>. </p>
+      <h4><a name="399337">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399371"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399373">Application type that does not define bindkeys but inherits them from another application.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="399339">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399379"><font size="2" face="'Courier New'" color="#000000"><em>t_application</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="399381">The name of the application from which the bindkeys were inherited.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399383"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399385"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBindKeyInheritAlias
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="37107">hiGetBindKeyInheritAlias</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="37108">hiGetBindKeyInheritAlias(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_application</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="45442">Description</a></h4>
+      <p><a name="37111">Returns a list of application names that inherit the bindkeys from </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font>. </p>
+      <h4><a name="45475">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399392"><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="399394">Application type that defines bindkeys to be inherited by another application.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="45514">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399401"><font size="2" face="'Courier New'" color="#000000"><em>l_application</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="399403">A list of applications that inherit bindkeys from this application type.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399405"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399407">There are no applications that inherit bindkeys from the specified application type, or </a><font size="2" face="'Courier New'" color="#000000"><em>t_applicationType</em></font> is invalid. A warning is also issued.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetBindKeyPrefixList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetBindKeyPrefixList"></a><a name="382262">hiGetBindKeyPrefixList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="382266">hiGetBindKeyPrefixList() <dd></a>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_application</em></font></font>
+      </dl>
+      <h4><a name="381837">Description</a></h4>
+      <p><a name="381838">Returns a list of registered applications. This list is used to build the menu for the Cyclic button on the Bind Keys form. </a></p>
+      <h4><a name="381983">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399414"><font size="2" face="'Courier New'" color="#000000"><em>l_application</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399416">The list that is used to build the menu for the Cyclic button on the Bind Keys form. Root applications are listed with no leading spaces. Sub&#45;applications (applications that inherit from a root application) are listed following the root application from which they inherit and have three leading spaces in the string.</a></p>
+            <p><a name="399444"><font color="#000000"><strong>Note:</strong></font></a> Root applications are registered using <a href="#60659" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiRegisterBindKeyPrefix</u></font></a>, and sub&#45;applications are registered using <a href="#37085" title="11"><font size="2" face="'Courier New'" color="#0000ff"><u>hiInheritBindKey</u></font></a>.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiConfigureBindKeys
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiConfigureBindKeys"></a><a name="391590">hiConfigureBindKeys</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="397545">hiConfigureBindKeys(<dd></a><font size="2" face="'Courier New'" color="#000000">?showOnlyApps</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>l_apps<dd></em></font><font size="2" face="'Courier New'" color="#000000">?showAllChildren</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>g_showAllChildren<dd></em></font><font size="2" face="'Courier New'" color="#000000">?selectApp</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>t_appname<dd></em></font><font size="2" face="'Courier New'" color="#000000">?selectKeyBinding</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>t_keyBinding<dd></em></font><font size="2" face="'Courier New'" color="#000000">?showEmptyApps</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>g_showEmptyApps<dd></em></font><font size="2" face="'Courier New'" color="#000000">?showInheritedBindings</font><em> </em><font size="2" face="'Courier New'" color="#000000"><em>g_showInheritedBindings<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="392524">Description</a></h4>
+      <p><a name="392526">Resets and displays the Bindkey Configuration form according to the supplied arguments. If the form is currently open, and contains unsaved changes, it will prompt before resetting the data.</a></p>
+      <p><a name="392890">See also </a><a href="../wincfg/appBindkeys.html#configureBindkeys" target="external_window"><font color="#0000ff"><u>Configuring Application Bindkeys</u></font></a> in the <a href="../wincfg/wincfgTOC.html" target="external_window"><font color="#0000ff"><u><em>Virtuoso Design Environment User Guide</em></u></font></a>.</p>
+      <h4><a name="392633">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="646">
+            <p><a name="399665"><font size="2" face="'Courier New'" color="#000000">?showOnlyApps </font></a><font size="2" face="'Courier New'" color="#000000"><em>l_apps</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399530"><font size="2" face="'Courier New'" color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="399532">Accepts a string, or list of strings, where each string specifies the name of an application which will appear in the application tree in the Bindkey Configuration form. The default is </a><font size="2" face="'Courier New'" color="#000000">&#34;&#34;</font>, which means that all applications with bindkeys defined will be shown. Wildcards can also be used, for example, <font size="2" face="'Courier New'" color="#000000">?showOnlyApps &#34;Schematics*&#34;</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399658"><font size="2" face="'Courier New'" color="#000000">?showAllChildren </font></a><font size="2" face="'Courier New'" color="#000000"><em>g_showAllChildren</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399534"><font size="2" face="'Courier New'" color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399536">Boolean argument, where, by default, if a root application is matched, then all children of that application will be shown, rather than only those children which also match one of the supplied application names. Defaults to &#39;</a><font size="2" face="'Courier New'" color="#000000">t</font>&#39;, but set to &#39;<font size="2" face="'Courier New'" color="#000000">nil</font>&#39; to show only children of root applications that match the strings passed to <font size="2" face="'Courier New'" color="#000000">?showOnlyApps</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399651"><font size="2" face="'Courier New'" color="#000000">?selectApp </font></a><font size="2" face="'Courier New'" color="#000000"><em>t_appname</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399538"><font size="2" face="'Courier New'" color="#000000">&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399540">The name of the application to select in the application tree when the Bindkey Configuration form is displayed. Wildcards are accepted and the first match will be selected.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399644"><font size="2" face="'Courier New'" color="#000000">?selectKeyBinding </font></a><font size="2" face="'Courier New'" color="#000000"><em>t_keyBinding</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399542"><font size="2" face="'Courier New'" color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399544">The keybinding string to be selected in the key table. The string need not be an exact string match for the keybinding. That is, it enough for the representation of the keybinding to be the same. For example, passing &#34;</a><font size="2" face="'Courier New'" color="#000000">CtrlShift&#60;Key&#62;a</font>&#34; will select &#34;<font size="2" face="'Courier New'" color="#000000">ShiftCtrl&#60;Key&#62;A</font>&#34;, if found in the tree.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399637"><font size="2" face="'Courier New'" color="#000000">?showEmptyApps </font></a><font size="2" face="'Courier New'" color="#000000"><em>g_showEmptyApps</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399546"><font size="2" face="'Courier New'" color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399548">Boolean argument that is the equivalent to the </a><font color="#000000"><em>Show applications with no bindkeys defined</em></font> checkbox option in the Bindkey Configuration form. The default value is &#39;<font size="2" face="'Courier New'" color="#000000">Default</font>, which indicates that the Bindkey Editor form will be opened with the same settings that were made the last time when the form was closed.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="399550"><font size="2" face="'Courier New'" color="#000000">?showInheritedBindings </font></a><font size="2" face="'Courier New'" color="#000000"><em>g_showInheritedBindings</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399554">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399556">Boolean argument that is the equivalent to the </a><font color="#000000"><em>Show inherited bindings</em></font> checkbox option in the Bindkey Configuration form. This will determine whether bindings that are inherited from a root app are shown when a child app is selected. The default value is &#39;<font size="2" face="'Courier New'" color="#000000">Default</font>, which indicates that the Bindkey Editor form will be opened with the same settings that were made the last time when the form was closed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="392647">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="399688"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="399690">Bindkey configuration form successfully reset and displayed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399692"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="399694">Command failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="391602">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="391700">hiConfigureBindKeys() =&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiEnableAsstBindKeyPrefix
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiEnableAsstBindKeyPrefix"></a><a name="395448">hiEnableAsstBindKeyPrefix</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="395450">hiEnableAsstBindKeyPrefix(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_prefix <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="395451">Description</a></h4>
+      <p><a name="395453">Removes the specified bindkey prefix (also known as an appType), which is associated with a dock window (assistant), from the list of disabled bindkey prefixes. For information about how to add a bindkey prefix to the list of disabled bindkey prefixes, see </a><a href="#395489" title="11"><font color="#0000ff"><u>hiDisableAsstBindKeyPrefix</u></font></a>.</p>
+      <h4><a name="395457">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="395460"><font size="2" face="'Courier New'" color="#000000"><em>t_prefix </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="395462">The bindkey prefix.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="395464">Return Values</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="395467"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="395469">The bindkey prefix was removed from the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="395471"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="395473">The bindkey prefix does not exist in the list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="395475">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395476">hiEnableAsstBindKeyPrefix(&#34;Palette&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395477">&#62; t</a></font>
+      </p>
+      <p><a name="395478">Removes </a><font size="2" face="'Courier New'" color="#000000">Palette</font> from the list of disabled bindkey prefixes.  </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395480">hiEnableAsstBindKeyPrefix(&#34;Palette1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395481">&#62; nil</a></font>
+      </p>
+      <p><a name="395482"><font size="2" face="'Courier New'" color="#000000">Palette1</font></a> does not exist in the list of disabled bindkey prefixes.</p>
+      <p><a name="395486">To view the list of disabled bindkey prefixes, use </a><a href="#395516" title="11"><font color="#0000ff"><u>hiGetDisabledAsstBindKeyPrefixes</u></font></a>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiDisableAsstBindKeyPrefix
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiDisableAsstBindKeyPrefix"></a><a name="395489">hiDisableAsstBindKeyPrefix</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="395491">hiDisableAsstBindKeyPrefix(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_prefix <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="395492">Description</a></h4>
+      <p><a name="395494">Adds the specified bindkey prefix (also known as an appType), which is associated with a dock window (assistant), to the list of disabled bindkey prefixes. As a result, the bindkeys defined using that prefix are disabled.</a></p>
+      <p><a name="395495">If the prefix for a dock window exists in the list, the bindkeys associated with that prefix are not used for the dock window; instead it uses the bindkey definition of the main window.</a></p>
+      <h4><a name="395496">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="395499"><font size="2" face="'Courier New'" color="#000000"><em>t_prefix </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="395501">The bindkey prefix.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="395503">Return Values</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="395506"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="395508">The bindkey prefix was added to the list. Always returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="395510">Example</a></h4>
+      <p><a name="395511">The Palette assistant defines its own bindkeys with the prefix </a><font size="2" face="'Courier New'" color="#000000">Palette</font>. For example, when the input focus is in the main window, the <font size="2" face="'Courier New'" color="#000000">F11</font> key toggles <font size="2" face="'Courier New'" color="#000000">on</font> and <font size="2" face="'Courier New'" color="#000000">off</font> the assistants that are open, however, when the focus is in the Palette, the <font size="2" face="'Courier New'" color="#000000">F11</font> key toggles <font size="2" face="'Courier New'" color="#000000">on</font> and <font size="2" face="'Courier New'" color="#000000">off</font> the Palette toolbars.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395512">hiDisableBindKeyPrefix(&#34;Palette&#34;)</a></font>
+      </p>
+      <p><a name="395513">This function call adds the bindkey prefix </a><font size="2" face="'Courier New'" color="#000000">Palette</font> to the list of disabled prefixes. If you now press <font size="2" face="'Courier New'" color="#000000">F11</font> with the focus in the Palette, it will toggle <font size="2" face="'Courier New'" color="#000000">on</font> and <font size="2" face="'Courier New'" color="#000000">off</font> the assistants that are open, that is, the bindkeys defined using the Palette bindkey prefix are no longer in effect.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetDisabledAsstBindKeyPrefixes
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetDisabledAsstBindKeyPrefixes"></a><a name="395516">hiGetDisabledAsstBindKeyPrefixes</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="395518">hiGetDisabledAsstBindKeyPrefixes(<dd>)<dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="395519">Description</a></h4>
+      <p><a name="395524">Returns the list of bindkey prefixes disabled using </a><a href="#395489" title="11"><font color="#0000ff"><u>hiDisableAsstBindKeyPrefix</u></font></a>.</p>
+      <h4><a name="395525">Argument</a></h4>
+      <p><a name="395526">None.</a></p>
+      <h4><a name="395527">Return Values</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="395530"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="395532">The list of disabled bindkey prefixes.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="395534"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="395536">No bindkey prefix is disabled.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="395538">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395539">hiDisableBindKeyPrefix(&#34;App1&#34;)<br>&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395540">hiDisableBindKeyPrefix(&#34;App2&#34;)<br>&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395541">hiDisableBindKeyPrefix(&#34;App3&#34;)<br>&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="395542">hiGetDisabledBindKeyPrefixes()<br>&#62;(&#34;App1&#34; &#34;App2&#34; &#34;App3&#34;)</a></font>
+      </p>
+      <p><a name="395543">Returns the list of bindkey prefixes, </a><font size="2" face="'Courier New'" color="#000000">&#34;App1&#34;</font>, <font size="2" face="'Courier New'" color="#000000">&#34;App2&#34;</font>, and <font size="2" face="'Courier New'" color="#000000">&#34;App3&#34;</font>, that have been disabled using <font size="2" face="'Courier New'" color="#000000">hiDisableAsstBindKeyPrefix</font>.</p>
+      <p><a name="392187">&nbsp;</a></p>
+      <p><a name="396992">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="400456">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap10.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap12.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

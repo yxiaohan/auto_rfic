@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 6</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801826">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="6">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801826">
+<META NAME="NextFile" CONTENT="chap7.html">
+<META NAME="PageCount" CONTENT="14">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap5.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="hiDisplayListBox(s_listBoxHandle t_listBoxTitle l_listItems t_help) => t / nil ,hiGetListBoxFieldFit( x_numRows x_numColumns [ g_ignored ]) => l_widthHeight ,hiListBoxCancel(o_listBox ) => t / nil ,hiListBoxDone(o_listBox ) => t / nil ,hiShowListBox(?name s_listBoxHandle ?choices lt_listItems ?callback s_callback [?title t_listBoxTitle] [?multipleSelect g_multiSelect][?value lt_selectedItem][?appData g_appData][?applyButton g_applyButton]) => t / nil ">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 6">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap5.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap7.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>6<a name="899157">&nbsp;</a></h1>
+      <h1><a name="899158">List Boxes</a></h1>
+      <p><a name="899121">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#899120" title="6" name="899122"><font color="#0000ff"><u>List Boxes</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#896598" title="6" name="899127"><font color="#0000ff"><u>Programming Samples</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="899120">List Boxes</a></h2>
+      <p><a name="36836">List boxes display a list of user&#45;defined strings in a scrollable window. The window has a vertical and horizontal scroll bar and the size of the window is constant. You can select a string (or strings) using the left mouse button. </a></p>
+      <p><a name="36837">The string(s) that you select can be used by the application after the window is dismissed. Both the </a><font size="2" face="'Courier New'" color="#000000">Cancel</font> and <font size="2" face="'Courier New'" color="#000000">OK</font> buttons remove the window from the screen; however, using the <font size="2" face="'Courier New'" color="#000000">Cancel</font> button ignores your selections. </p>
+      <p><a name="36838">The following routines are used to define and display a list box, and can programmatically remove them from the screen. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="36839">Use the routine </a><font size="2" face="'Courier New'" color="#000000">hiShowListBox</font> rather than <font size="2" face="'Courier New'" color="#000000">hiDisplayListBox</font>.</p>
+      <p><a name="36840">The selection mechanism for multiple selection in list boxes (using </a><font size="2" face="'Courier New'" color="#000000">hiShowListBox</font>) is as follows:</p>
+      <p><a name="36841">To select a continuous range of items:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36842">Press the left mouse button.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36843">Drag the cursor over the items you wish to select.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36844">Release the mouse button.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="36845">Each time the left mouse button is pressed, a new selection process begins, and the previously selected items are unselected.</a></p>
+      <p><a name="36846">To modify a selection:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36847">Press and hold the </a><font color="#000000"><em>Shift</em></font> key.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36848">Move to the new endpoint of selected items.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36849">Press the left mouse button.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="36850">The items between the initial start point and the new endpoint are selected; any previous selections are not unselected.</a></p>
+      <p><a name="36851">To add or delete items from the selected set:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36852">Press and hold the </a><font color="#000000"><em>Control</em></font> key.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36853">Move to the item you wish to add or delete.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="36854">Press the left mouse button (will invert the selection state of this item).</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="68394">Drag the mouse button, if you wish to add or delete a range of items.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="68395">The item(s) selected or unselected will be added to or deleted from the selected set. Any previous selections remain unaffected. </a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiDisplayListBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiDisplayListBox"></a><a name="36857">hiDisplayListBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="36858">hiDisplayListBox(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_listBoxHandle</em></font><font size="2" face="'Courier New'" color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>t_listBoxTitle</em></font><font size="2" face="'Courier New'" color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>l_listItems</em></font><font size="2" face="'Courier New'" color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>t_help<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil </font></font>
+      </dl>
+      <h4><a name="43055">Description</a></h4>
+      <p><a name="36861">Creates and displays a list box. The list box will display a list of strings. The user can select one of these strings by clicking over the item with the left mouse button. The list box remains on the screen until the user selects </a><font color="#000000"><em>OK</em></font> or <font color="#000000"><em>Cancel</em></font>. The list box is destroyed when it is removed from the screen </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="36862">This function will be removed in a future release--use </a><a href="#36875" title="6"><font size="2" face="'Courier New'" color="#0000ff"><u>hiShowListBox</u></font></a> instead.</p>
+      <h4><a name="43074">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903479"><font size="2" face="'Courier New'" color="#000000"><em>s_listBoxHandle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="903481">A unique global SKILL handle to the created list box. The selected item can be retrieved from the </a>listBoxHandle. For example, if <font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle</em></font> was <font size="2" face="'Courier New'" color="#000000">myListBox</font>, the selected item would be:</p>
+            <p><a name="903523"><font size="2" face="'Courier New'" color="#000000"><em>myListBox &#45;&#62; value</em></font></a></p>
+            <p><a name="903538">This value will be a list of two items: the integer representing the position of the selected item in the item list and the selected item string.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903491"><font size="2" face="'Courier New'" color="#000000"><em>t_listBoxTitle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903493">Title of the list box displayed in the </a><font color="#000000"><em>WindowManager</em></font> banner.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903495"><font size="2" face="'Courier New'" color="#000000"><em>l_listItems</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903497">List of strings that is displayed in the scrolling window. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903499"><font size="2" face="'Courier New'" color="#000000"><em>t_help</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903501">String containing information about this list box. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="43095">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903551"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="903553">The </a><font color="#000000"><em>OK</em></font> button was selected.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903555"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903557">The </a><font color="#000000"><em>Cancel</em></font> button was selected. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiGetListBoxFieldFit
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiGetListBoxFieldFit"></a><a name="899387">hiGetListBoxFieldFit</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="899389">hiGetListBoxFieldFit( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_numRows <dd>x_numColumns <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_ignored </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_widthHeight</em></font> </font>
+      </dl>
+      <h4><a name="899390">Description</a></h4>
+      <p><a name="899392">Returns the width and height necessary for displaying a list box with the specified number of rows and columns and the specified font.</a></p>
+      <h4><a name="899393">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903565"><font size="2" face="'Courier New'" color="#000000"><em>x_numRows</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="903567">Number of rows to display in the list box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903569"><font size="2" face="'Courier New'" color="#000000"><em>x_numColumns</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903571">Number of columns (characters) to display in the list box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903573"><font size="2" face="'Courier New'" color="#000000"><em>g_ignored</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903575">Optional. Any value that exists for backwards compatibility.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="899397">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903582"><font size="2" face="'Courier New'" color="#000000"><em>l_widthHeight</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="903584">List of the width and height of the list box. The width for the variable width fonts is based on the size of a numeric character.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="899399">Example</a></h4>
+      <p><a name="899400">This example creates a form with a list box field large enough to show four rows of values and as many columns as the largest value in the value list.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899401">let( (lbValues (lbColumns 0) lbSize (lbPrompt &#34;My List&#34;) lbPromptSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(lbFont hiGetFont(&#34;text&#34;)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899402">&nbsp;&nbsp;&nbsp;&nbsp;lbValues = list( &#34;this is my first value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my second value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my third value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my fourth value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my fifth value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my sixth value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my seventh value string&#34; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;this is my eighth value string&#34; )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899403">&nbsp;&nbsp;&nbsp;&nbsp;foreach( x lbValues<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let( (y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = strlen( x ) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when( y &#62; lbColumns lbColumns = y )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;lbPromptSize = hiGetTextWidth( lbFont lbPrompt ) <br>&nbsp;&nbsp;&nbsp;&nbsp;lbSize = hiGetListBoxFieldFit( 4 lbColumns lbFont ) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899404">&nbsp;&nbsp;&nbsp;&nbsp;MyListBoxField = hiCreateListBoxField( <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?name 'MyListBoxField<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?prompt lbPrompt<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?choices lbValues )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899405">&nbsp;&nbsp;&nbsp;&nbsp;MyListBoxForm = hiCreateAppForm(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?name 'MyListBoxForm<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?fields list( list( MyListBoxField 5:5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list( car(lbSize) + lbPromptSize                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cadr(lbSize))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lbPromptSize ) )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>)</a></font>
+      </p>
+      <h4><a name="899406">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#36857" title="6" name="899410"><font color="#0000ff"><u>hiDisplayListBox</u></font></a>, <a href="chap8.html#790333" title="8"><font color="#0000ff"><u>hiGetNumVisibleItems</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiListBoxCancel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiListBoxCancel"></a><a name="899463">hiListBoxCancel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="899467">hiListBoxCancel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listBox</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font><em> </em></font>
+      </dl>
+      <h4><a name="899468">Description</a></h4>
+      <p><a name="899470">Performs the same action as the </a><font color="#000000"><em>Cancel</em></font> button on the listbox. </p>
+      <p><a name="899471">If the listbox is mapped, it will be unmapped. The listbox callback will be called with a first argument of </a><font size="2" face="'Courier New'" color="#000000">nil</font> to indicate that <font color="#000000"><em>Cancel</em></font> was pressed (see <a href="#36875" title="6"><font size="2" face="'Courier New'" color="#0000ff"><u>hiShowListBox</u></font></a>).</p>
+      <h4><a name="899473">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903591"><font size="2" face="'Courier New'" color="#000000"><em>o_listBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="903593">SKILL handle to the listbox. This is the value of the </a><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle</em></font> symbol passed into <font size="2" face="'Courier New'" color="#000000">hiShowListBox</font>. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="899475">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903600"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="903602">The list box is canceled.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903604"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903606">The list box is not canceled.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiListBoxDone
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiListBoxDone"></a><a name="899487">hiListBoxDone</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="899490">hiListBoxDone(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_listBox</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font><em> </em></font>
+      </dl>
+      <h4><a name="899492">Description</a></h4>
+      <p><a name="899494">Performs the same action as the </a><font color="#000000"><em>OK</em></font> button on the listbox. </p>
+      <p><a name="899495">If the listbox is mapped, it will be unmapped. The listbox callback will be called with a first argument of </a><font size="2" face="'Courier New'" color="#000000">t</font> to indicate that <font color="#000000"><em>OK</em></font> was pressed (see <a href="#36875" title="6"><font size="2" face="'Courier New'" color="#0000ff"><u>hiShowListBox</u></font></a>).</p>
+      <h4><a name="899497">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903613"><font size="2" face="'Courier New'" color="#000000"><em>o_listBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="903615">SKILL handle to the listbox. This is the value of the </a><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle</em></font> symbol passed into <font size="2" face="'Courier New'" color="#000000">hiShowListBox</font>. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="899499"><em> </em></a>Value Returned</h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903622"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="903624">The list box is unmapped.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903626"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903628">The list box is not unmapped. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=hiShowListBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="hiShowListBox"></a><a name="36875">hiShowListBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="903428">hiShowListBox(<dd></a><font size="2" face="'Courier New'" color="#000000">?name</font> <font size="2" face="'Courier New'" color="#000000"><em>s_listBoxHandle</em></font> <dd><font size="2" face="'Courier New'" color="#000000">?choices</font> <font size="2" face="'Courier New'" color="#000000"><em>lt_listItems</em></font> <dd><font size="2" face="'Courier New'" color="#000000">?callback</font> <font size="2" face="'Courier New'" color="#000000"><em>s_callback</em></font> <dd>[<font size="2" face="'Courier New'" color="#000000">?title</font> <font size="2" face="'Courier New'" color="#000000"><em>t_listBoxTitle</em></font>] <dd>[<font size="2" face="'Courier New'" color="#000000">?multipleSelect</font> <font size="2" face="'Courier New'" color="#000000"><em>g_multiSelect</em></font>]<dd>[<font size="2" face="'Courier New'" color="#000000">?value</font> <font size="2" face="'Courier New'" color="#000000"><em>lt_selectedItem</em></font>]<dd>[<font size="2" face="'Courier New'" color="#000000">?appData</font> <font size="2" face="'Courier New'" color="#000000"><em>g_appData</em></font>]<dd>[<font size="2" face="'Courier New'" color="#000000">?applyButton</font> <font size="2" face="'Courier New'" color="#000000"><em>g_applyButton</em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="43116">Description</a></h4>
+      <p><a name="36879">Creates and displays a list box. The list box displays a list of strings. The list box can be created so that one item is selectable or multiple items are selectable. While the list box is displayed on the screen, the user may change the items in the list box, or change the item(s) selected. The list box remains on the screen until the user selects </a><font color="#000000"><em>OK</em></font> or <font color="#000000"><em>Cancel</em></font>. The list box is destroyed when it is removed from the screen.</p>
+      <h4><a name="43131">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="646">
+            <p><a name="904203"><font size="2" face="'Courier New'" color="#000000">?name</font></a><font size="2" face="'Courier New'" color="#000000"><em> s_listBoxHandle</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="903635"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="903637">A unique global SKILL handle to the created list box. The selected item and other useful information can be retrieved from the </a><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle</em></font>. For example, if <font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle</em></font> was <font size="2" face="'Courier New'" color="#000000">'myListBox</font>, the following could be accessed and&#47;or set:</p>
+            <p><a name="903755"><font color="#000000">myListBox&#45;&#62;??&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;all list box properties (read&#45;only)</font></a></p>
+            <p><a name="903770"><font color="#000000">myListBox&#45;&#62;hiListBoxSym&nbsp;&nbsp;&nbsp;;s_listBoxHandle  (read&#45;only)</font></a></p>
+            <p><a name="903785"><font color="#000000">myListBox&#45;&#62;title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;list box title (read&#45;only)</font></a></p>
+            <p><a name="903800"><font color="#000000">myListBox&#45;&#62;value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;selected item(s)</font></a></p>
+            <p><a name="903815"><font color="#000000">myListBox&#45;&#62;choices&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;item(s) displayed in list box</font></a></p>
+            <p><a name="903830"><font color="#000000">myListBox&#45;&#62;appData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;application data </font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904190"><font size="2" face="'Courier New'" color="#000000">?choices</font></a><font size="2" face="'Courier New'" color="#000000"><em> lt_listItems</em></font> </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903667"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903669">List of strings that is displayed in the scrolling window. This list can be referenced </a><strong>or</strong> reset through:</p>
+            <p><a name="903854"><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle&#45;&#62;choices</em></font></a><font size="2" face="'Courier New'" color="#000000"> </font></p>
+            <p><a name="903878">When the list box choices have been changed, any item(s) previously selected will be unselected (for example, </a><font size="2" face="'Courier New'" color="#000000">listBoxHandle&#45;&#62;value</font> will be <font size="2" face="'Courier New'" color="#000000">nil</font>).</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904177"><font size="2" face="'Courier New'" color="#000000">?callback</font></a><font size="2" face="'Courier New'" color="#000000"><em> s_callback</em></font> </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903679"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903681">The user&#45;defined SKILL procedure that will be executed when either the </a><font color="#000000"><em>OK</em></font> or <font color="#000000"><em>Cancel</em></font> button of the list box is pressed. This procedure must be in the following format:</p>
+            <p><a name="903902"><font size="2" face="'Courier New'" color="#000000"><em>myListBoxCB(g_OKpressed o_listBox)</em></font></a></p>
+            <p><a name="903926">where </a><font size="2" face="'Courier New'" color="#000000"><em>g_OKpressed</em></font> is <font size="2" face="'Courier New'" color="#000000">t</font> if the user pressed the <font color="#000000"><em>OK</em></font> button and is <font size="2" face="'Courier New'" color="#000000">nil</font> if the user pressed <font color="#000000"><em>Cancel</em></font>. The argument <font size="2" face="'Courier New'" color="#000000"><em>o_listBox</em></font> is the SKILL structure of the list box that was dismissed. Various elements can be accessed through this list box structure, as described above.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904167"><font size="2" face="'Courier New'" color="#000000">?title</font></a><font size="2" face="'Courier New'" color="#000000"><em> t_listBoxTitle</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903691"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903693">Optional title of the list box displayed in the </a><font color="#000000"><em>WindowManager</em></font> banner. This title can also be referenced through:</p>
+            <p><a name="903950"><font size="2" face="'Courier New'" color="#000000">listBoxHandle&#45;&#62;title</font></a> </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904160"><font size="2" face="'Courier New'" color="#000000">?multipleSelect</font></a><font size="2" face="'Courier New'" color="#000000"><em> g_multiSelect</em></font> </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903699"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903701">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, multiple items in the list box can be selected; if set to <font size="2" face="'Courier New'" color="#000000">nil</font>, at most one item can be selected at a time. The default value is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904150"><font size="2" face="'Courier New'" color="#000000">?value</font></a><font size="2" face="'Courier New'" color="#000000"><em> lt_selectedItem</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903703"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903705">List of string item(s) that will appear already selected when the list box is displayed. These strings must also be specified in </a><font size="2" face="'Courier New'" color="#000000"><em>l_listItems</em></font>. If not specified, nothing is pre&#45;selected. If this list contains more than one string, the argument <font size="2" face="'Courier New'" color="#000000"><em>g_multiSelect</em></font> must be set to <font size="2" face="'Courier New'" color="#000000">t</font>. The currently selected item(s) can be referenced <strong>or</strong> set through:</p>
+            <p><a name="903974"><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle&#45;&#62;value</em></font></a> </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904140"><font size="2" face="'Courier New'" color="#000000">?appData</font></a><font size="2" face="'Courier New'" color="#000000"><em> g_appData</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903711"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903713">Used to store any application&#45;specific data associated with the list box. It can be referenced </a><strong>or</strong> set through:</p>
+            <p><a name="903998"><font size="2" face="'Courier New'" color="#000000"><em>listBoxHandle&#45;&#62;appData</em></font></a> </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="904130"><font size="2" face="'Courier New'" color="#000000">?applyButton</font></a><font size="2" face="'Courier New'" color="#000000"><em> g_applyButton</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903719"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="903721">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, places an <font color="#000000"><em>Apply</em></font> button in the list box. The default is <font size="2" face="'Courier New'" color="#000000">nil</font> (no <font color="#000000"><em>Apply</em></font> button). </p>
+            <p><a name="904022">There is also an </a><font size="2" face="'Courier New'" color="#000000">applying</font> property which, if queried during the callback of the list box (via <font size="2" face="'Courier New'" color="#000000">myListBox&#45;&#62;applying</font>), returns <font size="2" face="'Courier New'" color="#000000">t</font> if the <font color="#000000"><em>Apply</em></font> button was the reason for the callback, or <font size="2" face="'Courier New'" color="#000000">nil</font> if the callback was called because the user clicked <font color="#000000"><em>OK</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="43148">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="904246"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="904248">The </a><font color="#000000"><em>OK</em></font> button was selected.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="904250"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="904252">The </a><font color="#000000"><em>Cancel</em></font> button was selected. </p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="36953">The list box symbol is reset to </a><font size="2" face="'Courier New'" color="#000000">nil</font> after the callback has been executed, and the list box is dismissed from the screen.</p>
+      <h4><a name="43163">Example</a></h4>
+      <p><a name="36902">Create and display a list box showing various flowers. The user should be able to select all of his&#47;her favorite flowers.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36903">hiShowListBox(?name 'myLB <br>?title &#34;Pick your favorite flowers&#34; <br>?choices list(&#34;daffodil&#34; &#34;lily&#34; &#34;freesia&#34; &#34;rose&#34; &#34;carnation&#34;)<br>?value list(&#34;rose&#34; &#34;freesia&#34;)<br>?callback 'myListBoxCB<br>?multipleSelect t )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36904">; This procedure is called when the user selects OK or <br>; Cancel on the list box<br>procedure(myListBoxCB(okPressed listbox &#34;go&#34;)<br>    ; if user pressed OK, save the selected flowers<br>    if( okPressed  saveFlowers(listbox&#45;&#62;value) )<br>)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36905">; Change the list of flowers being displayed<br>myLB&#45;&#62;choices = list(&#34;petunia&#34; &#34;tiger lily&#34; <br>&#34;bird of paradise&#34; &#34;chrysanthemum&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="36906">; Select a flower<br>myLB&#45;&#62;value = list(&#34;bird of paradise&#34;)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="896598">Programming Samples</a></h2>
+      <p><a name="896626">The following samples show you how to create list boxes.</a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Creating a Simple List Box Application
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Creating a Simple List Box Application"></a><a name="896633">Creating a Simple List Box Application</a></h3>
+      <p><a name="899357">The following sample creates a simple list box.</a></p>
+      <p align="left"><a name="899364"> <br><img src="images/chap6.09.1.1.png" width="499" height="220" alt=""><br></a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="899365">;;; trShowListBox generates a new list box displaying </a><font size="2" face="'Courier New'" color="#000000"><em>aList<br></em></font>procedure( trShowListBox( aList )<br>&nbsp;&nbsp;&nbsp;let( ( listBoxSymbol )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listBoxSymbol = gensym( &#39;trExampleListBox )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#36875" title="6"><font color="#0000ff"><u>hiShowListBox</u></font></a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?name  listBoxSymbol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?choices  aList<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?callback  &#39;trExampleListBoxCB<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  sprintf( nil &#34;List Box: %L&#34;  listBoxSymbol )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?multipleSelect  &nbsp;&nbsp;&nbsp;t<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?applyButton&nbsp;&nbsp;&nbsp;  t<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; let<br>&nbsp;&nbsp;&nbsp;) ; procedure</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="896724">procedure( trExampleListBoxCB( ok theListBox )<br>&nbsp;&nbsp;&nbsp;&#34;The callback routine&#34;<br>&nbsp;&nbsp;&nbsp;println( list( ok theListBox&#45;&#62;value ) )<br>&nbsp;&nbsp;&nbsp;) ; procedure</a></font>
+      </p>
+      <h4><a name="896679">Testing Your Application</a></h4>
+      <p><a name="896753">To test your application, create two different list boxes and verify that the two list boxes behave independently:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="896739">trShowListBox( &#39;( &#34;apple&#34; &#34;orange&#34; &#34;kiwi&#34; ) )<br>trShowListBox( &#39;( &#34;wood&#34; &#34;water&#34; &#34;metal&#34; ) )</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=Creating an Advanced List Box Application
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="Creating an Advanced List Box Application"></a><a name="896772">Creating an Advanced List Box Application</a></h3>
+      <p><a name="896777">The following sample creates a list box that displays all the functions matching the specified pattern.</a></p>
+      <p align="left"><a name="899374"><img src="images/chap6.09.1.2.png" width="514" height="239" alt=""><br></a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="897507">procedure( trFunctionListBox( pattern )<br>&nbsp;&nbsp;&nbsp;&#34;uses trListFunctions to compose a Show List Box&#34;<br>&nbsp;&nbsp;&nbsp;</a><a href="#36875" title="6"><font color="#0000ff"><u>hiShowListBox</u></font></a>( <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?name  gensym( &#39;trFunctionListBoxHandle ) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?title  sprintf( nil &#34;Matching: %s&#34; pattern )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?choices  trListFunctions( pattern )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?callback  'trFunctionListBoxCB<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?applyButton  t<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?multipleSelect  t<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; hiShowListBox <br>&nbsp;&nbsp;&nbsp;) ; procedure</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="896800">procedure( trListFunctions( pattern )<br>&nbsp;&nbsp;&nbsp;&#34;returns a list of functions for the matching pattern&#34;<br>&nbsp;&nbsp;&nbsp;foreach( mapcar fun listFunctions( pattern )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get_pname( fun )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;) ; procedure</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="897024">procedure( trFunctionListBoxCB( ok theListBox  )<br>&nbsp;&nbsp;&nbsp;let( ( theArglist )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when( ok <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach( funName theListBox&#45;&#62;value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theArglist = arglist(makeSymbol(funName))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( theArglist <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   printf(&#34;\n%s%L&#34; funName theArglist)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   printf( &#34;\n%s()&#34; funName )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; if<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; foreach<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; when<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; let<br>&nbsp;&nbsp;&nbsp;) ; procedure</a></font>
+      </p>
+      <h4><a name="896838">Testing Your Application</a></h4>
+      <p><a name="896844">To find all the functions that start with &#34;hiGet&#34;, type the following command in the CIW:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="896849">trFunctionListBox( &#34;&#94;hiGet&#34; )</a></font>
+      </p>
+      <p>
+        <font size="2" face="Helvetica" color="#000000"><strong><a name="900453">&nbsp;</a></strong></font>
+      </p>
+      <p><a name="903216">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="904547">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap5.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap7.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

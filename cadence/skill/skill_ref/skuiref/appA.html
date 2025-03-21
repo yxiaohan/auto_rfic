@@ -1,0 +1,3448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence User Interface SKILL Reference -- 17</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-02-28">
+<META NAME="CreateTime" CONTENT="1519801825">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that you can use to create or modify user interfaces programmatically.">
+<META NAME="DocTitle" CONTENT="Cadence User Interface SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="17">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="skuiref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-02-28">
+<META NAME="ModifiedTime" CONTENT="1519801825">
+<META NAME="NextFile" CONTENT="appB.html">
+<META NAME="PageCount" CONTENT="66">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap16.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dlAddArc(w_dlist x_penNumber l_point1 l_point2 n_startAngle n_sweepAngle[ s_tagSymbol ]) => t / nil ,dlAddBox(w_dlist x_penNumber l_point1 l_point2 [ s_tagSymbol ]) => t / nil ,dlAddCircle(w_dlist x_penNumber l_pointx_radius [ s_tagSymbol ]) => t / nil ,dlAddDonut(w_dlist x_penNumber l_point x_innerRadius x_outerRadius[ s_tagSymbol ]) => t / nil ,dlAddEventObject(w_dlist l_point1 l_point2 t_procName t_procArgs[ t_highlightMode ][ g_doesGraphics ][ s_tagSymbol ]) => t / nil ,dlAddPath(w_dlist x_penNumber x_pathWidth t_pathEndType l_pointsList[ s_tagSymbol ]) => t / nil,dlAddPoint(w_dlist x_penNumber l_point [ s_tagSymbol ]) => t / nil ,dlAddPolygon(w_dlist x_penNumber l_pointsList[ s_tagSymbol ]) => t / nil ,dlAddRasterText(w_dlist x_penNumber l_point t_text t_fontName [ t_verticalJustify ][ t_horizontalJustify ][ s_tagSymbol ]) => t / nil,dlAddSegment(w_dlist x_penNumber l_point1 l_point2 [ s_tagSymbol ]) => t / nil ,dlAddSkillObject(w_dlist x_penNumber l_point1 l_point2 t_procName t_procArgs[ s_tagSymbol ]) => t / nil ,dlAddStrokeText(w_dlist x_penNumber l_point t_text t_justification t_fontName x_height [ t_orientation ][ g_drafting ][ s_tagSymbol ]) => t / nil ,dlAttachDlistToWidget(w_displayList x_widgetId) => x_widgetId / nil ,dlAttachDlistToWindow(w_displayList w_windowId ) => t / nil ,dlClearDisplayList(w_displayList) => t / nil ,dlCloseWidget(x_widgetId ) => t / nil ,dlConfigureButton(x_buttonx_xPositionx_yPositionx_widthx_height) => t / nil ,dlDetachDlistFromWidget(w_displayList x_widgetId) => t / nil ,dlDetachDlistFromWindow(w_displayList w_windowId ) => t / nil ,dlDisplay(w_displayList ) => t / nil ,dlDlistToIcon(w_displayList x_width x_height [ x_backColorIndex ] ) => l_iconId / nil ,dlDrawArc(l_point1 l_point2 f_startAngle f_sweepAngle) => t / nil ,dlDrawBox(l_point1 l_point2 ) => t / nil ,dlDrawCircle(l_point x_radius ) => t / nil ,dlDrawDonut(l_point x_innerRadius x_outerRadius) => t / nil ,dlDrawPath(x_pathWidth t_pathEndType l_pointsList) => t / nil ,dlDrawPoint(l_point ) => t / nil ,dlDrawPolygon(l_pointsList) => t / nil ,dlDrawRasterText(l_point t_text t_fontName [ t_verticalJustify ] [ t_horizontalJustify ]) => t / nil ,dlDrawSegment(l_point1 l_point2 ) => t / nil ,dlDrawStrokeText(l_point t_text t_justification t_fontName x_height t_orientation) => t / nil ,dlEnableItem(w_dlist x_penNumber s_symbolTag g_enableOrDisable ) => t / nil ,dlFitDlistOnDraw(w_displayListx_widgetIdg_doFit ) => t / nil ,dlMakeDisplayList() => w_displayList / nil ,dlMakeDlistButton(x_parentWidgetIdx_xPositionx_yPositionx_widthx_heightw_displayListt_pressCallback[ x_backgroundColor ]) => t / nil ,dlMakePenTable([ x_maxPens]) => w_penTable / nil ,dlMakeStipple(t_StippleString ) => x_stippleId / nil ,dlMakeWidget([ x_backgroundColor ] [ l_point1 ][ l_point2 ]) => x_widgetId / nil ,dlMapWidget(x_widgetId ) => t / nil ,dlMoveButton(x_buttonx_xPositionx_yPosition) => t | nil ,dlResizeButton(x_buttonx_widthx_height) => t / nil ,dlSaveDlist(w_displayList t_fileName t_dlistName) => t / nil ,dlSetClearOnDraw(w_dlistx_widgetIdg_draw) => t / nil,dlSetCurrentPen(x_penNumber) => t / nil ,dlSetDlistPosition(w_displayListx_widgetIdx_xOffsetx_yOffset ) => t / nil ,dlSetDlistScale(w_displayListx_widgetIdf_scale ) => t / nil ,dlSetPenColor(x_penNumber x_colorIndex [ w_penTable ]) => t / nil ,dlSetPenFillStyle(x_penNumber t_fillStyle [ w_penTable ] ) => t / nil ,dlSetPenFilled(x_penNumber[ w_penTable ])=> t / nil,dlSetPenStipple(x_penNumber x_stippleId [ w_penTable ] ) => t / nil ,dlSetPenTable(w_displayList w_penTableOrDisplayList ) => t / nil ,dlSetWidgetName(x_widgetId t_name) => t / nil ,dlUnMapWidget(x_widgetId ) => t / nil ">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence User Interface SKILL Reference -- 17">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="chap16.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="appB.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence User Interface SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 March 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>17<a name="1014134">&nbsp;</a></h1>
+      <h1><a name="1014135">Display Lists</a></h1>
+      <p><a name="1015432">This chapter describes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014137" title="17" name="1015433"><font color="#0000ff"><u>Display List Objects</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014150" title="17" name="1015438"><font color="#0000ff"><u>Creating a Display List</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014165" title="17" name="1015443"><font color="#0000ff"><u>Adding Objects to the Display List</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014385" title="17" name="1015448"><font color="#0000ff"><u>Display List Draw Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014529" title="17" name="1015453"><font color="#0000ff"><u>Display List Pens</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014638" title="17" name="1015458"><font color="#0000ff"><u>Viewing a Display List</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1014918" title="17" name="1015463"><font color="#0000ff"><u>A Sample Display List</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="1014137">Display List Objects </a></h2>
+      <p><a name="1014139">Display lists are used to construct and display pictures within the Virtuoso user interface. display lists are collections of shapes displayed within a form, menu, button, or window. Additionally, display lists are used by the</a><strong> </strong>DAG Browser to display pictures.</p>
+      <p><a name="1014140">Display lists use "pens" to hold the graphical properties a shape is drawn with. A pen stores color, line style, and fill style. Pens are referred to by number. When you add a shape to a display list, you specify which pen number it should use. </a></p>
+      <p><a name="1014141">Display lists are built in two ways:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1014142">By calling the SKILL functions to add objects to the display list.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1014143">By drawing the picture in the icon editor. You can save the picture in a file and load it whenever you need the display list again.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1014145">The display list is composed of the following objects:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1014146"><font size="2" face="'Courier New'" color="#000000">Points</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030152"><font size="2" face="'Courier New'" color="#000000">Segments</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030159"><font size="2" face="'Courier New'" color="#000000">Boxes</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030166"><font size="2" face="'Courier New'" color="#000000">Arcs</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030173"><font size="2" face="'Courier New'" color="#000000">Circles</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030180"><font size="2" face="'Courier New'" color="#000000">Donuts</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030187"><font size="2" face="'Courier New'" color="#000000">Polygons</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030194"><font size="2" face="'Courier New'" color="#000000">Paths</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030201"><font size="2" face="'Courier New'" color="#000000">RasterText</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030208"><font size="2" face="'Courier New'" color="#000000">StrokeText</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030215"><font size="2" face="'Courier New'" color="#000000">SkillObjects</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1030222"><font size="2" face="'Courier New'" color="#000000">EventObjects</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1014147">Display lists are not hierarchical in that a display list cannot include another display list. </a></p>
+      <p><a name="1014148">Coordinates are Cartesian and specified using integer numbers. The range of the integers can be anything you wish. The display list is scaled to fit into the space provided.</a></p>
+      <h2><a name="1014150">Creating a Display List </a></h2>
+      <p><a name="1014152">Display lists are created with </a><font size="2" face="'Courier New'" color="#000000">dlMakeDisplayList</font>. </p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMakeDisplayList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMakeDisplayList"></a><a name="1014155">dlMakeDisplayList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014157">dlMakeDisplayList(<dd>) <dd></a>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014159">Description</a></h4>
+      <p><a name="1014161">Creates an empty display list you can add objects to. </a></p>
+      <h4><a name="1014162">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032387"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032389">The display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032373"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032375">Operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetClearOnDraw
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetClearOnDraw"></a><a name="1015690">dlSetClearOnDraw</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015695">dlSetClearOnDraw(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist<dd>x_widgetId<dd>g_draw<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1015699">Description</a></h4>
+      <p><a name="1015700">Specifies whether the area the display list is drawn in is cleared before the display list is drawn.</a></p>
+      <h4><a name="1015702">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030265"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1030267">The display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030269"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030271">The widget the display list is attached to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030273"><font size="2" face="'Courier New'" color="#000000"><em>g_draw</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030275"><font size="2" face="'Courier New'" color="#000000">t</font></a> or <font size="2" face="'Courier New'" color="#000000">nil</font>. Specify <font size="2" face="'Courier New'" color="#000000">t</font> if you want the area to be cleared before the display list is drawn; <font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1014165">Adding Objects to the Display List </a></h2>
+      <p><a name="1014166">Objects are added to the display list in the following manner: </a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1014167">dlAddObject(w_dlist x_penNumber...... [s_tagSymbol]) <br></a>=&#62; t | nil</font>
+      </p>
+      <p><a name="1014169">The first two arguments are always the same. </a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font> is the display list the object should be added to, and <font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font> is the number of the pen the object will use when it is drawn. </p>
+      <p><a name="1014170">Pens are collected into a group called a pen table. If you use the default pen table, then there are 64 pens available to you. The pen numbers start at 0; therefore, if you use the default pen table, you can use numbers ranging from 0 to 63. The </a><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font> is an optional symbol given so you can refer to this shape again. It is always the final argument to a <font size="2" face="'Courier New'" color="#000000">dlAdd</font> function. If you define your own pen table, then you can use fewer or more pens; the more pens you create, the more memory is required.</p>
+      <p><a name="1014171">The coordinates are specified using integer numbers and can be any range you choose. All coordinates specified assume 0:0 to be the lower&#45;left corner of the display list object. The display list is automatically scaled to fit into a given area, much like a </a><font size="2" face="'Courier New'" color="#000000">geFull</font> function does with a database object. You should, however, try to choose your coordinate space so it isn't too small. This can avoid integer round&#45;off when converting from display list coordinates to screen coordinates.</p>
+      <p><a name="1014172">All </a><font size="2" face="'Courier New'" color="#000000">dlAddObject</font> functions return <font size="2" face="'Courier New'" color="#000000">t</font> on success, and <font size="2" face="'Courier New'" color="#000000">nil</font> on failure. Conditions for failure are either an invalid <font size="2" face="'Courier New'" color="#000000"><em>dlist</em></font> argument, or a pen number outside a valid range.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddArc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddArc"></a><a name="1014174">dlAddArc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014177">dlAddArc(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point1 <dd>l_point2 <dd>n_startAngle <dd>n_sweepAngle<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014178">Description</a></h4>
+      <p><a name="1014180">Adds an arc to the display list.</a></p>
+      <h4><a name="1030400">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030415"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1030417">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030419"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030421">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030423"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030452">The lower left and upper right coordinates of the bounding box enclosing the arc and the ellipse containing the arc.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030431"><font size="2" face="'Courier New'" color="#000000"><em>n_startAngle</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030433">The starting angle, specified in degrees, measured such that 0 degrees is the 3 o'clock position. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030435"><font size="2" face="'Courier New'" color="#000000"><em>n_sweepAngle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030437">Measured in degrees, from the starting angle that the arc will span. A positive degree sweeps the arc in an counterclockwise direction. A negative </a><font size="2" face="'Courier New'" color="#000000"><em>sweepAngle</em></font> sweeps the arc in a clockwise direction.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030439"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030441">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddBox"></a><a name="1030410">dlAddBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014194">dlAddBox(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point1 <dd>l_point2 <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014195">Description</a></h4>
+      <p><a name="1014197">Adds a box to the display list.</a></p>
+      <h4><a name="1014198">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030468"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1030470">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030472"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030474">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030476"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030497">Any two opposite corners of the box. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030484"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030486">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="1014203">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddCircle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddCircle"></a><a name="1014206">dlAddCircle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014209">dlAddCircle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point<dd>x_radius <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014210">Description</a></h4>
+      <p><a name="1014212">Adds a circle to the display list. </a></p>
+      <h4><a name="1014213">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030513"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1030515">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030517"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030519">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030521"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030523">Center point of the circle. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030525"><font size="2" face="'Courier New'" color="#000000"><em>x_radius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030527">Radius of the circle. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030529"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030531">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddDonut
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddDonut"></a><a name="1014221">dlAddDonut</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014224">dlAddDonut(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point <dd>x_innerRadius <dd>x_outerRadius<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014225">Description</a></h4>
+      <p><a name="1014227">Adds a donut to the display list. </a></p>
+      <h4><a name="1014228">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030538"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1030540">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030542"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030544">Pen number to use.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030546"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030548">Center of the donut. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030550"><font size="2" face="'Courier New'" color="#000000"><em>x_innerRadius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030552">Radius of the inner circle of the donut.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030554"><font size="2" face="'Courier New'" color="#000000"><em>x_outerRadius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030556">Radius of the outer circle of the donut.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030558"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030560">Symbol to tag this object with.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddEventObject
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddEventObject"></a><a name="1014237">dlAddEventObject</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014240">dlAddEventObject(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>l_point1 <dd>l_point2 <dd>t_procName <dd>t_procArgs<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_highlightMode</em></font> ]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_doesGraphics</em></font> ]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> s_tagSymbol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014241">Description</a></h4>
+      <p><a name="1014242">Adds an </a><font color="#000000"><em>EventObject</em></font> to the display list. <font color="#000000"><em>EventObjects</em></font> are SKILL procedures called whenever the user presses a mouse button or a keyboard key. If the <font size="2" face="'Courier New'" color="#000000"><em>s_doesGraphics</em></font> argument is <font size="2" face="'Courier New'" color="#000000">t</font>, the <font color="#000000"><em>EventObject</em></font> is called whenever the display list is drawn.</p>
+      <h4><a name="1014244">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030567"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1030569">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030571"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030648">The lower&#45;left and upper&#45;right coordinates of a box, within which the </a>SkillObject will draw. The display list processing functions use this box to determine the visibility of the SkillObject. The procedure you write to define the SkillObject must be written to draw and then return as quickly as possible. If not, the performance of the system will suffer.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030579"><font color="#000000"> </font></a><font size="2" face="'Courier New'" color="#000000"><em>t_procName</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030581">SKILL function to call. </a></p>
+            <p><a name="1030675">The </a><font size="2" face="'Courier New'" color="#000000"><em>t_procName</em></font> procedure is called in the following manner:</p>
+            <p><a name="1030690"><font size="2" face="'Courier New'" color="#000000">t_procName( l_point1 l_point2 s_eventType t_eventDetail t_procArgs)</font></a></p>
+            <p><a name="1030705"><font size="2" face="'Courier New'" color="#000000"><em>s_eventType</em></font></a> is one of the following symbols:</p>
+            <p><a name="1030720"><font size="2" face="'Courier New'" color="#000000">draw</font></a> (the display list is drawing)</p>
+            <p><a name="1030735"><font size="2" face="'Courier New'" color="#000000">button1</font></a> (the left mouse button was pressed)</p>
+            <p><a name="1030750"><font size="2" face="'Courier New'" color="#000000">button2</font></a> (the middle mouse button was pressed)</p>
+            <p><a name="1030765"><font size="2" face="'Courier New'" color="#000000">button3</font></a> (the right mouse button was pressed)</p>
+            <p><a name="1030780"><font size="2" face="'Courier New'" color="#000000">key</font></a> (a key was pressed)</p>
+            <p><a name="1030795">In the case of the key </a><font size="2" face="'Courier New'" color="#000000">eventType</font>, the <font size="2" face="'Courier New'" color="#000000"><em>t_eventDetail</em></font> tells you which key was pressed. Otherwise, the <font size="2" face="'Courier New'" color="#000000"><em>eventDetail</em></font> argument is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030619"><font size="2" face="'Courier New'" color="#000000"><em>t_procArgs</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030621">Arguments passed to the function. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030623"><font size="2" face="'Courier New'" color="#000000"><em>t_highlightMode</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030625">When the user enters into an event object, you can specify the system to draw a box around the sensitive area, or invert the sensitive area, or to do nothing. These are specified by </a><font size="2" face="'Courier New'" color="#000000">box</font> (or <font size="2" face="'Courier New'" color="#000000">b</font>), <font size="2" face="'Courier New'" color="#000000">invert</font> (or <font size="2" face="'Courier New'" color="#000000">i</font>), or <font size="2" face="'Courier New'" color="#000000">none</font>. The default value is <font size="2" face="'Courier New'" color="#000000">none</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030627"><font size="2" face="'Courier New'" color="#000000"><em>g_doesGraphics</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030629">Tells the display list processing functions whether you use </a><font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions inside your SKILL procedure or not. <font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions are discussed later on. If you don't call <font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions, the rendering of your display list will be faster. This argument should be <font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030631"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030633">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddPath
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddPath"></a><a name="1014259">dlAddPath</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014262">dlAddPath(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>x_pathWidth <dd>t_pathEndType <dd>l_pointsList<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1014263">Description</a></h4>
+      <p><a name="1014265">Adds a path to the display list.</a></p>
+      <h4><a name="1014266">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030811"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1030813">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030815"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030817">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030819"><font size="2" face="'Courier New'" color="#000000"><em>x_pathWidth</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030821">Width of the path. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030823"><font size="2" face="'Courier New'" color="#000000"><em>t_pathEndType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030825">End type can have one of three values: </a><font size="2" face="'Courier New'" color="#000000">Truncate</font>, <font size="2" face="'Courier New'" color="#000000">Extend</font>, or <font size="2" face="'Courier New'" color="#000000">Round</font>. <font size="2" face="'Courier New'" color="#000000">Truncate</font> means the path will be square&#45;ended and stop at the two endpoints. <font size="2" face="'Courier New'" color="#000000">Extend</font> means the path will be square&#45;ended, but it will extend 1&#47;2 the width from each end point. <font size="2" face="'Courier New'" color="#000000">Round</font> means the path will have a rounded endpoint and stop at the two endpoints. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030827"><font size="2" face="'Courier New'" color="#000000"><em>l_pointsList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030829">Coordinates of the center line of the path. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030831"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030833">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddPoint
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddPoint"></a><a name="1014275">dlAddPoint</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014278">dlAddPoint(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil </font></font>
+      </dl>
+      <h4><a name="1014279">Description</a></h4>
+      <p><a name="1014281">Adds a point to the display list.</a></p>
+      <h4><a name="1014282">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030840"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1030842">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030844"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030846">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030848"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030850">List containing the point. For example, </a></p>
+            <p><a name="1030876"><font size="2" face="'Courier New'" color="#000000">list(200 200) or 200:200</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030856"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030858">Symbol to tag this object with.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1032432">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032425"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032449">Operation successful.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032429"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032431">Operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="1032415">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddPolygon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddPolygon"></a><a name="1014292">dlAddPolygon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1029593">dlAddPolygon(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_pointsList<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1029594">Description</a></h4>
+      <p><a name="1014298">Adds a polygon to the display list.</a></p>
+      <h4><a name="1014299">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030890"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1030892">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030894"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030896">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030898"><font size="2" face="'Courier New'" color="#000000"><em>l_pointsList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030900">Polygon which is a list of points comprising its vertices. For example, the list of points can be specified in either of these ways: </a></p>
+            <p><a name="1030934"><font size="2" face="'Courier New'" color="#000000">'((0 0) (100 180) (200 200))</font></a></p>
+            <p><a name="1030949"><font size="2" face="'Courier New'" color="#000000">list( 0:0 100:180 200:200)</font></a></p>
+            <p><a name="1030973">You do not need to close the polygon.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030914"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030916">Symbol to tag this object with.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddRasterText
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddRasterText"></a><a name="1014309">dlAddRasterText</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014312">dlAddRasterText(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point <dd>t_text <dd>t_fontName <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font> ]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>t_horizontalJustify </em></font>]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> s_tagSymbol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1014313">Description</a></h4>
+      <p><a name="1014315">Adds a text string to the display list. </a></p>
+      <h4><a name="1014316">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1030986"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1030988">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030990"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030992">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030994"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030996">Origin point of the text.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1030998"><font size="2" face="'Courier New'" color="#000000"><em>t_text</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031000">Text string to be added to the display list</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031002"><font size="2" face="'Courier New'" color="#000000"><em>t_fontName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031004">X font used to draw text. The font name can vary from system to system. Check your</a> <font size="2" face="'Courier New'" color="#000000">&#47;usr&#47;lib&#47;X11&#47;fonts</font> directory see what fonts are available, or ask your system administrator. Usually fonts <font size="2" face="'Courier New'" color="#000000">fixed</font> and "9x15" are available. If the font name you specify is not found, then <font size="2" face="'Courier New'" color="#000000">fixed</font> is used. Raster text does not scale, but has a fixed width and height.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031006"><font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031008">Presentation of the text, and one of the following strings:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031070"><font size="2" face="'Courier New'" color="#000000">"dlcTop"</font></a> (the top of the text will be at the y of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031085"><font size="2" face="'Courier New'" color="#000000">"dlcMiddle"</font></a> (the center of the text will be at the y of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031100"><font size="2" face="'Courier New'" color="#000000">"dlcBottom"</font></a> (the bottom of the text will be at the y of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="1031115">If not specified, </a><font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font> is set to <font size="2" face="'Courier New'" color="#000000">dlcBottom</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1031208"><font size="2" face="'Courier New'" color="#000000"><em>t_horizontalJustify</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031026"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031130">Presentation of the text, and one of the following strings:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031145"><font size="2" face="'Courier New'" color="#000000">"dlcLeft"</font></a> (the string will start at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031160"><font size="2" face="'Courier New'" color="#000000">"dlcCenter"</font></a> (the middle of the string will be at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031175"><font size="2" face="'Courier New'" color="#000000">"dlcRight"</font></a> (the end of the string will be at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="1031190">If not specified, </a><font size="2" face="'Courier New'" color="#000000"><em>t_horizontalJustify</em></font> is set to <font size="2" face="'Courier New'" color="#000000">dlcLeft</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031050"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031052">Symbol to tag this object with.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddSegment
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddSegment"></a><a name="1014331">dlAddSegment</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014334">dlAddSegment(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point1 <dd>l_point2 <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014335">Description</a></h4>
+      <p><a name="1014337">Adds a line segment to the display list.</a></p>
+      <h4><a name="1014338">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031227"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031229">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031231"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031233">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031235"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031237">First point of the segment. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031239"><font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031241">Second point of the segment. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031243"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031245">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddSkillObject
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddSkillObject"></a><a name="1014346">dlAddSkillObject</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014349">dlAddSkillObject(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point1 <dd>l_point2 <dd>t_procName <dd>t_procArgs<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014350">Description</a></h4>
+      <p><a name="1014351">Adds a </a>SkillObject to the display list. SkillObjects are SKILL procedures called whenever the object should be drawn. </p>
+      <h4><a name="1014353">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031252"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1031254">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031256"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031258">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031260"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031293">The lower&#45;left and upper&#45;right coordinates of a box within which the </a>SkillObject will draw. The display list processing functions use this box to determine the visibility of the SkillObject. The procedure you write to define the SkillObject must be written to draw and then return as quickly as possible. If not, the performance of the system will suffer. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031268"><font size="2" face="'Courier New'" color="#000000"><em>t_procName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031270">SKILL function to call. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031272"><font size="2" face="'Courier New'" color="#000000"><em>t_procArgs</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031274">Arguments passed to the function. The display list processing routines call your function in the following way:</a></p>
+            <p><a name="1031315"><font size="2" face="'Courier New'" color="#000000">t_procName( l_point1 l_point2 t_procArgs)</font></a> </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031280"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031282">Symbol to tag this object with. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAddStrokeText
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAddStrokeText"></a><a name="1014365">dlAddStrokeText</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1029631">dlAddStrokeText(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>l_point <dd>t_text <dd>t_justification <dd>t_fontName <dd>x_height <dd></em></font>[<font size="2" face="'Courier New'" color="#000000"><em> t_orientation</em></font> ]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_drafting</em></font> ]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> s_tagSymbol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil </font></font>
+      </dl>
+      <h4><a name="1014369">Description</a></h4>
+      <p><a name="1014371">Adds a stroke text string to the display list.</a></p>
+      <h4><a name="1014372">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031333"><font color="#000000"> </font></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031335">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031337"><font color="#000000"> </font></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031339">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031341"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031343">Origin point of the text</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031345"><font size="2" face="'Courier New'" color="#000000"><em>t_text</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031347">Text string to be added to the display list</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031349"><font size="2" face="'Courier New'" color="#000000"><em>t_justification</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031351">One of the following strings: </a><font size="2" face="'Courier New'" color="#000000">"upperLeft," "centerLeft," "left," "lowerLeft," "upperCenter," "center," "lowerCenter," "upperRight," "centerRight," "right," "lowerRight"</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031353"><font size="2" face="'Courier New'" color="#000000"><em>t_fontName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031355">One of the following font names: </a><font size="2" face="'Courier New'" color="#000000">"euro," "gothic," "math," "roman," "script," "stick," or "swedish"</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031357"><font color="#000000"> </font></a><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031359">Height of text. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031361"><font size="2" face="'Courier New'" color="#000000"><em>t_orientation</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031363">One of the following values: </a><font size="2" face="'Courier New'" color="#000000">"0," "90," "180," "270," "mx," "sideways," "my," "upsideDown," "mr90," "sideways," "mr270," "sideways&amp;270"</font>. Default value is <font size="2" face="'Courier New'" color="#000000">&#34;0&#34;</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031365"><font size="2" face="'Courier New'" color="#000000"><em>g_drafting</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031367">If this is set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, the label will always be readable from left to right, or top to bottom. It will never appear mirrored or backward. The default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031369"><font size="2" face="'Courier New'" color="#000000"><em>s_tagSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031371">Symbol to tag this object with.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1014385">Display List Draw Functions </a></h2>
+      <p><a name="1014387">The following </a><font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions are only used inside a SkillObject procedure. They render shapes to the screen. The display list processing functions transform the coordinates of your SkillObject to the box you specified when you added it to the display list. Therefore, the coordinates you specify when calling a <font size="2" face="'Courier New'" color="#000000">dlDraw</font> function are specified such that 0:0 is coincident with the lower&#45;left corner of the SKILL object.</p>
+      <p><a name="1014388">For example, if you said</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1014389">dlAddSkillObject( dlist 4 100:100 200:200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;mySkillObject&#34; &#34;10&#34;)<br>dlAddSkillObject( dlist 4 300:300 400:400<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;mySkillObject&#34; &#34;20&#34;)</a></font>
+      </p>
+      <p><a name="1014390">The display list functions call your procedure like so</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1014391">mySkillObject( 100:100 200:200 10)<br>mySkillObject( 300:300 400:400 20)</a></font>
+      </p>
+      <p><a name="1014392">If you want to draw a circle and have the radius passed to you, define your </a>SkillObject as:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1014393">procedure( mySkillObject( ll ur radius)<br>prog( ( )<br>dlDrawCircle( 50:50 radius)<br>return(t)<br>) ; end prog<br>) ; end procedure</a></font>
+      </p>
+      <p><a name="1014394">There is nothing special about a </a>SkillObject procedure, except the first two arguments are always the same, and you are allowed to call <font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions. So, the SkillObject procedure can do practically anything you want. However, they must do it quickly and never call a function that causes evaluation to block.</p>
+      <p><a name="1014395">There is a </a><font size="2" face="'Courier New'" color="#000000">dlDraw</font> function for all shapes the <font size="2" face="'Courier New'" color="#000000">dlAddObject</font> functions provide (except for dlAddSkillObject). The arguments to the dlDraw functions are the same as the <font size="2" face="'Courier New'" color="#000000">dlAddObject</font> functions, except for the <font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font> and <font color="#000000"><em>x_penNumber</em></font> arguments (which are not necessary, since the values from the SKILL object are used). </p>
+      <p><a name="1014396">The </a><font size="2" face="'Courier New'" color="#000000">dlDraw</font> functions all return <font size="2" face="'Courier New'" color="#000000">t</font> when the object is drawn, and <font size="2" face="'Courier New'" color="#000000">nil</font> if the <font size="2" face="'Courier New'" color="#000000">dlDraw</font> function is called outside a SkillObject procedure.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawArc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawArc"></a><a name="1014398">dlDrawArc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014401">dlDrawArc(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point1 <dd>l_point2 <dd>f_startAngle <dd>f_sweepAngle<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014402">Description</a></h4>
+      <p><a name="1014404">Draws an arc to the screen from within a </a>SkillObject procedure. </p>
+      <h4><a name="1014405">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031378"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031380">The lower&#45;left and upper&#45;right corners of a box enclosing the arc. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031382"><font size="2" face="'Courier New'" color="#000000"><em>f_startAngle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031384">Measured such that 0 degrees is the 3 o'clock position. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031386"><font size="2" face="'Courier New'" color="#000000"><em>f_sweepAngle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031388">Measured in degrees, from the starting angle the arc will span. A positive degree sweeps the arc in an counterclockwise direction. A negative </a><font size="2" face="'Courier New'" color="#000000"><em>sweepAngle</em></font> sweeps the arc in a clockwise direction. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawBox"></a><a name="1014411">dlDrawBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014414">dlDrawBox(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point1 <dd>l_point2 <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014415">Description</a></h4>
+      <p><a name="1014417">Draws a box to the screen from within a </a>SkillObject procedure. </p>
+      <h4><a name="1014418">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031395"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031397">Any two opposite corners of a box.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawCircle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawCircle"></a><a name="1014422">dlDrawCircle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014425">dlDrawCircle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_radius</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014426">Description</a></h4>
+      <p><a name="1014428">Draws a circle to the screen from within a </a>SkillObject procedure.</p>
+      <h4><a name="1014429">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031404"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031406">Center point of circle. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031408"><font size="2" face="'Courier New'" color="#000000"><em>x_radius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031410">Radius of the circle. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawDonut
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawDonut"></a><a name="1014434">dlDrawDonut</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014437">dlDrawDonut(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point <dd>x_innerRadius <dd>x_outerRadius<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014438">Description</a></h4>
+      <p><a name="1014440">Draws a donut to the screen from within a </a>SkillObject procedure.</p>
+      <h4><a name="1014441">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031417"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031419">Center point of donut. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031421"><font size="2" face="'Courier New'" color="#000000"><em>x_innerRadius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031423">Inside radius of donut. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031425"><font size="2" face="'Courier New'" color="#000000"><em>x_outerRadius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031427">Outside radius of donut. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawPath
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawPath"></a><a name="1014447">dlDrawPath</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014450">dlDrawPath(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_pathWidth <dd>t_pathEndType <dd>l_pointsList<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014451">Description</a></h4>
+      <p><a name="1014452">Draws a path to the screen from within a </a>SkillObject procedure. A path is specified by a center line and a width.</p>
+      <h4><a name="1014454">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031434"><font size="2" face="'Courier New'" color="#000000"><em>x_pathWidth</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031436">Path width.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031438"><font size="2" face="'Courier New'" color="#000000"><em>t_pathEndType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031440">End type can have one of three values: </a><font size="2" face="'Courier New'" color="#000000">Truncate</font>, <font size="2" face="'Courier New'" color="#000000">Extend</font> or <font size="2" face="'Courier New'" color="#000000">Round</font>. <font size="2" face="'Courier New'" color="#000000">Truncate</font> means the path will be square&#45;ended and stop at the two endpoints. <font size="2" face="'Courier New'" color="#000000">Extend</font> means the path will be square&#45;ended, but it will extend 1&#47;2 the width from each end point. <font size="2" face="'Courier New'" color="#000000">Round</font> means the path will have a rounded endpoint and stop at the two endpoints. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031442"><font size="2" face="'Courier New'" color="#000000"><em>l_pointsList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031444">Coordinates of the center line. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawPoint
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawPoint"></a><a name="1014460">dlDrawPoint</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014463">dlDrawPoint(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014464">Description</a></h4>
+      <p><a name="1014466">Draws a point to the screen from within a </a>SkillObject procedure. </p>
+      <h4><a name="1014467">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031451"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1031453">Position of the point.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawPolygon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawPolygon"></a><a name="1014471">dlDrawPolygon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014474">dlDrawPolygon(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_pointsList<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014475">Description</a></h4>
+      <p><a name="1014477">Draws a polygon to the screen from within a </a>SkillObject procedure. </p>
+      <h4><a name="1014478">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031460"><font size="2" face="'Courier New'" color="#000000"><em>l_pointsList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1031462">List of points comprising its vertices. You do not need to close the polygon. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawRasterText
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawRasterText"></a><a name="1014482">dlDrawRasterText</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014485">dlDrawRasterText(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point <dd>t_text <dd>t_fontName <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> t_horizontalJustify</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014486">Description</a></h4>
+      <p><a name="1014487">Draws a text string to the screen from within a </a>SkillObject. The text is drawn using an X Window System font..</p>
+      <h4><a name="1014489">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031469"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1031471">Origin point of the text.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031473"><font size="2" face="'Courier New'" color="#000000"><em>t_text</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031475">Text string to be added to the display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031477"><font size="2" face="'Courier New'" color="#000000"><em>t_fontName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031479">X font used to draw text. The font name can vary from system to system. Check your</a> <font size="2" face="'Courier New'" color="#000000">&#47;usr&#47;lib&#47;X11&#47;fonts</font> directory see what fonts are available, or ask your system administrator. Usually fonts <font size="2" face="'Courier New'" color="#000000">"fixed"</font> and <font size="2" face="'Courier New'" color="#000000">"9x15"</font> are available. If the font name you specify is not found, then "fixed" is used. Raster text does not scale, but has a fixed width and height.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031481"><font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031483">Presentation of the text, and one of the following strings:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031545"><font size="2" face="'Courier New'" color="#000000">"dlcTop"</font></a> (the top of the text will be at the y of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031560"><font size="2" face="'Courier New'" color="#000000">"dlcCenter"</font></a> (the center of the text will be at the y of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031575"><font size="2" face="'Courier New'" color="#000000">"dlcBottom"</font></a> (the bottom of the text will be at the y point)</td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="1031590">If not specified, </a><font size="2" face="'Courier New'" color="#000000"><em>t_verticalJustify</em></font> is set to <font size="2" face="'Courier New'" color="#000000">&#34;dlcBottom&#34;</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1031505"><font size="2" face="'Courier New'" color="#000000"><em>t_horizontalJustify</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031509">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031605">Presentation of the text, and one of the following strings:</a></p>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031620"><font size="2" face="'Courier New'" color="#000000">"dlcLeft"</font></a> (the string will start at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031635"><font size="2" face="'Courier New'" color="#000000">"dlcCenter"</font></a> (the middle of the string will be at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="31.999679999999998">
+                    <div>
+                      <nobr>
+                        <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                      </nobr>
+                    </div>
+                  </td>
+                  <td><a name="1031650"><font size="2" face="'Courier New'" color="#000000">"dlcRight"</font></a> (the end of the string will be at the x of the point)</td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="1031665">If not specified, </a><font size="2" face="'Courier New'" color="#000000"><em>t_horizontalJustify</em></font> is set to <font size="2" face="'Courier New'" color="#000000">&#34;dlcLeft&#34;</font>.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawSegment
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawSegment"></a><a name="1014501">dlDrawSegment</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014504">dlDrawSegment(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point1 <dd>l_point2 <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014505">Description</a></h4>
+      <p><a name="1014507">Draws a line segment to the screen from within a </a>SkillObject procedure. </p>
+      <h4><a name="1031689">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031700"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031702">First point of the segment, assuming 0:0 to be the lower&#45;left corner.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031704"><font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031706">Second point of the segment, assuming 0:0 to be the lower&#45;left corner.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDrawStrokeText
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDrawStrokeText"></a><a name="1031695">dlDrawStrokeText</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014516">dlDrawStrokeText(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_point <dd>t_text <dd>t_justification <dd>t_fontName <dd>x_height <dd>t_orientation<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014517">Description</a></h4>
+      <p><a name="1014518">Draws a stroke text string to the screen from within a </a>SkillObject procedure. The height (and therefore scale) can be specified. </p>
+      <h4><a name="1014520">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031715"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031717">Origin point of the text.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031719"><font size="2" face="'Courier New'" color="#000000"><em>t_text</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031721">Text string to be added to the display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031723"><font size="2" face="'Courier New'" color="#000000"><em>t_justification</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031725">One of the following strings:</a><font size="2" face="'Courier New'" color="#000000"> "upperLeft," "centerLeft," "left," "lowerLeft," "upperCenter," "center," "lowerCenter," "upperRight," "centerRight," "right," "lowerRight"</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031727"><font size="2" face="'Courier New'" color="#000000"><em>t_fontName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031729">One of the following font names: </a><font size="2" face="'Courier New'" color="#000000">"euro," "gothic," "math," "roman," "script," "stick," "small," "large," "mask," "swedish"</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031731"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031733">Height of text. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031735"><font size="2" face="'Courier New'" color="#000000"><em>t_orientation</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031737">One of the following values: </a><font size="2" face="'Courier New'" color="#000000">"0," "90," "180," "270," "mx," "sideways," "my," "upsideDown," "mr90," "sideways," "mr270," "sideways&amp;270"</font></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1014529">Display List Pens </a></h2>
+      <p><a name="1014531">Display list pens store the graphic attributes of an object. These attributes are:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1014532"><font size="2" face="'Courier New'" color="#000000">Color</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1029766"><font size="2" face="'Courier New'" color="#000000">FillStyle</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1029773"><font size="2" face="'Courier New'" color="#000000">FillPattern</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1029780"><font size="2" face="'Courier New'" color="#000000">LineStyle</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1029787"><font size="2" face="'Courier New'" color="#000000">LinePattern</font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1014533">Pens are referred to by number. Pens are also grouped together into pen tables. In the default pen table, there are 64 pens and they are numbered 0 through 63.</a></p>
+      <p><a name="1014534">When you create a display list, it is initialized to use a default pen table. Changes made to a pen table affect all the display lists that use that pen table, much like changing a technology file changes all the cells that use it. To allow you to have a unique pen table, functions are provided to create new pen tables and to specify that a display list should use a particular pen table.</a></p>
+      <p><a name="1014536">The color of the pens is set by color index. As such, the display list pens do not allocate any colors, but share the colors already in the color table. Therefore, they must be considered read&#45;only. In order to set a pen's color, you must call </a><a href="chap7.html#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a> to find the color index that most closely matches the color you desire. </p>
+      <p><a name="1014540">Fill patterns and Line patterns are different; you can create and change these patterns at will.</a></p>
+      <p><a name="1014541">Pens also specify the order in which objects are rendered. When display lists are drawn, all the objects on pen 0 are drawn, then all the objects on pen 1 are drawn, and so on up to pen 63. As such, objects on pen 4 draw on top of objects on pen 3. </a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMakePenTable
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMakePenTable"></a><a name="1014544">dlMakePenTable</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014547">dlMakePenTable(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>x_maxPens</em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014548">Description</a></h4>
+      <p><a name="1014550">Creates a pen table a display list can use. </a></p>
+      <h4><a name="1014551">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031744"><font size="2" face="'Courier New'" color="#000000"><em>x_maxPens</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031746">Number of pens in the pen table. It is best to create only as many pens as you plan to use; any unused pens waste memory. The pen numbers range from </a><font size="2" face="'Courier New'" color="#000000">0</font> to <font size="2" face="'Courier New'" color="#000000"><em>x_maxPens</em></font><font size="2" face="'Courier New'" color="#000000">&#45;1</font>. The function returns the pen table, or <font size="2" face="'Courier New'" color="#000000">nil</font> if an error occurred. If not specified, the default number of pens is 64.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMakeStipple
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMakeStipple"></a><a name="1014555">dlMakeStipple</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014558">dlMakeStipple(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_StippleString</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_stippleId</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014559">Description</a></h4>
+      <p><a name="1014561">Creates a stipple pattern from the supplied string. </a></p>
+      <h4><a name="1014562">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031753"><font size="2" face="'Courier New'" color="#000000"><em>t_StippleString</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1031755">String that has a special form. The string is composed of 1s, 0s and newline characters </a><font size="2" face="'Courier New'" color="#000000">\n</font> and <font size="2" face="'Courier New'" color="#000000">&#34; &#34;</font> (space) characters. The string describes an array of bits that define a stipple pattern. Each newline<font size="2" face="'Courier New'" color="#000000"> \n</font> or <font size="2" face="'Courier New'" color="#000000">&#34; &#34;</font> (space) character in the string begins a new row of bits. Each row must have the same number of characters in it, or the functions return <font size="2" face="'Courier New'" color="#000000">nil</font>. This is a sample stipple pattern: </p>
+            <p><a name="1031801"><font size="2" face="'Courier New'" color="#000000">stipString = &#34;0101\n\</font></a></p>
+            <p><a name="1031816"><font size="2" face="'Courier New'" color="#000000">1010\n\</font></a></p>
+            <p><a name="1031831"><font size="2" face="'Courier New'" color="#000000">0101\n\</font></a></p>
+            <p><a name="1031846"><font size="2" face="'Courier New'" color="#000000">1010&#34; </font></a></p>
+            <p><a name="1031861"><font size="2" face="'Courier New'" color="#000000">stippleId = dlMakeStipple( stipString)</font></a></p>
+            <p><a name="1031876">In this example, a 4x4 stipple pattern is created and its ID returned. The 1 character specifies the bits turned on, and the 0 character returns the bits turned off. The maximum size of a pattern is 64x64.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1032509">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032502"><font size="2" face="'Courier New'" color="#000000"><em>stippleID</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032504">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>stippleID</em></font> of the stipple pattern.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032506"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032508">Operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetCurrentPen
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="1032489">dlSetCurrentPen</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014574">dlSetCurrentPen(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014575">Description</a></h4>
+      <p><a name="1014576">Sets the specified pen number to the current pen. Changes the pen number objects are drawn with from within a </a>SkillObject procedure. This function should only be called from within a SkillObject procedure. </p>
+      <h4><a name="1014578">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031889"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031891">Pen number to set.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetPenColor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetPenColor"></a><a name="1014583">dlSetPenColor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014586">dlSetPenColor(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber <dd>x_colorIndex <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>w_penTable </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014587">Description</a></h4>
+      <p><a name="1014589">Changes the specified pen to the specified color index from the pen table. </a></p>
+      <h4><a name="1014590">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031899"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031901">Pen number to use. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031903"><font size="2" face="'Courier New'" color="#000000"><em>x_colorIndex</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031905">Color desired. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031907"><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031909">Pen table this pen belongs to. If you do not specify the </a><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font>, the default pen table is used. In order to obtain a desired color, you may use <a href="chap7.html#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a> to find the color index that most closely matches the desired color. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetPenFillStyle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetPenFillStyle"></a><a name="1014598">dlSetPenFillStyle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014601">dlSetPenFillStyle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber <dd>t_fillStyle <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014602">Description</a></h4>
+      <p><a name="1014604">Sets the fill style of a pen. </a></p>
+      <h4><a name="1014605">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031919"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031921">Pen number to be set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031923"><font size="2" face="'Courier New'" color="#000000"><em>t_fillStyle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031925">One of the following strings:</a></p>
+          </td>
+        </tr>
+      </table>
+<ul>      <table summary="" cellpadding="16" cellspacing="0" bgcolor="#FFFFFF" width="446">
+        <tr>
+          <td cellpadding="16" valign="top" width="208">
+            <p><a name="1016566"><font size="2" face="'Courier New'" color="#000000">"OutlineNoFill"</font></a></p>
+          </td>
+          <td cellpadding="16" valign="top" width="238">
+            <p><a name="1016568">the default condition</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016570"><font size="2" face="'Courier New'" color="#000000">"SolidFill"</font></a></p>
+          </td>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016572">all objects are filled</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016574"><font size="2" face="'Courier New'" color="#000000">"XFill"</font></a></p>
+          </td>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016576">same as </a><font size="2" face="'Courier New'" color="#000000">"OutlineNoFill"</font> except boxes have an X drawn inside</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016578"><font size="2" face="'Courier New'" color="#000000">"StippleFill"</font></a></p>
+          </td>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016580">objects are filled with the stipple pattern</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016582"><font size="2" face="'Courier New'" color="#000000">"OutlineStippleFill"</font></a></p>
+          </td>
+          <td cellpadding="16" valign="top">
+            <p><a name="1016584">objects are drawn stipple filled with a solid line drawn around the outside</a></p>
+          </td>
+        </tr>
+      </table></ul>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031934"><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1031936">Pen table to use. If not specified, the default pen table is used. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetPenFilled
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetPenFilled"></a><a name="1016687">dlSetPenFilled</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1016694">dlSetPenFilled(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>w_penTable </em></font>]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font></font>
+      </dl>
+      <h4><a name="1016695">Description</a></h4>
+      <p><a name="1016696">Sets the fill style of a pen to </a><font size="2" face="'Courier New'" color="#000000">SolidFill</font>. </p>
+      <h4><a name="1016697">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031943"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1031945">Pen number to be set.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031947"><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031949">Pen table to use. If you do not specify this argument, the default pen table is used. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1016699">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031956"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1031958">The fill style was set.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031960"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031962">The fill style could not be set.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetPenStipple
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetPenStipple"></a><a name="1016728">dlSetPenStipple</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014615">dlSetPenStipple(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber <dd>x_stippleId <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>w_penTable </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014616">Description</a></h4>
+      <p><a name="1014618">Sets the stipple pattern for a pen. </a></p>
+      <h4><a name="1014619">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031969"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031971">Pen number to be set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031973"><font size="2" face="'Courier New'" color="#000000"><em>x_stippleId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031975">Stipple pattern used. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031977"><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031979">Pen table to set. If you do not supply </a><font size="2" face="'Courier New'" color="#000000"><em>w_penTable</em></font>, then the pen in the default pen table will be set, otherwise the pen in the pen table specified by will be set. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetPenTable
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetPenTable"></a><a name="1014626">dlSetPenTable</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014629">dlSetPenTable(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>w_penTableOrDisplayList <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil </font></font>
+      </dl>
+      <h4><a name="1014630">Description</a></h4>
+      <p><a name="1014632">Sets the pen table a display list will use. </a></p>
+      <h4><a name="1014633">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1031986"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1031988">Display list you wish to set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1031990"><font size="2" face="'Courier New'" color="#000000"><em>w_penTableOrDisplayList</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1031994">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032007">Either a pen table or another display list. If the argument is a display list, the </a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font> is set to use the same pen table as the second <font size="2" face="'Courier New'" color="#000000"><em>displayList</em></font>. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1014638">Viewing a Display List </a></h2>
+      <p><a name="1014640">A display list can be viewed in empty windows. A single display list can be attached to as many windows as you wish. They are scaled to fit within a window.</a></p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAttachDlistToWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAttachDlistToWidget"></a><a name="1014642">dlAttachDlistToWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014645">dlAttachDlistToWidget(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>x_widgetId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014646">Description</a></h4>
+      <p><a name="1014648">Attaches a display list to a widget.</a></p>
+      <h4><a name="1014649">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032023"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1032025">Display list to attach.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032027"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032029">Widget to attach the display list to.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlAttachDlistToWindow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlAttachDlistToWindow"></a><a name="1014655">dlAttachDlistToWindow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014658">dlAttachDlistToWindow(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>w_windowId <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014659">Description</a></h4>
+      <p><a name="1014660">Attaches a display list to the window defined by </a><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font>. This function can be used to preview a display list. </p>
+      <h4><a name="1014662">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032036"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032038">Display list you wish to attach to the window. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032040"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032042">ID number of an empty window. It cannot be the window of another application. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlClearDisplayList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlClearDisplayList"></a><a name="1014667">dlClearDisplayList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014670">dlClearDisplayList(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014671">Description</a></h4>
+      <p><a name="1014673">Removes all the objects from a display list. </a></p>
+      <h4><a name="1014674">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032049"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1032051">Display list you are clearing of all objects.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1032559">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032552"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032554">Removes all the objects from the display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032556"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032558">Operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlCloseWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlCloseWidget"></a><a name="1014680">dlCloseWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014683">dlCloseWidget(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014684">Description</a></h4>
+      <p><a name="1014686">Closes (destroys) a widget.</a></p>
+      <h4><a name="1014687">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032058"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032060">Widget to destroy.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlConfigureButton
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlConfigureButton"></a><a name="1014691">dlConfigureButton</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014694">dlConfigureButton(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_button<dd>x_xPosition<dd>x_yPosition<dd>x_width<dd>x_height<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014695">Description</a></h4>
+      <p><a name="1014696">Moves a button to another location. Both the x and y position are specified in X Window System coordinates, where 0:0 is the upper left corner of the screen.</a></p>
+      <h4><a name="1014698">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032067"><font size="2" face="'Courier New'" color="#000000"><em>x_button</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032069">Button being moved. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032071"><font size="2" face="'Courier New'" color="#000000"><em>x_xPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032073">New x position of the upper&#45;left corner of the button. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032075"><font size="2" face="'Courier New'" color="#000000"><em>x_yPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032077">New y position of the upper&#45;left corner of the button.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032079"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032081">Width of new button size. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032083"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032085">Height of new button size. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDetachDlistFromWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDetachDlistFromWidget"></a><a name="1014706">dlDetachDlistFromWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014709">dlDetachDlistFromWidget(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>x_widgetId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014710">Description</a></h4>
+      <p><a name="1014712">Detaches a display list from a widget.</a></p>
+      <h4><a name="1014713">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032092"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032094">Display list to detach.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032096"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032098">Widget to detach the display list from.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDetachDlistFromWindow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDetachDlistFromWindow"></a><a name="1014718">dlDetachDlistFromWindow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014721">dlDetachDlistFromWindow(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>w_windowId <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014722">Description</a></h4>
+      <p><a name="1014723">Detaches a display list (</a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font>) from the window defined by <font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font>. </p>
+      <h4><a name="1014725">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032105"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032107">Display list you wish to detach from the window. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032109"><font size="2" face="'Courier New'" color="#000000"><em>w_windowId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032111">ID number of an empty window. It cannot be the window of another application. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDisplay
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDisplay"></a><a name="1014730">dlDisplay</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014733">dlDisplay(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014734">Description</a></h4>
+      <p><a name="1014735">Redraws the display list (</a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font>) in all the windows and buttons it is currently attached to.</p>
+      <h4><a name="1014737">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="645">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032118"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="452">
+            <p><a name="1032120">Display list to redraw.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlDlistToIcon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlDlistToIcon"></a><a name="1014742">dlDlistToIcon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014745">dlDlistToIcon(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>x_width <dd>x_height <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_backColorIndex </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_iconId</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014746">Description</a></h4>
+      <p><a name="1014748">Converts a displayList to an icon. </a></p>
+      <h4><a name="1014749">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032127"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032129">Display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032131"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032133">Width of icon specified in screen units. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032135"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032137">Height of icon specified in screen units.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032139"><font size="2" face="'Courier New'" color="#000000"><em>x_backColorIndex</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032141">Background color of the generated icon. If you do not specify this argument, the icon will have the same background color as Graphic Editor windows. The returned </a><font size="2" face="'Courier New'" color="#000000"><em>l_iconId</em></font> can be used in forms or as the window manager icon for a window or windows.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlEnableItem
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlEnableItem"></a><a name="1014756">dlEnableItem</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014759">dlEnableItem(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_dlist <dd>x_penNumber <dd>s_symbolTag <dd>g_enableOrDisable <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014760">Description</a></h4>
+      <p><a name="1014761">Allows you to turn on or off shapes within a display list that match the provided symbol. All shapes on pen </a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font> are searched and checked to see if the <font size="2" face="'Courier New'" color="#000000"><em>symbolTag</em></font> matches.</p>
+      <h4><a name="1014763">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032148"><font size="2" face="'Courier New'" color="#000000"><em>w_dlist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032150">Display list to add to. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032152"><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032154">Pen number to turn shapes on or off. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032156"><font size="2" face="'Courier New'" color="#000000"><em>s_symbolTag</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032158">Symbol to match to all shapes on pen </a><font size="2" face="'Courier New'" color="#000000"><em>x_penNumber</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032160"><font size="2" face="'Courier New'" color="#000000"><em>g_enableOrDisable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032162"><font size="2" face="'Courier New'" color="#000000">t</font></a> enables the shape; <font size="2" face="'Courier New'" color="#000000">nil</font> disables the shape. </p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlFitDlistOnDraw
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlFitDlistOnDraw"></a><a name="1014771">dlFitDlistOnDraw</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014774">dlFitDlistOnDraw(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList<dd>x_widgetId<dd>g_doFit <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014775">Description</a></h4>
+      <p><a name="1014776">Specifies whether a display list should automatically fit within the specified widget. </a></p>
+      <h4><a name="1014778">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032169"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1032171">Display list. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032173"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032175">ID the display list is attached to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032177"><font size="2" face="'Courier New'" color="#000000"><em>g_doFit</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032179">(</a><font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>) <font size="2" face="'Courier New'" color="#000000">t</font> means the display list should be automatically fitted in the widget; <font size="2" face="'Courier New'" color="#000000">nil</font> means it should not.</p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMakeDlistButton
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMakeDlistButton"></a><a name="1014784">dlMakeDlistButton</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014787">dlMakeDlistButton(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_parentWidgetId<dd>x_xPosition<dd>x_yPosition<dd>x_width<dd>x_height<dd>w_displayList<dd>t_pressCallback<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_backgroundColor </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014788">Description</a></h4>
+      <p><a name="1014789">Creates a button to display a display list in. The display list button is a rectangular region with a widget or window in which a display list is drawn and which dispatches a callback whenever the left mouse button is pressed within it.</a></p>
+      <h4><a name="1014791">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032186"><font size="2" face="'Courier New'" color="#000000"><em>x_parentWidgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032188">Parent widget to make the button within. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032190"><font size="2" face="'Courier New'" color="#000000"><em>x_xPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032192">x position of the upper&#45;left corner of the button, in X Window System screen coordinates (where 0:0 is the upper&#45;left corner of the widget). </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032194"><font size="2" face="'Courier New'" color="#000000"><em>x_yPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032196">y position of the upper&#45;left corner of the button, in X Window System screen coordinates (where 0:0 is the upper&#45;left corner of the widget).</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032198"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032200">Width of the button. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032202"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032204">Height of the button. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032206"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032208">Display list to attach to the button. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032210"><font size="2" face="'Courier New'" color="#000000"><em>t_pressCallback</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032212">SKILL expression evaluated whenever the left mouse button is pressed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032214"><font size="2" face="'Courier New'" color="#000000"><em>x_backgroundColor</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032216">Optional background color of the button.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMakeWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMakeWidget"></a><a name="1014802">dlMakeWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014805">dlMakeWidget(<dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>x_backgroundColor </em></font>] <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_point1 </em></font>]<dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_point2 </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1014806">Description</a></h4>
+      <p><a name="1014807">Creates a general purpose window (or widget). Uses of this widget can be for fixed menus or graphic display panels. Both points are specified in X Window System coordinates, where 0:0 is the upper&#45;left corner of the screen.</a></p>
+      <h4><a name="1014809">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032223"><font size="2" face="'Courier New'" color="#000000"><em>x_backgroundColor</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1032225">Background color of the widget.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032227"><font size="2" face="'Courier New'" color="#000000"><em>l_point1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032229">Upper left position of the widget.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032231"><font size="2" face="'Courier New'" color="#000000"><em>l_point2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032233">Lower right position of the widget.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMapWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMapWidget"></a><a name="1014815">dlMapWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014818">dlMapWidget(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014819">Description</a></h4>
+      <p><a name="1014820">Puts a widget back on the screen after a call to </a><font size="2" face="'Courier New'" color="#000000">dlUnMapWidget</font>. This function also applies to buttons. </p>
+      <h4><a name="1014822">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="646">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032240"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="453">
+            <p><a name="1032242">Widget to map.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlMoveButton
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlMoveButton"></a><a name="1014826">dlMoveButton</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014829">dlMoveButton(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_button<dd>x_xPosition<dd>x_yPosition<dd></em></font>) <dd>=&#62; t | nil </font>
+      </dl>
+      <h4><a name="1014830">Description</a></h4>
+      <p><a name="1014831">Moves a button to another location. Both the x and y position are specified in X Window System coordinates, where 0:0 is the upper&#45;left corner of the screen.</a></p>
+      <h4><a name="1014833">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032249"><font size="2" face="'Courier New'" color="#000000"><em>x_button</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032251">Button being moved. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032253"><font size="2" face="'Courier New'" color="#000000"><em>x_xPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032255">New x position of the upper&#45;left corner of the button. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032257"><font size="2" face="'Courier New'" color="#000000"><em>x_yPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032259">New y position of the upper&#45;left corner of the button. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlResizeButton
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlResizeButton"></a><a name="1014839">dlResizeButton</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014842">dlResizeButton(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_button<dd>x_width<dd>x_height<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014843">Description</a></h4>
+      <p><a name="1014845">Resizes a button.</a></p>
+      <h4><a name="1014846">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032266"><font size="2" face="'Courier New'" color="#000000"><em>x_button</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1032268">Button being moved. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032270"><font size="2" face="'Courier New'" color="#000000"><em>x_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032272">Width of new button size. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032274"><font size="2" face="'Courier New'" color="#000000"><em>x_height</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032276">Height of new button size. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSaveDlist
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSaveDlist"></a><a name="1014853">dlSaveDlist</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014856">dlSaveDlist(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList <dd>t_fileName <dd>t_dlistName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014857">Description</a></h4>
+      <p><a name="1014859">Saves the display list. </a></p>
+      <h4><a name="1014860">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032283"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032285">Display list. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032287"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032289">Name of file whose format is the SKILL functions necessary to regenerate the display list. When loaded, all the add functions will be called, and a display list will be created. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032291"><font size="2" face="'Courier New'" color="#000000"><em>t_dlistName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032293">Name of the display list. </a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetDlistPosition
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetDlistPosition"></a><a name="1014866">dlSetDlistPosition</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014869">dlSetDlistPosition(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList<dd>x_widgetId<dd>x_xOffset<dd>x_yOffset <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014870">Description</a></h4>
+      <p><a name="1014871">Specifies the scale factor to map from display list coordinates to screen coordinates. The offsets only have effect if auto&#45;fitting was turned off (via </a><font size="2" face="'Courier New'" color="#000000">dfIIFitDlistOnDraw</font>).</p>
+      <h4><a name="1014874">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032300"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032302">Display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032304"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032306">ID the display list is attached to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032308"><font size="2" face="'Courier New'" color="#000000"><em>x_xOffset</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032310">Offset (in display list coordinates) of the display list in the x axis, assuming 0:0 to be the upper&#45;left corner.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032312"><font size="2" face="'Courier New'" color="#000000"><em>x_yOffset</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032314">Offset (in display list coordinates) of the display list in the y axis, assuming 0:0 to be the upper&#45;left corner.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetDlistScale
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetDlistScale"></a><a name="1014881">dlSetDlistScale</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014884">dlSetDlistScale(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>w_displayList<dd>x_widgetId<dd>f_scale <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014885">Description</a></h4>
+      <p><a name="1014886">Specifies the scale factor to map from display list coordinates to screen coordinates. This scale factor only has effect if auto&#45;fitting was turned off (using </a><font size="2" face="'Courier New'" color="#000000">dfIIFitDlistOnDraw</font>).</p>
+      <h4><a name="1014889">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032321"><font size="2" face="'Courier New'" color="#000000"><em>w_displayList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032323">Display list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032325"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032327">ID the display list is attached to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032329"><font size="2" face="'Courier New'" color="#000000"><em>f_scale</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032331">Scale factor.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlSetWidgetName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlSetWidgetName"></a><a name="1014895">dlSetWidgetName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014898">dlSetWidgetName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId <dd>t_name<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014899">Description</a></h4>
+      <p><a name="1014901">Sets the text displayed by the window manager banner. </a></p>
+      <h4><a name="1014902">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032338"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="1032340">Widget to name.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032342"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1032344">Text to name the widget.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dlUnMapWidget
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dlUnMapWidget"></a><a name="1014907">dlUnMapWidget</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1014910">dlUnMapWidget(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t &#47; nil</font> </font>
+      </dl>
+      <h4><a name="1014911">Description</a></h4>
+      <p><a name="1014912">Removes the widget from the screen, but does not destroy it. This function also applies to buttons. </a></p>
+      <h4><a name="1014914">Argument</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="647">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1032351"><font size="2" face="'Courier New'" color="#000000"><em>x_widgetId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="454">
+            <p><a name="1032353">Widget to unmap.</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="1014918">A Sample Display List </a></h2>
+      <p><a name="1014919">The following SKILL program makes a display list to draw inside a window and to use as its icon.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1014920">&#47;* First, make the DisplayList. *&#47;<br>dl = </a><a href="#1014155" title="17"><font color="#0000ff"><u>dlMakeDisplayList</u></font></a>( ) <br>&#47;* Now make a pen table for it. *&#47;<br>penTable = <a href="#1014544" title="17"><font color="#0000ff"><u>dlMakePenTable</u></font></a>(5)<br>&#47;* Assign the penTable to the display list. *&#47;<br><a href="#1014626" title="17"><font color="#0000ff"><u>dlSetPenTable</u></font></a>( dl penTable)<br>&#47;* Define a couple of colors. *&#47;<br>colorIndex = <a href="chap7.html#354044" title="7"><font color="#0000ff"><u>hiMatchColor</u></font></a>( nameToColor( &#34;blue&#34;))<br><a href="#1014583" title="17"><font color="#0000ff"><u>dlSetPenColor</u></font></a>( 1 colorIndex penTable)<br>&#47;* Set this pen &#34;filled.&#34; *&#47;<br><a href="#1014598" title="17"><font color="#0000ff"><u>dlSetPenFillStyle</u></font></a>( 1 &#34;SolidFill&#34; penTable)<br>&#47;* Put the objects in. *&#47;<br><a href="#1030410" title="17"><font color="#0000ff"><u>dlAddBox</u></font></a>( dl 1 0:0 100:100)<br>dlAddBox( dl 2 10:10 90:90)<br><a href="#1014206" title="17"><font color="#0000ff"><u>dlAddCircle</u></font></a>( dl 3 50:50 20)<br><a href="#1014365" title="17"><font color="#0000ff"><u>dlAddStrokeText</u></font></a>( dl 4 50:50 &#34;Window&#34; &#34;0&#34; &#34;gothic&#34; 25 &#34;center&#34;)<br>&#47;* Make a window. Put the DisplayList into the window *&#47;<br>&#47;* and set the window's icon. *&#47;<br>w = <a href="chap9.html#671624" title="9"><font color="#0000ff"><u>hiOpenWindow</u></font></a>( )<br><a href="#1014655" title="17"><font color="#0000ff"><u>dlAttachDlistToWindow</u></font></a>( dl w)<br>&#47;* Convert the dlist to an icon. *&#47;<br>icon = <a href="#1014742" title="17"><font color="#0000ff"><u>dlDlistToIcon</u></font></a>( dl 50 50)<br><a href="chap9.html#672010" title="9"><font color="#0000ff"><u>hiSetWindowIcon</u></font></a>( w icon)<br>&#47;* Save it to a file. *&#47;<br><a href="#1014853" title="17"><font color="#0000ff"><u>dlSaveDlist</u></font></a>( dl &#34;save.dlist&#34; &#34;newDl&#34;)<br>&#47;* Try resizing the window. The dlist will fit inside it. *&#47;<br>&#47;* Iconify the window. *&#47;</font>
+      </p>
+      <p>
+        <font size="3" face="Sans-Serif" color="#000000"><a name="1014935">&nbsp;</a></font>
+      </p>
+      <p><a name="1017392">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skuirefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="chap16.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="appB.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skuiref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,11 +1,6 @@
 ;; gui.il - GUI components for auto_rfic
 ;; This file contains functions for creating and managing GUI elements
 
-;; Load Virtuoso UI support
-deInstallManage()
-deLoadLibList("basic")
-deRegisterHiFormatProcs()
-
 ;; Initialize the GUI namespace
 unless(boundp('autoRficGui)
     autoRficGui = makeTable("gui" nil)
