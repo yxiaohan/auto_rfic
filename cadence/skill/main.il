@@ -5,9 +5,9 @@ autoRfic = makeTable("autoRfic" nil)
 
 ;; Function to load a module
 procedure(autoRficLoadModule(modulePath)
-    let((fullPath result)
+    let((fullPath result moduleName)
         fullPath = simplifyFilename(modulePath)
-        printf("Loading module: %s\n" fullPath)
+        moduleName = car(reverse(parseString(fullPath "/")))
         result = load(fullPath)
         result
     )
@@ -16,59 +16,105 @@ procedure(autoRficLoadModule(modulePath)
 ;; Function to initialize the framework
 procedure(autoRficInit()
     let((baseDir result)
-        printf("Initializing auto_rfic framework\n")
-        
         ;; Get the base directory
         baseDir = getShellEnvVar("AUTO_RFIC_DIR")
         unless(baseDir
             baseDir = "/Volumes/970-1t/yuan/projects/auto_rfic/cadence/skill"
-            printf("AUTO_RFIC_DIR environment variable not set, using default: %s\n" baseDir)
         )
         
-        ;; Load configuration modules
+        ;; Initialize module namespace tables first
+        unless(autoRficConfig
+            autoRficConfig = makeTable("config" nil)
+        )
+        unless(autoRficUtils
+            autoRficUtils = makeTable("utils" nil)
+        )
+        unless(autoRficLogging
+            autoRficLogging = makeTable("logging" nil)
+        )
+        unless(autoRficGui
+            autoRficGui = makeTable("gui" nil)
+        )
+        unless(autoRficDb
+            autoRficDb = makeTable("db" nil)
+        )
+        unless(autoRficTemplates
+            autoRficTemplates = makeTable("templates" nil)
+        )
+        unless(autoRficGenerator
+            autoRficGenerator = makeTable("generator" nil)
+        )
+        unless(autoRficOptimizer
+            autoRficOptimizer = makeTable("optimizer" nil)
+        )
+        unless(autoRficTestbench
+            autoRficTestbench = makeTable("testbench" nil)
+        )
+        unless(autoRficAnalyses
+            autoRficAnalyses = makeTable("analyses" nil)
+        )
+        unless(autoRficResults
+            autoRficResults = makeTable("results" nil)
+        )
+        unless(autoRficFloorplan
+            autoRficFloorplan = makeTable("floorplan" nil)
+        )
+        unless(autoRficPlacement
+            autoRficPlacement = makeTable("placement" nil)
+        )
+        unless(autoRficRouting
+            autoRficRouting = makeTable("routing" nil)
+        )
+        unless(autoRficRfStructures
+            autoRficRfStructures = makeTable("rfStructures" nil)
+        )
+        unless(autoRficDrc
+            autoRficDrc = makeTable("drc" nil)
+        )
+        unless(autoRficLvs
+            autoRficLvs = makeTable("lvs" nil)
+        )
+        unless(autoRficParasitic
+            autoRficParasitic = makeTable("parasitic" nil)
+        )
+        
+        ;; Load modules by type
+        printf("Loading configuration modules...\n")
         autoRficLoadModule(sprintf(nil "%s/config/default_config.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/config/user_config.il" baseDir))
         
-        ;; Load library modules
+        printf("Loading library modules...\n")
         autoRficLoadModule(sprintf(nil "%s/lib/utils.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/lib/logging.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/lib/gui.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/lib/db.il" baseDir))
         
-        ;; Load schematic modules
+        printf("Loading schematic modules...\n")
         autoRficLoadModule(sprintf(nil "%s/schematic/templates.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/schematic/generator.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/schematic/optimizer.il" baseDir))
         
-        ;; Load simulation modules
+        printf("Loading simulation modules...\n")
         autoRficLoadModule(sprintf(nil "%s/simulation/testbench.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/simulation/analyses.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/simulation/results.il" baseDir))
         
-        ;; Load layout modules
+        printf("Loading layout modules...\n")
         autoRficLoadModule(sprintf(nil "%s/layout/floorplan.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/layout/placement.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/layout/routing.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/layout/rf_structures.il" baseDir))
         
-        ;; Load verification modules
+        printf("Loading verification modules...\n")
         autoRficLoadModule(sprintf(nil "%s/verification/drc.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/verification/lvs.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/verification/parasitic.il" baseDir))
         
-        ;; Initialize logging
-        autoRficInitLogging()
+        ;; Setup core systems
+        dbRegSaveTrigger('autoRficDbSaveTrigger)
+        geRegRefreshTrigger('autoRficGuiRefreshTrigger)
+        CCSCreateAlias("testRemote" 'autoRficTestRemote)
         
-        ;; Initialize configuration
-        autoRficInitConfig()
-        
-        ;; Initialize database
-        autoRficInitDb()
-        
-        ;; Initialize GUI
-        autoRficInitGui()
-        
-        printf("auto_rfic framework initialized\n")
         result = t
         result
     )
@@ -77,14 +123,13 @@ procedure(autoRficInit()
 ;; Function to create the namespace
 procedure(autoRficCreateNamespace()
     let((result)
-        printf("Creating auto_rfic namespace\n")
         
-        ;; Add core functions to namespace table
-        autoRfic["init"] = autoRficInit
-        autoRfic["loadModule"] = autoRficLoadModule
-        autoRfic["createNamespace"] = autoRficCreateNamespace
-        autoRfic["help"] = autoRficHelp
-        autoRfic["helpFunction"] = autoRficHelpFunction
+        ;; First add core functions to namespace
+        autoRfic["loadModule"] = 'autoRficLoadModule
+        autoRfic["init"] = 'autoRficInit
+        autoRfic["createNamespace"] = 'autoRficCreateNamespace
+        autoRfic["help"] = 'autoRficHelp
+        autoRfic["helpFunction"] = 'autoRficHelpFunction
         
         ;; Add configuration functions
         autoRfic = append(autoRfic autoRficConfig)
@@ -122,7 +167,6 @@ procedure(autoRficCreateNamespace()
         autoRfic = append(autoRfic autoRficLvs)
         autoRfic = append(autoRfic autoRficParasitic)
         
-        printf("auto_rfic namespace created\n")
         result = t
         result
     )
@@ -164,6 +208,7 @@ procedure(autoRficHelp()
         
         printf("For more detailed help on specific functions, use:\n")
         printf("  autoRfic->help(\"function_name\")\n\n")
+        
         result = t
         result
     )
@@ -204,10 +249,13 @@ procedure(autoRficHelpFunction(functionName)
 )
 
 ;; Initialize the framework
-printf("Loading Auto RFIC framework...\n")
+printf("Loading Auto RFIC framework v1.0...\n")
 
-;; First create namespace
-autoRficCreateNamespace()
-
-;; Then initialize the framework
-autoRfic["init"]()
+;; Initialize first, then create namespace
+let((result)
+    autoRficInit()
+    autoRficCreateNamespace()
+    printf("Auto RFIC framework initialization complete\n")
+    result = t
+    result
+)

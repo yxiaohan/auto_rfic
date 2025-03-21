@@ -23,9 +23,6 @@ export CDS_SITE="$CADENCE_DIR"
 # Set the Auto RFIC directory environment variable
 export AUTO_RFIC_DIR="$CADENCE_DIR/skill"
 
-# Remote SKILL server disabled
-# export SKILL_SERVER_PATH="$CADENCE_DIR/skill/example/rf_amp_sweep.il"
-# export SKILL_SERVER_PORT="$SKILL_PORT"
 
 # Create empty log file
 > "$LOG_FILE"

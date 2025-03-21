@@ -4,6 +4,9 @@ This document provides instructions for GitHub Copilot when working with SKILL l
 
 ## SKILL Language Specifics
 
+**Needs Update**
+You can update and take nots of this section, if finding something needs special treatment for coding with SKILL, during error corrections.
+
 When generating or suggesting code in SKILL:
 
 1. **Return Statement Usage**
