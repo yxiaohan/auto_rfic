@@ -30,7 +30,7 @@ defun(autoRficLog (level message @optional details)
             printf("%s\n" formattedMessage)
             
             ;; Write to log file if enabled
-            logFile = autoRficGetParameter('logFile)
+            logFile = autoRficGetParameter('logFile nil nil)
             when(stringp(logFile)
                 fileId = outfile(logFile "a")
                 fprintf(fileId "%s\n" formattedMessage)
@@ -51,7 +51,9 @@ defun(autoRficGetLogLevel (levelStr)
 
 defun(autoRficShouldLog (messageLevel)
     let((configLevelStr configLevel messageLevelNum)
-        configLevelStr = autoRficGetParameter('logLevel "info")
+        ;; Provide all 3 expected arguments
+        configLevelStr = autoRficGetParameter('logLevel "info" nil)
+        
         configLevel = autoRficGetLogLevel(configLevelStr)
         messageLevelNum = autoRficGetLogLevel(messageLevel)
         messageLevelNum >= configLevel

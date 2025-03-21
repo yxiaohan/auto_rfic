@@ -12,13 +12,13 @@ defun(autoRficGetConfigValue (configTable paramName)
     )
 )
 
-defun(autoRficGetParameter (paramName optional defaultValue)
+defun(autoRficGetParameter (paramName @optional defaultValue)
     let((value)
         ;; Try to get from config table
         value = autoRficGetConfigValue(autoRficConfig paramName)
         
         ;; If not found and default provided, use default
-        when(and null(value) boundp('defaultValue)
+        when((null value) && (boundp 'defaultValue)
             value = defaultValue
         )
         value
@@ -80,6 +80,8 @@ defun(autoRficWriteFile (filePath content)
         t
     )
 )
+
+;; Remove duplicate logging functions - these are now defined in logging.il
 
 ;; Initialize configuration tables if not already defined
 unless(boundp('autoRficConfig)
