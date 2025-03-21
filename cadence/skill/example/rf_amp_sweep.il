@@ -85,40 +85,80 @@ procedure(getParameterValue(paramName defaultValue)
 
 ;; Create a simple RF amplifier schematic
 procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0.18u) (fingers 8))
-  prog((cv schematicId transistorId result libId cellViewId)
+  prog((cv schematicId transistorId result libId cellViewId instanceName existingCv uniqueID)
     rfLog("INFO" sprintf(nil "Creating RF amplifier with W=%g L=%g fingers=%d" width length fingers))
     
     ;; Check if library exists and create it if needed
     libId = ddGetObj(libName)
     if(libId == nil then
       rfLog("INFO" sprintf(nil "Library %s does not exist, creating it..." libName))
-      libId = ddCreateLib(libName)
+      
+      ;; Determine a safe path for the new library
+      ;; First try to get the path from cdsenv
+      libPath = getShellEnvVar("CDS_LIB_DIR")
+      
+      ;; If not set, use the current directory as fallback
+      if(libPath == nil || !isDir(libPath) then
+        libPath = getWorkingDir()
+        rfLog("INFO" sprintf(nil "Using current working directory for library path: %s" libPath))
+      )
+      
+      ;; Make sure the path exists
+      unless(isDir(libPath)
+        rfLog("ERROR" sprintf(nil "Library path %s does not exist. Cannot create library." libPath))
+        return(nil)
+      )
+      
+      ;; Create the library directory
+      libDirPath = strcat(libPath "/" libName)
+      unless(isDir(libDirPath)
+        system(sprintf(nil "mkdir -p %s" libDirPath))
+      )
+      
+      ;; Create the library
+      libId = ddCreateLib(libName ?dir libDirPath)
       if(libId == nil then
-        rfLog("ERROR" sprintf(nil "Failed to create library %s" libName))
+        rfLog("ERROR" sprintf(nil "Failed to create library %s at path %s" libName libDirPath))
         return(nil)
       )
     )
     
     ;; Create or open the cell view
-    cv = ddGetObj(libName cellName viewName)
-    if(cv == nil then
+    existingCv = ddGetObj(libName cellName viewName)
+    if(existingCv == nil then
       cv = dbOpenCellViewByType(libName cellName viewName "schematic" "w")
       if(cv == nil then
         rfLog("ERROR" sprintf(nil "Failed to create cell view %s/%s/%s" libName cellName viewName))
         return(nil)
       )
     else
+      ;; If cell view exists, reopen it
+      rfLog("INFO" sprintf(nil "Cell view %s/%s/%s exists, reopening it" libName cellName viewName))
+      
+      ;; Try to open existing cell view for editing
       cv = dbOpenCellViewByType(libName cellName viewName "schematic" "a")
       if(cv == nil then
-        rfLog("ERROR" sprintf(nil "Failed to open existing cell view %s/%s/%s" libName cellName viewName))
-        return(nil)
+        ;; If can't append, try to create a new one
+        rfLog("INFO" sprintf(nil "Cannot open existing cell view for editing, creating a new one"))
+        cv = dbOpenCellViewByType(libName cellName viewName "schematic" "w")
+        if(cv == nil then
+          rfLog("ERROR" sprintf(nil "Failed to recreate cell view %s/%s/%s" libName cellName viewName))
+          return(nil)
+        )
+      )
+      
+      ;; Delete all existing instances to start fresh
+      foreach(inst dbGetInstByName(cv "*")
+        dbDeleteObject(inst)
       )
     )
     
     ;; Check if analogLib exists and get transistor cell view template
     unless(ddGetObj("analogLib")
       rfLog("ERROR" "analogLib not found in library path. Check your Cadence setup.")
-      dbClose(cv)
+      when(cv
+        dbClose(cv)
+      )
       return(nil)
     )
     
@@ -126,23 +166,40 @@ procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0
     cellViewId = dbOpenCellViewByType("analogLib" "nmos4" "symbol" nil "r")
     unless(cellViewId
       rfLog("ERROR" "Failed to open analogLib/nmos4/symbol cell view.")
-      dbClose(cv)
+      when(cv
+        dbClose(cv)
+      )
       return(nil)
     )
     
-    ;; Create the NMOS transistor using the cell view template
-    transistorId = dbCreateInst(cv cellViewId "I0" 0:0 "R0")
+    ;; Generate a unique instance name
+    ;; Using a timestamp-based ID without format conversion issues
+    uniqueID = getCurrentTime()
+    uniqueID = lsprintf(nil "M_%s" uniqueID)
+    ;; Replace spaces and special characters with underscores
+    uniqueID = lsSubst("_" " " uniqueID)
+    uniqueID = lsSubst("_" ":" uniqueID)
+    instanceName = uniqueID
+    
+    ;; Create the NMOS transistor using the cell view template with unique name
+    transistorId = dbCreateInst(cv cellViewId instanceName 0:0 "R0")
     if(transistorId == nil then
       rfLog("ERROR" "Failed to create NMOS transistor instance.")
-      dbClose(cellViewId)
-      dbClose(cv)
+      when(cellViewId
+        dbClose(cellViewId)
+      )
+      when(cv
+        dbClose(cv)
+      )
       return(nil)
     )
     
     ;; Close the cell view template
-    dbClose(cellViewId)
+    when(cellViewId
+      dbClose(cellViewId)
+    )
     
-    ;; Set the parameters using dbSetInstPropValue instead of dbAddProp
+    ;; Set the parameters using dbSetInstPropValue 
     dbSetInstPropValue(transistorId "w" width)
     dbSetInstPropValue(transistorId "l" length)
     dbSetInstPropValue(transistorId "fingers" fingers)
@@ -161,7 +218,9 @@ procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0
     
     ;; Save and close
     dbSave(cv)
-    dbClose(cv)
+    when(cv
+      dbClose(cv)
+    )
     
     rfLog("INFO" sprintf(nil "RF amplifier %s/%s/%s created successfully" libName cellName viewName))
     return(t)  ;; Using return explicitly since we're in a prog block
@@ -341,6 +400,139 @@ procedure(reportResults(libName cellName paramName results)
 )
 
 ;; =================================================================
+;; Library Management Functions
+;; =================================================================
+
+;; Check if a library exists and prompt user to create it if missing
+procedure(rfCheckLibrary(libName)
+  let((libId libPath libDir form buttonId)
+    ;; Try to find the library
+    libId = ddGetObj(libName)
+    
+    ;; If library doesn't exist, prompt the user
+    if(libId == nil then
+      rfLog("INFO" sprintf(nil "Library %s not found. Prompting user to create it." libName))
+      
+      ;; Create a form to let user create the library
+      form = hiCreateAppForm(
+        ?name             "createLibForm"
+        ?formTitle        sprintf(nil "Create Library: %s" libName)
+        ?callback         nil
+        ?buttonLayout     'OKCancelApply
+      )
+
+      ;; Add library name field
+      hiCreateStringField(
+        ?parent           form
+        ?name             "libNameField"
+        ?prompt           "Library Name:"
+        ?value            libName
+        ?editable         nil
+      )
+      
+      ;; Add library path field - default to CDS_LIB_DIR or current dir
+      libDir = getShellEnvVar("CDS_LIB_DIR")
+      if(libDir == nil || !isDir(libDir) then
+        libDir = getWorkingDir()
+      )
+      libPath = strcat(libDir "/" libName)
+      
+      hiCreateStringField(
+        ?parent           form
+        ?name             "libPathField"
+        ?prompt           "Library Path:"
+        ?value            libPath
+        ?editable         t
+      )
+      
+      ;; Display form and get user action
+      buttonId = hiDisplayForm(form)
+      
+      ;; Process result based on button pressed
+      if(buttonId == 1 then  ;; OK button
+        ;; Get the path from the form
+        libPath = hiGetStringValue(hiGetFormField(form "libPathField"))
+        
+        ;; Create directory if it doesn't exist
+        unless(isDir(libPath)
+          rfLog("INFO" sprintf(nil "Creating directory: %s" libPath))
+          system(sprintf(nil "mkdir -p %s" libPath))
+        )
+        
+        ;; Create the library
+        rfLog("INFO" sprintf(nil "Creating library %s at path %s" libName libPath))
+        libId = ddCreateLib(libName ?dir libPath)
+        
+        ;; Check if library was created successfully
+        if(libId != nil then
+          rfLog("INFO" sprintf(nil "Library %s created successfully" libName))
+          hiDeleteForm(form)
+          libId  ;; Return libId
+        else
+          rfLog("ERROR" sprintf(nil "Failed to create library %s" libName))
+          hiDisplayModalMessage(sprintf(nil "Failed to create library %s at path %s.\nCheck permissions and path validity." libName libPath))
+          hiDeleteForm(form)
+          nil  ;; Return nil to indicate failure
+        )
+      else
+        ;; User canceled
+        rfLog("INFO" sprintf(nil "User canceled creation of library %s" libName))
+        hiDeleteForm(form)
+        nil  ;; Return nil to indicate cancelation
+      )
+    else
+      ;; Library exists, return the ID
+      libId  ;; Return libId implicitly
+    )
+  )
+)
+
+;; Check for missing library directories in cds.lib and offer to create them
+procedure(rfCheckMissingLibraries()
+  let((warnings libName libPath result)
+    rfLog("INFO" "Checking for missing library directories...")
+    
+    ;; Get list of defined libraries using safer approach
+    let((libList libPath libName)
+      foreach(lib ddGetLibList()
+        when(listp(lib) && length(lib) >= 2
+          libName = car(lib)
+          libPath = cadr(lib)
+          
+          ;; Skip built-in libraries
+          unless(member(libName '("basic" "analogLib" "functional" "cdsDefTechLib"))
+            ;; Check if directory exists
+            when(stringp(libPath) && !isDir(libPath)
+              rfLog("WARNING" sprintf(nil "Directory for library '%s' does not exist: %s" libName libPath))
+              
+              ;; Ask user if they want to create the missing directory
+              result = hiDisplayYesNoDialog(
+                sprintf(nil "The directory for library '%s' does not exist:\n%s\n\nDo you want to create it?" 
+                        libName libPath)
+              )
+              
+              when(result
+                rfLog("INFO" sprintf(nil "Creating directory for library '%s': %s" libName libPath))
+                system(sprintf(nil "mkdir -p %s" libPath))
+                
+                ;; Check if created successfully
+                if(isDir(libPath) then
+                  rfLog("INFO" sprintf(nil "Directory for library '%s' created successfully" libName))
+                else
+                  rfLog("ERROR" sprintf(nil "Failed to create directory for library '%s'" libName))
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+    
+    t  ;; Return t implicitly
+  )
+)
+
+;; =================================================================
 ;; Main Function
 ;; =================================================================
 
@@ -378,6 +570,10 @@ procedure(rfSweepExample()
 ;; Safe initialization function that catches errors
 procedure(safeInitialize()
   let((result)
+    ;; Check for missing libraries first
+    rfLog("INFO" "Checking for missing library directories in cds.lib...")
+    rfCheckMissingLibraries()
+    
     ;; Auto-execute the RF sweep example
     rfLog("INFO" "Running RF sweep example automatically...")
     
