@@ -18,7 +18,7 @@ defun(autoRficGetParameter (paramName @optional defaultValue)
         value = autoRficGetConfigValue(autoRficConfig paramName)
         
         ;; If not found and default provided, use default
-        when(and null(value) boundp('defaultValue)
+        when(&& null(value) boundp('defaultValue)
             value = defaultValue
         )
         value
