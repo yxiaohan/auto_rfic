@@ -3,7 +3,7 @@
 # Configure log and path settings
 PROJECT_DIR="/home/zhoulong/projects/auto_rfic"
 CADENCE_DIR="$PROJECT_DIR/cadence"
-LOG_FILE="$CADENCE_DIR/virtuoso.log1"
+LOG_FILE="$CADENCE_DIR/logs/virtuoso.log"
 # SKILL_PORT=9191  # Remote server disabled
 
 # TSMC PDK environment setup

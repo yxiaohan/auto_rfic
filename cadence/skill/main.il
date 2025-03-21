@@ -154,7 +154,6 @@ procedure(autoRficHelp()
     printf("For more detailed help on specific functions, use:\n")
     printf("  autoRfic->help(\"function_name\")\n\n")
   )
-)
 
 ;; Function to display detailed help on a specific function
 procedure(autoRficHelpFunction(functionName)
@@ -176,7 +175,7 @@ procedure(autoRficHelpFunction(functionName)
       )
       ;; Add more function help texts here
       (t
-        if(functionName then
+        if(functionName && stringp(functionName) then
           sprintf(nil "No detailed help available for function: %s\n" functionName)
         else
           "No function name specified\n"
@@ -186,7 +185,7 @@ procedure(autoRficHelpFunction(functionName)
     
     printf("%s\n" helpText)
   )
-
+)
 
 ;; Add main functions to the namespace
 autoRfic = append(autoRfic list(

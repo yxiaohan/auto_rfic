@@ -1,26 +1,26 @@
 ;; Cadence Virtuoso initialization file
 
-// ;; Load the skillServer.il file
-// printf("Loading SKILL Server Interface...\n")
-// loadPath = getShellEnvVar("SKILL_SERVER_PATH")
-
-// if(loadPath then
-//     if(isFile(loadPath) then
-//         load(loadPath)
-//         printf("SKILL Server Interface loaded successfully from %s\n" loadPath)
-//     else
-//         printf("ERROR: SKILL Server Interface file not found at %s\n" loadPath)
-//     )
-// else
-//     ;; Default path if environment variable not set
-//     defaultPath = strcat(getShellEnvVar("CDS_SITE") "/skill/skillServer.il")
-//     if(isFile(defaultPath) then
-//         load(defaultPath)
-//         printf("SKILL Server Interface loaded successfully from default path\n")
-//     else
-//         printf("ERROR: SKILL Server Interface file not found at default path\n")
-//     )
-// )
+;; ;; Load the skillServer.il file (commented out)
+;; printf("Loading SKILL Server Interface...\n")
+;; loadPath = getShellEnvVar("SKILL_SERVER_PATH")
+;; 
+;; if(loadPath then
+;;     if(isFile(loadPath) then
+;;         load(loadPath)
+;;         printf("SKILL Server Interface loaded successfully from %s\n" loadPath)
+;;     else
+;;         printf("ERROR: SKILL Server Interface file not found at %s\n" loadPath)
+;;     )
+;; else
+;;     ;; Default path if environment variable not set
+;;     defaultPath = strcat(getShellEnvVar("CDS_SITE") "/skill/skillServer.il")
+;;     if(isFile(defaultPath) then
+;;         load(defaultPath)
+;;         printf("SKILL Server Interface loaded successfully from default path\n")
+;;     else
+;;         printf("ERROR: SKILL Server Interface file not found at default path\n")
+;;     )
+;; )
 
 ;; Load the Auto RFIC framework
 printf("Loading Auto RFIC framework...\n")
