@@ -1,7 +1,70 @@
 ;; main.il - Main entry point for auto_rfic framework
 
-;; Define the namespace variable first
-autoRfic = makeTable("autoRfic" nil)
+;; Create all namespace tables first
+let(()
+    ;; Core namespace
+    unless(boundp('autoRfic)
+        setq(autoRfic makeTable("autoRfic" nil))
+    )
+    ;; Module namespaces
+    unless(boundp('autoRficConfig)
+        setq(autoRficConfig makeTable("config" nil))
+    )
+    unless(boundp('autoRficUserConfig)
+        setq(autoRficUserConfig makeTable("userConfig" nil))
+    )
+    unless(boundp('autoRficUtils)
+        setq(autoRficUtils makeTable("utils" nil))
+    )
+    unless(boundp('autoRficLogging)
+        setq(autoRficLogging makeTable("logging" nil))
+    )
+    unless(boundp('autoRficGui)
+        setq(autoRficGui makeTable("gui" nil))
+    )
+    unless(boundp('autoRficDb)
+        setq(autoRficDb makeTable("db" nil))
+    )
+    unless(boundp('autoRficTemplates)
+        setq(autoRficTemplates makeTable("templates" nil))
+    )
+    unless(boundp('autoRficGenerator)
+        setq(autoRficGenerator makeTable("generator" nil))
+    )
+    unless(boundp('autoRficOptimizer)
+        setq(autoRficOptimizer makeTable("optimizer" nil))
+    )
+    unless(boundp('autoRficTestbench)
+        setq(autoRficTestbench makeTable("testbench" nil))
+    )
+    unless(boundp('autoRficAnalyses)
+        setq(autoRficAnalyses makeTable("analyses" nil))
+    )
+    unless(boundp('autoRficResults)
+        setq(autoRficResults makeTable("results" nil))
+    )
+    unless(boundp('autoRficFloorplan)
+        setq(autoRficFloorplan makeTable("floorplan" nil))
+    )
+    unless(boundp('autoRficPlacement)
+        setq(autoRficPlacement makeTable("placement" nil))
+    )
+    unless(boundp('autoRficRouting)
+        setq(autoRficRouting makeTable("routing" nil))
+    )
+    unless(boundp('autoRficRfStructures)
+        setq(autoRficRfStructures makeTable("rfStructures" nil))
+    )
+    unless(boundp('autoRficDrc)
+        setq(autoRficDrc makeTable("drc" nil))
+    )
+    unless(boundp('autoRficLvs)
+        setq(autoRficLvs makeTable("lvs" nil))
+    )
+    unless(boundp('autoRficParasitic)
+        setq(autoRficParasitic makeTable("parasitic" nil))
+    )
+)
 
 ;; Function to load a module
 procedure(autoRficLoadModule(modulePath)
@@ -20,62 +83,6 @@ procedure(autoRficInit()
         baseDir = getShellEnvVar("AUTO_RFIC_DIR")
         unless(baseDir
             baseDir = "/Volumes/970-1t/yuan/projects/auto_rfic/cadence/skill"
-        )
-        
-        ;; Initialize module namespace tables first
-        unless(autoRficConfig
-            autoRficConfig = makeTable("config" nil)
-        )
-        unless(autoRficUtils
-            autoRficUtils = makeTable("utils" nil)
-        )
-        unless(autoRficLogging
-            autoRficLogging = makeTable("logging" nil)
-        )
-        unless(autoRficGui
-            autoRficGui = makeTable("gui" nil)
-        )
-        unless(autoRficDb
-            autoRficDb = makeTable("db" nil)
-        )
-        unless(autoRficTemplates
-            autoRficTemplates = makeTable("templates" nil)
-        )
-        unless(autoRficGenerator
-            autoRficGenerator = makeTable("generator" nil)
-        )
-        unless(autoRficOptimizer
-            autoRficOptimizer = makeTable("optimizer" nil)
-        )
-        unless(autoRficTestbench
-            autoRficTestbench = makeTable("testbench" nil)
-        )
-        unless(autoRficAnalyses
-            autoRficAnalyses = makeTable("analyses" nil)
-        )
-        unless(autoRficResults
-            autoRficResults = makeTable("results" nil)
-        )
-        unless(autoRficFloorplan
-            autoRficFloorplan = makeTable("floorplan" nil)
-        )
-        unless(autoRficPlacement
-            autoRficPlacement = makeTable("placement" nil)
-        )
-        unless(autoRficRouting
-            autoRficRouting = makeTable("routing" nil)
-        )
-        unless(autoRficRfStructures
-            autoRficRfStructures = makeTable("rfStructures" nil)
-        )
-        unless(autoRficDrc
-            autoRficDrc = makeTable("drc" nil)
-        )
-        unless(autoRficLvs
-            autoRficLvs = makeTable("lvs" nil)
-        )
-        unless(autoRficParasitic
-            autoRficParasitic = makeTable("parasitic" nil)
         )
         
         ;; Load modules by type
@@ -133,6 +140,7 @@ procedure(autoRficCreateNamespace()
         
         ;; Add configuration functions
         autoRfic = append(autoRfic autoRficConfig)
+        autoRfic = append(autoRfic autoRficUserConfig)
         
         ;; Add utility functions
         autoRfic = append(autoRfic autoRficUtils)
