@@ -226,6 +226,96 @@ The function performs these safety checks:
    - Use `unless` for negated single-condition blocks
    - Use `if` for if-then-else constructs
 
+## Error Handling
+
+1. **Data Type Validation**
+   - Always check data types before operations
+   - For table lookups with `get()`, ensure the first argument is a valid table
+   - For symbol lookups, ensure inputs are symbols with `symbolp()`
+   - Convert strings to symbols with `symeval(strcat("'" stringValue))`
+
+2. **Handling Nil Values**
+   - Always check for nil values before performing comparisons
+   - Use `numberp()` before numeric comparisons
+   - Use `stringp()` before string operations
+   - Use `symbolp()` before symbol operations
+   - Example:
+     ```lisp
+     ;; Safe numeric comparison
+     if(numberp(val1) && numberp(val2)
+         val1 >= val2
+         ;; Default behavior if values aren't numeric
+     )
+     ```
+
+3. **Logging System Implementation**
+   - Log levels should be symbols not strings (`'info` vs `"info"`)
+   - When logging with timestamps, use format specifiers to prevent type issues:
+     - Use `%s` for raw strings like timestamps
+     - Use `%L` for SKILL objects like symbols
+   - Example:
+     ```lisp
+     formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp levelSymbol message)
+     ```
+   - Always validate log level inputs before using them as lookup keys
+   - Never pass timestamps directly as table keys
+   - For logging with timestamps:
+     ```lisp
+     ; Correct
+     logMessage = sprintf(nil "[%s] %s" (autoRficTimestamp()) message)
+     
+     ; Incorrect - will cause type errors
+     logMessage = strcat(autoRficTimestamp() message)
+     ```
+
+## Data Type Conversions
+
+1. **String to Symbol Conversion**
+   - Use `car(parseString(strcat("(" stringValue ")")))` to convert strings to symbols
+   - **NOT** `read(strcat("'" stringValue))` - this requires an I/O port 
+   - **NOT** `intern(stringValue)` - this expects a symbol, not a string
+   - Example:
+   ```lisp
+   ;; Convert string to symbol
+   mySymbol = car(parseString(strcat("(" "info" ")")))  ;; Returns info symbol
+
+   ;; Use in table lookup
+   logLevel = get(logLevels car(parseString(strcat("(" "info" ")"))))
+   ```
+
+2. **Symbol to String Conversion**
+   - Use `symbolToString()` to convert symbols to strings
+   - Example: `symbolToString('symbolName)` returns `"symbolName"`
+
+3. **Common Conversion Pitfalls**
+   - In SKILL, `read()` takes an I/O port as its first argument
+   - `intern()` expects a symbol as input, not a string
+   - `parseString()` parses a string into a SKILL expression, and `car()` extracts the first element
+   - String-to-symbol conversion is a common source of errors in SKILL programs
+
+## Logging Best Practices
+
+1. **Timestamp Handling**
+   - Never use timestamp strings as table keys or in get() operations
+   - Always format timestamps within a dedicated formatting function
+   - Use sprintf() with %s format specifier for timestamps
+   Example:
+   ```lisp
+   ;; Good - separate formatting function
+   defun(formatLogMessage (timestamp level message)
+       sprintf(nil "[%s] [%L] %s" timestamp level message)
+   )
+   
+   ;; Bad - using timestamp directly
+   strcat("[" timestamp "]")
+   ```
+
+2. **Message Formatting**
+   - Use sprintf() instead of strcat() for complex string formatting
+   - Use %L format specifier for SKILL objects (symbols, lists)
+   - Use %s for plain strings and timestamps
+   - Validate all inputs before string operations
+
 ## SKILL Documentation Files
 
 **SKILL language reference**

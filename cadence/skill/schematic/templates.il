@@ -13,16 +13,21 @@ unless(boundp('autoRficTemplateRegistry)
 
 ;; Function to register a new template
 defun(autoRficRegisterTemplate (templateName templateFunc paramDefs)
-    let((templateInfo)
+    let((templateInfo templateSymbol)
+        ;; Ensure templateName is a symbol
+        templateSymbol = if(stringp(templateName)
+                           car(parseString(strcat("(" templateName ")")))
+                           templateName)
+        
         ;; Create template info table
         templateInfo = makeTable("templateInfo")
         templateInfo['func] = templateFunc
         templateInfo['params] = paramDefs
         
-        ;; Store in registry
-        autoRficTemplateRegistry[templateName] = templateInfo
+        ;; Store in registry using symbol key
+        autoRficTemplateRegistry[templateSymbol] = templateInfo
         
-        autoRficLogInfo(sprintf(nil "Registered template: %s" templateName))
+        autoRficLogInfo(sprintf(nil "Registered template: %L" templateSymbol))
         t
     )
 )

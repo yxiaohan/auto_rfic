@@ -14,23 +14,39 @@ autoRficLogging['levels]['warning] = 2
 autoRficLogging['levels]['error] = 3
 autoRficLogging['levels]['none] = 4
 
+;; Helper function to format log messages
+defun(autoRficFormatLogMessage (timestamp level message @optional details)
+    let((formattedMessage)
+        ;; Format the basic message with timestamp and level
+        formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp level message)
+        
+        ;; Add details if provided
+        when(boundp('details)
+            formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
+        )
+        formattedMessage
+    )
+)
+
 ;; Core logging functions - define these first so they can be used later
 defun(autoRficLog (level message @optional details)
-    let((timestamp logFile fileId formattedMessage)
-        when(autoRficShouldLog(level)
+    let((timestamp logFile fileId formattedMessage levelSymbol)
+        ;; Convert level to symbol if it's a string
+        levelSymbol = if(stringp(level) 
+                        ;; Proper string to symbol conversion in SKILL
+                        car(parseString(strcat("(" level ")")))
+                        level)
+        
+        when(autoRficShouldLog(levelSymbol)
             timestamp = autoRficTimestamp()
-            formattedMessage = sprintf(nil "[%s] [%s] %s" timestamp level message)
-            
-            ;; Add details if provided
-            when(boundp('details)
-                formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
-            )
+            ;; Use the helper function to format the message
+            formattedMessage = autoRficFormatLogMessage(timestamp levelSymbol message details)
             
             ;; Print to CIW
             printf("%s\n" formattedMessage)
             
             ;; Write to log file if enabled
-            logFile = autoRficGetParameter('logFile nil nil)
+            logFile = autoRficGetParameter('logFile nil)
             when(stringp(logFile)
                 fileId = outfile(logFile "a")
                 fprintf(fileId "%s\n" formattedMessage)
@@ -44,19 +60,36 @@ defun(autoRficLog (level message @optional details)
 
 defun(autoRficGetLogLevel (levelStr)
     let((level)
-        level = get(autoRficLogging['levels] levelStr)
-        if(numberp(level) level 1) ; Default to info level if not found
+        ;; Make sure we only try to look up valid symbol keys
+        ;; If levelStr is not a symbol (like a timestamp string), return default info level
+        if(symbolp(levelStr)
+            prog(()
+                level = get(autoRficLogging['levels] levelStr)
+                if(numberp(level) level 1) ; Default to info level if not found
+            )
+            1 ; Default to info level for non-symbol inputs
+        )
     )
 )
 
 defun(autoRficShouldLog (messageLevel)
     let((configLevelStr configLevel messageLevelNum)
-        ;; Provide all 3 expected arguments
-        configLevelStr = autoRficGetParameter('logLevel "info" nil)
+        ;; Get log level, default to info if not found
+        configLevelStr = autoRficGetParameter('logLevel "info")
         
-        configLevel = autoRficGetLogLevel(configLevelStr)
+        ;; Make sure we're working with symbols, not strings
+        configLevel = if(stringp(configLevelStr) 
+                         autoRficGetLogLevel(car(parseString(strcat("(" configLevelStr ")"))))
+                         autoRficGetLogLevel(configLevelStr))
+        
         messageLevelNum = autoRficGetLogLevel(messageLevel)
-        messageLevelNum >= configLevel
+        
+        ;; Make sure both values are numbers before comparison
+        ;; Default to displaying the message if there's any uncertainty
+        if(numberp(messageLevelNum) && numberp(configLevel)
+            messageLevelNum >= configLevel
+            t  ;; If either value is nil or not numeric, allow the log message
+        )
     )
 )
 
