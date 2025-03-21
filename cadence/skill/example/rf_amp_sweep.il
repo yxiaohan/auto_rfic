@@ -16,22 +16,24 @@ procedure(getDirName(filePath)
     ;; Ensure filePath is a string
     strFilePath = sprintf(nil "%s" filePath)
     
-    ;; Special case for root files like "/rf_amp_sweep.il"
-    if(substring(strFilePath 1 1) == "/" && rindex(strFilePath "/") == 0 then
-      return("/")
-    )
-    
     ;; Find the last slash in the path
     index = rindex(strFilePath "/")
     
-    ;; If no slash found, return current directory "." 
-    if(index == nil then
-      result = "."
-    else
-      ;; Otherwise, return everything up to the last slash
-      ;; Make sure index is an integer
-      index = fix(index)
-      result = substring(strFilePath 1 index)
+    ;; If no slash found or only at beginning, return appropriate directory
+    cond(
+      (index == nil
+        result = "."
+      )
+      ((equal(index 1) && strlen(strFilePath) > 1)
+        result = "/"
+      )
+      (t
+        ;; Force integer conversion explicitly to ensure proper type
+        let((charCount)
+          charCount = fix(0) + index  ; Force numeric-to-integer conversion
+          result = substring(strFilePath 1 charCount)
+        )
+      )
     )
     
     result  ; Return result
@@ -77,40 +79,40 @@ procedure(getParameterValue(paramName defaultValue)
   )
 )
 
-;; Remote server initialization function - add this function
-procedure(initializeRemoteServer()
-  let((serverScript result)
-    rfLog("INFO" "Setting up remote SKILL execution server...")
+; ;; Remote server initialization function - add this function
+; procedure(initializeRemoteServer()
+;   let((serverScript result scriptDir)
+;     rfLog("INFO" "Setting up remote SKILL execution server...")
     
-    ;; Get the current script's directory
-    ;; First try using environment variable, fall back to CIW working directory
-    scriptDir = getDirName(getShellEnvVar("SKILL_SERVER_PATH") || getWorkingDir())
+;     ;; Get the current script's directory - fixed to use getWorkingDir() directly
+;     ;; instead of trying to parse a file path that might not be available
+;     scriptDir = getWorkingDir()
     
-    ;; Define path to the server script
-    serverScript = sprintf(nil "%s/../remote_server.il" scriptDir)
+;     ;; Define path to the server script
+;     serverScript = sprintf(nil "%s/../remote_server.il" scriptDir)
     
-    ;; Try to load the server script
-    if(isFile(serverScript) then
-      load(serverScript)
-      rfLog("INFO" sprintf(nil "Remote server script loaded from %s" serverScript))
+;     ;; Try to load the server script
+;     if(isFile(serverScript) then
+;       load(serverScript)
+;       rfLog("INFO" sprintf(nil "Remote server script loaded from %s" serverScript))
       
-      ;; Start the server
-      if(fboundp('startSkillServer) then
-        startSkillServer()
-        rfLog("INFO" "Remote SKILL server started successfully")
-        result = t
-      else
-        rfLog("ERROR" "startSkillServer function not found after loading server script")
-        result = nil
-      )
-    else
-      rfLog("WARN" sprintf(nil "Server script not found at %s - skipping remote server initialization" serverScript))
-      result = nil
-    )
+;       ;; Start the server
+;       if(fboundp('startSkillServer) then
+;         startSkillServer()
+;         rfLog("INFO" "Remote SKILL server started successfully")
+;         result = t
+;       else
+;         rfLog("ERROR" "startSkillServer function not found after loading server script")
+;         result = nil
+;       )
+;     else
+;       rfLog("WARN" sprintf(nil "Server script not found at %s - skipping remote server initialization" serverScript))
+;       result = nil
+;     )
     
-    result  ; Return result implicitly
-  )
-)
+;     result  ; Return result implicitly
+;   )
+; )
 
 ;; =================================================================
 ;; Schematic Manipulation Functions
@@ -311,8 +313,8 @@ procedure(rfSweepExample()
     libName = getParameterValue("RF_LIB" "RFDesign")
     cellName = getParameterValue("CELL_NAME" "rf_amplifier")
     
-    ;; Initialize remote server
-    initializeRemoteServer()
+    ; ;; Initialize remote server
+    ; initializeRemoteServer()
     
     ;; Create initial amplifier
     createRFAmplifier(libName cellName "schematic")
@@ -328,13 +330,13 @@ procedure(rfSweepExample()
 ;; Safe initialization function that catches errors
 procedure(safeInitialize()
   let((result)
-    rfLog("INFO" "Starting SKILL script initialization...")
+    ; rfLog("INFO" "Starting SKILL script initialization...")
     
-    ;; Try to initialize the remote server, but catch errors
-    errset(
-      result = initializeRemoteServer()
-      t
-    )
+    ; ;; Try to initialize the remote server, but catch errors
+    ; errset(
+    ;   result = initializeRemoteServer()
+    ;   t
+    ; )
     
     ;; Run the example if everything is configured
     if(getShellEnvVar("RF_RUN_EXAMPLE") == "1" then

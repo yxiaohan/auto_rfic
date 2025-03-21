@@ -51,6 +51,6 @@ sleep 3
 echo "Virtuoso launched successfully (PID: $VIRTUOSO_PID)"
 echo "Remote SKILL access has been disabled in this session"
 
-# Monitor the log file
-echo -e "\nShowing log file content (Ctrl+C to exit):\n"
-tail -f "$LOG_FILE"
+# # Monitor the log file
+# echo -e "\nShowing log file content (Ctrl+C to exit):\n"
+# tail -f "$LOG_FILE"
