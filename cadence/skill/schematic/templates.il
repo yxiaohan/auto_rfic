@@ -1,63 +1,60 @@
 ;; templates.il - Schematic templates for auto_rfic
 ;; This file contains functions for creating and managing schematic templates
 
-;; Define the templates namespace
-autoRficTemplates = list(nil)
+;; Initialize the templates namespace
+unless(boundp('autoRficTemplates)
+    autoRficTemplates = makeTable("templates" nil)
+)
+
+;; Initialize the templates registry
+unless(boundp('autoRficTemplateRegistry)
+    autoRficTemplateRegistry = makeTable("registry" nil)
+)
 
 ;; Function to register a new template
-procedure(autoRficRegisterTemplate(templateName templateFunc paramDefs)
-  let(()
-    autoRficTemplates = append(autoRficTemplates list(
-      templateName list(
-        'func templateFunc
-        'params paramDefs
-      )
-    ))
-    autoRficLogInfo(sprintf(nil "Registered template: %s" templateName))
-    t
-  )
+defun(autoRficRegisterTemplate (templateName templateFunc paramDefs)
+    let((templateInfo)
+        ;; Create template info table
+        templateInfo = makeTable("templateInfo")
+        templateInfo['func] = templateFunc
+        templateInfo['params] = paramDefs
+        
+        ;; Store in registry
+        autoRficTemplateRegistry[templateName] = templateInfo
+        
+        autoRficLogInfo(sprintf(nil "Registered template: %s" templateName))
+        t
+    )
 )
 
 ;; Function to get a template by name
-procedure(autoRficGetTemplate(templateName)
-  let((idx template)
-    idx = lindex(autoRficTemplates templateName)
-    if(idx
-      template = nth(idx+1 autoRficTemplates)
-      nil
-    )
-  )
+defun(autoRficGetTemplate (templateName)
+    get(autoRficTemplateRegistry templateName)
 )
 
 ;; Function to list all available templates
-procedure(autoRficListTemplates()
-  let((templates i)
-    templates = list()
-    for(i 1 length(autoRficTemplates) 2
-      templates = append(templates list(nth(i autoRficTemplates)))
-    )
-    templates
-  )
+defun(autoRficListTemplates ()
+    getTableKeys(autoRficTemplateRegistry)
 )
 
 ;; Function to instantiate a template with parameters
-procedure(autoRficInstantiateTemplate(templateName params)
-  let((template templateFunc)
-    template = autoRficGetTemplate(templateName)
-    if(template
-      prog(()
-        templateFunc = template->func
-        if(procedurep(templateFunc)
-          templateFunc(params)
-          autoRficLogError(sprintf(nil "Template function for %s is not a procedure" templateName))
+defun(autoRficInstantiateTemplate (templateName params)
+    let((template templateFunc)
+        template = autoRficGetTemplate(templateName)
+        if(template
+            prog(()
+                templateFunc = template['func]
+                if(procedurep(templateFunc)
+                    templateFunc(params)
+                    autoRficLogError(sprintf(nil "Template function for %s is not a procedure" templateName))
+                )
+            )
+            prog(()
+                autoRficLogError(sprintf(nil "Template not found: %s" templateName))
+                nil
+            )
         )
-      )
-      prog(()
-        autoRficLogError(sprintf(nil "Template not found: %s" templateName))
-        nil
-      )
     )
-  )
 )
 
 ;; Define a simple LNA template
@@ -209,36 +206,34 @@ procedure(autoRficMixerTemplate(params)
 
 ;; Register the built-in templates
 autoRficRegisterTemplate(
-  "LNA"
-  autoRficLnaTemplate
-  list(
-    list("library" "string" "Required library name")
-    list("cell" "string" "Required cell name")
-    list("width" "float" "Transistor width in um")
-    list("length" "float" "Transistor length in um")
-    list("fingers" "int" "Number of fingers")
-    list("inductance" "float" "Load inductance in nH")
-  )
+    "LNA"
+    'autoRficLnaTemplate
+    list(
+        list("library" "string" "Required library name")
+        list("cell" "string" "Required cell name")
+        list("width" "float" "Transistor width in um")
+        list("length" "float" "Transistor length in um")
+        list("fingers" "int" "Number of fingers")
+        list("inductance" "float" "Load inductance in nH")
+    )
 )
 
 autoRficRegisterTemplate(
-  "Mixer"
-  autoRficMixerTemplate
-  list(
-    list("library" "string" "Required library name")
-    list("cell" "string" "Required cell name")
-    list("width" "float" "Transistor width in um")
-    list("length" "float" "Transistor length in um")
-  )
+    "Mixer"
+    'autoRficMixerTemplate
+    list(
+        list("library" "string" "Required library name")
+        list("cell" "string" "Required cell name")
+        list("width" "float" "Transistor width in um")
+        list("length" "float" "Transistor length in um")
+    )
 )
 
 ;; Add all template functions to the namespace
-autoRficTemplates = append(autoRficTemplates list(
-  'register autoRficRegisterTemplate
-  'get autoRficGetTemplate
-  'list autoRficListTemplates
-  'instantiate autoRficInstantiateTemplate
-))
+autoRficTemplates['register] = 'autoRficRegisterTemplate
+autoRficTemplates['get] = 'autoRficGetTemplate
+autoRficTemplates['list] = 'autoRficListTemplates
+autoRficTemplates['instantiate] = 'autoRficInstantiateTemplate
 
 ;; Export the templates namespace
 autoRficTemplates

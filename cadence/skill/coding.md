@@ -31,6 +31,33 @@
    - Avoid reloading modules that define functions
    - Use main.il to control the loading sequence
 
+## Module Organization
+
+1. **Namespace Management**
+   - Each module should define its own namespace using makeTable
+   - Never use `export` - SKILL doesn't have this function
+   - Export the namespace by making it the last expression in the file
+   Example:
+   ```lisp
+   unless(boundp('autoRficModule)
+       autoRficModule = makeTable("module" nil)
+   )
+   
+   ;; Define functions...
+   
+   ;; Add functions to namespace
+   autoRficModule['function1] = 'function1
+   
+   ;; Export namespace as last expression
+   autoRficModule
+   ```
+
+2. **Function Definitions**
+   - Define all functions before adding them to the namespace
+   - Use proper error handling with `error()` function
+   - Use optional parameters with `@optional` keyword
+   - Check input validity before performing operations
+
 ## Function Definitions
 
 1. **Function Name Spacing**
@@ -140,6 +167,60 @@
      - "warning" for warnings
      - "error" for errors
      - "question" for confirmations
+
+## Database Operations
+
+### Loading Cell Views
+
+The `autoRficLoadDatabase` function is used to safely load cell views:
+
+```scheme
+; Open a cell view in read mode (default)
+cv = autoRficLoadDatabase("myLib" "myCell" "layout")
+
+; Open a cell view in write mode
+cv = autoRficLoadDatabase("myLib" "myCell" "layout" "w")
+```
+
+The function performs these safety checks:
+- Verifies library exists
+- Ensures cell view can be opened
+- Returns the cell view object or errors with descriptive message
+
+## Template Management
+
+1. **Template Registry**
+   - Use a separate table for template storage
+   - Register templates with a function reference, not the function itself
+   Example:
+   ```lisp
+   templateRegistry[templateName] = makeTable(
+       'func    'templateFunction  ; Note the quote
+       'params  paramDefinitions
+   )
+   ```
+
+2. **Template Parameters**
+   - Define parameters as lists with type and description
+   - Example:
+     ```lisp
+     list(
+         list("name" "type" "description")
+         list("width" "float" "Width in um")
+     )
+     ```
+
+## Logical Operators
+
+1. **Boolean Operations**
+   - Use `&&` for logical AND (not `and`)
+   - Use `||` for logical OR (not `or`)
+   - Use `~` for logical NOT (not `not`)
+
+2. **Conditional Expressions**
+   - Use `when` for single-condition blocks
+   - Use `unless` for negated single-condition blocks
+   - Use `if` for if-then-else constructs
 
 ## SKILL Documentation Files
 
