@@ -3,7 +3,7 @@
 # Configure log and path settings
 PROJECT_DIR="/home/zhoulong/projects/auto_rfic"
 CADENCE_DIR="$PROJECT_DIR/cadence"
-LOG_FILE="$CADENCE_DIR/virtuoso.log"
+LOG_FILE="$CADENCE_DIR/virtuoso.log1"
 # SKILL_PORT=9191  # Remote server disabled
 
 # TSMC PDK environment setup
@@ -20,9 +20,12 @@ export CDS_LOAD_ENV="$TSMC_PDK/cds.lib"  # Point to the TSMC PDK cds.lib file
 # Set the environment variables for Virtuoso
 export CDS_SITE="$CADENCE_DIR"
 
+# Set the Auto RFIC directory environment variable
+export AUTO_RFIC_DIR="$CADENCE_DIR/skill"
+
 # Remote SKILL server disabled
-export SKILL_SERVER_PATH="$CADENCE_DIR/skill/example/rf_amp_sweep.il"
-export SKILL_SERVER_PORT="$SKILL_PORT"
+# export SKILL_SERVER_PATH="$CADENCE_DIR/skill/example/rf_amp_sweep.il"
+# export SKILL_SERVER_PORT="$SKILL_PORT"
 
 # Create empty log file
 > "$LOG_FILE"

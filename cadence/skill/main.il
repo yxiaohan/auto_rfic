@@ -115,7 +115,7 @@ procedure(autoRficCreateNamespace()
     
     printf("auto_rfic namespace created\n")
   )
-)
+
 
 ;; Function to display help information
 procedure(autoRficHelp()
@@ -160,7 +160,7 @@ procedure(autoRficHelp()
 procedure(autoRficHelpFunction(functionName)
   let((helpText)
     printf("\nHelp for function: %s\n" functionName)
-    printf("=======================%s\n\n" make_string(length(functionName) '='))
+    printf("=======================%s\n\n" make_string(length(functionName) "="))
     
     helpText = case(functionName
       ("getParameter"
@@ -176,13 +176,17 @@ procedure(autoRficHelpFunction(functionName)
       )
       ;; Add more function help texts here
       (t
-        sprintf(nil "No detailed help available for function: %s\n" functionName)
+        if(functionName then
+          sprintf(nil "No detailed help available for function: %s\n" functionName)
+        else
+          "No function name specified\n"
+        )
       )
     )
     
     printf("%s\n" helpText)
   )
-)
+
 
 ;; Add main functions to the namespace
 autoRfic = append(autoRfic list(
