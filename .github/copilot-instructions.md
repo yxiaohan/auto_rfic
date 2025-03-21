@@ -19,12 +19,13 @@ When generating or suggesting code in SKILL:
 
 The project includes these documentation references for SKILL:
 
-- **SKILL Language Reference**
+- **SKILL Language Reference Index**
   - Located at: `cadence/skill/skill_ref/sklangref/sklangref.xml`
   - Contains core language documentation
 
-- **Cadence API/Functions Reference**
-  - Located at: `cadence/skill/skill_ref/skdfref/skdfref.xml`
+- **Cadence API/Functions Reference Index**
+  - A brief index: `cadence/skill/skill_ref/skdfref/related.xml`
+  - Complete index located at: `cadence/skill/skill_ref/skdfref/skdfref.xml`
   - Contains documentation for Cadence-specific API functions
 
 ## Project Structure

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!-- Shortened SKILL Reference XML for RFIC Design Automation -->
+<manual text="Shortened SKILL Reference" description="Relevant SKILL functions for RFIC design automation." >
+   <topic  text="Graphics Editor Functions" >
+      <topic  text="Design Functions" >
+         <topic  href="chap1.html#1053126" text="geChangeCellView" />
+         <topic  href="chap1.html#1014311" text="geSave" />
+         <topic  href="chap1.html#1014326" text="geSaveAs" />
+      </topic>
+      <topic  text="Edit/Display Functions" >
+         <topic  href="chap1.html#1028366" text="geComputeQueryBbox" />
+         <topic  href="chap1.html#1014370" text="geDeleteSelSet" />
+         <topic  href="chap1.html#1014382" text="geEditSelSet" />
+         <topic  href="chap1.html#1027620" text="geGetEditCellView" />
+         <topic  href="chap1.html#1027627" text="geGetEditCellViewWindow" />
+         <topic  href="chap1.html#1014599" text="geGetWindowBox" />
+         <topic  href="chap1.html#1014615" text="geGetWindowCellView" />
+         <topic  href="chap1.html#1022083" text="geWindowToEditPoint" />
+      </topic>
+      <topic  text="Refresh Functions" >
+         <topic  href="chap1.html#1014647" text="geRefresh" />
+         <topic  href="chap1.html#1014679" text="geRefreshWindow" />
+      </topic>
+      <topic  text="Selection Functions" >
+         <topic  href="chap1.html#1015232" text="geDeselectAll" />
+         <topic  href="chap1.html#1015421" text="geGetSelSet" />
+         <topic  href="chap1.html#1015438" text="geGetSelectedSet" />
+         <topic  href="chap1.html#1033895" text="geSelectAll" />
+         <topic  href="chap1.html#1015621" text="geSelectArea" />
+         <topic  href="chap1.html#1074087" text="geSelectByLine" />
+         <topic  href="chap1.html#1021720" text="geSelectObject" />
+         <topic  href="chap1.html#1015727" text="geSingleSelectPoint" />
+      </topic>
+      <topic  text="Highlight Functions" >
+         <topic  href="chap1.html#1015907" text="geAddHilightFig" />
+         <topic  href="chap1.html#1016018" text="geCreateHilightSet" />
+         <topic  href="chap1.html#1030213" text="geDeleteAllHilightSet" />
+         <topic  href="chap1.html#1030274" text="geDeleteHilightSet" />
+      </topic>
+      <topic  text="Marker Functions" >
+         <topic  href="chap1.html#1016175" text="geCreateMarker" />
+         <topic  href="chap1.html#1016265" text="geDeleteAllMarker" />
+         <topic  href="chap1.html#1016360" text="geHiDeleteMarker" />
+         <topic  href="chap1.html#1016384" text="geHiFindMarker" />
+      </topic>
+      <topic  text="Utility Functions" >
+         <topic  href="chap1.html#1017452" text="geClosePolygon" />
+         <topic  href="chap1.html#1017506" text="geCreatePacket" />
+         <topic  href="chap1.html#1017620" text="geRegSaveAllTrigger" />
+      </topic>
+   </topic>
+   <topic  text="Database Access Functions" >
+      <topic  text="Data Stored as Objects " >
+         <topic  href="chap2.html#1035712" text="dbIsId " />
+         <topic  href="chap2.html#1035731" text="dbValidP" />
+         <topic  href="chap2.html#1036591" text="dbobjectp" />
+      </topic>
+      <topic  text="Shape Creation and Retrieval Functions" >
+         <topic  href="chap2.html#1031011" text="dbCreateLine" />
+         <topic  href="chap2.html#5798847" text="dbCreatePath" />
+         <topic  href="chap2.html#1015177" text="dbCreatePolygon" />
+         <topic  href="chap2.html#1015196" text="dbCreateRect" />
+         <topic  href="chap2.html#1015214" text="dbCreateEllipse" />
+         <topic  href="chap2.html#1015232" text="dbCreateArc" />
+         <topic  href="chap2.html#1015251" text="dbCreateDonut" />
+         <topic  href="chap2.html#1015271" text="dbCreateDot " />
+         <topic  href="chap2.html#1015289" text="dbCreateLabel" />
+         <topic  href="chap2.html#1015312" text="dbCreateTextDisplay " />
+         <topic  href="chap2.html#1343005" text="dbHasShape" />
+         <topic  href="chap2.html#1343168" text="dbMoveShape" />
+      </topic>
+      <topic  text="Shape Conversion Functions" >
+         <topic  href="chap2.html#1015368" text="dbConvertArcToLine" />
+         <topic  href="chap2.html#1015384" text="dbConvertDonutToPolygon" />
+         <topic  href="chap2.html#1015401" text="dbConvertEllipseToPolygon" />
+         <topic  href="chap2.html#1015417" text="dbConvertPathToPolygon" />
+         <topic  href="chap2.html#1015432" text="dbConvertLineToPath" />
+         <topic  href="chap2.html#3979969" text="dbConvertRectToPolygon" />
+         <topic  href="chap2.html#1035627" text="dbCompressPointArray" />
+      </topic>
+      <topic  text="Property Creation and Modification Functions" >
+         <topic  href="chap2.html#1015991" text="dbCreateProp" />
+         <topic  href="chap2.html#1016053" text="dbCreateHierProp" />
+         <topic  href="chap2.html#1035869" text="dbFindProp" />
+         <topic  href="chap2.html#1016085" text="dbReplaceProp" />
+         <topic  href="chap2.html#1016146" text="dbReplaceHierProp" />
+         <topic  href="chap2.html#1016163" text="dbCopyProp" />
+         <topic  href="chap2.html#3649143" text="dbCopyPropList" />
+         <topic  href="chap2.html#1016259" text="dbReplacePropList" />
+      </topic>
+      <topic  text="Object Deletion Functions" >
+         <topic  href="chap2.html#5166599" text="dbDeleteObject" />
+      </topic>
+      <topic  text="Group Creation and Modification Functions" >
+         <topic  href="chap2.html#1032785" text="dbAddObjectToGroup" />
+         <topic  href="chap2.html#1032808" text="dbCreateGroup" />
+         <topic  href="chap2.html#1032836" text="dbDeleteObjectFromGroup" />
+      </topic>
+      <topic  text="Shape Transformation Functions" >
+         <topic  href="chap2.html#1016735" text="dbTransformPoint" />
+         <topic  href="chap2.html#4774277" text="dbTransformPointList" />
+         <topic  href="chap2.html#1016753" text="dbTransformBBox" />
+      </topic>
+      <topic  text="Layer Boolean Functions" >
+         <topic  href="chap2.html#1043687" text="dbLayerAnd" />
+         <topic  href="chap2.html#1043726" text="dbLayerAndNot" />
+         <topic  href="chap2.html#1043762" text="dbLayerOr" />
+         <topic  href="chap2.html#1043798" text="dbLayerXor" />
+         <topic  href="chap2.html#1043834" text="dbLayerSize" />
+      </topic>
+   </topic>
+   <topic  text="Cellview Input/Output Database Access Functions" >
+      <topic  href="cvio.html#5449236" text="dbAllCellViews" />
+      <topic  href="cvio.html#1028874" text="dbClose" />
+      <topic  href="cvio.html#1028894" text="dbComputeBBox" />
+      <topic  href="cvio.html#1029032" text="dbCopyCellView" />
+      <topic  href="cvio.html#1028737" text="dbCreateLib" />
+      <topic  href="cvio.html#5446138" text="dbFindOpenCellView" />
+      <topic  href="cvio.html#5446606" text="dbGetOpenCellViews" />
+      <topic  href="cvio.html#5447242" text="dbOpenCellViewByType" />
+      <topic  href="cvio.html#5447321" text="dbOpenHier" />
+      <topic  href="cvio.html#5447532" text="dbPurge" />
+      <topic  href="cvio.html#5447576" text="dbRefreshCellView" />
+      <topic  href="cvio.html#5447844" text="dbRegPostSaveTrigger" />
+      <topic  href="cvio.html#5447965" text="dbRegSaveTrigger" />
+      <topic  href="cvio.html#5448016" text="dbReopen" />
+      <topic  href="cvio.html#5448441" text="dbSave" />
+      <topic  href="cvio.html#5448652" text="dbUnregPostSaveTrigger" />
+      <topic  href="cvio.html#5448871" text="dbUnregSaveTrigger" />
+      <topic  href="cvio.html#1015082" text="dbWriteSkill" />
+   </topic>
+   <topic  text="Instance Creation and Retrieval Database Access Functions" >
+      <topic  href="instance.html#1015454" text="dbCreateInst " />
+      <topic  href="instance.html#1015474" text="dbCreateParamInst " />
+      <topic  href="instance.html#1044396" text="dbCreateXformPCell" />
+      <topic  href="instance.html#1035829" text="dbDumpPcDefinePcell" />
+      <topic  href="instance.html#1044549" text="dbCheckParamCell" />
+      <topic  href="instance.html#1932263" text="dbEvalParamCell" />
+      <topic  href="instance.html#1061570" text="dbFixParamCell" />
+      <topic  href="instance.html#1044720" text="dbReplaceParam" />
+      <topic  href="instance.html#1015496" text="dbFindAnyInstByName" />
+      <topic  href="instance.html#1015515" text="dbFindMemInstByName" />
+      <topic  href="instance.html#1033771" text="dbGetInstanceByName" />
+      <topic  href="instance.html#1996962" text="dbGetInstTransform" />
+      <topic  href="instance.html#1015568" text="dbCreateInstByMasterName" />
+      <topic  href="instance.html#1036963" text="dbCreateParamInstByMasterName" />
+      <topic  href="instance.html#1036292" text="dbDumpPcell" />
+      <topic  href="instance.html#1036305" text="dbDumpPcellWithLib" />
+      <topic  href="instance.html#1015614" text="dbSetInstHeaderMasterName" />
+      <topic  href="instance.html#1015632" text="dbIsSameMaster" />
+      <topic  href="instance.html#1035692" text="dbIsObjectBound " />
+   </topic>
+   <topic  text="Connectivity Database Access Functions" >
+      <topic  text="Connectivity Creation and Modification Functions" >
+         <topic  href="connect.html#1016415" text="dbCreateNet" />
+         <topic  href="connect.html#1016458" text="dbCreateUniqueNamedNet" />
+         <topic  href="connect.html#1016529" text="dbCreateTerm" />
+         <topic  href="connect.html#1016550" text="dbCreateInstTerm" />
+         <topic  href="connect.html#1016573" text="dbCreatePin" />
+         <topic  href="connect.html#1016632" text="dbCreateConn" />
+         <topic  href="connect.html#1039440" text="dbCreateConnByName" />
+         <topic  href="connect.html#1032230" text="dbAddFigToNet" />
+         <topic  href="connect.html#5433015" text="dbRenameNet" />
+      </topic>
+      <topic  text="Connectivity Access Functions " >
+         <topic  href="connect.html#5410629" text="dbFindNetByName" />
+         <topic  href="connect.html#5410651" text="dbFindTermByName" />
+         <topic  href="connect.html#5410769" text="dbGetNetTerms" />
+      </topic>
+   </topic>
+   <topic  text="Pin Database Access Functions" >
+      <topic  text="Pin Connection Functions" >
+         <topic  href="pin.html#1025810" text="dbExternallyConnectPins" />
+         <topic  href="pin.html#1025909" text="dbStronglyConnectPins" />
+         <topic  href="pin.html#1027832" text="dbWeaklyConnectPins" />
+         <topic  href="pin.html#1050462" text="dbAddFigToPin" />
+         <topic  href="pin.html#1050698" text="dbSubFigFromPin" />
+      </topic>
+   </topic>
+   <topic  text="Placement Database Access Functions" >
+      <topic  text="Placement Area Definition Functions" >
+         <topic  href="placement.html#5425903" text="dbCreatePlaceArea" />
+         <topic  href="placement.html#5426384" text="dbSetPlaceAreaOrient" />
+         <topic  href="placement.html#5426419" text="dbSetPlaceAreaUtilization" />
+         <topic  href="placement.html#5426454" text="dbSetPlacementGrid" />
+      </topic>
+      <topic  text="Row-based Functions" >
+         <topic  href="placement.html#5411018" text="dbCreateRow" />
+         <topic  href="placement.html#5411068" text="dbFindRowByName" />
+      </topic>
+   </topic>
+   <topic  text="Figure Database Access Functions" >
+      <topic  text="Figure Creation and Retrieval Functions" >
+         <topic  href="figure.html#4774147" text="dbCopyFig" />
+         <topic  href="figure.html#4774174" text="dbMoveFig" />
+         <topic  href="figure.html#1015775" text="dbGetTrueOverlaps" />
+         <topic  href="figure.html#1015829" text="dbGetNeighbor" />
+         <topic  href="figure.html#1015884" text="dbGetNeighborList" />
+      </topic>
+   </topic>
+   <topic  text="Figure Set Database Access Functions" >
+      <topic  text="FigSet Functions" >
+         <topic  href="figset.html#1741830" text="txCreateFigSet" />
+         <topic  href="figset.html#1741916" text="txAppendObjectToFigSet" />
+         <topic  href="figset.html#1742008" text="txCloneFigSet" />
+         <topic  href="figset.html#1742056" text="txConcatFigSet" />
+         <topic  href="figset.html#1742108" text="txCopyFigSet" />
+         <topic  href="figset.html#1742160" text="txFindFigSet" />
+         <topic  href="figset.html#1742200" text="txDeleteFigSet" />
+         <topic  href="figset.html#1742286" text="txGetFigSetBBox" />
+         <topic  href="figset.html#1742460" text="txMoveFigSet" />
+         <topic  href="figset.html#1742606" text="txRemoveObjectFromFigSet" />
+      </topic>
+   </topic>
+   <topic  text="Generator Database Access Functions" >
+      <topic  href="generator.html#5442267" text="dbStartGenShape" />
+      <topic  href="generator.html#5442340" text="dbStopGen" />
+   </topic>
+   <topic  text="Attribute Retrieval and Modification Database Access Functions" >
+      <topic  href="attrib.html#1773912" text="dbGetq, dbGet" />
+      <topic  href="attrib.html#1741887" text="Using the ~> Operator" />
+      <topic  href="attrib.html#1741912" text="dbSet Functions" />
+   </topic>
+   <topic  text="Design Management Functions" >
+      <topic  href="chap3.html#1020496" text="ddCreateLib " />
+      <topic  href="chap3.html#1020586" text="ddGetObj" />
+      <topic  href="chap3.html#1020703" text="ddGetObjAccess " />
+      <topic  href="chap3.html#1020719" text="ddGetObjChildren " />
+      <topic  href="chap3.html#1020797" text="ddGetObjLib " />
+      <topic  href="chap3.html#1020813" text="ddGetObjName " />
+      <topic  href="chap3.html#1021016" text="ddIsId " />
+      <topic  href="chap3.html#1021048" text="ddIsObjReadable " />
+      <topic  href="chap3.html#1021063" text="ddIsObjWritable " />
+      <topic  href="chap3.html#1021473" text="ddRegTrigger " />
+      <topic  href="chap3.html#1021586" text="ddUnregTrigger " />
+   </topic>
+</manual>
