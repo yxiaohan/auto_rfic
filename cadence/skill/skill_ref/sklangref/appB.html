@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 17</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="17">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="appC.html">
+<META NAME="PageCount" CONTENT="4">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="appA.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 17">
+<META NAME="TopicTags" CONTENT="FALSE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="appA.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="appC.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>17<a name="1005655">&nbsp;</a></h1>
+      <h1><a name="1008199">Mapping Symbols to Values</a></h1>
+      <p align="left"><a name="1015508">There are many objects in SKILL which map symbols to values.  The </a><font size="2" face="'Courier New'" color="#000000">get</font> function tries to work for all of them.  Of course this over&#45;intelligence causes confusion in cases such as hash tables.</p>
+      <h4><a name="1015693">Reader&#45;Writer Correspondence </a></h4>
+      <p align="left"><a name="1015514">The functions come in reader&#47;writer pairs as given below.  The functions (</a><font size="2" face="'Courier New'" color="#000000">get</font>, <font size="2" face="'Courier New'" color="#000000">getq</font>, <font size="2" face="'Courier New'" color="#000000">getqq</font>) in the left&#45;hand column, read from a given object. The functions (<font size="2" face="'Courier New'" color="#000000">putprop</font>, <font size="2" face="'Courier New'" color="#000000">putpropq</font>, <font size="2" face="'Courier New'" color="#000000">putpropqq</font>) in the right&#45;hand column, write to (or modify) a given object.</p>
+      <p align="left"><a name="1015519">&nbsp;</a></p>
+      <p align="left"><a name="1015713"><font size="2" face="'Courier New'" color="#000000">get   &#60;&#45;&#45;&#62; putprop</font></a></p>
+      <p align="left"><a name="1015520"><font size="2" face="'Courier New'" color="#000000">getq  &#60;&#45;&#45;&#62; putpropq</font></a></p>
+      <p align="left"><a name="1015521"><font size="2" face="'Courier New'" color="#000000">getqq &#60;&#45;&#45;&#62; putpropqq</font></a></p>
+      <h4><a name="1015523">Using the Infix Operator</a></h4>
+      <p align="left"><a name="1015525">The </a><font size="2" face="'Courier New'" color="#000000">get</font> and <font size="2" face="'Courier New'" color="#000000">putprop</font> functions have no corresponding infix operators. The infix operators for the other four functions are as given in the following table:</p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" valign="top" width="108">
+            <p><a name="1015804">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="84">
+            <p><a name="1015806">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="72">
+            <p><a name="1015808">&nbsp;</a></p>
+          </td>
+          <td colspan="2" cellpadding="4" valign="top" width="384">
+            <p><a name="1015810">Examples</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top" width="108">
+            <p><a name="1015736">Function</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="84">
+            <p><a name="1015738">Infix Operator</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="72">
+            <p><a name="1015740">LHS or RHS</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="216">
+            <p><a name="1015780">Function Call</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="168">
+            <p><a name="1015742">Infix Operator</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="108">
+            <p><a name="1015744"><font size="2" face="'Courier New'" color="#000000">getq</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="84">
+            <p><a name="1015746"><font size="2" face="'Courier New'" color="#000000">&#45;&#62;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="72">
+            <p><a name="1015748">LHS</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="216">
+            <p><a name="1015782"><font size="2" face="'Courier New'" color="#000000">getq(obj prop) </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="168">
+            <p align="left"><a name="1015850"><font size="2" face="'Courier New'" color="#000000">obj&#45;&#62;prop</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015752"><font color="#000000">putpropq</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015754"><font size="2" face="'Courier New'" color="#000000">&#45;&#62; =</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015756">RHS</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015784"><font size="2" face="'Courier New'" color="#000000">putpropq(obj value prop)</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015758"><font size="2" face="'Courier New'" color="#000000">obj&#45;&#62;prop = value</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015760"><font color="#000000">getqq</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015762"><font size="2" face="'Courier New'" color="#000000">.</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015764">LHS</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015786"><font size="2" face="'Courier New'" color="#000000">getqq(obj prop)</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015766"><font size="2" face="'Courier New'" color="#000000">obj.prop</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015768"><font color="#000000">putpropqq</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015770"><font size="2" face="'Courier New'" color="#000000">.=</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015772">RHS</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015788"><font size="2" face="'Courier New'" color="#000000">putpropqq(obj value prop)</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1015774"><font size="2" face="'Courier New'" color="#000000">obj.prop = value</font></a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015537">Evaluating Arguments</a></h4>
+      <p align="left"><a name="1015539">The functions differ about which of their arguments are taken as literals or are evaluated. The following table describes the arguments that are evaluated for each of the four functions:</a></p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" valign="top" width="144">
+            <p><a name="1016043">Function Call Using Infix Operator</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="180">
+            <p><a name="1016045">Function Call Using the Syntax</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="324">
+            <p><a name="1016047">Arguments Evaluated</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016049"><font color="#000000">&#45;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016051">get(obj prop) </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016053">obj, prop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016055"><font color="#000000">&#45;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016057">putprop(obj value prop) </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016059">obj, value, prop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016061">obj&#45;&#62;prop</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016063"> getq(obj prop) </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016065">obj</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016067">obj&#45;&#62;prop=value </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016069">putpropq(obj value prop) </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016071">obj, value</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016073">obj.prop</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016075"> getqq(obj prop) </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016077">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016079">obj.prop=value</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016081">putpropqq(obj value prop)</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1016083">value</a></p>
+          </td>
+        </tr>
+      </table>
+      <p align="left"><a name="1015553">The following are equivalent:</a></p>
+      <p align="left"><a name="1015554"><font size="2" face="'Courier New'" color="#000000">getq(obj prop)  &#60;&#45;&#45;&#62; get(obj &#39;prop)</font></a></p>
+      <p align="left"><a name="1015555"><font size="2" face="'Courier New'" color="#000000">getqq(obj prop) &#60;&#45;&#45;&#62; get(&#39;obj &#39;prop) &#60;&#45;&#45;&#62; getq(&#39;obj prop)</font></a></p>
+      <p align="left"><a name="1015556">&nbsp;</a></p>
+      <p align="left"><a name="1015557"><font size="2" face="'Courier New'" color="#000000">putpropq(obj value prop)  &#60;&#45;&#45;&#62; putprop(obj value &#39;prop)</font></a></p>
+      <p align="left"><a name="1015558"><font size="2" face="'Courier New'" color="#000000">putpropqq(obj value prop) &#60;&#45;&#45;&#62; putprop(&#39;obj value &#39;prop) &#60;&#45;&#45;&#62; putpropq(&#39;obj value prop)</font></a></p>
+      <p align="left"><a name="1015559">&nbsp;</a></p>
+      <p align="left"><a name="1015560">Except for the quoting semantics, all the functions behave the same. They retrieve the value associated with a symbol in a specified object. If a string is given rather than a symbol as the property name, the effect is as if the function were called with the symbol that has the print&#45;name.</a></p>
+      <p align="left"><a name="1015565">&nbsp;</a></p>
+      <p align="left"><a name="1015566">The following are equivalent:</a></p>
+      <p align="left"><a name="1015567"><font size="2" face="'Courier New'" color="#000000">get(obj &#39;prop)  &#60;&#45;&#45;&#62; get(obj &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015568"><font size="2" face="'Courier New'" color="#000000">getq(obj prop)  &#60;&#45;&#45;&#62; getq(obj &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015569"><font size="2" face="'Courier New'" color="#000000">getqq(obj prop) &#60;&#45;&#45;&#62; getqq(obj &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015570"><font size="2" face="'Courier New'" color="#000000">putprop(obj value &#39;prop)  &#60;&#45;&#45;&#62; putprop(obj value &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015571"><font size="2" face="'Courier New'" color="#000000">putpropq(obj value prop)  &#60;&#45;&#45;&#62; putpropq(obj value &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015572"><font size="2" face="'Courier New'" color="#000000">putpropqq(obj value prop) &#60;&#45;&#45;&#62; putpropqq(obj value &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015573">&nbsp;</a></p>
+      <h4><a name="1015574">Working with Lists</a></h4>
+      <p align="left"><a name="1016311">If the given object is a list, </a><font size="2" face="'Courier New'" color="#000000">get</font>, <font size="2" face="'Courier New'" color="#000000">getq</font>, <font size="2" face="'Courier New'" color="#000000">putprop</font>, and <font size="2" face="'Courier New'" color="#000000">putpropq</font> assume it is a DPL and consequently read or modify the named field of the DPL.</p>
+      <h4><a name="1015580">Working with Symbols</a></h4>
+      <p align="left"><a name="1015582">If the given object is a symbol, </a><font size="2" face="'Courier New'" color="#000000">get</font>, <font size="2" face="'Courier New'" color="#000000">getq</font>, <font size="2" face="'Courier New'" color="#000000">putprop</font>, and <font size="2" face="'Courier New'" color="#000000">putpropq</font> read or modify the symbol&#39;s property list. </p>
+      <h4><a name="1015586">Working with Hash Tables</a></h4>
+      <p align="left"><a name="1015589">For the cases of hash tables (returned by </a><font size="2" face="'Courier New'" color="#000000">Instance</font>) the functions arrayref and setarray can be used instead.  There are also<font size="2" face="'Courier New'" color="#000000"> []</font> and <font size="2" face="'Courier New'" color="#000000">[]=</font> infix operators which obey the following equivalence:</p>
+      <p align="left"><a name="1015594"><font size="2" face="'Courier New'" color="#000000">hash&#45;&#62;prop</font></a></p>
+      <p align="left"><a name="1015595"><font size="2" face="'Courier New'" color="#000000">hash[&#39;prop]</font></a></p>
+      <p align="left"><a name="1015596"><font size="2" face="'Courier New'" color="#000000">getq(hash prop)   </font></a></p>
+      <p align="left"><a name="1015597"><font size="2" face="'Courier New'" color="#000000">get(hash &#39;prop)</font></a></p>
+      <p align="left"><a name="1015598"><font size="2" face="'Courier New'" color="#000000">get(hash &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015599"><font size="2" face="'Courier New'" color="#000000">getq(hash &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015600"><font size="2" face="'Courier New'" color="#000000">arrayref(hash &#39;prop)</font></a></p>
+      <p align="left"><a name="1015601">&nbsp;</a></p>
+      <p align="left"><a name="1015602">And, the following are equivalent:</a></p>
+      <p align="left"><a name="1015603"><font size="2" face="'Courier New'" color="#000000">hash&#45;&#62;prop = value</font></a></p>
+      <p align="left"><a name="1015604"><font size="2" face="'Courier New'" color="#000000">hash[&#39;prop] = value</font></a></p>
+      <p align="left"><a name="1015605"><font size="2" face="'Courier New'" color="#000000">putpropq(hash value prop)</font></a></p>
+      <p align="left"><a name="1015606"><font size="2" face="'Courier New'" color="#000000">putpropq(hash value &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015607"><font size="2" face="'Courier New'" color="#000000">putprop(hash value &#39;prop)</font></a></p>
+      <p align="left"><a name="1015608"><font size="2" face="'Courier New'" color="#000000">putprop(hash value &#34;prop&#34;)</font></a></p>
+      <p align="left"><a name="1015609"><font size="2" face="'Courier New'" color="#000000">setarray(hash &#39;prop value)</font></a></p>
+      <h4><a name="1015612">Working with SKILL++</a></h4>
+      <p align="left"><a name="1015615">For the cases of SKILL++ instances of </a><font size="2" face="'Courier New'" color="#000000">standardObject</font> (returned by <font size="2" face="'Courier New'" color="#000000">Table</font>), the functions <font size="2" face="'Courier New'" color="#000000">slotValue</font> and <font size="2" face="'Courier New'" color="#000000">setSlotValue</font> can be used in accordance to the equivalence sets specified below.</p>
+      <p align="left"><a name="1015617">&nbsp;</a></p>
+      <p align="left"><a name="1015618">The following are equivalent:</a></p>
+      <p align="left"><a name="1015620"><font size="2" face="'Courier New'" color="#000000">self&#45;&#62;slot</font></a></p>
+      <p align="left"><a name="1015621"><font size="2" face="'Courier New'" color="#000000">getq(self slot)</font></a></p>
+      <p align="left"><a name="1015622"><font size="2" face="'Courier New'" color="#000000">get(self &#39;slot)</font></a></p>
+      <p align="left"><a name="1015623"><font size="2" face="'Courier New'" color="#000000">slotValue(self &#39;slot)</font></a></p>
+      <p align="left"><a name="1015624">&nbsp;</a></p>
+      <p align="left"><a name="1015625">And, the following are equivalent:</a></p>
+      <p align="left"><a name="1015626"><font size="2" face="'Courier New'" color="#000000">self&#45;&#62;slot = value</font></a></p>
+      <p align="left"><a name="1015627"><font size="2" face="'Courier New'" color="#000000">putprop(self value &#39;slot)</font></a></p>
+      <p align="left"><a name="1015628"><font size="2" face="'Courier New'" color="#000000">putprop(self value &#34;slot&#34;)</font></a></p>
+      <p align="left"><a name="1015629"><font size="2" face="'Courier New'" color="#000000">putpropq(self value slot)</font></a></p>
+      <p align="left"><a name="1015630"><font size="2" face="'Courier New'" color="#000000">putpropq(self value &#34;slot&#34;)</font></a></p>
+      <p align="left"><a name="1015631"><font size="2" face="'Courier New'" color="#000000">setSlotValue(self &#39;slot value)</font></a></p>
+      <p align="left"><a name="1015632">&nbsp;</a></p>
+      <p align="left"><a name="1015634">In addition to the uses described above, applications that embed SKILL (such as Virtuoso and AllegroPCB) extend the capabilities of the </a><font size="2" face="'Courier New'" color="#000000">get</font> and <font size="2" face="'Courier New'" color="#000000">putprop</font> family of functions to work intuitively on their data structures, these include hi forms, menus and widgets, dbobjects, CDF objects, waveform objects, and many other types of objects.</p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="appA.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="appC.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

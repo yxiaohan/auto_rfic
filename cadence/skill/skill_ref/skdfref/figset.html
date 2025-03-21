@@ -1,0 +1,2585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 10</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="10">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="generator.html">
+<META NAME="PageCount" CONTENT="34">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="figure.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbDeleteFigSetGroup(d_figSetGroup)=> t / nil,dbFindFigSetGroup(d_cellViewT_figSet)=> d_figSetGroup / nil,dbFindFigSetGroupByName(d_cellViewt_name)=>d_figSetGroup / nil,dbGetCellViewFigSetGroups(d_cellView)=> l_figSetGroups / nil,dbGetFigSetGroupName(d_figSetGroup)=> t_name / nil,dbIsFigSetGroup(d_object)=> t / nil,dbMakeFigSetGroup(d_cellViewT_figSet)=> d_figSetGroup / nil,txAppendObjectToFigSet(T_figSetg_figObject)=> t / nil,txClearFigSet(T_figSet)=> t / nil,txCloneFigSet(T_figSet1T_figSet2)=> t / nil,txConcatFigSet(T_figSet1T_figSet2)=> t / nil,txCopyFigSet(T_srcFigSetl_transform)=> T_newFigSet / nil,txCreateFigSet(d_cellView[ t_name ])=> T_figSet / nil,txDeleteFigSet(T_figSet[ g_deep = nil ])=> t / nil,txFindFigSet(d_cellViewt_name)=> T_figSet / nil,txGetCellViewFigSets(d_cellView)=> l_figSets / nil,txGetFigSetBBox(T_figSet @key(onlyTheseLayers l_onlyTheseLayers)(onlyTheseLPPs l_onlyTheseLPPs)(notTheseLayers l_notTheseLayers)(notTheseLPPs l_notTheseLPPs)(onlyTheseTypes l_onlyTheseTypes)(notTheseTypes l_notTheseTypes))=> l_bBox / nil ,txGetFigSetData(T_figSetn_entry)=> g_object / nil,txIsFigSet(g_object)=> t / nil,txMakeFigSet(d_cellViewd_figSetGroup)=> T_figSet / nil,txMoveFigSet(T_figSetl_transform)=> t / nil,txPrependObjectToFigSet(T_figSetg_figObject)=> t / nil,txRemoveFigSetData(T_figSetn_entry)=> t / nil,txRemoveObjectFromFigSet(T_figSetg_object)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 10">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="figure.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="generator.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>10<a name="1754444">&nbsp;</a></h1>
+      <h1><a name="1754447">Figure Set Database Access Functions</a></h1>
+      <p><a name="figsetfunctions"></a><a name="1754449">This chapter includes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1743460" title="10" name="1745054"><font color="#0000ff"><u>FigSet Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742652" title="10" name="1743480"><font color="#0000ff"><u>FigSetGroup Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=FigSet Functions
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h2><a name="figset"></a><a name="1743460">FigSet Functions</a></h2>
+      <p><a name="1743455">A FigSet is a high performance, ordered grouping of database geometric objects or other FigSets. A member of a FigSet is unique within that FigSet, but the same geometric object can be added to multiple FigSets. The name of a FigSet is unique within the cellview it is associated with. </a></p>
+      <p><a name="1741742">FigSets offer high performance because they are neither database objects nor saved to the disk. Consequently, operations performed on a FigSet cannot be undone. If you delete an object that is a member of a FigSet, the object is removed from the FigSet, and when you undo delete, the object is restored, but it is not added back to the FigSet. To store the contents of a FigSet to disk, you need to create a corresponding FigSetGroup. For information about FigSetGroups, see </a><a href="#1742652" title="10"><font color="#0000ff"><u>FigSetGroup Functions</u></font></a>.</p>
+      <p><a name="1741746">FigSet SKILL objects are like CDB SKILL objects on which certain "~&#62;" (squiggle&#45;arrow) queries can be run:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1741747"><font size="2" face="'Courier New'" color="#000000">figSet~&#62;objType</font></a> -- Returns the object type, <font size="2" face="'Courier New'" color="#000000">figSet</font> in this case</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1741748"><font size="2" face="'Courier New'" color="#000000">figSet~&#62;name</font></a> -- Returns the name of the FigSet</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1741749"><font size="2" face="'Courier New'" color="#000000">figSet~&#62;cellView</font></a> -- Returns the ID of the cellview associated with the FigSet  </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1741750"><font size="2" face="'Courier New'" color="#000000">figSet~&#62;length</font></a> -- Returns the number of objects in the FigSet</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1741751"><font size="2" face="'Courier New'" color="#000000">figSet~&#62;members</font></a> -- Returns the list of objects in the FigSet</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1741752">FigSet functions are used to add, find, move, copy, append, prepend, clone, clear, and delete FigSet objects; access FigSet parameters; and iterate over the objects stored in a cellview.</a></p>
+      <p><a name="1741753">Supported functions include:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1741830" title="10" name="1741757"><font color="#0000ff"><u>txCreateFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1741870" title="10" name="1741761"><font color="#0000ff"><u>txGetFigSetData</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1741916" title="10" name="1741765"><font color="#0000ff"><u>txAppendObjectToFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1741962" title="10" name="1741769"><font color="#0000ff"><u>txClearFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742008" title="10" name="1741773"><font color="#0000ff"><u>txCloneFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742056" title="10" name="1741777"><font color="#0000ff"><u>txConcatFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742108" title="10" name="1741781"><font color="#0000ff"><u>txCopyFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742160" title="10" name="1741785"><font color="#0000ff"><u>txFindFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742200" title="10" name="1741789"><font color="#0000ff"><u>txDeleteFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742250" title="10" name="1741793"><font color="#0000ff"><u>txGetCellViewFigSets</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742286" title="10" name="1741797"><font color="#0000ff"><u>txGetFigSetBBox</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742369" title="10" name="1741801"><font color="#0000ff"><u>txIsFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742405" title="10" name="1741805"><font color="#0000ff"><u>txMakeFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742460" title="10" name="1741809"><font color="#0000ff"><u>txMoveFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742512" title="10" name="1741813"><font color="#0000ff"><u>txPrependObjectToFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742558" title="10" name="1741817"><font color="#0000ff"><u>txRemoveFigSetData</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742606" title="10" name="1741821"><font color="#0000ff"><u>txRemoveObjectFromFigSet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txCreateFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txCreateFigSet"></a><a name="1741830">txCreateFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1741832">txCreateFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1741833">Description</a></h4>
+      <p><a name="1741835">Creates an empty FigSet with the specified name in the given cellview. If the name is not specified, it will be generated automatically. If a FigSet with the specified name already exists, an error message is issued.</a></p>
+      <h4><a name="1741836">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1741839"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741841">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741843"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741845">Name of the FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741847">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1741850"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741852">ID of the created FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741854"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741856">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741858">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741859">txCreateFigSet(cv &#34;figset0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741860">&#62; tx@02af68cf</a></font>
+      </p>
+      <p><a name="1741861">Creates an empty FigSet with the name </a><font size="2" face="'Courier New'" color="#000000">figset0</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txGetFigSetData
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txGetFigSetData"></a><a name="1741870">txGetFigSetData</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1741872">txGetFigSetData(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>n_entry<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1741873">Description</a></h4>
+      <p><a name="1741875">Returns the n</a><font color="#000000"><sup>th</sup></font> object from the specified FigSet. This object is either a dbObject (CDB figure) or txObject (a FigSet or a transient shape).</p>
+      <h4><a name="1748470">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1748473"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1748475">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1748477"><font size="2" face="'Courier New'" color="#000000"><em>n_entry</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1748479">Index of the object to return.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1748481">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1741890"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741892">The n</a><font color="#000000"><sup>th</sup></font> object in the specified FigSet.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741894"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741896">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741898">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741899">id = txGetFigSetData(fs 0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741900">&#62; tx@0x1fc106d0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741901">id~&#62;objType</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741902">&#62; &#34;FigSet&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741903">id = txGetFigSetData(fs 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741904">&#62; db:0x27a9dc1a</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741905">id~&#62;objType</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741906">&#62; &#34;polygon&#34;</a></font>
+      </p>
+      <p><a name="1741907">The above functions return the first and the second object from the FigSet </a><font size="2" face="'Courier New'" color="#000000">fs</font>, respectively.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txAppendObjectToFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txAppendObjectToFigSet"></a><a name="1741916">txAppendObjectToFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1741918">txAppendObjectToFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>g_figObject<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1741919">Description</a></h4>
+      <p><a name="1741921">Appends an object to the end of the specified FigSet. The object can be a figure or a FigSet.</a></p>
+      <h4><a name="1741922">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1741925"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741927">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741929"><font size="2" face="'Courier New'" color="#000000"><em>g_figObject</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741931">ID of the appended object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741933">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1741936"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741938">The object was appended.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741940"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741942">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741944">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741945">fs12 = txCreateFigSet(cv &#34;fs12&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741946">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741947">txAppendObjectToFigSet(fs12 txCreateFigSet(cv &#34;fs0&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741948">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741949">txAppendObjectToFigSet(fs12 dbCreateRect(cv &#39;(0 &#34;drawing&#34;) &#39;((0 0) (200 100))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741950">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741951">fs12~&#62;length</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741952">&#62; 2</a></font>
+      </p>
+      <p><a name="1741953">Appends a FigSet object (</a><font size="2" face="'Courier New'" color="#000000">fs0</font>) and  a CDB object (a rectangle) to the FigSet <font size="2" face="'Courier New'" color="#000000">fs12</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txClearFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txClearFigSet"></a><a name="1741962">txClearFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1741964">txClearFigSet(<dd>T_figSet<dd>)<dd>=&#62; t &#47; nil</a></font>
+      </dl>
+      <h4><a name="1741965">Description</a></h4>
+      <p><a name="1741967">Clears the contents of the specified FigSet.</a></p>
+      <h4><a name="1741968">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1741971"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741973">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741975">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1741978"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1741980">The contents were cleared.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741982"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1741984">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1741986">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741987">fs0 = txCreateFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741988">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741989">fs1 = txCreateFigSet(cv &#34;fs1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741990">&#62; tx@0x19a46350</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741991">txAppendObjectToFigSet(fs1 fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741992">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741993">fs1~&#62;length </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741994">&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741995">txClearFigSet(fs1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741996">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741997">fs1~&#62;length </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1741998">&#62; 0</a></font>
+      </p>
+      <p><a name="1741999">Clears the contents of the FigSet </a><font size="2" face="'Courier New'" color="#000000">fs1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txCloneFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txCloneFigSet"></a><a name="1742008">txCloneFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742010">txCloneFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet1<dd>T_figSet2<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742011">Description</a></h4>
+      <p><a name="1742013">Makes FigSet1 a clone of FigSet2 by replacing the contents of FigSet1with equivalent entries from FigSet2. It creates references to the objects; it does not make copies of the objects. The name of FigSet1 is preserved.</a></p>
+      <h4><a name="1742014">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742017"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742019">ID of the target FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742021"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742023">ID of the source FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742025">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742028"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742030">The cloning is successful.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742032"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742034">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742036">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742037">fs_src = txCreateFigSet(cv &#34;fs_src&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742038">&#62; tx@0x2294f7c0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742039">fs_dest = txCreateFigSet(cv &#34;fs_dest&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742040">&#62; tx@0x2294ff10</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742041">txAppendObjectToFigSet(fs_src txCreateFigSet(cv &#34;fs0&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742042">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742043">txCloneFigSet(fs_dest fs_src)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742044">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742045">txGetFigSetData(fs_dest 0)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742046">&#62; &#34;fs0&#34;</a></font>
+      </p>
+      <p><a name="1742047">Makes </a><font size="2" face="'Courier New'" color="#000000">fs_dest</font> a clone of <font size="2" face="'Courier New'" color="#000000">fs_src</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txConcatFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txConcatFigSet"></a><a name="1742056">txConcatFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742058">txConcatFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet1<dd>T_figSet2<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742059">Description</a></h4>
+      <p><a name="1742061">Appends the contents of FigSet2 to the end of FigSet1.</a></p>
+      <h4><a name="1742062">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742065"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742067">ID of the target FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742069"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742071">ID of the source FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742073">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742076"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742078">The contents were appended successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742080"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742082">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742084">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742085">fs_src = txCreateFigSet(cv &#34;fs_src&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742086">&#62; tx@0x1fc106d0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742087">fs_dest = txCreateFigSet(cv &#34;fs_dest&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742088">&#62; tx@0x1fc10e20</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742089">txAppendObjectToFigSet(fs_src txCreateFigSet(cv &#34;fs0&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742090">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742091">txAppendObjectToFigSet(fs_src txCreateFigSet(cv &#34;fs1&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742092">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742093">txConcatFigSet(fs_dest fs_src)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742094">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742095">txGetFigSetData(fs_dest 0)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742096">&#62; &#34;fs0&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742097">txGetFigSetData(fs_dest 1)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742098">&#62; &#34;fs1&#34;</a></font>
+      </p>
+      <p><a name="1742099">Appends the contents of </a><font size="2" face="'Courier New'" color="#000000">fs_dest</font> to the end of <font size="2" face="'Courier New'" color="#000000">fs_src</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txCopyFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txCopyFigSet"></a><a name="1742108">txCopyFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742110">txCopyFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_srcFigSet<dd>l_transform<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>T_newFigSet</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742111">Description</a></h4>
+      <p><a name="1742113">Copies each figure from the source FigSet and applies to it the specified transform to create a new FigSet with an automatically generated name.</a></p>
+      <h4><a name="1742114">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742117"><font size="2" face="'Courier New'" color="#000000"><em>T_srcFigSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742119">ID of the source FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742121"><font size="2" face="'Courier New'" color="#000000"><em>l_transform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742123"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>g_offset</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>t_transform</em></font><font size="2" face="'Courier New'" color="#000000"> [</font><font size="2" face="'Courier New'" color="#000000"><em>f_scale</em></font><font size="2" face="'Courier New'" color="#000000">])<br></font>A transformation object.</p>
+            <p><a name="1742124">where,</a></p>
+            <p><a name="1742125"><font size="2" face="'Courier New'" color="#000000"><em>g_offset</em></font></a><font size="2" face="'Courier New'" color="#000000">: list(</font><font size="2" face="'Courier New'" color="#000000"><em>f_offsetX</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>f_offsetY</em></font><font size="2" face="'Courier New'" color="#000000">)<br></font>An offset vector.</p>
+            <p><a name="1742126"><font size="2" face="'Courier New'" color="#000000"><em>t_transform<br></em></font></a>A transformation name. <br>Valid values are <font size="2" face="'Courier New'" color="#000000">"R0"</font>, <font size="2" face="'Courier New'" color="#000000">"R90"</font>, <font size="2" face="'Courier New'" color="#000000">"R180"</font>, <font size="2" face="'Courier New'" color="#000000">"R270"</font>, <font size="2" face="'Courier New'" color="#000000">"MX"</font>, <font size="2" face="'Courier New'" color="#000000">"MXR90"</font>, <font size="2" face="'Courier New'" color="#000000">"MY"</font>, and <font size="2" face="'Courier New'" color="#000000">"MYR90"</font>; or, their corresponding symbols such as <font size="2" face="'Courier New'" color="#000000">&#39;R0</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R90</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R180</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R270</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MX</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MXR90</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MY</font>, and <font size="2" face="'Courier New'" color="#000000">&#39;MYR90</font>.</p>
+            <p><a name="1742127"><font size="2" face="'Courier New'" color="#000000"><em>f_scale<br></em></font></a>A scale ratio (optional). Default value is <font size="2" face="'Courier New'" color="#000000">1.0</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742129">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742132"><font size="2" face="'Courier New'" color="#000000"><em>T_newFigSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742134">ID of the created FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742136"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742138">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742140">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742141">fs0 = txCreateFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742142">&#62; tx@0x2c0295c0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742143">txAppendObjectToFigSet(fs0 dbCreateRect(cv &#39;(0 &#34;drawing&#34;) &#39;((0 0) (200 100))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742144">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742145">fs1 = txCopyFigSet(fs0 &#39;(((0 0) &#34;R90&#34;)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742146">&#62; tx@0x2c04f190</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742147">txGetFigSetData(fs1 0)~&#62;bBox</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742148">&#62; ((&#45;100.0 0.0) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742149">&#62;     (0.0 200.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742150">&#62; )</a></font>
+      </p>
+      <p><a name="1742151">Copies the source FigSet </a><font size="2" face="'Courier New'" color="#000000">fs0</font> and applies to it the <font size="2" face="'Courier New'" color="#000000">R90</font> transform to create a new FigSet <font size="2" face="'Courier New'" color="#000000">fs1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txFindFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txFindFigSet"></a><a name="1742160">txFindFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742162">txFindFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>t_name<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742163">Description</a></h4>
+      <p><a name="1742165">Searches for a FigSet with the given name in the specified cellview. This function also searches for a FigSetGroup with the same name and automatically resurrects the corresponding FigSet from it, if required.</a></p>
+      <h4><a name="1742166">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742169"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742171">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742173"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742175">Name of the FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742177">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742180"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742182">ID of the found FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742184"><font size="2" face="'Courier New'" color="#000000"><em>nil</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742186">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742188">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742189">txFindFigSet(cv &#34;FS_0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742190">&#62; tx@02af68ce</a></font>
+      </p>
+      <p><a name="1742191">Searches for FigSet </a><font size="2" face="'Courier New'" color="#000000">FS_0</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txDeleteFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txDeleteFigSet"></a><a name="1742200">txDeleteFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742202">txDeleteFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_deep</em></font> = nil ]<dd>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742203">Description</a></h4>
+      <p><a name="1742205">Deletes the specified FigSet. If the optional argument </a><font size="2" face="'Courier New'" color="#000000">g_deep</font> is set to true, then the FigSets referenced by the specified FigSet will also be recursively deleted.</p>
+      <h4><a name="1742206">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742209"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742211">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742213"><font size="2" face="'Courier New'" color="#000000"><em>g_deep</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742215">A flag that determines whether the FigSets referenced by the specified FigSet should be deleted.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742217">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742220"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742222">The specified FigSet was deleted successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742224"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742226">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742228">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742229">fs0 = txCreateFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742230">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742231">fs1 = txCreateFigSet(cv &#34;fs1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742232">&#62; tx@0x19a46350</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742233">txAppendObjectToFigSet(fs1 fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742234">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742235">txDeleteFigSet(fs1 t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742236">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742237">txFindFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742238">&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742239">txFindFigSet(cv &#34;fs1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742240">&#62; nil</a></font>
+      </p>
+      <p><a name="1742241">Deletes the FigSet </a><font size="2" face="'Courier New'" color="#000000">fs1</font> and the FigSet referenced by it, <font size="2" face="'Courier New'" color="#000000">fs0</font>, from the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txGetCellViewFigSets
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txGetCellViewFigSets"></a><a name="1742250">txGetCellViewFigSets</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742252">txGetCellViewFigSets(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_figSets</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742253">Description</a></h4>
+      <p><a name="1742255">Returns the list of FigSets in the specified cellview.</a></p>
+      <h4><a name="1742256">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742259"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742261">ID of the cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742263">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742266"><font size="2" face="'Courier New'" color="#000000"><em>l_figSets</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742268">List of FigSets.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742270"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742272">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742274">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742275">txGetCellViewFigSets(cv)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742276">&#62; (tx@0x19d35cf0 tx@0x19a46350)</a></font>
+      </p>
+      <p><a name="1742277">Returns the FigSets, </a><font size="2" face="'Courier New'" color="#000000">tx@0x19d35cf0</font> and <font size="2" face="'Courier New'" color="#000000">tx@0x19a46350</font>, in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txGetFigSetBBox
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txGetFigSetBBox"></a><a name="1742286">txGetFigSetBBox</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742288">txGetFigSetBBox(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet @key<dd></em></font>(onlyTheseLayers<font size="2" face="'Courier New'" color="#000000"><em> l_onlyTheseLayers</em></font>)<dd>(onlyTheseLPPs<font size="2" face="'Courier New'" color="#000000"><em> l_onlyTheseLPPs</em></font>)<dd>(notTheseLayers<font size="2" face="'Courier New'" color="#000000"><em> l_notTheseLayers</em></font>)<dd>(notTheseLPPs<font size="2" face="'Courier New'" color="#000000"><em> l_notTheseLPPs</em></font>)<dd>(onlyTheseTypes <font size="2" face="'Courier New'" color="#000000"><em>l_onlyTheseTypes</em></font>)<dd>(notTheseTypes <font size="2" face="'Courier New'" color="#000000"><em>l_notTheseTypes</em></font>)<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> &#47; nil </font>
+      </dl>
+      <h4><a name="1742289">Description</a></h4>
+      <p><a name="1742291">Calculates the bounding box for the objects in the specified FigSet. The caller can optionally specify included and excluded layers, included and excluded layer&#45;purpose pairs (LPPs), and included and excluded object types. The bounding box values are returned in user units.</a></p>
+      <h4><a name="1742292">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742295"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742297">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742299"><font size="2" face="'Courier New'" color="#000000"><em>l_onlyTheseLayers</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742301"><font size="2" face="'Courier New'" color="#000000">list([</font></a><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font><font size="2" face="'Courier New'" color="#000000"> | </font><font size="2" face="'Courier New'" color="#000000"><em>n_layerNum</em></font><font size="2" face="'Courier New'" color="#000000">] ...)<br></font>A list of layer names or layer numbers. If specified, only the layers specified in the list are considered during the bounding box calculation.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742303"><font size="2" face="'Courier New'" color="#000000"><em>l_onlyTheseLPPs</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742305"><font size="2" face="'Courier New'" color="#000000">list([l_LPP] ...)<br></font></a>A list of layer&#45;purpose pairs. If specified, only the layer&#45;purpose pairs specified in the list are considered during the bounding box calculation.</p>
+            <p><a name="1742306">where,</a></p>
+            <p><a name="1742307"><font size="2" face="'Courier New'" color="#000000">l_LPP</font></a>: <font size="2" face="'Courier New'" color="#000000">list([t_layerName | n_layerNum] t_purposeName)<br></font>A layer&#45;purpose pair.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742309"><font size="2" face="'Courier New'" color="#000000"><em>l_notTheseLayers</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742311"><font size="2" face="'Courier New'" color="#000000">list([t_layerName | n_layerNum] ...)<br></font></a>A list of layer names or layer numbers. If specified, the layers specified in the list are excluded from the bounding box calculation.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742313"><font size="2" face="'Courier New'" color="#000000"><em>l_notTheseLPPs</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742315"><font size="2" face="'Courier New'" color="#000000">list([l_LPP] ...)</font></a></p>
+            <p><a name="1742316">A list of layer&#45;purpose pairs. If specified, the layer&#45;purpose pairs specified in the list are excluded from the bounding box calculation.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742318"><font size="2" face="'Courier New'" color="#000000"><em>l_onlyTheseTypes</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742320"><font size="2" face="'Courier New'" color="#000000">list(t_typeName ...)</font></a></p>
+            <p><a name="1742321">A list of CDB type names. If specified, only the objects of the types specified in the list are considered during the bounding box calculation.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742323"><font size="2" face="'Courier New'" color="#000000"><em>l_notTheseTypes</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742325"><font size="2" face="'Courier New'" color="#000000">list(t_typeName ...)</font></a></p>
+            <p><a name="1742326">A list of CDB type names. If specified, the objects of the types specified in the list are excluded from the bounding box calculation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742328">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742331"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742333">Bounding box for the specified objects.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742335"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742337">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742339">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742340">rect0 = dbCreateRect(top &#39;(0 &#34;drawing&#34;) &#39;((0 0) (100 100)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742341">&#62; db:0x2e39ec9e</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742342">ellipse0 = dbCreateEllipse(top &#39;(0 &#34;drawing&#34;) &#39;((0 0) (500 200)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742343">&#62; db:0x2e39ec9f</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742344">fs0 = txCreateFigSet(top &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742345">&#62; tx@0x318ce1a0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742346">txAppendObjectToFigSet(fs0 rect0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742347">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742348">txAppendObjectToFigSet(fs0 ellipse0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742349">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742350">txGetFigSetBBox(fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742351">&#62; ((0.0 0.0) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742352">&#62;     (500.0 200.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742353">&#62; )</a></font>
+      </p>
+      <p>
+        <font size="2" face="Helvetica" color="#000000"><a name="1742354"><font color="#000000">Calculates the bounding box for the objects in the FigSet </font></a><font size="2" face="'Courier New'" color="#000000">fs0</font>.</font>
+      </p>
+      <p>
+        <font size="2" face="Helvetica" color="#000000"><a name="1742355">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742356">txGetFigSetBBox(fs0 ?onlyTheseTypes &#39;(&#34;rect&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742357">&#62; ((0.0 0.0) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742358">&#62;     (100.0 100.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742359">&#62; )</a></font>
+      </p>
+      <p><a name="1742360">Calculates the bounding box for the objects of type </a><font size="2" face="'Courier New'" color="#000000">rect</font> in the FigSet <font size="2" face="'Courier New'" color="#000000">fs0</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txIsFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txIsFigSet"></a><a name="1742369">txIsFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742371">txIsFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_object<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742372">Description</a></h4>
+      <p><a name="1742374">Determines whether the specified object is a FigSet object.</a></p>
+      <h4><a name="1742375">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742378"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742380">ID of the object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742382">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742385"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742387">The object is a FigSet object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742389"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742391">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742393">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742394">txIsFigSet(fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742395">&#62; t</a></font>
+      </p>
+      <p><a name="1742396">The object </a><font size="2" face="'Courier New'" color="#000000">fs0</font> is a FigSet object.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txMakeFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txMakeFigSet"></a><a name="1742405">txMakeFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742407">txMakeFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>d_figSetGroup<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742408">Description</a></h4>
+      <p><a name="1742410">Creates a FigSet from the given FigSetGroup in the specified cellview. </a></p>
+      <p><a name="1742411">The function can be used to resurrect a FigSet that had been saved to a FigSetGroup earlier. The name and contents of the FigSet will be extracted from the specified FigSetGroup. If a FigSet with the specified name already exists, its contents will be replaced.</a></p>
+      <h4><a name="1742412">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742415"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742417">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742419"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742421">ID of the FigSetGroup.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742423">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742426"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742428">ID of the created FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742430"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742432">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742434">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742435">txAppendObjectToFigSet(figset12 txCreateFigSet(cv &#34;figset1&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742436">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742437">txAppendObjectToFigSet(figset12 txCreateFigSet(cv &#34;figset2&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742438">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742439">group0 = dbMakeFigSetGroup(cv figset12)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742440">&#62; db:0x27a9ec1a</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742441">txDeleteFigSet(figset12)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742442">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742443">txFindFigSet(cv &#34;figset12&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742444">&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742445">fs = txMakeFigSet(cv group0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742446">&#62; tx@0x2af32df0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742447">txGetFigSetData(fs 0)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742448">&#62; &#34;figset1&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742449">txGetFigSetData(fs 1)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742450">&#62; &#34;figset2&#34;</a></font>
+      </p>
+      <p><a name="1742451">Creates a FigSet </a><font size="2" face="'Courier New'" color="#000000">fs</font> from the FigSetGroup <font size="2" face="'Courier New'" color="#000000">group0</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txMoveFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txMoveFigSet"></a><a name="1742460">txMoveFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742462">txMoveFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>l_transform<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742463">Description</a></h4>
+      <p><a name="1742465">Moves each figure in the given FigSet using the specified transform.</a></p>
+      <h4><a name="1742466">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742469"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742471">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742473"><font size="2" face="'Courier New'" color="#000000"><em>l_transform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742475"><font size="2" face="'Courier New'" color="#000000">list(</font></a><font size="2" face="'Courier New'" color="#000000"><em>g_offset</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>t_transform</em></font><font size="2" face="'Courier New'" color="#000000"> [</font><font size="2" face="'Courier New'" color="#000000"><em>f_scale</em></font><font size="2" face="'Courier New'" color="#000000">])<br></font>A transformation object.</p>
+            <p><a name="1742476">where,</a></p>
+            <p><a name="1742477"><font size="2" face="'Courier New'" color="#000000"><em>g_offset</em></font></a><font size="2" face="'Courier New'" color="#000000">: list(</font><font size="2" face="'Courier New'" color="#000000"><em>f_offsetX</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>f_offsetY</em></font><font size="2" face="'Courier New'" color="#000000">)<br></font>An offset vector.</p>
+            <p><a name="1742478"><font size="2" face="'Courier New'" color="#000000"><em>t_transform<br></em></font></a>A transformation name.<br>Valid values are <font size="2" face="'Courier New'" color="#000000">"R0"</font>, <font size="2" face="'Courier New'" color="#000000">"R90"</font>, <font size="2" face="'Courier New'" color="#000000">"R180"</font>, <font size="2" face="'Courier New'" color="#000000">"R270"</font>, <font size="2" face="'Courier New'" color="#000000">"MX"</font>, <font size="2" face="'Courier New'" color="#000000">"MXR90"</font>, <font size="2" face="'Courier New'" color="#000000">"MY"</font>, and <font size="2" face="'Courier New'" color="#000000">"MYR90"</font>; or, their corresponding symbols such as <font size="2" face="'Courier New'" color="#000000">&#39;R0</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R90</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R180</font>, <font size="2" face="'Courier New'" color="#000000">&#39;R270</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MX</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MXR90</font>, <font size="2" face="'Courier New'" color="#000000">&#39;MY</font>, and <font size="2" face="'Courier New'" color="#000000">&#39;MYR90</font>.</p>
+            <p><a name="1742479"><font size="2" face="'Courier New'" color="#000000"><em>f_scale<br></em></font></a>A scale ratio (optional). Default value is <font size="2" face="'Courier New'" color="#000000">1.0</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742481">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742484"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742486">The figures were transformed successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742488"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742490">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742492">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742493">fs0 = txCreateFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742494">&#62; tx@0x254996a0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742495">txAppendObjectToFigSet(fs0 dbCreateRect(cv &#39;(0 &#34;drawing&#34;) &#39;((0 0) (200 100))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742496">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742497">txMoveFigSet(fs0 &#39;(((0 0) &#34;R90&#34;)))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742498">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742499">txGetFigSetData(fs0 0)~&#62;bBox</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742500">&#62; ((&#45;100.0 0.0) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742501">&#62;     (0.0 200.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742502">&#62; )</a></font>
+      </p>
+      <p><a name="1742503">Transforms the figures in the FigSet </a><font size="2" face="'Courier New'" color="#000000">fs0</font> by the transformation value of <font size="2" face="'Courier New'" color="#000000">R90</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txPrependObjectToFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txPrependObjectToFigSet"></a><a name="1742512">txPrependObjectToFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742514">txPrependObjectToFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>g_figObject<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742515">Description</a></h4>
+      <p><a name="1742517">Inserts an object in the beginning of the specified FigSet. The object may be a figure or a FigSet.</a></p>
+      <h4><a name="1742518">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742521"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742523">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742525"><font size="2" face="'Courier New'" color="#000000"><em>g_figObject</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742527">ID of the object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742529">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742532"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742534">The object was inserted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742536"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742538">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742540">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742541">fs12 = txCreateFigSet(cv &#34;fs12&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742542">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742543">txAppendObjectToFigSet(fs12 txCreateFigSet(cv &#34;fs1&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742544">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742545">txPrependObjectToFigSet(fs12 txCreateFigSet(cv &#34;fs0&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742546">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742547">txGetFigSetData(fs12 0)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742548">&#62; &#34;fs0&#34;</a></font>
+      </p>
+      <p><a name="1742549">Inserts the object </a><font size="2" face="'Courier New'" color="#000000">fs0</font> in the beginning of the FigSet <font size="2" face="'Courier New'" color="#000000">fs12</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txRemoveFigSetData
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txRemoveFigSetData"></a><a name="1742558">txRemoveFigSetData</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742560">txRemoveFigSetData(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>n_entry<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742561">Description</a></h4>
+      <p><a name="1742563">Removes the n</a><font color="#000000"><sup>th</sup></font> object from the specified FigSet.</p>
+      <h4><a name="1742564">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742567"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742569">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742571"><font size="2" face="'Courier New'" color="#000000"><em>n_entry</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742573">The index of the object to remove.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742575">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742578"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742580">The object was removed successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742582"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742584">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742586">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742587">fs12 = txCreateFigSet(cv &#34;fs12&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742588">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742589">txAppendObjectToFigSet(fs12 txCreateFigSet(cv &#34;fs0&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742590">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742591">txAppendObjectToFigSet(fs12 txCreateFigSet(cv &#34;fs1&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742592">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742593">txRemoveFigSetData(fs12 0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742594">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742595">txGetFigSetData(fs12 0)~&#62;name</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742596">&#62; &#34;fs1&#34;</a></font>
+      </p>
+      <p><a name="1742597">Removes the object at the first position from the FigSet </a><font size="2" face="'Courier New'" color="#000000">fs12</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=txRemoveObjectFromFigSet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="txRemoveObjectFromFigSet"></a><a name="1742606">txRemoveObjectFromFigSet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742608">txRemoveObjectFromFigSet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>T_figSet<dd>g_object<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742609">Description</a></h4>
+      <p><a name="1742611">Removes the specified object from the given FigSet, if the object is a member of this FigSet. This object can be a figure or a FigSet.</a></p>
+      <h4><a name="1742612">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742615"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742617">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742619"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742621">ID of the object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742623">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742626"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742628">The object was removed successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742630"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742632">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742634">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742635">fs0 = txCreateFigSet(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742636">&#62; tx@0x19d35cf0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742637">fs1 = txCreateFigSet(cv &#34;fs1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742638">&#62; tx@0x19a46350</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742639">txAppendObjectToFigSet(fs1 fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742640">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742641">txRemoveObjectFromFigSet(fs1 fs0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742642">&#62; t</a></font>
+      </p>
+      <p><a name="1742643">Removes the object </a><font size="2" face="'Courier New'" color="#000000">fs0</font> from the FigSet <font size="2" face="'Courier New'" color="#000000">fs1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=FigSetGroup Functions
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h2><a name="figSetGroup"></a><a name="1742652">FigSetGroup Functions</a></h2>
+      <p><a name="1742653">The contents of a FigSetGroup are created from a FigSet. A FigSetGroup is a method to store the contents of a FigSet in database for use in a different session.</a></p>
+      <p><a name="1742654">FigSetGroup functions are used to create, delete, access, manage, and search the FigSetGroup objects. </a></p>
+      <p><a name="1742655">Supported functions include:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742692" title="10" name="1742659"><font color="#0000ff"><u>dbMakeFigSetGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742739" title="10" name="1742663"><font color="#0000ff"><u>dbFindFigSetGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742779" title="10" name="1742667"><font color="#0000ff"><u>dbFindFigSetGroupByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742819" title="10" name="1742671"><font color="#0000ff"><u>dbGetFigSetGroupName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742855" title="10" name="1742675"><font color="#0000ff"><u>dbGetCellViewFigSetGroups</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742891" title="10" name="1742679"><font color="#0000ff"><u>dbIsFigSetGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1742927" title="10" name="1742683"><font color="#0000ff"><u>dbDeleteFigSetGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbMakeFigSetGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbMakeFigSetGroup"></a><a name="1742692">dbMakeFigSetGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742694">dbMakeFigSetGroup(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>T_figSet<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742695">Description</a></h4>
+      <p><a name="1742697">Creates a FigSetGroup in the specified cellview and populates it with the contents of the specified FigSet.</a></p>
+      <p><a name="1742698">The name for this FigSetGroup is the same as that of the FigSet. If a FigSetGroup with this name already exists, its contents are cleared, and it is populated from the FigSet.</a></p>
+      <h4><a name="1742699">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742702"><font size="2" face="'Courier New'" color="#000000"><em>d_cellview</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742704">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742706"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742708">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742710">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742713"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742715">ID of the created FigSetGroup.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742717"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742719">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742721">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742722">fs1 = txCreateFigSet(cv &#34;figSet1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742723">&#62; tx@0x362ed0d0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742724">txAppendObjectToFigSet(fs1 txCreateFigSet(cv &#34;figSet2&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742725">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742726">fsgroup1 = dbMakeFigSetGroup(cv fs1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742727">&#62; db:0x32e3f19b</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742728">(mapcar &#39;dbGetFigSetGroupName dbGetCellViewFigSetGroups(cv))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742729">&#62; (&#34;figSet1&#34; &#34;figSet2&#34;)</a></font>
+      </p>
+      <p><a name="1742730">Creates a FigSetGroup </a><font size="2" face="'Courier New'" color="#000000">fsgroup1</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbFindFigSetGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbFindFigSetGroup"></a><a name="1742739">dbFindFigSetGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742741">dbFindFigSetGroup(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>T_figSet<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742742">Description</a></h4>
+      <p><a name="1742744">Searches the specified cellview for a FigSetGroup that has the same name as the specified FigSet.</a></p>
+      <h4><a name="1742745">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742748"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742750">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742752"><font size="2" face="'Courier New'" color="#000000"><em>T_figSet</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742754">ID of the FigSet.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742756">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742759"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742761">ID of the FigSetGroup found.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742763"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742765">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742767">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742768">dbFindFigSetGroup(cv figset1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742769">&#62; db:0x32e3f19b</a></font>
+      </p>
+      <p><a name="1742770">Searches for the FigSet name </a><font size="2" face="'Courier New'" color="#000000">figset1</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font> .</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbFindFigSetGroupByName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbFindFigSetGroupByName"></a><a name="1742779">dbFindFigSetGroupByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742781">dbFindFigSetGroupByName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>t_name<dd></em></font>)<dd>=&#62;<font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742782">Description</a></h4>
+      <p><a name="1742784">Searches for the specified FigSetGroup name in the given cellview.</a></p>
+      <h4><a name="1742785">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742788"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742790">ID of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742792"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742794">Name of the FigSetGroup.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742796">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742799"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742801">ID of the FigSetGroup found.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742803"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742805">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742807">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742808">dbFindFigSetGroupByName(cv &#34;fs0&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742809">&#62; db:0x32e3f19b</a></font>
+      </p>
+      <p><a name="1742810">Searches for the FigSetGroup name </a><font size="2" face="'Courier New'" color="#000000">fs0</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetFigSetGroupName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetFigSetGroupName"></a><a name="1742819">dbGetFigSetGroupName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742821">dbGetFigSetGroupName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742822">Description</a></h4>
+      <p><a name="1742824">Returns the name of the specified FigSetGroup object.</a></p>
+      <h4><a name="1742825">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742828"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742830">ID of the FigSetGroup object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742832">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742835"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742837">Name of the FigSetGroup object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742839"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742841">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742843">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742844">dbGetFigSetGroupName(fsg1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742845">&#62; &#34;FS_0&#34;</a></font>
+      </p>
+      <p><a name="1742846">The name of the </a><font size="2" face="'Courier New'" color="#000000">fsg1</font> object is <font size="2" face="'Courier New'" color="#000000">FS_0</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetCellViewFigSetGroups
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetCellViewFigSetGroups"></a><a name="1742855">dbGetCellViewFigSetGroups</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742857">dbGetCellViewFigSetGroups(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_figSetGroups</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1742858">Description</a></h4>
+      <p><a name="1742860">Returns a list of FigSetGroups in the specified cellview.</a></p>
+      <h4><a name="1742861">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742864"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742866">ID of the cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742868">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742871"><font size="2" face="'Courier New'" color="#000000"><em>l_figSetGroups</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742873">The list of FigSetGroups.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742875"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742877">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742879">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742880">dbGetCellViewFigSetGroups(cv)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742881">&#62; (db:0x32e3f19b db:0x32e3f19c)</a></font>
+      </p>
+      <p><a name="1742882">Returns the FigSetGroups </a><font size="2" face="'Courier New'" color="#000000">db:0x32e3f19b</font> and <font size="2" face="'Courier New'" color="#000000">db:0x32e3f19c</font> in the cellview <font size="2" face="'Courier New'" color="#000000">cv</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbIsFigSetGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbIsFigSetGroup"></a><a name="1742891">dbIsFigSetGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742893">dbIsFigSetGroup(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_object<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742894">Description</a></h4>
+      <p><a name="1742896">Determines whether the specified object is a FigSetGroup.</a></p>
+      <h4><a name="1742897">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742900"><font size="2" face="'Courier New'" color="#000000"><em>d_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742902">ID of the object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742904">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742907"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742909">The object is a FigSetGroup.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742911"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742913">The object is not a FigSetGroup.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742915">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742916">dbIsFigSetGroup(dbId)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742917">&#62; nil</a></font>
+      </p>
+      <p><a name="1742918">The object </a><font size="2" face="'Courier New'" color="#000000">dbId</font> is not a FigSetGroup.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbDeleteFigSetGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbDeleteFigSetGroup"></a><a name="1742927">dbDeleteFigSetGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1742929">dbDeleteFigSetGroup(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1742930">Description</a></h4>
+      <p><a name="1742932">Deletes the specified FigSetGroup, including the hierarchy of FigSetGroups that may exist in this FigSetGroup.</a></p>
+      <h4><a name="1742933">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="650">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="199">
+            <p><a name="1742936"><font size="2" face="'Courier New'" color="#000000"><em>d_figSetGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742938">ID of the FigSetGroup to delete.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742940">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1742943"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1742945">The FigSetGroup was deleted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742947"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1742949">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1742951">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742952">fs1 = txCreateFigSet(cv &#34;figSet1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742953">&#62; tx@0x362ed0d0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742954">txAppendObjectToFigSet(fs1 txCreateFigSet(cv &#34;figSet2&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742955">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742956">fsgroup1 = dbMakeFigSetGroup(cv fs1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742957">&#62; db:0x32e3f19b</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742958">dbGetCellViewFigSetGroups(cv)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742959">&#62; (db:0x32e3f19b db:0x32e3f19c)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742960">dbDeleteFigSetGroup(fsgroup1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742961">&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742962">dbGetCellViewFigSetGroups(cv)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1742963">&#62; nil</a></font>
+      </p>
+      <p><a name="1742964">&nbsp;</a></p>
+      <p><a name="1747565">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1755474">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="figure.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="generator.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

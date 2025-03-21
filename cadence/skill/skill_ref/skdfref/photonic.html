@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 13</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="13">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="mpt.html">
+<META NAME="PageCount" CONTENT="12">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="inplacecoverobs.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbCellViewHasPhotonicPinFig(d_cvId)=> t / nil,dbGetPhotonicPinFigAngle(d_pinFigId)=> n_angle / nil,dbGetPhotonicPinFigRadius(d_pinFigId)=> n_radius / nil,dbGetPhotonicPinFigWidth(d_pinFigId)=> n_width / nil,dbIsPhotonicsEnabled()=> t / nil,dbSetPhotonicPinFigAngle(d_pinFigIdn_value)=> t / nil,dbSetPhotonicPinFigRadius(d_pinFigIdn_value)=> t / nil,dbSetPhotonicPinFigWidth(d_pinFigIdn_value)=> t / nil,dbUnsetPhotonicPinFigAngle(pinFigId)=> t / nil,dbUnsetPhotonicPinFigRadius(pinFigId)=> t / nil,dbUnsetPhotonicPinFigWidth(pinFigId)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 13">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="inplacecoverobs.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="mpt.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>13<a name="4774043">&nbsp;</a></h1>
+      <h1><a name="4774045">Photonics Database Access Functions</a></h1>
+      <p><a name="photonicsFunctions"></a><a name="5453224">This chapter describes the following photonics database SKILL functions:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456628" title="13" name="5454564"><font color="#0000ff"><u>dbCellViewHasPhotonicPinFig</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456612" title="13" name="5456541"><font color="#0000ff"><u>dbGetPhotonicPinFigAngle</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453678" title="13" name="5454590"><font color="#0000ff"><u>dbGetPhotonicPinFigRadius</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453362" title="13" name="5454601"><font color="#0000ff"><u>dbGetPhotonicPinFigWidth</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456688" title="13" name="5456664"><font color="#0000ff"><u>dbIsPhotonicsEnabled</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5455437" title="13" name="5454612"><font color="#0000ff"><u>dbSetPhotonicPinFigAngle</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453394" title="13" name="5454623"><font color="#0000ff"><u>dbSetPhotonicPinFigRadius</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453412" title="13" name="5454634"><font color="#0000ff"><u>dbSetPhotonicPinFigWidth</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453429" title="13" name="5454645"><font color="#0000ff"><u>dbUnsetPhotonicPinFigAngle</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453444" title="13" name="5454656"><font color="#0000ff"><u>dbUnsetPhotonicPinFigRadius</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5453459" title="13" name="5456608"><font color="#0000ff"><u>dbUnsetPhotonicPinFigWidth</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5460452">You need the </a><font size="2" face="'Courier New'" color="#000000">Virtuoso_Photonics_Option</font> license to use the functionality discussed in this section. For information about obtaining the required license, contact your local Cadence representative.</p>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbCellViewHasPhotonicPinFig
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456628">dbCellViewHasPhotonicPinFig</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456630">dbCellViewHasPhotonicPinFig(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cvId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456631">Description</a></h4>
+      <p><a name="5456633">(ICADV12.3 Only) Checks whether the specified cellview has a photonic pinFig.</a></p>
+      <h4><a name="5456639">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="588">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456636"><font size="2" face="'Courier New'" color="#000000"><em>d_cvId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="396">
+            <p><a name="5456638">Database ID of a cellview. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456649">Return Value</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="588">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456642"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="396">
+            <p><a name="5456644">Specified cellview has a photonic pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456646"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456648">Specified cellview does not have a photonic pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456650">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456651">dbCellViewHasPhotonicPinFig(cvId) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456652">=&#62; t</a></font>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="5456619">The specified cellview contains a photonic pinFig.</a></td>
+          </tr>
+        </table>
+      </div>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetPhotonicPinFigAngle 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetPhotonicPinFigAngle"></a><a name="5456612">dbGetPhotonicPinFigAngle </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456614">dbGetPhotonicPinFigAngle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_angle</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5453338">Description </a></h4>
+      <p><a name="5453339">(ICADV12.3 Only) Returns the attribute value of the angle for the specified photonics pinFig. </a></p>
+      <h4><a name="5453340">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453566"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453568">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453342">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453580"><font size="2" face="'Courier New'" color="#000000"><em>n_angle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453582">Attribute value of the angle for the specified photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453584"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453586">The pinFig is not a photonic pin or the attribute is not set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453345">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453346">dbGetPhotonicPinFigAngle(pinFigId) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455509">=&#62; 15.5</a></font>
+      </p>
+      <p><a name="5453347">Attribute value of the angle on a photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is <font size="2" face="'Courier New'" color="#000000">15.5.</font> </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetPhotonicPinFigRadius 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetPhotonicPinFigRadius"></a><a name="5453678">dbGetPhotonicPinFigRadius </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453679">dbGetPhotonicPinFigRadius(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_radius</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5453353">Description</a></h4>
+      <p><a name="5453690">(ICADV12.3 Only) Returns the attribute value of the radius for the specified photonics pinFig. </a></p>
+      <h4><a name="5453354">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453703"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453705">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453356">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453720"><font size="2" face="'Courier New'" color="#000000"><em>n_radius</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453722">Attribute value of the radius for the specified photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453724"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453726">The pinFig is not a photonic pin or the attribute is not set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453359">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453360">dbGetPhotonicPinFigRadius(pinFigId) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455517">=&#62; 5</a></font>
+      </p>
+      <p><a name="5453361">Attribute value of the radius on a photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is <font size="2" face="'Courier New'" color="#000000">5</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetPhotonicPinFigWidth
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetPhotonicPinFigWidth"></a><a name="5453362">dbGetPhotonicPinFigWidth</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453363">dbGetPhotonicPinFigWidth(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_width</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5453367">Description</a></h4>
+      <p><a name="5454777">(ICADV12.3 Only) Returns the attribute value of the width for the specified photonics pinFig.</a></p>
+      <p><a name="5454783">Arguments</a></p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454780"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454782">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453371">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453831"><font size="2" face="'Courier New'" color="#000000"><em>n_width</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453833">Attribute value of the width for the specified photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453835"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453837">The pinFig is not a photonic pin or the attribute is not set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453374">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453375">dbGetPhotonicPinFigWidth(pinFigId) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455525">=&#62; 1</a></font>
+      </p>
+      <p><a name="5453376">Attribute value of the width on a photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is <font size="2" face="'Courier New'" color="#000000">1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbIsPhotonicsEnabled 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbIsPhotonicsEnabled"></a><a name="5456688">dbIsPhotonicsEnabled </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456689">dbIsPhotonicsEnabled(<dd>)<dd>=&#62; t &#47; nil</a></font>
+      </dl>
+      <h4><a name="5456693">Description</a></h4>
+      <p><a name="5456695">(ICADV12.3 Only) Confirms whether the photonics&#45;related functionality is enabled. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5458163">Optical sigTypes cannot be set if photonics&#45;related functionality is not enabled. </a></p>
+      <h4><a name="5456697">Arguments</a></h4>
+      <p><a name="5456698">None</a></p>
+      <h4><a name="5456700">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456849"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456851">Photonics&#45;related functionality is enabled.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456853"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456855">Photonics&#45;related functionality is not enabled.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456707">Example</a></h4>
+      <p><a name="5456709">After launching Virtuoso, use the </a><font size="2" face="'Courier New'" color="#000000">dbIsPhotonicsEnabled()</font> to confirm if the photonics&#45;related functionality is enabled</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456711">; Photonics is enabled.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456712">dbIsPhotonicsEnabled()</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456713">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456715">; Photonics is not enabled.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456716">dbIsPhotonicsEnabled()</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456717">=&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetPhotonicPinFigAngle 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetPhotonicPinFigAngle"></a><a name="5455437">dbSetPhotonicPinFigAngle </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453378">dbSetPhotonicPinFigAngle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId<dd>n_value<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5453383">Description</a></h4>
+      <p><a name="5453384">(ICADV12.3 Only) Sets the given attribute value as the angle of the specified photonic pinFig.</a></p>
+      <h4><a name="5453385">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453921"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453923">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453925"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453927">Angle attribute value to be set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453388">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5453954"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5453956">Specified attribute value is set as the angle of the photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453958"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5453960">Angle attribute value is not set. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453391">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453392">dbSetPhotonicPinFigAngle(pinFigId 15.5) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455534">=&#62; t</a></font>
+      </p>
+      <p><a name="5453393"><font size="2" face="'Courier New'" color="#000000">15.5</font></a> is set as the angle attribute value on the photonic pinFig <font size="2" face="'Courier New'" color="#000000">pinFigId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetPhotonicPinFigRadius
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetPhotonicPinFigRadius"></a><a name="5453394">dbSetPhotonicPinFigRadius</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453395">dbSetPhotonicPinFigRadius(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId<dd>n_value<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5453400">Description</a></h4>
+      <p><a name="5453401">(ICADV12.3 Only) Sets the given attribute value as the radius of the specified photonic pinFig.</a></p>
+      <h4><a name="5453402">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454034"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454036">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454038"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454040">Radius attribute value to be set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453405">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454052"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454054">Specified attribute value is set as the radius of the photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454056"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454058">Radius attribute value is not set. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453408">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5454079">dbSetPhotonicPinFigRadius(pinFigId 5) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455542">=&#62; t</a></font>
+      </p>
+      <p><a name="5454080"><font size="2" face="'Courier New'" color="#000000">5</font></a> is set as the radius attribute value on the photonic pinFig <font size="2" face="'Courier New'" color="#000000">pinFigId.</font> </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetPhotonicPinFigWidth 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetPhotonicPinFigWidth"></a><a name="5453412">dbSetPhotonicPinFigWidth </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453413">dbSetPhotonicPinFigWidth(<dd>d_pinFigId<dd>n_value<dd>)<dd>=&#62; t &#47; nil</a></font>
+      </dl>
+      <h4><a name="5453418">Description</a></h4>
+      <p><a name="5453419">(ICADV12.3 Only) Sets the given attribute value as the width of the specified photonic pinFig.</a></p>
+      <h4><a name="5454153">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454161"><font size="2" face="'Courier New'" color="#000000"><em>d_pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454163">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454165"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454167">Width attribute value to be set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5454156">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454179"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454181">Specified attribute value is set as width of the photonics pinFig.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454183"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454185">Width attribute value is not set. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453426">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453427">dbSetPhotonicPinFigWidth(pinFigId 5) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455550">=&#62; t</a></font>
+      </p>
+      <p><a name="5453428"><font size="2" face="'Courier New'" color="#000000">5</font></a> is set as the width attribute value on the photonic pinFig <font size="2" face="'Courier New'" color="#000000">pinFigId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbUnsetPhotonicPinFigAngle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbUnsetPhotonicPinFigAngle"></a><a name="5453429">dbUnsetPhotonicPinFigAngle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453430">dbUnsetPhotonicPinFigAngle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>pinFigId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5453434">Description</a></h4>
+      <p><a name="5453435">(ICADV12.3 Only) Resets the attribute value of the angle for the specified photonics pinFig.</a></p>
+      <h4><a name="5454256">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454263"><font size="2" face="'Courier New'" color="#000000"><em>pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454265">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5454258">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454286"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454288">Angle attribute value of the specified photonic pinFig is reset.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454290"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454292">Angle attribute value is not reset.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453441">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453442">dbUnsetPhotonicPinFigAngle(pinFigId)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455558">=&#62; t</a></font>
+      </p>
+      <p><a name="5453443">Angle attribute value of the photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is reset.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbUnsetPhotonicPinFigRadius
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbUnsetPhotonicPinFigRadius"></a><a name="5453444">dbUnsetPhotonicPinFigRadius</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5453445">dbUnsetPhotonicPinFigRadius(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>pinFigId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5453449">Description</a></h4>
+      <p><a name="5454364">(ICADV12.3 Only) Resets the attribute value of the radius for the specified photonics pinFig.</a></p>
+      <h4><a name="5453451">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454374"><font size="2" face="'Courier New'" color="#000000"><em>pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454376">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453453">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454388"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454390">Radius attribute value of the specified photonic pinFig is reset.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454392"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454394">Radius attribute value is not reset.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453456">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453457">dbUnsetPhotonicPinFigRadius(pinFigId)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455567">=&#62; t</a></font>
+      </p>
+      <p><a name="5453458">Radius attribute value of the photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is reset.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbUnsetPhotonicPinFigWidth 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbUnsetPhotonicPinFigWidth"></a><a name="5453459">dbUnsetPhotonicPinFigWidth </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5454455">dbUnsetPhotonicPinFigWidth(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>pinFigId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5453463">Description</a></h4>
+      <p><a name="5453464">(ICADV12.3 Only) Resets the attribute value of the width for the specified photonics pinFig.</a></p>
+      <h4><a name="5453465">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454472"><font size="2" face="'Courier New'" color="#000000"><em>pinFigId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454474">Database ID of a photonics pinFig.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453467">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5454492"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5454494">Width attribute value of the specified photonic pinFig is reset.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454496"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5454498">Width attribute value is not reset.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5453470">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5453471">dbUnsetPhotonicPinFigWidth(pinFigId) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455576">=&#62; t</a></font>
+      </p>
+      <p><a name="5453472">Width attribute value of the photonic pinFig </a><font size="2" face="'Courier New'" color="#000000">pinFigId</font> is reset.</p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="5460231">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="inplacecoverobs.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="mpt.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

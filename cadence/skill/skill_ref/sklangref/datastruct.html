@@ -1,0 +1,1107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 2</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="2">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="dataoperator.html">
+<META NAME="PageCount" CONTENT="20">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="list.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 2">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="list.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="dataoperator.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>2<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1037758">Data Structure</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=arrayp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="arrayp"></a><a name="1038672">arrayp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038675">arrayp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038676">Description</a></h4>
+      <p><a name="1038678">Checks if an object is an array.</a></p>
+      <p><a name="1038679">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1038680">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047023"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047025">Any data object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038682">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047032"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047034">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is an array object.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047036"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047038">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038685">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038686">declare(x[10])<br>arrayp(x)&nbsp;&nbsp;=&#62; t<br>arrayp(&#39;x)&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1038687">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038822" title="2" name="1038653"><font color="#0000ff"><u>declare</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=arrayref 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="arrayref"></a><a name="1038715">arrayref </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038718">arrayref( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_collection</em></font><font color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>g_index</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></font>
+      </dl>
+      <h4><a name="1038719">Description</a></h4>
+      <p><a name="1038721">Returns the element in a collection that is in an array or a table of the given index.</a></p>
+      <p><a name="1038722">This function is usually called implicitly using the </a><font size="2" face="'Courier New'" color="#000000">[ ]</font> syntax.</p>
+      <h4><a name="1038723">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047045"><font size="2" face="'Courier New'" color="#000000"><em>g_collection</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047047">An array or a table.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047049"><font size="2" face="'Courier New'" color="#000000"><em>g_index</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047051">An integer for indexing an array. An arbitrary object for indexing a table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038726">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047058"><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047060">The element selected by the given index in the given collection.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038728">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038729">a[3] <br>=&#62; 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;if the fourth element of the array is 100</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038730">(arrayref a 3 )<br>=&#62; 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;same as a[3]</a></font>
+      </p>
+      <h4><a name="1038731">Reference</a></h4>
+      <p><a name="1038706">The syntax </a><font size="2" face="'Courier New'" color="#000000">a[i] = b</font>, referred to as the <a href="#1039356" title="2"><font color="#0000ff"><u>setarray</u></font></a> function.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=assoc, assq, assv
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="assoc"></a><a name="1038761">assoc, assq, assv</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038763">assv( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font><font color="#000000"><em> <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_association</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038764">Description</a></h4>
+      <p><a name="1038766">The </a><font size="2" face="'Courier New'" color="#000000">assoc</font>,<font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000">assq</font>, and <font size="2" face="'Courier New'" color="#000000">assv</font> functions find the first list in <font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font> whose car field is <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> and return that list. <font size="2" face="'Courier New'" color="#000000">assq</font> uses <font size="2" face="'Courier New'" color="#000000">eq</font> to compare <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> with the car fields of the lists in <font size="2" face="'Courier New'" color="#000000"><em>alist</em></font>. <font size="2" face="'Courier New'" color="#000000">assoc</font> uses <font size="2" face="'Courier New'" color="#000000">equal</font>. <font size="2" face="'Courier New'" color="#000000">assv</font> uses <font size="2" face="'Courier New'" color="#000000">eqv</font>.</p>
+      <p><a name="1038770">The association list, </a><font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font>, must be a list of lists. An association list is a standard data structure that has the form <font size="2" face="'Courier New'" color="#000000">((key1 </font><font size="2" face="'Courier New'" color="#000000"><em>value1</em></font><font size="2" face="'Courier New'" color="#000000">) (key2 </font><font size="2" face="'Courier New'" color="#000000"><em>value2</em></font><font size="2" face="'Courier New'" color="#000000">) (key3 </font><font size="2" face="'Courier New'" color="#000000"><em>value3</em></font><font size="2" face="'Courier New'" color="#000000">) ...)</font>. These functions find the first list in <font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font> whose car field is <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> and return that list. <font size="2" face="'Courier New'" color="#000000">assq</font> uses <font size="2" face="'Courier New'" color="#000000">eq</font> to compare <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> with the car fields of the lists in <font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font><font color="#000000"><em>. </em></font><font size="2" face="'Courier New'" color="#000000">assv</font> uses <font size="2" face="'Courier New'" color="#000000">eqv</font><font color="#000000"><em>. </em></font><font size="2" face="'Courier New'" color="#000000">assoc</font> uses <font size="2" face="'Courier New'" color="#000000">equal</font>.</p>
+      <h4><a name="1038771">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047067"><font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047069">An arbitrary object as the search key. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047071"><font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047073">Association list. Must be a list of lists. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038774">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047080"><font size="2" face="'Courier New'" color="#000000"><em>l_association</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047082">The returned list is always an element of </a><font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047084"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047086">If no list in </a><font size="2" face="'Courier New'" color="#000000"><em>l_alist</em></font> has <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font>, as its <font size="2" face="'Courier New'" color="#000000">car</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038777">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038778">e = &#39;((a 1) (b 2) (c 3))<br>(assq &#39;a e) =&#62; (a 1)<br>(assq &#39;b e) =&#62; (b 2)<br>(assq &#39;d e) =&#62; nil<br>(assq (list &#39;a) &#39;(((a)) ((b)) ((c)))) =&#62; nil<br>(assoc (list &#39;a) &#39;(((a)) ((b)) ((c)))) =&#62; ((a))<br>(assv 5 &#39;((2 3) (5 7) (11 13))) =&#62; (5 7)</a></font>
+      </p>
+      <h4><a name="1038779">Reference</a></h4>
+      <p><a href="logicalrel.html#1038850" title="9" name="1038753"><font color="#0000ff"><u>eq</u></font></a>, <a href="logicalrel.html#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a>, <a href="logicalrel.html#1038922" title="9"><font color="#0000ff"><u>eqv</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=declare
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="declare"></a><a name="1038822">declare</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038825">declare( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_arrayName <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_sizeOfArray</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>a_newArray</em></font></font>
+      </dl>
+      <h4><a name="1038826">Description</a></h4>
+      <p><a name="1038828">Creates an array with a specified number of elements. This is a syntax form. All elements of the array are initialized to </a><font size="2" face="'Courier New'" color="#000000">unbound</font>.</p>
+      <h4><a name="1038829">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047093"><font size="2" face="'Courier New'" color="#000000"><em>s_arrayName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047095">Name of the array. There must be no white space between the name of an array and the opening bracket containing the size.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047097"><font size="2" face="'Courier New'" color="#000000"><em>x_sizeOfArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047099">Size of the array as an integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038832">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047106"><font size="2" face="'Courier New'" color="#000000"><em>a_newArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047108">Returns the new array.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038834">Example</a></h4>
+      <p><a name="1038835">When the name of an array appears on the right side of an assignment statement, only a pointer to the array is used in the assignment; the values stored in the array are not copied. It is therefore possible for an array to be accessible by different names. Indexes are used to specify elements of an array and always start with 0; that is, the first element of an array is element 0. SKILL checks for an out of bounds array index with each array access.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038836">declare(a[10])<br>a[0] = 1<br>a[1] = 2.0<br>a[2] = a[0] + a[1]</a></font>
+      </p>
+      <p><a name="1038837">Creates an array of 10 elements.</a><font color="#000000"><em> a</em></font> is the name of the array, with indexes ranging from 0 to 9. Assigns the integer 1 to element 0, the float 2.0 to element 1, and the float 3.0 to element 2.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038838">b = a </a></font>
+      </p>
+      <p><a name="1038839"><font size="2" face="'Courier New'" color="#000000">b</font></a> now also refers to the same array as <font size="2" face="'Courier New'" color="#000000">a</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038840">declare(c[10]) </a></font>
+      </p>
+      <p><a name="1038841">declares another array of 10 elements.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038842">declare(d[2]) </a></font>
+      </p>
+      <p><a name="1038843">declares </a><font size="2" face="'Courier New'" color="#000000">d</font> as array of 2 elements.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038844">d[0] = b</a></font>
+      </p>
+      <p><a name="1038845"><font size="2" face="'Courier New'" color="#000000">d[0]</font></a> now refers to the array pointed to by <font size="2" face="'Courier New'" color="#000000">b</font> and <font size="2" face="'Courier New'" color="#000000">a</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038846">d[1] = c</a></font>
+      </p>
+      <p><a name="1038847"><font size="2" face="'Courier New'" color="#000000">d[1]</font></a> is the array referred to by <font size="2" face="'Courier New'" color="#000000">c</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038848">d[0][2] </a></font>
+      </p>
+      <p><a name="1038849">Accesses element 2 of the array referred to by </a><font size="2" face="'Courier New'" color="#000000">d[0]</font>. This is the same element as <font size="2" face="'Courier New'" color="#000000">a[2]</font>.</p>
+      <p><a name="1038850">Brackets (</a><font size="2" face="'Courier New'" color="#000000">[]</font>) are used in this instance to represent array references and are part of the statement syntax.<strong> </strong></p>
+      <h4><a name="1038851">Reference</a></h4>
+      <p><a href="#1039306" title="2" name="1038814"><font color="#0000ff"><u>makeVector</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=defprop
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="defprop"></a><a name="1038889">defprop</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038892">defprop( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_id</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></font>
+      </dl>
+      <h4><a name="1038893">Description</a></h4>
+      <p><a name="1038895">Adds properties to symbols but none of its arguments are evaluated. This is a syntax form.</a></p>
+      <p><a name="1038896">The same as </a><font size="2" face="'Courier New'" color="#000000">putprop</font> except that none of its arguments are evaluated.</p>
+      <h4><a name="1038897">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047118"><font size="2" face="'Courier New'" color="#000000"><em>s_id</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047120">Symbol to add property to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047122"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047124">Value of the named property.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047126"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047128">Named property.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038901">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047135"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047137">Value of the named property.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038903">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038904">defprop(s 3 x)&nbsp;&nbsp;&nbsp;=&#62; 3</a></font>
+      </p>
+      <p><a name="1038905">Sets property </a><font size="2" face="'Courier New'" color="#000000">x</font> on symbol <font size="2" face="'Courier New'" color="#000000">s</font> to 3.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038906">defprop(s 1+2 x)&nbsp;=&#62; (1+2)</a></font>
+      </p>
+      <p><a name="1038907">Sets property </a><font size="2" face="'Courier New'" color="#000000">x</font> on symbol <font size="2" face="'Courier New'" color="#000000">s</font> to the unevaluated expression 1+2.</p>
+      <h4><a name="1038908">Reference</a></h4>
+      <p><a href="dataoperator.html#1038893" title="3" name="1038880"><font color="#0000ff"><u>get</u></font></a>, <a href="dataoperator.html#1040238" title="3"><font color="#0000ff"><u>putprop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=defstruct
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="defstruct"></a><a name="1038942">defstruct</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038945">defstruct( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>s_slot1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>s_slot2</em></font>.. ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1038946">Description</a></h4>
+      <p><a name="1038948">Creates a </a><font size="2" face="'Courier New'" color="#000000">defstruct</font>, a named structure that is a collection of one or more variables.</p>
+      <p><a name="1038949"><font size="2" face="'Courier New'" color="#000000">Defstructs</font></a> can have slots of different types that are grouped together under a single name for handling purposes. They are the equivalent of structs in C. The <font size="2" face="'Courier New'" color="#000000">defstruct</font> form also creates an instantiation function, named <font size="2" face="'Courier New'" color="#000000">_&#60;</font><font size="2" face="'Courier New'" color="#000000"><em>name</em></font><font size="2" face="'Courier New'" color="#000000">&#62;</font> where <font size="2" face="'Courier New'" color="#000000"><em>&#60;name&#62;</em></font> is the structure name supplied to <font size="2" face="'Courier New'" color="#000000">defstruct</font>. This constructor function takes keyword arguments: one for each slot in the structure. Once created, structures behave just like disembodied property lists.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1038950">Just like disembodied property lists, structures can have new slots added at any time. However these dynamic slots are less efficient than the statically declared slots, both in access time and space utilization.</a></p>
+      <p><a name="1038951">Structures can contain instances of other structures; therefore one needs to be careful about structure sharing. If sharing is not desired, a special copy function can be used to generate a copy of the structure being inserted. The </a><font size="2" face="'Courier New'" color="#000000">defstruct</font> form also creates a function for the given <font size="2" face="'Courier New'" color="#000000">defstruct</font> called <font size="2" face="'Courier New'" color="#000000">copy_&#60;</font><font size="2" face="'Courier New'" color="#000000"><em>name</em></font><font size="2" face="'Courier New'" color="#000000">&#62;</font>. This function takes one argument, an instance of the <font size="2" face="'Courier New'" color="#000000">defstruct</font>. It creates and returns a copy of the given instance. An example appears after the description of the other defstruct functions.</p>
+      <h4><a name="1038952">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047144"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047146">A structure name.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047148"><font size="2" face="'Courier New'" color="#000000"><em>s_slot1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047150">Name of the first slot in structure </a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047152"><font size="2" face="'Courier New'" color="#000000"><em>s_slot2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047154">Name of the second slot in structure </a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038956">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047161"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047163">Always returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038958">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047499">defstruct(myStruct slot1 slot2 slot3)<br>struct = make_myStruct(?slot1 &#34;one&#34; ?slot2 &#34;two&#34; ?slot3 &#34;three&#34;)<br>=&#62;t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047501">struct&#45;&#62;slot1 =&#62; &#34;one&#34;</a></font>
+      </p>
+      <p><a name="1038961">Returns the value associated with a slot of an instance.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038962">struct&#45;&#62;slot1 = &#34;new&#34; =&#62; &#34;new&#34;</a></font>
+      </p>
+      <p><a name="1038963">Modifies the value associated with a slot of an instance.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038964">struct&#45;&#62;? =&#62; (slot3 slot2 slot1)</a></font>
+      </p>
+      <p><a name="1038965">Returns a list of the slot names associated with an instance.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038966">struct&#45;&#62;?? =&#62; (slot3 &#34;three&#34; slot2 &#34;two&#34; slot1 &#34;new&#34;)</a></font>
+      </p>
+      <p><a name="1038967">Returns a property list (not a disembodied property list) containing the slot names and values associated with an instance.</a></p>
+      <h4><a name="1038968">Reference</a></h4>
+      <p><a href="#1038942" title="2" name="1038933"><font color="#0000ff"><u>defstruct</u></font></a>, <font size="2" face="'Courier New'" color="#0000ff"><u>prints</u></font><font size="2" face="'Courier New'" color="#0000ff"><u>truct</u></font></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=defstructp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="defstructp"></a><a name="1039006">defstructp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039009">defstructp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039010">Description</a></h4>
+      <p><a name="1039012">Checks if an object is an instance of a particular </a><font size="2" face="'Courier New'" color="#000000">defstruct</font>.</p>
+      <p><a name="1039013">If the optional second argument is given, it is used as the </a><font size="2" face="'Courier New'" color="#000000">defstruct</font> name to check against. The suffix <font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1039014">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047173"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047175">A data object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047177"><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047179">Name of the structure to be tested for.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039017">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047410"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047412">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> is an instance of <font size="2" face="'Courier New'" color="#000000">defstruct</font> <font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047414"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047416">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039020">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039021">defstruct(myStruct slot1 slot2 slot3) <br>=&#62; t<br>struct = _myStruct(?slot1 &#34;one&#34; ?slot2 &#34;two&#34; ?slot3 &#34;three&#34;)<br>=&#62; array[5]:3555552</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039022">defstructp( &#34;myDefstruct&#34;) <br>=&#62; nil<br>defstructp(struct &#39;myStruct) <br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1039023">Reference</a></h4>
+      <p><a href="#1038942" title="2" name="1038998"><font color="#0000ff"><u>defstruct</u></font></a>, <font size="2" face="'Courier New'" color="#0000ff"><u>prints</u></font><font size="2" face="'Courier New'" color="#0000ff"><u>truct</u></font></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=defvar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="defvar"></a><a name="1039061">defvar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039065">defvar( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_varName</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_value </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039066">Description</a></h4>
+      <p><a name="1039068">Defines a global variable and assigns it a value. You can also use the </a><font size="2" face="'Courier New'" color="#000000">defun</font> or <font size="2" face="'Courier New'" color="#000000">define</font> syntax form to define global variables in SKILL++ mode.</p>
+      <h4><a name="1039069">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047199"><font size="2" face="'Courier New'" color="#000000"><em>s_varName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047201">Name of the variable to be defined.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047203"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047205">Value to assign to the variable. If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is not given, <font size="2" face="'Courier New'" color="#000000">nil</font> is assigned to the variable.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039072">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047212"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047214">If given.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047216"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047218">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039075">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039076">defvar(x 3) =&#62; 3</a></font>
+      </p>
+      <p><a name="1039077">Assigns </a><font size="2" face="'Courier New'" color="#000000">x</font> a value of 3.</p>
+      <h4><a name="1039078">Reference</a></h4>
+      <p><a href="#1038889" title="2" name="1043777"><font color="#0000ff"><u>defprop</u></font></a>, <a href="dataoperator.html#1040473" title="3"><font color="#0000ff"><u>set</u></font></a>, <a href="dataoperator.html#1040675" title="3"><font color="#0000ff"><u>setq</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=makeTable
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="makeTable"></a><a name="1043790">makeTable</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1043793">makeTable( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_default_value</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></font>
+      </dl>
+      <h4><a name="1039253">Description</a></h4>
+      <p><a name="1039255">Creates an empty association table.</a></p>
+      <h4><a name="1039256">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047225"><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047227">Print name (either a string or symbol) of the new table.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047229"><font size="2" face="'Courier New'" color="#000000"><em>g_default_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047231">Default value to be returned when references are made to keys that are not in the table. If no default value is given, the system returns </a><font size="2" face="'Courier New'" color="#000000">unbound</font> if the key is not defined in the table.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039259">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047238"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047240">The new association table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039261">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039262">myTable = makeTable(&#34;atable1&#34; 0)&nbsp;&nbsp;&nbsp;=&#62; table:atable1<br>myTable[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0</a></font>
+      </p>
+      <p><a name="1039263">If you specify a default value when you create the table, the default value is returned if a nonexistent key is accessed.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039264">myTable2 = makeTable(&#34;atable2&#34;)&nbsp;&nbsp;&nbsp;=&#62; table:atable2<br>myTable2[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; unbound</a></font>
+      </p>
+      <p><a name="1039265">If you do not specify a default value when you create the table, the symbol </a><font size="2" face="'Courier New'" color="#000000">unbound</font> is returned if an undefined key is accessed.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039266">myTable[1] = &#34;blue&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; blue<br>myTable[&#34;two&#34;] = &#39;(r e d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (r e d)<br>myTable[&#39;three] = &#39;green&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; green</a></font>
+      </p>
+      <p><a name="1039267">You can refer to and set the contents of an association table with the standard syntax for accessing array elements.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039268">myTable[&#39;three]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; green</a></font>
+      </p>
+      <h4><a name="1039269">Reference</a></h4>
+      <p><a href="#1038822" title="2" name="1039241"><font color="#0000ff"><u>declare</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=makeVector
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="makeVector"></a><a name="1039306">makeVector</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039308">makeVector( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_size</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_init_val</em></font> ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></font>
+      </dl>
+      <h4><a name="1039309">Description</a></h4>
+      <p><a name="1039312">Creates an array (vector) with the specified number of elements, and optionally initializes each entry.</a></p>
+      <p><a name="1039313">Allocates a vector of </a><font size="2" face="'Courier New'" color="#000000"><em>x_size</em></font> number of entries. <font size="2" face="'Courier New'" color="#000000">Vector</font> initializes each entry in the vector with <font size="2" face="'Courier New'" color="#000000"><em>g_init_val</em></font>. The default value of <font size="2" face="'Courier New'" color="#000000"><em>g_init_val</em></font> is the symbol <font size="2" face="'Courier New'" color="#000000">unbound</font>.</p>
+      <h4><a name="1039314">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047247"><font size="2" face="'Courier New'" color="#000000"><em>x_size</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047249">Size of the vector to be allocated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047251"><font size="2" face="'Courier New'" color="#000000"><em>g_init_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047253">Initial value of each entry of the vector to be allocated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039317">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047406"><font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047408">Array of the given size.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039319">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039320">V = makeVector( 3 0 )&nbsp;&nbsp;&nbsp;=&#62; array[3]:1955240<br>V[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0<br>V[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0<br>V[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setarray
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setarray"></a><a name="1039356">setarray</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039358">setarray( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>a_array</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_index</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_value <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_value<dd></em></font><dd>setarray( <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_value <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></font>
+      </dl>
+      <h4><a name="1039359">Description</a></h4>
+      <p><a name="1039362">Assigns the given value to the specified element of an array or to the specified key of a table. Normally this function is invoked implicitly using the array&#45;subscription syntax, such as, x[i] = v.</a></p>
+      <p><a name="1039363">Assigns </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> to the <font size="2" face="'Courier New'" color="#000000"><em>x_index</em></font> element of <font size="2" face="'Courier New'" color="#000000"><em>a_array</em></font>, or adds the association of <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> with <font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font> to <font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font>, and returns <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font>. Normally this function is invoked implicitly using the array&#45;subscription syntax, such as, x[i] = v.</p>
+      <h4><a name="1039365">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047271"><font size="2" face="'Courier New'" color="#000000"><em>a_array</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047273">An array object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047275"><font size="2" face="'Courier New'" color="#000000"><em>x_index</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047277">Index of the array element to assign a value to. Must be between 0 and one less than the size of the array.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047279"><font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047281">Any SKILL value.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047283"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047285">Value to be assigned to the specified array element or table entry.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039370">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047292"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047294">Value assigned to the specified array element or table entry.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039372">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039373">declare(myar[8])&nbsp;&nbsp;&nbsp;&nbsp;=&#62; array[8]:3895304<br>myar[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; unbound<br>setarray(myar 0 5)&nbsp;&nbsp;=&#62; 5<br>myar[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 5<br>setarray(myar 8 &#39;hi)</a></font>
+      </p>
+      <p><a name="1039374">Signals an array bounds error.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039375">setarray(myar <br>&nbsp;&nbsp;&nbsp;&nbsp;(plus 1 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; assigns element 3 the value 8.<br>&nbsp;&nbsp;&nbsp;&nbsp;(plus 3 5))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 8</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039376">mytab = makeTable(&#39;myTable) =&#62; table:myTable<br>setarray(mytab 8 4)&nbsp;&nbsp;=&#62; 4<br>mytab[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 4<br>mytab[9] = 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; same as setarray(mytab 9 3)<br>mytab[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3</a></font>
+      </p>
+      <h4><a name="1039377">Reference</a></h4>
+      <p><a href="#1038715" title="2" name="1039341"><font color="#0000ff"><u>arrayref</u></font></a>, <a href="#1038822" title="2"><font color="#0000ff"><u>declare</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tablep
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tablep"></a><a name="1039421">tablep</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039424">tablep( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039425">Description</a></h4>
+      <p><a name="1039427">Checks if an object is an association table.</a></p>
+      <h4><a name="1039428">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047309"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047311">A SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039430">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047318"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047320">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> is an association table.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047322"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047324">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font> is not an association table.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039433">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039434">myTable = makeTable(&#34;atable1&#34; 0)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; table:atable1<br>tablep(myTable)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>tablep(9)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039435">Reference</a></h4>
+      <p><a href="#1043790" title="2" name="1039406"><font color="#0000ff"><u>makeTable</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=type, typep
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="type"></a><a name="1039462">type, typep</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1043888">type( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_object</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_type</em></font> <dd><dd>typep( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_object</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_type</em></font> </font>
+      </dl>
+      <h4><a name="1043918">Description</a></h4>
+      <p><a name="1043920">Returns a symbol whose name denotes the type of a SKILL object. The functions </a><font size="2" face="'Courier New'" color="#000000">type</font> and <font size="2" face="'Courier New'" color="#000000">typep</font> are identical. </p>
+      <h4><a name="1043915">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047331"><font size="2" face="'Courier New'" color="#000000"><em>s_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047333">A SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039472">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047340"><font size="2" face="'Courier New'" color="#000000"><em>s_type</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047342">Symbol whose name denotes the type of </a><font size="2" face="'Courier New'" color="#000000"><em>s_object</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1043896">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039476">type( &#39;foo )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; symbol<br>typep( &#34;foo&#34; )&nbsp;&nbsp;=&#62; string<br>type( 12 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; fixnum<br>typep (&#34;12&#34; )&nbsp;&nbsp;&nbsp;=&#62; string</a></font>
+      </p>
+      <h4><a name="1039477">Reference</a></h4>
+      <p><a href="arithmetic.html#1039304" title="6" name="1039454"><font color="#0000ff"><u>fixp</u></font></a>, <a href="arithmetic.html#1039359" title="6"><font color="#0000ff"><u>floatp</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a>, <a href="inputoutput.html#1040208" title="11"><font color="#0000ff"><u>portp</u></font></a>, <a href="stringfunc.html#1040671" title="5"><font color="#0000ff"><u>stringp</u></font></a>, <a href="dataoperator.html#1040737" title="3"><font color="#0000ff"><u>symbolp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=vector
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="vector"></a><a name="1039526">vector</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039529">vector( <dd></a><font color="#000000"><em>g_value</em></font> ... <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></font>
+      </dl>
+      <h4><a name="1039530">Description</a></h4>
+      <p><a name="1039532">Returns a vector or array, filled with the arguments in the given order. The </a><font size="2" face="'Courier New'" color="#000000">vector</font> function is analogous to the <font size="2" face="'Courier New'" color="#000000">list</font> function.</p>
+      <p><a name="1039533">A vector is implemented as a SKILL array. </a></p>
+      <h4><a name="1039534">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047349"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047351">Ordered list of values to be placed in an array.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039536">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047358"><font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047360">Array filled with the arguments in the given order.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039538">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039539">V = vector( 1 2 3 4 ) =&#62; array[4]:33394440<br>V[0] =&#62; 1<br>V[3] =&#62; 4</a></font>
+      </p>
+      <h4><a name="1039540">Reference</a></h4>
+      <p><a href="#1038822" title="2" name="1039518"><font color="#0000ff"><u>declare</u></font></a>, <a href="list.html#1039311" title="1"><font color="#0000ff"><u>list</u></font></a>, <a href="#1039306" title="2"><font color="#0000ff"><u>makeVector</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=vectorp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="vectorp"></a><a name="1039579">vectorp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039582">vectorp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039583">Description</a></h4>
+      <p><a name="1039585">Checks if an object is a vector. Behaves the same as </a><font size="2" face="'Courier New'" color="#000000">arrayp</font>.</p>
+      <p><a name="1039586">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1039587">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047367"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047369">Any data object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039589">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047376"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047378">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is a vector object.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047380"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047382">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039592">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039593">declare(x[10])<br>arrayp(x) =&#62; t<br>arrayp(&#39;x) =&#62; nil</a></font>
+      </p>
+      <h4><a name="1039594">Reference</a></h4>
+      <p><a href="#1038822" title="2" name="1039571"><font color="#0000ff"><u>declare</u></font></a>, <a href="#1038672" title="2"><font color="#0000ff"><u>arrayp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1046705">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="list.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="dataoperator.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 15</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="15">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="appA.html">
+<META NAME="PageCount" CONTENT="14">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="environment.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 15">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="environment.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="appA.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>15<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1037758">Namespace Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=makeNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="makeNamespace"></a><a name="1037774">makeNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037776">makeNamespace( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font><font color="#000000"><em> <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_namespace</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1037777">Description</a></h4>
+      <p><a name="1037780">Creates a SKILL namespace with the given </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font>. A namespace or its parts can be saved in a context and loaded with the context.</p>
+      <h4><a name="1037781">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040429"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040431">Name for the namespace.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037783">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040482"><font size="2" face="'Courier New'" color="#000000"><em>o_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040484">Returns the namespace object when successfully created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040474"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040476">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if the namespace is not created or a namespace with the same name already exists.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037785">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038485">makeNamespace(&#34;METHODS&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040510">=&#62; ns@METHODS</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=findNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="findNamespace"></a><a name="1046467">findNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046469">findNamespace( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font><font color="#000000"><em> <dd></em></font>) <dd><font color="#000000"><em>=&#62;</em></font> <font size="2" face="'Courier New'" color="#000000"><em>o_namespace </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1037671">Description</a></h4>
+      <p><a name="1037674">Returns the namespace object with the given name.</a></p>
+      <h4><a name="1037675">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040564"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040566">Specify the name for which you want retrieve the namespace object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037677">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040583"><font size="2" face="'Courier New'" color="#000000"><em>o_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040585">Returns the namespace object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040587"><font color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040589">Returns nil if no namespace object exists with the given name.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037679">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040606">findNamespace(&#34;A&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037680">=&#62; ns@A</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=useNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="useNamespace"></a><a name="1037820">useNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037822">useNamespace(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_namespace<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1037823">Description</a></h4>
+      <p><a name="1037827">Sets the given namespace for use and imports its symbols into the current namespace. </a></p>
+      <h4><a name="1037828">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040705"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040707">Specify the name of the namespace that you want to use.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037830">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040725"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040727">Returns t when the given namespace is successfully set for use.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040729"><font color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040731">Returns nil if the given namespace is not set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037832">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040743">useNamespace(&#34;METHODS&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037833"> =&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=unuseNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="unuseNamespace"></a><a name="1040799">unuseNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040800">unuseNamespace(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_namespace<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040802">Description</a></h4>
+      <p><a name="1040804">Unsets the given namespace. </a></p>
+      <h4><a name="1040810">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040807"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040809">Specify the name of the namespace that you want to unset.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040820">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1040813"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1040815">Returns t when the given namespace is successfully unset for use.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040817"><font color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040819">Returns nil if the given namespace cannot be unset.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040821">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040822">unuseNamespace(&#34;METHODS&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040823"> =&#62; t</a></font>
+      </p>
+      <p><a name="1037869">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=importSymbol
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="importSymbol"></a><a name="1040907">importSymbol</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040909">importSymbol(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList<dd>[t_namespace]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040910">Description</a></h4>
+      <p><a name="1040904">Imports symbols into the given namespace. By default, this function imports into the </a><font size="2" face="'Courier New'" color="#000000">IL </font>(or default)<font size="2" face="'Courier New'" color="#000000"> </font>namespace.</p>
+      <h4><a name="1037943">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1037936"><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1037938">Specify a list of symbols that you want to import into the default namespace</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1037940"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1037942">(Optional). Specifies the name of the namespace into which you want to import the given symbols. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037944">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1041054">t</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1041056">Returns t if the symbols are successfully imported into the namespace (given or default). </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037946">Example</a></h4>
+      <p><a name="1041110"><font color="#000000">importSymbol(&#39;(A::level A::value))</font></a></p>
+      <p><a name="1037920"><font color="#000000"> =&#62; t</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=findSymbol
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="findSymbol"></a><a name="1041175">findSymbol</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041229">findSymbol(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_name<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000">?namespace</font><font size="2" face="'Courier New'" color="#000000"><em> t_namespace</em></font> ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1041351">Description</a></h4>
+      <p><a name="1041352"><font color="#000000">Searches for a symbol that is specified as a string in the given namespace and returns its corresponding SKILL symbol.</font></a></p>
+      <h4><a name="1037982">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041274"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041276">A string value to specify the name of the symbol you want to search for.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041278"><font size="2" face="'Courier New'" color="#000000">?namespace</font></a><font size="2" face="'Courier New'" color="#000000"><em> t_namespace</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041280">(Optional) The namespace in which you want to search for the symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037994">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041296"><font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041298">Returns the name of the symbol.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041300"><font color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041302">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if no such symbol exists in the namespace.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037996">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041423"><font color="#000000">&#62; (Namespace &#34;my&#34;)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041424"><font color="#000000">ns@my</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041425"><font color="#000000">&#62; &#39;my:::aaa</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041426"><font color="#000000">my:::aaa</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041427"><font color="#000000">&#62; (findSymbol &#34;aaa&#34; ?namespace &#34;my&#34;)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041428"><font color="#000000">my:::aaa</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041429"><font color="#000000">&#62; (findSymbol &#34;bbb&#34; ?namespace &#34;my&#34;)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041430"><font color="#000000">nil</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037997">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=addToExportList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="addToExportList"></a><a name="1038038">addToExportList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038041">addToExportList(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbols<dd></em></font>) <dd>=&#62; t</font>
+      </dl>
+      <h4><a name="1038042">Description</a></h4>
+      <p><a name="1038045">Adds the specified symbols to the namespace export list. This function does not throw any errors if a symbol is already exported. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1041531">You can export any symbol from your namespace.</a></p>
+      <h4><a name="1038046">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041543"><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041545">Specify the symbols that you want to add to the namespace export list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038048">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041563"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041565">Returns t when the specified symbols are successfully added to the namespace export list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038050">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041576">&#62; (addToExportList &#39;(newNameSpace:::aaa newNameSpace:::bbb))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041577">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041578">&#62; (useNamespace &#34;newNameSpace&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041579">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041580">&#62; (getSymbolNamespace &#39;aaa)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041581">ns@newNameSpace</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=getSymbolNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="getSymbolNamespace"></a><a name="1043029">getSymbolNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1043030">getSymbolNamespace(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_namespace</em></font></font>
+      </dl>
+      <h4><a name="1043031">Description</a></h4>
+      <p><a name="1043032">Returns the namespace where the symbol was created.</a></p>
+      <h4><a name="1043038">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1043035"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1043037">Specifies the name of the symbol for which you want to retrieve the namespace where the symbol was created</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038051">Values Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1043068"><font size="2" face="'Courier New'" color="#000000"><em>o_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1043070">Returns the namespace where the specified symbol was created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1043058">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1043098">getSymbolNamespace(&#39;car)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1043086"> =&#62; ns@IL</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=removeFromExportList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="removeFromExportList"></a><a name="1038078">removeFromExportList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038081">removeFromExportList(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1038082">Description</a></h4>
+      <p><a name="1038085">Removes symbols referenced in </a><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font> from the export list of its namespace. This function will not throw an error, if some of the symbols are not exported. If a symbol from <font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font> was imported by <font size="2" face="'Courier New'" color="#000000">useNamespace</font> it will not removed by <font size="2" face="'Courier New'" color="#000000">unuseNamespace</font>.</p>
+      <h4><a name="1038086">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041765"><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041767">Specifies the symbols that you want to remove from the export list of your namespace. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038088">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041783"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041785">Returns t when the referenced symbols are successfully removed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038090">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041833">&#62; (removeFromExportList &#39;(jane::aaa))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041834">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041835">&#62; (useNamespace &#34;jane&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041836">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041837">&#62; (getSymbolNamespace &#39;aaa)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041838">nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038093">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=addToNamespace
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="addToNamespace"></a><a name="1038133">addToNamespace</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038136">addToNamespace(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_namespaceName<dd>l_symbolList<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1038137">Description</a></h4>
+      <p><a name="1038139">Adds and imports the given list of symbol names to the export list of the namespace </a><font size="2" face="'Courier New'" color="#000000"><em>t_namespaceName</em></font>.</p>
+      <h4><a name="1041957">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042006"><font color="#000000">t_namespaceName</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042008">Specify the name of the namespace to which you want to add the given list of symbols.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041954"><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1041956">Specifies the symbols that you want to add to the export list of the specified namespace. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041963">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1041960"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1041962">Returns t when the list of symbols are successfully added.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038144">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041986">&#62; (addToNamespace &#34;A&#34; &#39;(&#34;a&#34; &#34;b&#34; &#34;c&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041987">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041988">&#62; (getSymbolNamespace &#39;a)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041989">ns@A</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038145">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=shadow
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="shadow"></a><a name="1038186">shadow</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038189">shadow(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbols<dd></em></font>[<font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font>] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1038190">Description</a></h4>
+      <p><a name="1038192">Adds symbols </a><font size="2" face="'Courier New'" color="#000000"><em>s_symbol</em></font> to the shadow list of the default namespace. The symbols which are added to the shadow list are not overridden by import.</p>
+      <h4><a name="1038193">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042347"><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042349">Specify a list of symbols to be protected in the default namespace.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044231"><font color="#000000">t_namespace</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044233">(Optional) Specify the namespace in which these symbols should be protected. The default value is the &#34;</a><font size="2" face="'Courier New'" color="#000000">IL</font>&#34; namespace.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038195">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042365"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042367">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> to indicate that the symbol was added to the shadow list of the current namespace.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038198">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044286">aaddToExportList(&#39;(p1:::x p1:::y p1:::z))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044287">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044288">addToExportList(&#39;(p2:::x p2:::y p2:::z))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044289">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044290">useNamespace(&#34;p1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044291">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044292">useNamespace(&#34;p2&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044293">*error* useNamespace symbol name conflict &#45; p2::x p2::y p2::z</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044294">unuseNamespace(&#34;p1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044296">shadow(shadow(&#39;x  y  z))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044297">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044298">useNamespace(&#34;p2&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044299">=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=shadowImport
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="shadowImport"></a><a name="1042152">shadowImport</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1048764">shadowImport(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>[t_namespace]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1048766">Description</a></h4>
+      <p><a name="1042156">Adds symbols to the namespace shadow list.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1049675">By default, all warnings related to namespaces are suppressed in the </a><font size="2" face="'Courier New'" color="#000000">shadowImport</font> function.</p>
+      <h4><a name="1038247">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042223"><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042225">Specify the list of symbols that you want to add to the shadow list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042227"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042229">(Optional) Specify the namespace of the shadow list to which you want to add the symbols. If you do not provide a namespace, the symbols are added to the shadow list of the default namespace,</a><font size="2" face="'Courier New'" color="#000000"> IL</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038249">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042245"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042247">Returns t when the symbols are successfully added to the namespace shadow list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038251">Example</a></h4>
+      <p><a name="1042304"><font color="#000000">shadowImport(&#39;(methods::drawPolygon))</font></a></p>
+      <p><a name="1038227"><font color="#000000"> =&#62; t</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=removeShadowImport
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="removeShadowImport"></a><a name="1042405">removeShadowImport</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1042406">shadowImport(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>[t_namespace]<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1042408">Description</a></h4>
+      <p><a name="1042410">Removes the specified symbols from the namespace shadow list.</a></p>
+      <h4><a name="1042420">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042413"><font size="2" face="'Courier New'" color="#000000"><em>l_symbols</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042415">Specify the list of symbols that you want to remove from the shadow list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042417"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1042419">(Optional) Specify the namespace of the shadow list from which you want to remove the symbols. If you do not provide a namespace, the symbols are removed from the shadow list of the default namespace,</a><font size="2" face="'Courier New'" color="#000000"> IL</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1042426">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1042423"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1042425">Returns t when the symbols are successfully removed from the namespace shadow list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1042427">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1042459">removeShadowImport(&#39;drawPolygon)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039969"> =&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=unimportSymbol
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="unimportSymbol"></a><a name="1044582">unimportSymbol</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1044596">unimportSymbol(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>t_namespace </em></font>]<dd>)<dd>=&#62; t</font>
+      </dl>
+      <h4><a name="1044623">Description</a></h4>
+      <p><a name="1044630">Unimports symbols from the given namespace. By default, this function unimports from the </a><font size="2" face="'Courier New'" color="#000000">IL</font> (or default) namespace.</p>
+      <h4><a name="1044674">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044681"><font size="2" face="'Courier New'" color="#000000"><em>l_symbolList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1044700">Specify a list of symbols that you want to unimport from the default namespace.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044685"><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044702">(Optional). Specifies the name of the namespace from which you want to unimport the given symbols. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044714">Values Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1044721"><font color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="1044723">Returns t, if successful</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044737">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044752">unimportSymbol(&#39;(A::level A::value))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044744"> =&#62; t</a></font>
+      </p>
+      <p><a name="1043513">&nbsp;</a></p>
+      <p><a name="1045205">&nbsp;</a></p>
+      <p><a name="1048399">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1049389">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="environment.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="appA.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

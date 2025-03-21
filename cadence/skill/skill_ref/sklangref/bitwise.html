@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 7</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="7">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="trigono.html">
+<META NAME="PageCount" CONTENT="12">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="arithmetic.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 7">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="arithmetic.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="trigono.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>7<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1037758">Bitwise Operator Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=band
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="band"></a><a name="1038671">band</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038674">band( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038675">Description</a></h4>
+      <p><a name="1038677">Returns the integer result of the Boolean AND operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&amp;</font> bitwise operator. </p>
+      <h4><a name="1038678">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043761"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043763">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043765"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043767">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043769"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043771">Optional additional operands to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038682">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043778"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043780">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038684">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038685">band(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 12<br>band(1 2 3 4 5)&nbsp;=&#62; 0</a></font>
+      </p>
+      <h4><a name="1038686">Reference</a></h4>
+      <p><a href="#1038878" title="7" name="1038653"><font color="#0000ff"><u>bnor</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bitfield
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bitfield"></a><a name="1038735">bitfield</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038738">bitfield( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_msb</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_lsb</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038739">Description</a></h4>
+      <p><a name="1038741">Returns the value of a specified set of bits of a specified integer. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#60;:&#62;</font> operator.</p>
+      <h4><a name="1038742">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043788"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043790">Integer for which you want to extract the value of a specified set of bits.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043792"><font size="2" face="'Courier New'" color="#000000"><em>x_msb</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043794">Leftmost bit of the set of bits to be extracted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043796"><font size="2" face="'Courier New'" color="#000000"><em>x_lsb</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043798">Rightmost bit of the set of bits to be extracted.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038746">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043805"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043807">Value of the set of bits.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038748">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038749">x = 0b1011<br>bitfield(x 2 0)&nbsp;=&#62; 3<br>bitfield(x 3 0)&nbsp;=&#62; 11</a></font>
+      </p>
+      <h4><a name="1038750">Reference</a></h4>
+      <p><a name="1038726">, </a><a href="#1039235" title="7"><font color="#0000ff"><u>setqbitfield1</u></font></a>, </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bitfield1
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bitfield1"></a><a name="1038786">bitfield1</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038789">bitfield1( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_bitPosition</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038790">Description</a></h4>
+      <p><a name="1038792">Returns the value of a specified bit of a specified integer. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#60;&#62;</font> operator. </p>
+      <h4><a name="1038793">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043815"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043817">Integer for which you want to extract the value of a specified bit.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043819"><font size="2" face="'Courier New'" color="#000000"><em>x_bitPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043821">Position of the bit whose value you want to extract.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038796">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043828"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043830">Value of a single bit.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038798">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038799">x = 0b1001<br>bitfield1(x 0)&nbsp;=&#62; 1<br>bitfield1(x 3)&nbsp;=&#62; 1</a></font>
+      </p>
+      <h4><a name="1038800">Reference</a></h4>
+      <p><a href="#1038735" title="7" name="1038778"><font color="#0000ff"><u>bitfield</u></font></a>, <a href="#1039235" title="7"><font color="#0000ff"><u>setqbitfield1</u></font></a>, </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bnand
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bnand"></a><a name="1038836">bnand</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038839">bnand( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038840">Description</a></h4>
+      <p><a name="1038842">Returns the integer result of the Boolean NAND operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">~&amp;</font> bitwise operator. </p>
+      <h4><a name="1038843">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043838"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043840">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043842"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043844">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043846"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043848">Optional additional operands to be evaluated. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038847">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043855"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043857">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038849">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038850">bnand(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;13<br>bnand(1 2 3 4 5)&nbsp;=&#62; &#45;1</a></font>
+      </p>
+      <h4><a name="1038851">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038671" title="7" name="1038860"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a> </font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bnor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bnor"></a><a name="1038878">bnor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038881">bnor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038882">Description</a></h4>
+      <p><a name="1038884">Returns the integer result of the Boolean NOR operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">~|</font> bitwise operator. </p>
+      <h4><a name="1038885">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043865"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043867">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043869"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043871">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043873"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043875">Optional additional operands to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038889">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043882"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043884">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038891">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038892">bnor(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;14<br>bnor(1 2 3 4 5)&nbsp;=&#62; &#45;8</a></font>
+      </p>
+      <h4><a name="1038893">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038671" title="7" name="1038905"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bnot
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bnot"></a><a name="1038920">bnot</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038923">bnot( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1038924">Description</a></h4>
+      <p><a name="1038926">Returns the integer result of the Boolean NOT operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">~</font> (one's complement) unary operator. </p>
+      <h4><a name="1038927">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043892"><font size="2" face="'Courier New'" color="#000000"><em>x_op</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043894">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038929">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043901"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043903">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038931">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038932">bnot(12)&nbsp;&nbsp;=&#62; &#45;13<br>bnot(&#45;12)&nbsp;=&#62; 11</a></font>
+      </p>
+      <h4><a name="1038933">Reference</a></h4>
+      <p><a href="#1038671" title="7" name="1038828"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bor"></a><a name="1039005">bor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039008">bor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039009">Description</a></h4>
+      <p><a name="1039011">Returns the integer result of the Boolean OR operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">|</font> bitwise operator. </p>
+      <h4><a name="1039012">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043911"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043913">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043915"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043917">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043919"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043921">Optional additional operands to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039016">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043928"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043930">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039018">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039019">bor(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 13<br>bor(1 2 3 4 5)&nbsp;=&#62; 7</a></font>
+      </p>
+      <h4><a name="1039020">Reference</a></h4>
+      <p><a href="#1038671" title="7" name="1038990"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bxnor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bxnor"></a><a name="1039068">bxnor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039071">bxnor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039072">Description</a></h4>
+      <p><a name="1039074">Returns the integer result of the Boolean XNOR operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">~&#94;</font> bitwise operator. </p>
+      <h4><a name="1039075">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043938"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043940">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043942"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043944">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043946"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043948">Optional additional operands to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039079">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043955"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043957">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039081">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039082">bxnor(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;2<br>bxnor(1 2 3 4 5)&nbsp;=&#62; &#45;2</a></font>
+      </p>
+      <h4><a name="1039083">Reference</a></h4>
+      <p><a href="#1038671" title="7" name="1039060"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bxor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bxor"></a><a name="1039138">bxor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039141">bxor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039142">Description</a></h4>
+      <p><a name="1039144">Returns the integer result of the Boolean XOR operation on each parallel pair of bits in each operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#94;</font> bitwise operator. </p>
+      <h4><a name="1039145">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043965"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043967">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043969"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043971">Operand to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043973"><font size="2" face="'Courier New'" color="#000000"><em>x_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043975">Optional additional operands to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039149">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043982"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043984">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039151">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039152">bxor(12 13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>bxor(1 2 3 4 5)&nbsp;=&#62; 1</a></font>
+      </p>
+      <h4><a name="1039153">Reference</a></h4>
+      <p><a href="#1038671" title="7" name="1039130"><font color="#0000ff"><u>band</u></font></a>, <a href="#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a>, <a href="#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setqbitfield
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setqbitfield"></a><a name="1039204">setqbitfield</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039207">setqbitfield( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_msb</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_lsb</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039208">Description</a></h4>
+      <p><a name="1039210">Sets a value into a set of bits in the bit field specified by the variable </a><font size="2" face="'Courier New'" color="#000000">s_var</font>, stores the new value back into the variable, and then returns the new value. Prefix form of the <font size="2" face="'Courier New'" color="#000000">&#60;:&#62;=</font> operator.</p>
+      <h4><a name="1039211">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1043992"><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1043994">Variable representing the bit field whose value is to be changed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043996"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1043998">New value of the bit.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044000"><font size="2" face="'Courier New'" color="#000000"><em>x_msb</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044002">Leftmost bit of the set of bits whose value is to be changed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044004"><font size="2" face="'Courier New'" color="#000000"><em>x_lsb</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044006">Rightmost bit of the set of bits whose value is to be changed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039216">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1044017"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1044019">New value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039218">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039219">x = 0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039220">setqbitfield(x 0b1001 3 0) =&#62; 9<br>x =&#62; 9</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039221">setqbitfield(x 1 2 1) =&#62; 11<br>x =&#62; 11</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039222">setqbitfield(x 0 3 2) =&#62; 3<br>x =&#62; 3</a></font>
+      </p>
+      <h4><a name="1039223">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039232">, </a><a href="#1038735" title="7"><font color="#0000ff"><u>bitfield</u></font></a>, <a href="#1039235" title="7"><font color="#0000ff"><u>setqbitfield1</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setqbitfield1
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setqbitfield1"></a><a name="1039235">setqbitfield1</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039238">setqbitfield1( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_bitPosition</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039239">Description</a></h4>
+      <p><a name="1039241">Sets a value into a single bit in the bit field specified by the variable </a><font size="2" face="'Courier New'" color="#000000">s_var</font>, stores the new value back into the variable, and then returns the new value. Prefix form of the <font size="2" face="'Courier New'" color="#000000">&#60;&#62;=</font> operator.</p>
+      <h4><a name="1039242">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1044034"><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1044036">Variable representing the bit field whose value is to be changed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044038"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044040">New value of the bit.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044042"><font size="2" face="'Courier New'" color="#000000"><em>x_bitPosition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044044">Position of the bit whose value you are changing.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039246">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1044051"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1044053">New value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039248">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039249">x = 0b1001<br>setqbitfield1(x 1 1) =&#62; 11<br>x =&#62; 11</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039250">setqbitfield1(x 1 2) =&#62; 15<br>x =&#62; 15</a></font>
+      </p>
+      <h4><a name="1039251">Reference</a></h4>
+      <p><a href="#1038735" title="7" name="1039196"><font color="#0000ff"><u>bitfield</u></font></a> </p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1043504">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="arithmetic.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="trigono.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

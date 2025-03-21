@@ -1,0 +1,1338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 11</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="11">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="inplacecoverobs.html">
+<META NAME="PageCount" CONTENT="16">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="figset.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbStartGenAnyInstToInstTerm(d_instId)=> I_genId,dbStartGenInstHeader(d_cellViewId)=> I_genId,dbStartGenInstHeaderToAnyInst(d_instHeaderId)=> I_genId,dbStartGenLPPHeaderToShape(d_LPPHeaderId)=> I_genId,dbStartGenLPToShape(d_cellViewIdl_layerPurpose)=> I_genId ,dbStartGenMarker(d_cellViewId)=> I_genId,dbStartGenNet(d_cellViewId)=> I_genId,dbStartGenNetToInstTerm(d_netId)=> I_genId,dbStartGenNetToRoute(d_netId)=> I_genId,dbStartGenRoute(d_cellViewId)=> I_genId,dbStartGenShape(d_cellViewId)=> I_genId,dbStartGenTerm(d_cellViewId)=> I_genId,dbStartGenViaHeader(d_cellViewId)=> I_genId,dbStartGenViaHeaderToVia(d_viaHeaderId)=> I_genId,dbStopGen(I_genId)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 11">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="figset.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="inplacecoverobs.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>11<a name="4774043">&nbsp;</a></h1>
+      <h1><a name="5445798">Generator Database Access Functions</a></h1>
+      <p><a name="generatorFunctions"></a><a name="5445800">This chapter describes the following generator database SKILL functions:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442081" title="11" name="5445804"><font color="#0000ff"><u>dbStartGenAnyInstToInstTerm</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442099" title="11" name="5442066"><font color="#0000ff"><u>dbStartGenInstHeader</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442117" title="11" name="5442067"><font color="#0000ff"><u>dbStartGenInstHeaderToAnyInst</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442135" title="11" name="5442068"><font color="#0000ff"><u>dbStartGenLPPHeaderToShape</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442153" title="11" name="5442069"><font color="#0000ff"><u>dbStartGenLPToShape</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442173" title="11" name="5442070"><font color="#0000ff"><u>dbStartGenMarker</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442191" title="11" name="5442071"><font color="#0000ff"><u>dbStartGenNet</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5443414" title="11" name="5442072"><font color="#0000ff"><u>dbStartGenNetToInstTerm</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442227" title="11" name="5442073"><font color="#0000ff"><u>dbStartGenNetToRoute</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442246" title="11" name="5442074"><font color="#0000ff"><u>dbStartGenRoute</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442267" title="11" name="5442075"><font color="#0000ff"><u>dbStartGenShape</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442285" title="11" name="5442076"><font color="#0000ff"><u>dbStartGenTerm</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442303" title="11" name="5442077"><font color="#0000ff"><u>dbStartGenViaHeader</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442321" title="11" name="5442078"><font color="#0000ff"><u>dbStartGenViaHeaderToVia</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5442340" title="11" name="5442079"><font color="#0000ff"><u>dbStopGen</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenAnyInstToInstTerm
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenAnyInstToInstTerm"></a><a name="5442081">dbStartGenAnyInstToInstTerm</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442082">dbStartGenAnyInstToInstTerm(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442086">Description</a></h4>
+      <p><a name="5442087">Returns a dbGenerator object that can be used to iterate over all instance terminals for the specified instance.</a></p>
+      <h4><a name="5442088">Arguments </a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442879"><font size="2" face="'Courier New'" color="#000000"><em>d_instId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442881">Database ID of an instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442090">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442888"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442890">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442092">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442093">gen1 = dbStartGenAnyInstToInstTerm(inst1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442094">while(instTermId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442095">;Use instTermId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442096">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442097">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444361">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444350">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenInstHeader
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenInstHeader"></a><a name="5442099">dbStartGenInstHeader</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442100">dbStartGenInstHeader(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442104">Description </a></h4>
+      <p><a name="5442105">Returns a dbGenerator object that can be used to iterate over all instance headers of the specified cellview.</a></p>
+      <h4><a name="5442106">Arguments </a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442898"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442900">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442108">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442907"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442909">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442110">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442111">gen1 = dbStartGenInstHeader(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442112">while(instHeaderId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442113">;Use instHeaderId in the code.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442114">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444384">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444385">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442116">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenInstHeaderToAnyInst
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenInstHeaderToAnyInst"></a><a name="5442117">dbStartGenInstHeaderToAnyInst</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442118">dbStartGenInstHeaderToAnyInst(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instHeaderId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442122">Description</a></h4>
+      <p><a name="5442123">Returns a dbGenerator object that can be used to iterate over all instances of the specified instance header.</a></p>
+      <h4><a name="5442124">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442917"><font size="2" face="'Courier New'" color="#000000"><em>d_instHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442919">Database ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442126">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5443048"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5443050">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442128">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442129">gen1 = dbStartGenInstHeaderToAnyInst(instHeader1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442130">while(instId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442131">;Use instId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442132">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444399">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444400">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442134">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenLPPHeaderToShape
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenLPPHeaderToShape"></a><a name="5442135">dbStartGenLPPHeaderToShape</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442136">dbStartGenLPPHeaderToShape(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_LPPHeaderId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442139">Description</a></h4>
+      <p><a name="5442140">Returns a dbGenerator object that can be used to iterate over all shapes of the specified cellview and layer&#45;purpose pair (LPP) header.</a></p>
+      <h4><a name="5442141">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442927"><font size="2" face="'Courier New'" color="#000000"><em>d_LPPHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442929">Database ID of an LPP header ID.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442143">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442936"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442938">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442145">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442146">lpp1 = car(cellview1~&#62;lpps)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442147">gen1 = dbStartGenLPPHeaderToShape(lpp1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442148">while(shapeId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442648">;Use shapeId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442649">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444414">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444415">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442152">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenLPToShape	
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenLPToShape"></a><a name="dbStartGenLPToShape"></a><a name="5442153">dbStartGenLPToShape	</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442154">dbStartGenLPToShape(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd>l_layerPurpose<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font> </font>
+      </dl>
+      <h4><a name="5442158">Description</a></h4>
+      <p><a name="5442159">Returns a dbGenerator object that can be used to iterate over all shapes of the specified cellview and layer&#45;purpose pair (LPP).</a></p>
+      <h4><a name="5442160">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442946"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442948">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5442950"><font size="2" face="'Courier New'" color="#000000"><em>l_layerPurpose</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5442952">Specifies the of layer&#45;purpose pair.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442163">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442959"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442961">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442165">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442166">lpp1 = car(cellview~&#62;shapes~&#62;lpp)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442167">gen1 = dbStartGenLPToShape(lpp1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442168">while(shapeId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442169">;Use shapeId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442170">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444429">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444430">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442172">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenMarker
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenMarker"></a><a name="5442173">dbStartGenMarker</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442174">dbStartGenMarker(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442178">Description</a></h4>
+      <p><a name="5442179">Returns a dbGenerator object that can be used to iterate over all markers of the specified cellview.</a></p>
+      <h4><a name="5442180">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442969"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442971">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442182">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442978"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442980">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442184">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442185">gen1 = dbStartGenMarker(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442186">while(markerId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442187">;Use markerId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442188">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444444">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444445">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442190">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenNet
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenNet"></a><a name="5442191">dbStartGenNet</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442192">dbStartGenNet(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442196">Description</a></h4>
+      <p><a name="5442197">Returns a dbGenerator object that can be used to iterate over all nets of the specified cellview.</a></p>
+      <h4><a name="5442198">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442988"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442990">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442200">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442997"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442999">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442202">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442203">gen1 = dbStartGenNet(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442204">while(netId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442205">;Use netId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442206">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444459">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444460">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442208">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenNetToInstTerm
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenNetToInstTerm"></a><a name="5443414">dbStartGenNetToInstTerm</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5443415">dbStartGenNetToInstTerm(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_netId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442214">Description</a></h4>
+      <p><a name="5442215">Returns a dbGenerator object that can be used to iterate over all instance terminals of the specified net.</a></p>
+      <h4><a name="5442216">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442710"><font size="2" face="'Courier New'" color="#000000"><em>d_netId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442712">Database ID of a net.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442218">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5443007"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5443009">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442220">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442221">gen1 = dbStartGenNetToInstTerm(net1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442222">while(instTermId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442223">;Use instTermId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442224">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444474">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444475">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442226">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenNetToRoute
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenNetToRoute"></a><a name="5442227">dbStartGenNetToRoute</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442228">dbStartGenNetToRoute(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_netId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5444821">Description</a></h4>
+      <p><a name="5444822">Returns a dbGenerator object that can be used to iterate over all routes of the specified net.</a></p>
+      <h4><a name="5444828">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5444825"><font size="2" face="'Courier New'" color="#000000"><em>d_netId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5444827">Database ID of a net</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442725">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442739"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442741">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442238">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442239">gen1 = dbStartGenNetToRoute(net1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442240">while(routeId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442241">;Use routeId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442242">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444489">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444490">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442244">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenRoute
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5442246">dbStartGenRoute</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442247">dbStartGenRoute(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442251">Description</a></h4>
+      <p><a name="5444869">Returns a dbGenerator object that can be used to iterate over all routes of the specified cellview.</a></p>
+      <h4><a name="5444875">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5444872"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5444874">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442762">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442778"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442780">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442257">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442258">gen1 = dbStartGenRoute(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442259">while(routeId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442260">;Use routeId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442261">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444504">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444505">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442263">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenShape
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenShape"></a><a name="5442267">dbStartGenShape</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442268">dbStartGenShape(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442272">Description</a></h4>
+      <p><a name="5442273">Returns a dbGenerator object that can be used to iterate over all shapes of the specified cellview.</a></p>
+      <h4><a name="5442274">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442794"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442796">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442276">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5443023"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5443025">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442278">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442279">gen1 = dbStartGenShape(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442280">while(shapeId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442281">;Use shapeId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442282">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444519">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444520">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442284">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenTerm
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenTerm"></a><a name="5442285">dbStartGenTerm</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442286">dbStartGenTerm(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442290">Description</a></h4>
+      <p><a name="5442291">Returns a dbGenerator object that can be used to iterate over all terms of the specified cellview.</a></p>
+      <h4><a name="5442292">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442803"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442805">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442294">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5443033"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5443035">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442296">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442297">gen1 = dbStartGenTerm(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442298">while(termId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442299">;Use termId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442300">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444534">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444535">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442302">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenViaHeader
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenViaHeader"></a><a name="5442303">dbStartGenViaHeader</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442304">dbStartGenViaHeader(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442308">Description</a></h4>
+      <p><a name="5442309">Returns a dbGenerator object that can be used to iterate over all via headers of the specified cellview.</a></p>
+      <h4><a name="5442310">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442813"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442815">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442312">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442822"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442824">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442314">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442315">gen1 = dbStartGenViaHeader(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442316">while(viaHeaderId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442317">;Use viaHeaderId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442318">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444549">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444550">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442320">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStartGenViaHeaderToVia
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStartGenViaHeaderToVia"></a><a name="5442321">dbStartGenViaHeaderToVia</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442322">dbStartGenViaHeaderToVia(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_viaHeaderId<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></font>
+      </dl>
+      <h4><a name="5442327">Description</a></h4>
+      <p><a name="5442328">Returns a dbGenerator object that can be used to iterate over all via of the specified via header.</a></p>
+      <h4><a name="5442329">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442832"><font size="2" face="'Courier New'" color="#000000"><em>d_viaHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442834">Database ID of a via header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442331">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442841"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442843">ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442333">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442334">gen1 = dbStartGenViaHeaderToVia(viaHeader1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442335">while(viaId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442336">;Use viaId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442337">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444564">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444565">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442339">dbStopGen(gen1)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbStopGen
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbStopGen"></a><a name="5442340">dbStopGen</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5442341">dbStopGen(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>I_genId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5445002">Description</a></h4>
+      <p><a name="5445003">Forces a dbGenerator object reference to close and removes it from virtual memory.</a></p>
+      <h4><a name="5445009">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5445006"><font size="2" face="'Courier New'" color="#000000"><em>I_genId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5445008">Specifies ID of a dbGenerator object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442349">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5442863"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5442865">dbGenerator is closed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5442867"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5442869">dbGenerator is not closed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5442352">Example </a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442353">gen1 = dbStartGenNet(cellview1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442354">while(netId = gen1~&#62;next</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442355">;Use netId in the code</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442356">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444579">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444580">; Close dbGenerator object reference and remove it from virtual memory</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5442358">dbStopGen(gen1)</a></font>
+      </p>
+      <p><a name="5445502">&nbsp;</a></p>
+      <p><a name="5446938">&nbsp;</a></p>
+      <p><a name="5447803">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="5448672">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="figset.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="inplacecoverobs.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,2830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 4</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="4">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="connect.html">
+<META NAME="PageCount" CONTENT="46">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="cvio.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbCheckParamCell( d_cellViewId) => t / nil,dbCreateExtParamInst(d_cellViewd_mastert_namel_pointt_orient[ x_numInst[ l_params[ g_physOnly ] ] ])=> d_inst / nil,dbCreateExtParamInstByMasterName(d_cellViewt_libNamet_cellNamet_viewNamet_namel_origint_orient[ x_numInst[ l_params[ g_physOnly ] ] ])=> d_inst / nil,dbCreateInst( d_cellView d_master t_name l_point t_orient [ x_stopIndex ] [ g_physOnly]) => d_inst / nil ,dbCreateInstByMasterName( d_cellView t_libName t_cellName t_viewName t_instName l_origin t_orient [ x_numInst ] [ g_physOnly ] ) => d_inst / nil ,dbCreateParamInst( d_cellView d_master t_name l_point t_orient [ x_numInst [ l_params [ g_physOnly ] ] ]) => d_inst / nil ,dbCreateParamInstByMasterName( d_cellView t_libName t_cellName t_viewName t_name l_origin l_orient [ x_numInst [ l_params [ g_physOnly ] ] ]) => d_inst / nil ,dbCreateViaShapeArray( d_techCVId g_viaLayer [ d_netId ] f_x f_y f_xPitch f_yPitch f_w f_length x_row x_column ) => l_xy / nil,dbCreateXformPCell( d_cellViewId t_libName ) => d_cellViewId / nil,dbDumpPcDefinePcell(d_cellViewId t_pCellFile)=> t / nil,dbDumpPcell( d_cvId t_outputFilet_pCellFile ) => t / nil ,dbDumpPcellWithLib( d_cvId t_outputFilet_pCellFile ) => t / nil ,dbEvalParamCell( d_cellViewId) => t / nil,dbFindAnyInstByName( d_cellView t_name ) => d_inst / nil ,dbFindMemInstByName( d_cellView t_name ) => ( d_inst x_index ) / nil ,dbFixParamCell( d_cellViewIdt_fileName) => t / nil,dbGetCellViewEEQMaster( d_cellView )=> t_EEQMaster / nil,dbGetCellViewSymmetry( d_cellView )=> t_symmetry / nil,dbGetHierPathTransform( l_dbInstId ) => x_InstTransform,dbGetInstByName( d_cellView t_name ) => d_inst / nil ,dbGetInstNameNumInst( t_name ) => x_numInst / nil ,dbGetInstTransform( l_dbInstId) => x_InstTransform,dbGetInstanceByName( d_cellView t_name ) => d_inst / nil ,dbHasInstance( d_cellViewId) => t / nil,dbIsAnyInstBaseNameUsed( d_cellView t_name ) => t / nil ,dbIsCellViewModified( d_cellViewId) => t / nil,dbIsInstTransparent(d_instanceId)=> t / nil,dbIsObjectBound( g_object) => t / nil ,dbIsSameMaster( d_anyInst1 d_anyInst2 ) => t / nil ,dbReplaceInstParamList( d_instIdl_paramList) => t / nil,dbReplaceParam( d_cellViewIdt_namet_typeg_value) => d_prop / nil,dbSetCellViewEEQMaster( d_cellView t_EEQMaster )=> t / nil,dbSetCellViewSymmetry( d_cellViewID t_symmetry)=> t / nil,dbSetInstHeaderMasterName( d_instHeader t_libName t_cellName t_viewName ) => t / nil ,dbSetInstTransparentd_instanceIdg_transparent)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 4">
+<META NAME="TopicTags" CONTENT="FALSE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="cvio.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="connect.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>4<a name="4774043">&nbsp;</a></h1>
+      <h1><a name="5408458">Instance Creation and Retrieval Database Access Functions</a></h1>
+      <p><a name="Instance Creation and Retrieval Functions"></a><a name="5408461">The following functions create and retrieve instances and their attributes from the database.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015454" title="4" name="5408465"><font color="#0000ff"><u>dbCreateInst</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015474" title="4" name="5408297"><font color="#0000ff"><u>dbCreateParamInst</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#3168451" title="4" name="5408208"><font color="#0000ff"><u>dbCreateExtParamInst</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#3169085" title="4" name="5408210"><font color="#0000ff"><u>dbCreateExtParamInstByMasterName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1044396" title="4" name="5408212"><font color="#0000ff"><u>dbCreateXformPCell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035829" title="4" name="5408214"><font color="#0000ff"><u>dbDumpPcDefinePcell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1044549" title="4" name="5408216"><font color="#0000ff"><u>dbCheckParamCell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1932263" title="4" name="5408218"><font color="#0000ff"><u>dbEvalParamCell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1061570" title="4" name="5408220"><font color="#0000ff"><u>dbFixParamCell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1932532" title="4" name="5408222"><font color="#0000ff"><u>dbHasInstance</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1065819" title="4" name="5408224"><font color="#0000ff"><u>dbIsCellViewModified</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1044720" title="4" name="5408226"><font color="#0000ff"><u>dbReplaceParam</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#3215072" title="4" name="5408228"><font color="#0000ff"><u>dbReplaceInstParamList</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015496" title="4" name="5408230"><font color="#0000ff"><u>dbFindAnyInstByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1015515" title="4" name="5408232"><font color="#0000ff"><u>dbFindMemInstByName</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1997333" title="4" name="5408234"><font color="#0000ff"><u>dbGetHierPathTransform</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1997317" title="4" name="5408236"><font color="#0000ff"><u>dbGetInstByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1033771" title="4" name="5408238"><font color="#0000ff"><u>dbGetInstanceByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1033044" title="4" name="5408240"><font color="#0000ff"><u>dbGetInstNameNumInst</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1996962" title="4" name="5408242"><font color="#0000ff"><u>dbGetInstTransform</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1997291" title="4" name="5408244"><font color="#0000ff"><u>dbIsAnyInstBaseNameUsed</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015568" title="4" name="5408246"><font color="#0000ff"><u>dbCreateInstByMasterName</u></font></a> </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036963" title="4" name="5408248"><font color="#0000ff"><u>dbCreateParamInstByMasterName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036292" title="4" name="5408250"><font color="#0000ff"><u>dbDumpPcell</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1036305" title="4" name="5408252"><font color="#0000ff"><u>dbDumpPcellWithLib</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#4625616" title="4" name="5408254"><font color="#0000ff"><u>dbCreateViaShapeArray</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015614" title="4" name="5408256"><font color="#0000ff"><u>dbSetInstHeaderMasterName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1015632" title="4" name="5408258"><font color="#0000ff"><u>dbIsSameMaster</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1035692" title="4" name="5408260"><font color="#0000ff"><u>dbIsObjectBound</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1082763" title="4" name="5408262"><font color="#0000ff"><u>dbGetCellViewSymmetry</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1082881" title="4" name="5408264"><font color="#0000ff"><u>dbSetCellViewSymmetry</u></font></a> </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#2175458" title="4" name="5408266"><font color="#0000ff"><u>dbGetCellViewEEQMaster</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5415119" title="4" name="5408268"><font color="#0000ff"><u>dbSetCellViewEEQMaster</u></font></a> </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5439996" title="4" name="5444441"><font color="#0000ff"><u>dbIsInstTransparent</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5434825" title="4" name="5444505"><font color="#0000ff"><u>dbSetInstTransparent</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h3><a name="dbCreateInst"></a><a name="1015454">dbCreateInst </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5429746">dbCreateInst( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView <dd>d_master <dd>t_name <dd>l_point <dd>t_orient <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_stopIndex</em></font> ] <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015458">Description</a></h4>
+      <p><a name="1015460">Creates an instance (of cellview </a><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font>) in the cellview <font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> with an origin and orientation specified by <font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font>.</p>
+      <h4><a name="5410860">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410873"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5410875">Cellview where the instance is placed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410877"><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410879">Master cellview of the instance to be created.<br>This parameter must be a super master; use of a submaster can cause unexpected behavior.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410881"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410883">If specified, the instance is named by </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font>; if <font size="2" face="'Courier New'" color="#000000">nil</font> the program assigns a unique name to the instance. <font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> can be a unique name, such as &#34;<font size="2" face="'Courier New'" color="#000000">Inst1</font>&#34; or, a hierarchy name, such as <font size="2" face="'Courier New'" color="#000000">&#34;moduleA`moduleB`Inst&#34; </font>with at least one hierarchy delimiter (`).<font size="2" face="'Courier New'" color="#000000"> </font>It must obey the syntax of instance names as defined at the beginning of this chapter.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410885"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410887">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410889"><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410891">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410893"><font size="2" face="'Courier New'" color="#000000"><em>x_stopIndex </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5429884">Number of instances; When specified and when its value is greater than </a><font size="2" face="'Courier New'" color="#000000">0</font>, the starting index value is <font size="2" face="'Courier New'" color="#000000">0</font>, and therefore, the resulting width of the instance is <font size="2" face="'Courier New'" color="#000000">stopIndex +1</font>. </p>
+            <p><a name="5429850">Default value: </a><font size="2" face="'Courier New'" color="#000000">&#39;nil</font></p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="5429843">If </a><font size="2" face="'Courier New'" color="#000000">t_name</font> is given, any value specified by <font size="2" face="'Courier New'" color="#000000"><em>x_ stopIndex</em></font> is overridden. (that is, the number of instances is derived from the name, instead of being taken from the <font size="2" face="'Courier New'" color="#000000"><em>x_ stopIndex</em></font> argument).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410897"><font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410899">Optional boolean argument that specifies whether cellview data is physical or both physical and logical. A cellview may contain both physical and logical data when it contains EMH type data. When </a><font size="2" face="'Courier New'" color="#000000">t</font>, the cellview is physical only. Default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5410868">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410912"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5410914">The </a>dbObject of the instance.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410916"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410918">The instance is not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015471">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015472">dbCreateInst</a><font size="2" face="'Courier New'" color="#000000">(inCellView masterCV &#34;inst1&#34; list(0 0) &#34;R0&#34; 1)</font></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1188415">dbCreateInst(inCellView masterDesign </a><font size="2" face="'Courier New'" color="#000000">&#34;A2`B2`Ins3&#34; list(0 0) &#34;R0&#34;)</font></font>
+      </p>
+      <h3><a name="dbCreateParamInst"></a><a name="1015474">dbCreateParamInst </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1309321">dbCreateParamInst( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_params <dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_physOnly </em></font>] ] ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015478">Description</a></h4>
+      <p><a name="1015480">Creates a parameterized cell instance (of cellview </a><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font>) in the cellview <font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> with an origin and orientation specified by <font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font>. </p>
+      <p><a name="1015481">The values and types of the parameters for this instance may be optionally specified in </a><font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font>. Parameters not specified in <font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font> are defaulted to the ones defined in the master cellview <font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font>. Similarly, if <font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font> is not specified, the instance is created with the same parameters defined in its master. </p>
+      <h4><a name="5410971">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410985"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5410987">Cellview the instance is placed in.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410989"><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410991">Parameterized cell master cellview of the instance to create. This parameter must be a super master; use of a submaster can cause unexpected behavior.The rest of the arguments are identical to those of </a><font size="2" face="'Courier New'" color="#000000">dbCreateInst</font> except <font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410993"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410995">If specified, the instance is named by </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font>; if <font size="2" face="'Courier New'" color="#000000">nil</font> the program assigns a unique name to the instance. <font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> must obey the syntax of instance names as defined at the beginning of this chapter.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410997"><font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410999">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411001"><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411003">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411005"><font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411007">Number of instances; if </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> is given, it overrides any value specified by <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> (that is, the number of instances is derived from the name instead of taken from the <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> argument). If not specified, the default is one.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411009"><font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411011">List of </a><font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font>, where <font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font> is <font size="2" face="'Courier New'" color="#000000"><em>list(t_propName t_propType</em></font> <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font>). </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411013"><font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411015">Optional boolean argument that specifies whether the instance is only in physical domain when the argument is </a><font size="2" face="'Courier New'" color="#000000">t</font>; or it is in both physical and module domain when the argument is <font size="2" face="'Courier New'" color="#000000">nil</font>. Default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5410980">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411025"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411027">The </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the instance.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411029"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411031">The instance is not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015493">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015494">dbCreateParamInst</a><font size="2" face="'Courier New'" color="#000000">(inCellView masterCV &#34;inst1&#34; list(0 0) &#34;R0&#34; 1 list(list(&#34;w&#34;<br>&#34;float&#34; 2.0) list(&#34;l&#34; &#34;float&#34; 5.0) t))</font></font>
+      </p>
+      <h3><a name="dbCreateExtParamInst"></a><a name="3168451">dbCreateExtParamInst</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="3168479">dbCreateExtParamInst(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>d_master<dd>t_name<dd>l_point<dd>t_orient<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_numInst<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>l_params<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font> ] ] ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="3168463">Description</a></h4>
+      <p><a name="3168464">Creates a parameterized cell instance (of cellview d_master) in the cellview d_cellView with an origin and orientation specified by l_point and t_orient.  The parameters in the l_params list may be CDF parameters whose values match the CDF parameter defaults.</a></p>
+      <h4><a name="3168604">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="3168684"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="3168632">Cellview in which the instance is placed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168615"><font size="2" face="'Courier New'" color="#000000"><em>d_master</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168651">Parameterized cell master cellview of the instance that is to be created.</a></p>
+            <p><a name="3168652">This parameter must be a super master; use of a submaster can cause unexpected behavior.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168619">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168621">The parametrized cell instance is named by t_name; if nil the program assigns a unique name to the instance. t_name must obey the syntax of instance names as defined at the beginning of this chapter. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168840">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168758">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168748">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168783">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>x_numinst</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168744">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168797">(Optional) Number of instances; if t_name is given, it overrides any value specified by x_numInst (that is, the number of instances is derived from the name instead of taken from the x_numInst argument). If not specified, the default is one.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168740">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168811">(Optional) Specifies a list of l_param, where l_param is list(t_propName t_propType g_value). If l_params is not specified the default is nil.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>g_physonly</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="3168834">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168836">(Optional) Specifies whether cellview data is physical or both physical and logical. A cellview may contain both physical and logical data when it contains EMH type data. When t, the cellview is physical only. Default is nil.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="3168443">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="3168987"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="3168955">Returns dbObject of the instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168945"><font size="2" face="'Courier New'" color="#000000"><em>nil</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3168947">Returns nil if the instance is not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="3169019">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="3169020">i3 = dbCreateExtParamInst(cell master &#34;I3&#34; 0:0 &#34;R0&#34; 1 list(list(&#34;aInt&#34; &#34;int&#34; 11)) t)</a></font>
+      </p>
+      <h3><a name="dbCreateExtParamInstByMasterName"></a><a name="3169085">dbCreateExtParamInstByMasterName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="3169197">dbCreateExtParamInstByMasterName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>t_libName<dd>t_cellName<dd>t_viewName<dd>t_name<dd>l_origin<dd>t_orient<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>x_numInst<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>l_params<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font> ] ] ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="3169088">Description</a></h4>
+      <p><a name="5431037">Creates an instance of the specified Pcell master in the specified cellview. The parameters in the parameter list may be CDF parameters. In this case, for each parameter the function creates an explicit local user property on the instance, even if its value is the same as the default on the master.</a></p>
+      <h4><a name="5431079">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5431040"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5431042">Cellview in which the instance is created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431044"><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431046">Library name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431048"><font size="2" face="'Courier New'" color="#000000"><em>t_cellName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431050">Cell name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431052"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431054">View name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431056">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431058">Name of the new Pcell instance. If </a><font size="2" face="'Courier New'" color="#000000">nil</font> the program assigns a unique name to the instance. The name must obey the syntax of instance names as defined at the beginning of this chapter. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431060">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431062">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431064">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431066">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>x_numinst</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431068">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431070">(Optional) Number of instances; if </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> is given, it overrides any value specified by <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> (that is, the number of instances is derived from the name instead of taken from the <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> argument). If not specified, the default is one.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431072">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431074">(Optional) Specifies a list of </a><font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font>, where <font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font> is <font size="2" face="'Courier New'" color="#000000">list(</font><font size="2" face="'Courier New'" color="#000000"><em>t_propName t_propType g_value</em></font>). If <font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font> is not specified the default is nil.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>g_physonly</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5431076">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431078">(Optional) Specifies whether cellview data is physical or both physical and logical. A cellview may contain both physical and logical data when it contains EMH type data. When </a><font size="2" face="'Courier New'" color="#000000">t</font>, the cellview is physical only. Default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5431089">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5431082"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5431084">Database ID of the instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431086"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5431088">The instance was not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="3169136">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="3168931">dbCreateExtParamInstByMasterName(cvId &#34;libMaster&#34; &#34;cellMaster&#34; &#34;viewMaster&#34; &#34;I1&#34; 0:0 &#34;R0&#34; 1list(list(&#34;aa&#34; &#34;int&#34; 9) list(&#34;bb&#34; &#34;string&#34; &#34;right&#34;)))</a></font>
+      </p>
+      <p><a name="3169374">Creates the Pcell instance </a><font size="2" face="'Courier New'" color="#000000">I1</font> of the specified Pcell master (<font size="2" face="'Courier New'" color="#000000">&#34;libMaster&#34; &#34;cellMaster&#34; &#34;viewMaster&#34;</font>) in the cellview <font size="2" face="'Courier New'" color="#000000">cvId</font> with the specified parameters.</p>
+      <h3><a name="dbCreateXformPCell"></a><a name="1044396">dbCreateXformPCell </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1044398">dbCreateXformPCell( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId <dd>t_libName <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1044399">Description</a></h4>
+      <p><a name="1044401">Creates a new Pcell supermaster with the additional parameters: </a><font size="2" face="'Courier New'" color="#000000"><em>mag</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>angle</em></font> . The new Pcell is used in emulating magnification and any&#45;angle rotation of instances. If the source cellview is <font size="2" face="'Courier New'" color="#000000">maskLayout</font>, the Pcell cell name will be the same as that of the source cellview, with <font size="2" face="'Courier New'" color="#000000">_xform</font> appended to it, otherwise, the viewName will be similarly renamed.<br>This Pcell creates an instance of the source cellview, flattens it, and then transforms all the resultant shapes by the added parameters <font size="2" face="'Courier New'" color="#000000"><em>mag</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>angle</em></font>.<br>If the Pcell super master already exists, it is opened read&#45;only, and the ID is returned.</p>
+      <h4><a name="1044411">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1044404"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1044406">The database cellview ID. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044408"><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5444535">The name of the alternate library.</a></p>
+            <p><a name="1044410">This argument is useful when the source library that contains the source cellview is not writable. In this case, the transformed Pcell is created in the alternate library specified by this argument.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044421">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1044414"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1044416">The Pcell super master cellview ID that was created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044418"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044420">An error occurred.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbDumpPcDefinePcell"></a><a name="1035829">dbDumpPcDefinePcell</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1035831">dbDumpPcDefinePcell(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId <dd>t_pCellFile<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1035832">Description</a></h4>
+      <p><a name="1035834">Writes out three lists to the file specified: The first list is a list of library names, cell names, and view names of the given cellview ID; the second list is of the parameter value; the last list is the SKILL procedure attached to the given cellview ID.</a></p>
+      <h4><a name="1035835">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411046"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411048">The cellview ID. Must be a parameterized cell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411050"><font size="2" face="'Courier New'" color="#000000"><em>t_pCellFile</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411052">Name of the output file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035838">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411061"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411063">The output file is successfully created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411065"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411067">With warning messages if any errors are encountered.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbCheckParamCell"></a><a name="1044549">dbCheckParamCell</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1932292">dbCheckParamCell( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1932299">Description</a></h4>
+      <p><a name="1932374">Checks if the specified cellview is a valid parameterized cell. If there was an error during the reading, binding, or evaluation of the specified cellview, a description of the error is returned.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5429643">Errors are returned by printing messages to CIW and by placing a string property named </a><font size="2" face="'Courier New'" color="#000000"><em>errorDesc</em></font> in the subMasters that had evaluation issues. The value of the string property is the error message.</p>
+      <h4><a name="1932419">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1932422"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1932424">The database cellview ID. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1932432">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1932435"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1932437">The specified cellview is a valid parameterized cell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932439"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932791">The specified cellview is not a valid parameterized cell.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1932818">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1932819">dbCheckParamCell(pcell)</a></font>
+      </p>
+      <h3><a name="dbEvalParamCell"></a><a name="1932263">dbEvalParamCell</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1044551">dbEvalParamCell( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1044552">Description</a></h4>
+      <p><a name="5411096">Evaluates the supermaster; the parameters on all the instance headers are fixed, and the submasters are evaluated.</a></p>
+      <h4><a name="5411102">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="5411099"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5411101">The database cellview ID. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5411112">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="5411105"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5411107">The super master is successfully evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411109"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411111">The function is not successfully executed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbFixParamCell"></a><a name="1061570">dbFixParamCell</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1932565">dbFixParamCell( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd>t_fileName<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1932566">Description</a></h4>
+      <p><a name="1932637">Fixes the parameterized cell for which the reading, binding, or evaluation has failed, by re&#45;defining it with a different SKILL procedure defined in </a><font size="2" face="'Courier New'" color="#000000">t_fileName</font>.</p>
+      <h4><a name="1932663">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1932666"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1932668">The cellview for which the reading, binding, or evaluation has failed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932670"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932672">The source file that contains the SKILL procedure used in the re&#45;definition.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1932713">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1932716"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1932718">The re&#45;definition succeeded.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932720"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1932722">The re&#45;definition did not succeed or there was nothing to fix.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1932844">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1932865">dbFixParamCell(pcell &#34;newPcell.il&#34;)</a></font>
+      </p>
+      <h3><a name="dbHasInstance"></a><a name="1932532">dbHasInstance</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1061572">dbHasInstance( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1061573">Description</a></h4>
+      <p><a name="1061575">Checks whether the specified cellview contains any instances.</a></p>
+      <h4><a name="1061581">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1061578"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1061580">The database cellview ID. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1061591">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1061584"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1061586">The cellview contains instances.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1061588"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1061590">The cellview does not contain instances.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbIsCellViewModified"></a><a name="1065819">dbIsCellViewModified </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1065821">dbIsCellViewModified( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1065822">Description</a></h4>
+      <p><a name="1065824">Checks whether the specified cellview has been modified since the last open or last save. </a></p>
+      <p><a name="1065894">When all changes to a cellview have been undone using the </a><font color="#000000"><em>Undo</em></font> command, the <font size="2" face="'Courier New'" color="#000000">dbIsCellViewModified</font> function returns <font size="2" face="'Courier New'" color="#000000">nil</font>. </p>
+      <h4><a name="1065830">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1065827"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1065829">The database cellview ID. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1065840">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1065833"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1065835">The cellview has been modified.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065837"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065839">The cellview has not been modified.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbReplaceParam"></a><a name="1044720">dbReplaceParam</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1044722">dbReplaceParam( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId<dd>t_name<dd>t_type<dd>g_value<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_prop </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1044723">Description</a></h4>
+      <p><a name="1044725">Add or modifies a cellview parameter if the cellview is a Pcell super master. If the cellview is not a super master, </a><font size="2" face="'Courier New'" color="#000000">dbReplaceParam</font> gives a warning stating that it cannot define a parameter for a non super master, and quits.<br>This function is only used on Pcell super master cellviews. </p>
+      <h4><a name="1044743">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1044728"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1044730">The cellview whose parameter is to be changed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044732"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044734">The name of the parameter.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044736"><font size="2" face="'Courier New'" color="#000000"><em>t_type</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044738">The type of the parameter.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044740"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044742">The value of the parameter.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044753">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1044746"><font size="2" face="'Courier New'" color="#000000"><em>d_prop</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1044748">The property ID of the replaced parameter.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044750"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1044752">The parameter was not successfully replaced.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="5443694">&nbsp;</a></p>
+      <h3><a name="dbReplaceInstParamList"></a><a name="3215072">dbReplaceInstParamList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="3215074">dbReplaceInstParamList( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instId<dd>l_paramList<dd></em></font>) <dd>=&#62; t<font size="2" face="'Courier New'" color="#000000"><em> </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="3215075">Description</a></h4>
+      <p><a name="3215077">Atomically replaces all the Pcell instance parameters with the given parameter list. The resulting Pcell subMaster is evaluated only once.</a></p>
+      <h4><a name="3215078">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="3215081"><font size="2" face="'Courier New'" color="#000000"><em>d_instId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="3215083">Specifies the ID of the Pcell instance whose parameters are to be changed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3215085"><font size="2" face="'Courier New'" color="#000000"><em>l_paramList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3215087">Specifies the list of parameters to be replaced.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="3215089">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="3215092"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="3215094">The instance parameter list was successfully replaced.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3215096"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="3215098">The parameter was not successfully replaced.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="3215100">Example</a>Example</h4>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5432827">dbReplaceInstParamList(pInst1 list(list(&#34;metal2Layer&#34; &#34;string&#34; &#34;Metal5&#34;) list(&#34;boolVal1&#34; &#34;boolean&#34; nil) list(&#34;intLength&#34; &#34;integer&#34; 10)))</a></font>
+      </blockquote>
+      <p><a name="5444866">&nbsp;</a></p>
+      <h3><a name="dbFindAnyInstByName"></a><a name="1015496">dbFindAnyInstByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015499">dbFindAnyInstByName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015500">Description</a></h4>
+      <p><a name="1015502">Retrieves an instance or mosaic.</a></p>
+      <p><a name="1015503">The use of this function is more efficient than searching through the list of instances on the cellview for the correct one and is preferred when a specific instance is needed. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1015504"><font size="2" face="'Courier New'" color="#000000">dbFindAnyInstByName</font></a> is also defined as <font size="2" face="'Courier New'" color="#000000">dbGetInstanceByName</font> for compatibility with earlier versions of software.</p>
+      <h4><a name="1015505">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411145"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411147">Name of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411149"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411151">Name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015508">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411158"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411160">The </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the instance.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411162"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411164">The instance or mosaic is not retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015511">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015512">dbFindAnyInstByName(inCellView &#34;inst1&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="Courier" color="#000000"><a name="1015513"><font size="2" face="'Courier New'" color="#000000">dbFindAnyInstByName(inCellView &#34;myInv&#60;0:1&#62;&#34;)</font></a></font>
+      </p>
+      <h3><a name="dbFindMemInstByName"></a><a name="1015515">dbFindMemInstByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015518">dbFindMemInstByName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; (<font size="2" face="'Courier New'" color="#000000"><em> d_inst</em></font> <font size="2" face="'Courier New'" color="#000000"><em>x_index </em></font>) &#47; nil </font>
+      </dl>
+      <h4><a name="1015519">Description</a></h4>
+      <p><a name="1015521">Retrieves an instance or mosaic and returns its member index. </a></p>
+      <p><a name="1015522">Unlike the </a><font size="2" face="'Courier New'" color="#000000">dbFindAnyInstByName</font> function described earlier, <font size="2" face="'Courier New'" color="#000000">dbFindMemInstByName</font> returns not only the instance dbObject, but also the member index of the instance to which the name applies. This member index is applicable to iterated instances.</p>
+      <h4><a name="1015523">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411172"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411174">Name of cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411176"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411178">Name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015526">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411185"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a> <font size="2" face="'Courier New'" color="#000000"><em>x_index</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411187">The </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> and the member index of the instance as a list.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411189"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411191">The instance or mosaic is not retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015529">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015530">inst = dbCreateInst(cvSch cvSym &#34;myInst&#34; list(0 0) &#34;R0&#34; 2) <br>dbFindMemInstByName(cvSch &#34;myInst&#34;) </a>=&#62; (db:&#60;dbId#&#62; 0)<br>dbFindMemInstByName(cvSch &#34;myInst&#60;1&#62;&#34;) =&#62; nil</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015531">inst = dbCreateInst(cvSch cvSym &#34;myInst&#34; list(0 0) &#34;R0&#34;) <br>dbFindMemInstByName(cvSch &#34;myInst&#34;) </a>=&#62; (db:&#60;dbId#&#62; 0)<br>dbFindMemInstByName(cvSch &#34;myInst&#60;1&#62;&#34;) =&#62; nil</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015532">inst = dbCreateInst(cvSch cvSym &#34;m&#60;0:3&#62;&#34; list(0 0) &#34;R0&#34;) <br>dbFindMemInstByName(cvSch &#34;m&#60;0&#62;&#34;) </a>=&#62; (db:&#60;dbId#&#62; 0)<br>dbFindMemInstByName(cvSch &#34;m&#60;1&#62;&#34;) =&#62; (db:&#60;dbId#&#62; 1)<br>dbFindMemInstByName(cvSch &#34;m&#60;3&#62;&#34;) =&#62; (db:&#60;dbId#&#62; 3)<br>dbFindMemInstByName(cvSch &#34;m&#60;4&#62;&#34;) =&#62; nil<br>dbFindMemInstByName(cvSch &#34;m&#34;) =&#62; nil</font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015533">inst = dbCreateInst(cvSch cvSym &#34;m&#60;3&#62;&#34; list(0 0) &#34;R0&#34;) <br>dbFindMemInstByName(cvSch &#34;m&#60;0&#62;&#34;) </a>=&#62; nil<br>dbFindMemInstByName(cvSch &#34;m&#34;) =&#62; nil<br>dbFindMemInstByName(cvSch &#34;m&#60;2&#62;&#34;) =&#62; nil<br>dbFindMemInstByName(cvSch &#34;m&#60;3&#62;&#34;) =&#62; (db:&#60;dbId#&#62; 0)</font>
+      </p>
+      <h3><a name="dbGetHierPathTransform"></a><a name="1997333">dbGetHierPathTransform </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1997336">dbGetHierPathTransform( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_dbInstId</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_InstTransform</em></font></font>
+      </dl>
+      <h4><a name="1997343">Description</a></h4>
+      <p><a name="1997470">Returns the concatenated transform of all instance or mosaic IDs present in the nested list passed as the parameter. The nested list represents the path to an object, such as the lists returned by </a><font size="2" face="'Courier New'" color="#000000">dbGetTrueOverlaps</font> or <font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font>.</p>
+      <p><a name="1997667">The first elements of the list represent the instances and&#47;or the mosaics traversed to get the object. The last element of the list is the object itself. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1997706">If the object is an instance or a mosaic, its transform is not concatenated to the resulting transform. To include concatenation of the last object transform (if it is an instance or a mosaic), use </a><font size="2" face="'Courier New'" color="#000000">dbGetInstTransform</font>.</p>
+      <p><a name="1997811">You can pass the resulting transform to the </a><font size="2" face="'Courier New'" color="#000000">dbCopyFig</font> or <font size="2" face="'Courier New'" color="#000000">dbMoveFig</font> functions as their third argument, in order to copy or move the shape to the cellview passed to <font size="2" face="'Courier New'" color="#000000">dbGetTrueOverlaps</font> (as its first argument).</p>
+      <h4><a name="1997812">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411199"><font size="2" face="'Courier New'" color="#000000"><em>l_dbInstId</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411201">List of instance IDs of the </a><font size="2" face="'Courier New'" color="#000000">hierPath</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1997408">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411208"><font size="2" face="'Courier New'" color="#000000"><em>x_InstTransform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411210">Concatenated transform of the instance IDs passed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1997416">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1997776">objectsPaths = dbGetOverlaps(geGetEditCellView() geGetEditCellView()~&#62;bBox t 32 t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1997777">foreach(objectPath objectsPaths println(dbGetHierPathTransform(objectPath)))</a></font>
+      </p>
+      <h3><a name="dbGetInstByName"></a><a name="1997317">dbGetInstByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1034860">dbGetInstByName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1034861">Description</a></h4>
+      <p><a name="1032921">Retrieves an instance or mosaic.<br><br></a><font size="2" face="'Courier New'" color="#000000">dbGetInstByName</font> is maintained only for backward compatibility; you should now use <font size="2" face="'Courier New'" color="#000000">dbFindAnyInstByName</font>.</p>
+      <h4><a name="1032922">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411218"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411220">Name of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411222"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411224">Name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1032927">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411231"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411233">The database object of the instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411235"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411237">The instance or mosaic is not retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbGetInstanceByName"></a><a name="1033771">dbGetInstanceByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1033008">dbGetInstanceByName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1033009">Description</a></h4>
+      <p><a name="1033011">Retrieves an instance or mosaic.<br><br></a><font size="2" face="'Courier New'" color="#000000">dbGetInstanceByName</font> is maintained only for backward compatibility; you should now use <font size="2" face="'Courier New'" color="#000000">dbFindAnyInstByName</font>.</p>
+      <h4><a name="1033012">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411246"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411248">Name of the cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411250"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411252">Name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1033015">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411259"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411261">The database object of the instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411263"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411265">The instance or mosaic is not retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5443871">&nbsp;</a></font>
+      </p>
+      <h3><a name="dbGetInstNameNumInst"></a><a name="1033044">dbGetInstNameNumInst </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015538">dbGetInstNameNumInst( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_numInst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015539">Description</a></h4>
+      <p><a name="1015541">Retrieves the number of instances of an instance or mosaic</a></p>
+      <h4><a name="1015542">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411273"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411275">Name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015544">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411282"><font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411284">The number of instances</a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411286"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411288">The number cannot be retrieved.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015547">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015548">dbGetInstNameNumInst(&#34;i&#34;) 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015549">dbGetInstNameNumInst(&#34;i&#60;3&#62;&#34;) 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015550">dbGetInstNameNumInst(&#34;i&#60;0:3&#62;&#34;) 4</a></font>
+      </p>
+      <h3><a name="dbGetInstTransform"></a><a name="1996962">dbGetInstTransform </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1997128">dbGetInstTransform( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_dbInstId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_InstTransform</em></font></font>
+      </dl>
+      <h4><a name="1996972">Description</a></h4>
+      <p><a name="1997526">Returns the concatenated transform of all instance or mosaic IDs present in the nested list passed as the parameter. The nested list represents the path to an object, such as the lists returned by </a><font size="2" face="'Courier New'" color="#000000">dbGetTrueOverlaps</font> or <font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font>.</p>
+      <p><a name="1997550">The first elements of the list represent the instances and&#47;or the mosaics traversed to get the object. The last element of the list is the object itself. </a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1997552">If the object is an instance or a mosaic, its transform is also concatenated to the resulting transform. To get rid off the concatenation of the last object transform, use </a><font size="2" face="'Courier New'" color="#000000">dbGetHierPathTransform</font>.</p>
+      <h4><a name="1996981">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411296"><font size="2" face="'Courier New'" color="#000000"><em>l_dbInstId</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411298">List of instance IDs of the </a><font size="2" face="'Courier New'" color="#000000">hierPath</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1996989">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411305"><font size="2" face="'Courier New'" color="#000000"><em>x_InstTransform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411307">Concatenated transform of all instance IDs passed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1997285">Examples</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1997607">objectsPaths = dbGetOverlaps(geGetEditCellView() geGetEditCellView()~&#62;bBox t 32 t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1997608">foreach(objectPath objectsPaths println(dbGetInstTransform(objectPath)))</a></font>
+      </p>
+      <h3><a name="dbIsAnyInstBaseNameUsed"></a><a name="1997291">dbIsAnyInstBaseNameUsed</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015555">dbIsAnyInstBaseNameUsed( <dd></a><em>d_cellView <dd></em><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t </font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015556">Description</a></h4>
+      <p><a name="1015558">Check if the name is used as instance basename in the cellview.</a></p>
+      <h4><a name="1015559">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411315"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411317">Cellview within which to check the base name.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411319"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411321">Base name of the instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015562">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411330"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411332">The name is used as instance base name in the cellview</a>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411334"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411336">The name is not used as instance base name in the cellview.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015565">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015566">dbIsAnyInstBaseNameUsed(cv &#34;myInst&#34;)</a></font>
+      </p>
+      <h3><a name="dbCreateInstByMasterName"></a><a name="1015568">dbCreateInstByMasterName </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1308283">dbCreateInstByMasterName( <dd></a><em>d_cellView <dd>t_libName <dd>t_cellName <dd>t_viewName <dd>t_instName <dd>l_origin <dd>t_orient <dd></em>[ <font size="2" face="'Courier New'" color="#000000"><em>x_numInst </em></font>] <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1308284">Description</a></h4>
+      <p><a name="1015574">Creates an instance (of cellview</a>--<font size="2" face="'Courier New'" color="#000000"><em>t_libName&#47;t_cellName&#47;t_viewName</em></font>) in <font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> with an origin and orientation specified by <font size="2" face="'Courier New'" color="#000000"><em>l_point</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font>.</p>
+      <h4><a name="1015575">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411344"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411346">Cellview where the instance is placed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411348"><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411350">Library name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411352"><font size="2" face="'Courier New'" color="#000000"><em>t_cellName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411354">Cell name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411356"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411358">View name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411360"><font size="2" face="'Courier New'" color="#000000"><em>t_instName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411362">If specified, the instance is named by </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font>; if <font size="2" face="'Courier New'" color="#000000">nil</font> the program assigns a unique name to the instance. <font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> must obey the syntax of instance names as defined at the beginning of this chapter.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411364"><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411366">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411368"><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411370">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411372"><font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411374">Number of instances; if </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> is given, it overrides any value specified by <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> (that is, the number of instances is derived from the name instead of taken from the <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> argument). If not specified, the default is one.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411376"><font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411378">Optional boolean argument that specifies whether cellview data is physical or both physical and logical. A cellview may contain both physical and logical data when it contains EMH type data. When </a><font size="2" face="'Courier New'" color="#000000">t</font>, the cellview is physical only. Default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015584">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411387"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411389">The </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the instance.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411391"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411393">The instance is not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015587">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015588">dbCreateInstByMasterName</a><font size="2" face="'Courier New'" color="#000000">(cv &#34;basic&#34; &#34;nand2&#34; &#34;symbol&#34; &#34;inst1&#34; list(0 0) &#34;R0&#34; 1)</font></font>
+      </p>
+      <h3><a name="dbCreateParamInstByMasterName"></a><a name="1036963">dbCreateParamInstByMasterName </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1309362">dbCreateParamInstByMasterName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><em>t_libName <dd>t_cellName <dd>t_viewName <dd></em><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_orient</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> <dd>[<font size="2" face="'Courier New'" color="#000000"><em> l_params <dd></em></font>[<font size="2" face="'Courier New'" color="#000000"><em> g_physOnly </em></font>] ] ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015594">Description</a></h4>
+      <p><a name="5428434">Creates an instance of the specified Pcell master in the specified cellview. The parameters in the parameter list may be CDF parameters. In this case, when you create a Pcell instance and pass a parameter, with the same value as the default value, </a><font size="2" face="'Courier New'" color="#000000">dbCreateParamInstByMasterName()</font> does not create an explicit local user property on the instance because the value is the same as the default. If the value is different from the default, the function stores the value as a local property on the instance.</p>
+      <h4><a name="1015598">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411406"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411408">Cellview in which the instance is created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411410"><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411412">Library name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411414"><font size="2" face="'Courier New'" color="#000000"><em>t_cellName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411416">Cell name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411418"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411420">View name of the master cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411422"><font size="2" face="'Courier New'" color="#000000"><em>t_instName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411424">Name of the new Pcell instance. If</a> <font size="2" face="'Courier New'" color="#000000">nil</font> the program assigns a unique name to the instance. The name must obey the syntax of instance names as defined at the beginning of this chapter.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411426"><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411428">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411430"><font size="2" face="'Courier New'" color="#000000"><em>l_orient</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411432">Orientation of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411434"><font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411436">Number of instances; if </a><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font> is given, it overrides any value specified by <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> (that is, the number of instances is derived from the name instead of taken from the <font size="2" face="'Courier New'" color="#000000"><em>x_numInst</em></font> argument). If not specified, the default is one.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411438"><font size="2" face="'Courier New'" color="#000000"><em>l_params</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411440">List of </a><font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font>, where <font size="2" face="'Courier New'" color="#000000"><em>l_param</em></font> is <font size="2" face="'Courier New'" color="#000000">list</font>( <font size="2" face="'Courier New'" color="#000000"><em>t_propName</em></font> <font size="2" face="'Courier New'" color="#000000"><em>t_propType</em></font> <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font><font size="2" face="'Courier New'" color="#000000">)</font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411442"><font size="2" face="'Courier New'" color="#000000"><em>g_physOnly</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411444">Optional boolean argument that specifies whether the instance is only in physical domain when the argument is </a><font size="2" face="'Courier New'" color="#000000">t</font>; or it is in both physical and module domain when the argument is <font size="2" face="'Courier New'" color="#000000">nil</font>. Default is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015608">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411454"><font size="2" face="'Courier New'" color="#000000"><em>d_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411456">Database ID of the instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411458"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411460">The instance was not created.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015611">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015612">dbCreateParamInstByMasterName</a><font size="2" face="'Courier New'" color="#000000">(inCellView &#34;basic&#34; &#34;nand&#34; &#34;symbol&#34; &#34;inst1&#34; <br>list(0 0) &#34;R0&#34; 1 list(list(&#34;w&#34; &#34;float&#34; 2.0) list(&#34;l&#34; &#34;float&#34; 5.0) t))</font></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444015">&nbsp;</a></font>
+      </p>
+      <h3><a name="dbDumpPcell"></a><a name="1036292">dbDumpPcell </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1036293">dbDumpPcell( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cvId <dd>t_outputFile<dd>t_pCellFile <dd></em></font>) <dd>=&#62; t &#47; nil </font>
+      </dl>
+      <h4><a name="1036294">Description</a></h4>
+      <p><a name="1036295">The </a><font size="2" face="'Courier New'" color="#000000">dbDumpPcell</font> function is used in the implementation of the <font color="#000000"><em>keepPcell</em></font> option, during streamIn and streamOut. Pcells are preserved by writing the Pcells to SKILL files (during StreamOut) which are loaded back into CDB&#47;Virtuoso (during StreamIn).</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1036296">Dumping parameterized cell devices defined in a technology file is not supported in this function.</a></p>
+      <h4><a name="1036366">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411470"><font size="2" face="'Courier New'" color="#000000"><em>d_cvId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411472">Must be a valid cellview ID and Pcell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411474"><font size="2" face="'Courier New'" color="#000000"><em>t_outputFile</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411476">Output file which can be reloaded to recreate the Pcell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411478"><font size="2" face="'Courier New'" color="#000000"><em>t_pCellFile</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411480">Output file for the SKILL procedure attached to the Pcell, this file will be given to </a><font size="2" face="'Courier New'" color="#000000">dbDefineProc</font> when reloading <font size="2" face="'Courier New'" color="#000000">outputFile</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036302">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411487"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411489">The files are dumped successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411491"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411493">The files are not dumped successfully.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbDumpPcellWithLib"></a><a name="1036305">dbDumpPcellWithLib</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1036306">dbDumpPcellWithLib( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cvId <dd>t_outputFile<dd>t_pCellFile <dd></em></font>) <dd>=&#62; t &#47; nil<font size="2" face="'Courier New'" color="#000000"><em> </em></font></font>
+      </dl>
+      <h4><a name="1036307">Description</a></h4>
+      <p><a name="1036308">Same functionality as </a><font size="2" face="'Courier New'" color="#000000">dbDumpPcell</font>, which preserves Pcells through StreamIn and StreamOut by writing the Pcells to SKILL files. <font size="2" face="'Courier New'" color="#000000">dbDumbPcellWithLib</font> does not directly write the library name in the SKILL code, instead writes a SKILL variable, <font size="2" face="'Courier New'" color="#000000"><em>dbD_NewLibNameForDump </em></font>whose value can be set to the name of the target library before loading the SKILL file. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1036309">Dumping parameterized cell devices defined in a technology file is not supported in this function.</a></p>
+      <h4><a name="1036310">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411501"><font size="2" face="'Courier New'" color="#000000"><em>d_cvId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411503">Must be a valid cellview ID and Pcell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411505"><font size="2" face="'Courier New'" color="#000000"><em>t_outputFile</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411507">Output file which can be reloaded to recreate the Pcell.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411509"><font size="2" face="'Courier New'" color="#000000"><em>t_pCellFile</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411511">Output file for the SKILL procedure attached to the Pcell, this file will be given to </a><font size="2" face="'Courier New'" color="#000000">dbFefineProc</font> when reloading outputFile.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1036314">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411518"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411520">The files are dumped successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411522"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411524">The files are not dumped successfully.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbCreateViaShapeArray"></a><a name="4625616">dbCreateViaShapeArray</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4625619">dbCreateViaShapeArray( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_techCVId <dd>g_viaLayer <dd>[ d_netId ] <dd>f_x <dd>f_y <dd>f_xPitch <dd>f_yPitch <dd>f_w <dd>f_length <dd>x_row <dd>x_column <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_xy </em></font>&#47; nil</font>
+      </dl>
+      <h4><a name="1035662">Description</a></h4>
+      <p><a name="1035664">Creates an array of via shapes (rectangles) on the given layer in the technology cellview and adds all the shapes to the given net.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1933386">Specify </a><font size="2" face="'Courier New'" color="#000000">nil</font> as <font size="2" face="'Courier New'" color="#000000">d_netId</font>, if you do not want via shapes to be added to a net.</p>
+      <h4><a name="1035665">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411533"><font size="2" face="'Courier New'" color="#000000"><em>d_techCVId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411535">ID of the technology cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411537"><font size="2" face="'Courier New'" color="#000000"><em>g_viaLayer</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411539">Layer on which to create the via shape array.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411541"><font size="2" face="'Courier New'" color="#000000"><em>d_netId</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411543">ID of the net to add the via shapes to.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411545"><font size="2" face="'Courier New'" color="#000000"><em>f_x</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411547">X coordinate of the starting point.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411549"><font size="2" face="'Courier New'" color="#000000"><em>f_y</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411551">Y coordinate of the starting point.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411553"><font size="2" face="'Courier New'" color="#000000"><em>f_xPitch</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411555">Length along the X axis allocated to one shape, including the width of the rectangle and the space along the X axis between two adjacent rectangles.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411557"><font size="2" face="'Courier New'" color="#000000"><em>f_yPitch</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411559">Length along the Y axis allocated to one shape, including the length of the rectangle and the space along the Y axis between two adjacent rectangles.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411561"><font size="2" face="'Courier New'" color="#000000"><em>f_w</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411563">Width (along the X axis) of the rectangle.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411565"><font size="2" face="'Courier New'" color="#000000"><em>f_length</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411567">Length (along the Y axis) of the rectangle.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411569"><font size="2" face="'Courier New'" color="#000000"><em>x_row</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411571">Number of rows along the Y axis.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411573"><font size="2" face="'Courier New'" color="#000000"><em>x_column</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411575">Number of columns along the X axis.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5411623">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411661"><font size="2" face="'Courier New'" color="#000000"><em>l_xy</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411663">List of X and Y.  x = x + xPitch * column and y = y + yPitch * row.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411665"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411667">The via shape array is not created successfully.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5411656">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5411651">dbCreateViaShapeArray( cvId &#34;contact&#34; netId 10.2 10.1 5.5 6.7 3.1 4.9 2 3 )<br>==&#62;list(26.7 23.5)</a></font>
+      </p>
+      <h3><a name="dbSetInstHeaderMasterName"></a><a name="1015614">dbSetInstHeaderMasterName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015617">dbSetInstHeaderMasterName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instHeader</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>t_cellName</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font><em> <dd></em>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t </font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1015618">Description</a></h4>
+      <p><a name="1084978">Sets the master of individual instance on the instHeader to the new master. All the instances are removed from the old instHeader and move to the new instHeader, which may exist or not. When an instHeader is empty, meaning it does not have any instance on this instHeader, the instHeader is removed and the ID is no longer valid. </a></p>
+      <h4><a name="1015621">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411677"><font size="2" face="'Courier New'" color="#000000"><em>d_instHeader</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411679">Instance header whose master library name, cell name, and view name are being replaced by the specified names.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411681"><font size="2" face="'Courier New'" color="#000000"><em>t_libName</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411683">New master library name. If it is </a><font size="2" face="'Courier New'" color="#000000">nil</font>, use the one from the <font size="2" face="'Courier New'" color="#000000">instHeader</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411685"><font size="2" face="'Courier New'" color="#000000"><em>t_cellName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411687">New master cell name. If it is </a><font size="2" face="'Courier New'" color="#000000">nil</font>, use the one from the <font size="2" face="'Courier New'" color="#000000">instHeader</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411689"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411691">New master view name. If it is </a><font size="2" face="'Courier New'" color="#000000">nil</font>, use the one from the <font size="2" face="'Courier New'" color="#000000">instHeader</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015626">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411698"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411700">The library name&#47;cell name&#47;view name of the master is set successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411702"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411704">The library name&#47;cell name&#47;view name of the master is not set successfully.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015629">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015630">dbSetInstHeaderMasterName(instH1 &#34;basic&#34; &#34;nand2&#34; &#34;symbol&#34;)</a></font>
+      </p>
+      <h3><a name="dbIsSameMaster"></a><a name="1015632">dbIsSameMaster</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015635">dbIsSameMaster( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_anyInst1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>d_anyInst2</em></font> <dd>) <dd>=&#62; t &#47; nil </font>
+      </dl>
+      <h4><a name="1015636">Description</a></h4>
+      <p><a name="1015638">Determines if two instances or mosaics are instantiated from the same cellview master. </a></p>
+      <p><a name="1015639">Both the instances passed in should be instantiated in the same cellview. If two instances from different cellviews are passed in, even if they are instances of the same master, </a><font size="2" face="'Courier New'" color="#000000">nil</font> is returned.</p>
+      <h4><a name="1015640">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411712"><font size="2" face="'Courier New'" color="#000000"><em>d_anyInst1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411714">First instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411716"><font size="2" face="'Courier New'" color="#000000"><em>d_anyInst2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411718">Second instance.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015643">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411725"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411727">The two instances are in the same cellview and have the same master.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411729"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411731">The two instances are not in the same cellview or if they do not have the same master.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015646">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015647">dbIsSameMaster(instId1 instId2)</a></font>
+      </p>
+      <h3><a name="dbIsObjectBound"></a><a name="1035692">dbIsObjectBound </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1308306">dbIsObjectBound( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_object<dd></em></font>) <dd>=&#62; t &#47; nil </font>
+      </dl>
+      <h4><a name="1308307">Description</a></h4>
+      <p><a name="1035698">Determines whether or not an object is bound. If the master cellview of the object is opened, the object is bound. Otherwise it is not bound.</a></p>
+      <h4><a name="1035699">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411739"><font size="2" face="'Courier New'" color="#000000"><em>g_object</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411741">An instance, a mosaic, a mosaic instance, an instance header, an instance pin, or an instance terminal.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1035701">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5411748"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5411750">The object is bound. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411752"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5411754">The object is not bound.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbGetCellViewSymmetry"></a><a name="symmetryFunctions"></a><a name="1082763">dbGetCellViewSymmetry</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1082813">dbGetCellViewSymmetry( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_symmetry</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1082766">Description</a></h4>
+      <p><a name="1082768">Returns the symmetry of the specified cellview. </a></p>
+      <h4><a name="1082775">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082772"><font size="2" face="'Courier New'" color="#000000"><em>d_cellviewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082774">The database ID of the cellview. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1082785">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082778"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082780">Returns the symmetry value of the cellview. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082782"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082784">The cellview ID is invalid.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbSetCellViewSymmetry"></a><a name="1082881">dbSetCellViewSymmetry</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1082883">dbSetCellViewSymmetry( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewID <dd>t_symmetry<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1082884">Description</a></h4>
+      <p><a name="1082886">Sets the symmetry (or orientation) on a cellview (for which the ID is specified). The symmetry of the cellview can be set to a string value, such as X, Y, XY, any, or none, where X mirrors the cellview about the x axis and Y mirrors the cellview about the y axis.</a></p>
+      <h4><a name="1082892">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082889"><font size="2" face="'Courier New'" color="#000000"><em>d_cellviewID </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082891">The database ID of the cellview. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082949"><font size="2" face="'Courier New'" color="#000000"><em>t_symmetry</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082951">String value specifying the symmetry of the cellview. You can also use a string value from the following list: </a><font size="2" face="'Courier New'" color="#000000">X</font> for symmetry about the x axis, <font size="2" face="'Courier New'" color="#000000">Y</font> for symmetry about the y axis, <font size="2" face="'Courier New'" color="#000000">XY</font> for symmetry about the x and y axis, <font size="2" face="'Courier New'" color="#000000">any</font> for symmetry about any axis, and <font size="2" face="'Courier New'" color="#000000">no</font> for no specific orientation. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1082902">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082895"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082897">The symmetry value is set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082899"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082901">The cellview ID is invalid.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="2175404">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="2175433">cv = geGetWindowCellView(hiGetCurrentWindow())</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="2175454">dbSetCellViewSymmetry(cv &#34;X&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="2175455">dbGetCellViewSymmetry(cv)</a></font>
+      </p>
+      <h3><a name="dbGetCellViewEEQMaster"></a><a name="EEQMasterFunctions"></a><a name="2175458">dbGetCellViewEEQMaster</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1082709">dbGetCellViewEEQMaster( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_EEQMaster</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1082710">Description</a></h4>
+      <p><a name="1082712">Returns the value of the EEQmaster attribute of the cellview. </a></p>
+      <p><a name="1082713">The EEQmaster (electrically equivalent master) is stored as a string on the cellview. If the string is empty, </a><font size="2" face="'Courier New'" color="#000000">nil</font> will be returned. EEQ cellviews are devices such as OR&#45;gates or inverters that have several implementations with different shapes, geometries, and orientations. </p>
+      <h4><a name="1082719">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082716"><font size="2" face="'Courier New'" color="#000000"><em>d_cellviewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082718">The database ID of the cellview. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1082729">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1082722"><font size="2" face="'Courier New'" color="#000000"><em>t_EEQMaster</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1082724">The the value of the EEQmaster attribute is returned. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082726"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1082728">The cellview ID is invalid. The EEQMaster attribute is not set or the string value is empty. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbSetCellViewEEQMaster"></a><a name="5415119">dbSetCellViewEEQMaster</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5415121">dbSetCellViewEEQMaster( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView <dd>t_EEQMaster <dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5415122">Description</a></h4>
+      <p><a name="5415124">Sets the value of the EEQmaster attribute of the specified cellview. </a></p>
+      <p><a name="5415125">The EEQmaster (electrically equivalent master) is stored as a string on the cellview. If the string value of </a><font size="2" face="'Courier New'" color="#000000"><em>t_EEQMaster</em></font> is an empty string, the value is effectively <font size="2" face="'Courier New'" color="#000000">&#34;unset</font>&#34;.</p>
+      <h4><a name="5415135">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="5415128"><font size="2" face="'Courier New'" color="#000000"><em>d_cellviewId </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5415130">The database ID of the cellview. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5415132"><font size="2" face="'Courier New'" color="#000000"><em>t_EEQMaster</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5415134">String value. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5415145">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="5415138"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5415140">The value of the EEQmaster attribute is set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5415142"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5415144">The cellview ID is invalid. An EEQMaster attribute is not set. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h3><a name="dbIsInstTransparent"></a><a name="5439996">dbIsInstTransparent</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5437094">dbIsInstTransparent(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instanceId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5434568">Description</a></h4>
+      <p><a name="5434569">Checks if the specified instance ID is set to be transparent to the Layout XL binder. </a></p>
+      <h4><a name="5434572">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5434709"><font size="2" face="'Courier New'" color="#000000"><em>d_instanceId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5434711">Database ID of the instance to be checked.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5434575">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5434723"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5434725">The specified instance is set as transparent to the Layout XL binder.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5434727"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5434729">The instance is not transparent. The default value for any instance is </a><font size="2" face="'Courier New'" color="#000000">nil</font>. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5434579">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5434581">isTransparent = dbIsInstTransparent(instanceId)</a></font>
+      </p>
+      <p><a name="5434756">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> if the instance <font size="2" face="'Courier New'" color="#000000">instanceId </font>is already set as transparent. Otherwise, returns <font size="2" face="'Courier New'" color="#000000">nil</font>. </p>
+      <h3><a name="dbSetInstTransparent"></a><a name="5434825">dbSetInstTransparent</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5434918">dbSetInstTransparent<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_instanceId<dd>g_transparent<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5434847">Description</a></h4>
+      <p><a name="5434861">Sets an instance as transparent to the Layout XL binder.</a></p>
+      <h4><a name="5434949">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5434946"><font size="2" face="'Courier New'" color="#000000"><em>d_instanceId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5434948">Database ID of the instance to be set as transparent.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5434851"><font size="2" face="'Courier New'" color="#000000"><em>g_transparent</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5434962">A Boolean that determines whether instance should be set as transparent.</a></p>
+            <p><a name="5435870">The default is </a><font size="2" face="'Courier New'" color="#000000">nil</font>. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5435008">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5435001"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5435806">The specified instance is set as transparent.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5435005"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5435807">The specified instance is not set as transparent.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5434856">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5434858">dbSetInstTransparent(inst, t)</a></font>
+      </p>
+      <p><a name="5434863">Makes instance </a><font size="2" face="'Courier New'" color="#000000">inst</font> transparent. When Layout XL binder is run, this instance is considered as transparent, enabling bindings to be made for instances inside the master of this instance.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5435333">dbSetInstTransparent(inst, nil)</a></font>
+      </p>
+      <p><a name="998370">Removes transparency from the instance </a><font size="2" face="'Courier New'" color="#000000">inst</font>. Layout XL can no longer bind to the instances inside the master of this instance.</p>
+      <p><a name="5441038">&nbsp;</a></p>
+      <p><a name="5444366">&nbsp;</a></p>
+      <p><a name="5434865">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="cvio.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="connect.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

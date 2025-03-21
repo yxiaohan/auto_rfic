@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 19</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="19">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="">
+<META NAME="PageCount" CONTENT="4">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="appC.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 19">
+<META NAME="TopicTags" CONTENT="FALSE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="appC.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td height="20">
+          <img src="images/nav2_next_b.gif" alt="Previous">
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="59">
+          <img src="images/nav_next_b.gif" alt="Next" border="0">
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>19<a name="1065082">&nbsp;</a></h1>
+      <h1><a name="1065083">Type Introspection Functions</a></h1>
+      <p><a name="1065336">Type introspection is the ability of a function to determine the type or property of an object at runtime. SKILL provides the following type introspection functions: </a></p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="638">
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="middle" width="192">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1065342"><font color="#000000"><strong>Function Name</strong></font></a></strong></font>
+            </p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="middle" width="445">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1065344">Description</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="list.html#1039088" title="1" name="1065346"><font color="#0000ff"><u>dtpr</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065348">Checks if an object is a non&#45;empty list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="list.html#1039344" title="1" name="1065350"><font color="#0000ff"><u>listp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065352">Checks if an object is a list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="list.html#1039623" title="1" name="1065354"><font color="#0000ff"><u>pairp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065356">Checks if an object is a </a><font size="2" face="'Courier New'" color="#000000">cons</font> object, that is, a non&#45;empty list.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="datastruct.html#1038672" title="2" name="1065358"><font color="#0000ff"><u>arrayp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066312">Checks if an object is an array.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="datastruct.html#1039006" title="2" name="1065362"><font color="#0000ff"><u>defstructp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066326">Checks if an object is an instance of a particular </a><font size="2" face="'Courier New'" color="#000000">defstruct.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="datastruct.html#1039421" title="2" name="1065504"><font color="#0000ff"><u>tablep</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066340">Checks if an object is an association table.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="datastruct.html#1039462" title="2" name="1065370"><font color="#0000ff"><u>type, typep</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066358">Returns a symbol whose name denotes the type of a SKILL object. The functions </a><font size="2" face="'Courier New'" color="#000000">type</font> and <font size="2" face="'Courier New'" color="#000000">typep</font> are identical.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="datastruct.html#1039579" title="2" name="1065378"><font color="#0000ff"><u>vectorp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066377">Checks if an object is a vector. Behaves the same as </a><font size="2" face="'Courier New'" color="#000000">arrayp.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="dataoperator.html#1039155" title="3" name="1065382"><font color="#0000ff"><u>integerp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065384">Checks if an object is an integer. This function is the same as </a><font size="2" face="'Courier New'" color="#000000">fixp.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="dataoperator.html#1039702" title="3" name="1065386"><font color="#0000ff"><u>otherp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065388">Checks if an object is a user type object, such as an association table or a window.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="dataoperator.html#1040737" title="3" name="1065390"><font color="#0000ff"><u>symbolp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066457">Checks if an object is a symbol.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="dataoperator.html#1040841" title="3" name="1065570"><font color="#0000ff"><u>symstrp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066474">Checks if an object is either a symbol or a string.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="stringfunc.html#1057660" title="5" name="1065402"><font color="#0000ff"><u>outstringp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065404">Checks whether the specified value is an outstring port.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="stringfunc.html#1039743" title="5" name="1065650"><font color="#0000ff"><u>pcreObjectp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065652">Checks to see whether the given argument is a </a><font size="2" face="'Courier New'" color="#000000">pcreObject</font> or not.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="stringfunc.html#1040671" title="5" name="1065666"><font color="#0000ff"><u>stringp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066526">Checks if an object is a string.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1039099" title="6" name="1065682"><font color="#0000ff"><u>evenp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066544">Checks if a number is an even integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1040079" title="6" name="1065698"><font color="#0000ff"><u>oddp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066558">Checks if an object is an odd integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1039359" title="6" name="1065714"><font color="#0000ff"><u>floatp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066576">Checks if an object is a floating&#45;point number. Same as </a><font size="2" face="'Courier New'" color="#000000">realp.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1039304" title="6" name="1065730"><font color="#0000ff"><u>fixp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066595">Checks if an object is an integer, that is, a fixed number.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1039868" title="6" name="1065746"><font color="#0000ff"><u>minusp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066614">Checks if a value is a negative number. Same as </a><font size="2" face="'Courier New'" color="#000000">negativep.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1040213" title="6" name="1065762"><font color="#0000ff"><u>plusp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066722">Checks if the given object is equal to one.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1040119" title="6" name="1065778"><font color="#0000ff"><u>onep</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066683">Checks if the given object is equal to one.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1040382" title="6" name="1065794"><font color="#0000ff"><u>realp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066757">Checks if a value is a real number. Same as </a><font size="2" face="'Courier New'" color="#000000">floatp.</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="arithmetic.html#1041072" title="6" name="1065810"><font color="#0000ff"><u>zerop</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066775">Checks if an object is equal to zero.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="logicalrel.html#1039447" title="9" name="1065826"><font color="#0000ff"><u>numberp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065828">Checks if a data object is a number, that is, either an integer or floating&#45;point number.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="inputoutput.html#1103257" title="11" name="1065842"><font color="#0000ff"><u>inportp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066810">Checks if an object is an input port.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="inputoutput.html#1040182" title="11" name="1065858"><font color="#0000ff"><u>outportp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066828">Checks if an object is an output port.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="inputoutput.html#1040124" title="11" name="1065883"><font color="#0000ff"><u>openportp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066842">Checks if the given argument is a port object and it is open (for input or output), </a><font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="inputoutput.html#1040208" title="11" name="1065899"><font color="#0000ff"><u>portp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066856">Checks if an object is an input or output port.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="core.html#1040766" title="12" name="1065915"><font color="#0000ff"><u>bcdp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066871">Checks if an object is a binary primitive function.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="core.html#1040786" title="12" name="1065931"><font color="#0000ff"><u>booleanp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065933">Checks if an object is a boolean. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1040159" title="13" name="1065952"><font color="#0000ff"><u>getFunType</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065954">Returns a symbol denoting the function type for a given function object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1040417" title="13" name="1065956"><font color="#0000ff"><u>isMacro</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066930">Checks if the given symbol denotes a macro.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1040353" title="13" name="1065960"><font color="#0000ff"><u>isCallable</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066950">Checks if a function is defined or is autoloadable from a context.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="core.html#1040801" title="12" name="1065964"><font color="#0000ff"><u>boundp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066976">Checks if the variable named by a symbol is bound, that is, has been assigned a value. The single argument form of </a><font size="2" face="'Courier New'" color="#000000">boundp</font> only works in SKILL mode.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1039976" title="13" name="1065968"><font color="#0000ff"><u>fboundp</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1065970">Checks if the given name has a function binding.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1050952" title="13" name="1065972"><font color="#0000ff"><u>getFnWriteProtect</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1067027">Checks if the given function is write&#45;protected.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1040215" title="13" name="1066048"><font color="#0000ff"><u>getVarWriteProtect</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066050">Checks if a variable is write&#45;protected.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="core.html#1039355" title="12" name="1066052"><font color="#0000ff"><u>isVarImported</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1067064">Checks if the specified variable was imported into SKILL++ or not. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="core.html#1068696" title="12" name="1066080"><font color="#0000ff"><u>fdoc</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1066082">Returns the documentation string for the function bound to the symbol </a><font size="2" face="'Courier New'" color="#000000"><em>s_function</em></font>. SKILL switch <font size="2" face="'Courier New'" color="#000000">saveInlineDoc</font> must be set to save and retrieve the doc string.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a href="funcprog.html#1041221" title="13" name="1066145"><font color="#0000ff"><u>procedurep</u></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" bordercolor="#000000" valign="top">
+            <p><a name="1067098">Checks if an object is a procedure, or function, object. </a></p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="appC.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td height="20">
+            <img src="images/nav2_next_b.gif" alt="Previous">
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="59">
+            <img src="images/nav_next_b.gif" alt="Next" border="0">
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

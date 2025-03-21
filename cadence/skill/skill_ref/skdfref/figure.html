@@ -1,0 +1,1892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 9</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="9">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="figset.html">
+<META NAME="PageCount" CONTENT="30">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="topology.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbAddFigToFigGroup( d_figGroupIdd_figId)=> t / nil,dbCopyFig( d_fig d_cellView [ l_transform ] ) => d_fig / nil ,dbCreateFigGroup( d_cellViewt_nameg_orderedl_origint_orient)=> d_figGroup / nil,dbGetFigGroupByName( d_cellViewt_name)=> d_figGroupId / nil,dbGetMaxHierDepth() => x_maxHierDepth,dbGetNeighbor(d_cellViewId l_bBox t_direction [ ( t_layer [ t_purpose ] ) ] [ x_depth ] ) => ld_closestNeighbor / nil ,dbGetNeighborList( d_cellView l_area t_direction [ ( t_layer [ t_purpose ] ) ] [ lx_depth ] ) => l_closestNeighbor,dbGetOverlapsdbGetOverlaps( d_cellView l_bBox [ tx_layer ] [ lx_level ] [ g_doRowCol ]) => ld_fig dbGetOverlaps( d_cellView l_bBox [ l_layerPurposePair ][ lx_level ] [ g_doRowCol ]) => ld_fig ,dbGetPathBoundary(d_path)=> l_points / nil,dbGetPathSegStyle(d_pathSeg)=> l_pathSegStyle,dbGetTrueOverlapsdbgetTrueOverlaps( d_cellView l_bBox [ tx_layer / t / nil [ lx_level ] ] [ g_doRowCol ]) => ld_fig / nil dbGetTrueOverlaps( d_cellView l_bBox [ l_layerPurposePair ] [ lx_level ] [ g_doRowCol ]) => ld_fig / nil ,dbMoveFig( d_fig d_cellView [ l_transform ] ) => d_fig / nil ,dbProduceOverlap( d_cellView l_bBox [ lx_level [ l_layerPurposePair ] ] ) => ld_shape / nil ,dbProduceOverlapInst( d_cellView l_bBox [ lx_level ] ) => ld_inst / nil ,dbRemoveFigFromFigGroup( d_figGroupIdd_figId)=> t / nil,dbSetPathSegStyle(d_pathSegn_width t_beginStyle t_endStyle [ n_beginExt n_endExt     [ n_beginLeftDiagExt n_beginRightDiagExt n_beginRightHalfWidth     n_endLeftDiagExt n_endRightDiagExt n_endRightHalfWidth ]])=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 9">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="topology.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="figset.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>9<a name="4774043">&nbsp;</a></h1>
+      <h1><a name="4774045">Figure Database Access Functions</a></h1>
+      <p><a name="5408210">This chapter includes the following topics:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5408189" title="9" name="5408232"><font color="#0000ff"><u>FigGroup Creation and Modification Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1066755" title="9" name="5408246"><font color="#0000ff"><u>Figure Creation and Retrieval Functions</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="figGroupFunctions"></a><a name="5408189">FigGroup Creation and Modification Functions</a></h2>
+      <p><a name="5408190">The following functions create and modify figGroups.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5408193" title="9" name="5408274"><font color="#0000ff"><u>dbCreateFigGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1076987" title="9" name="5408289"><font color="#0000ff"><u>dbAddFigToFigGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1077024" title="9" name="5408299"><font color="#0000ff"><u>dbRemoveFigFromFigGroup</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1077056" title="9" name="5408309"><font color="#0000ff"><u>dbGetFigGroupByName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbCreateFigGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbCreateFigGroup"></a><a name="5408193">dbCreateFigGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1076944">dbCreateFigGroup( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>t_name<dd>g_ordered<dd>l_origin<dd>t_orient<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_figGroup</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1076946">Description</a></h4>
+      <p><a name="1076948">Creates a figGroup object in the specified cellview. </a></p>
+      <h4><a name="1076949">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1076952"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1076954">The cellview ID. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076956"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076958">The name of the figGroup. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076960"><font size="2" face="'Courier New'" color="#000000"><em>g_ordered</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076962">Boolean specifying order.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076964"><font size="2" face="'Courier New'" color="#000000"><em>l_origin</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076966">Origin of the new instance.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076968"><font size="2" face="'Courier New'" color="#000000"><em>t_orient</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076970">Specifies the orientation of the figGroup. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1076972">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1076975"><font size="2" face="'Courier New'" color="#000000"><em>d_figGroupId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1076977">Returns the database ID of the figGroup created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076979"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1076981">An error occurred during execution.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1076983">Example</a></h4>
+      <p><a name="1076984">The following creates an ordered figGroup by the name of </a><font size="2" face="'Courier New'" color="#000000">fg2</font> with an origin of 5:6 and with the orientation of R0.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1076985">fg2 = dbCreateFigGroup(cv &#34;fg2&#34; t 5:6 &#34;R0&#34;)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbAddFigToFigGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbAddFigToFigGroup"></a><a name="1076987">dbAddFigToFigGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1076988">dbAddFigToFigGroup( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_figGroupId<dd>d_figId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1076990">Description</a></h4>
+      <p><a name="1076992">Adds a figure to the specified figGroup. </a></p>
+      <h4><a name="1076993">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1076996"><font size="2" face="'Courier New'" color="#000000"><em>d_figGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1076998">The figGroup ID. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077000"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077002">The ID of the figure to be added.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077004">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1077007"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1077009">The figure was added successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077011"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077013">An error occurred during execution.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077015">Example</a></h4>
+      <p><a name="1077016">The following creates a figGroup.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077017">figGroup1 = dbCreateFigGroup(cv &#34;figGroup1&#34; t 0:0 &#34;R0&#34;)</a></font>
+      </p>
+      <p><a name="1077018">The following creates a figure. </a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077019">figOfRect = dbCreateRect(cv &#34;METAL1&#34; list(0:0 6.3:8.7)</a></font>
+      </p>
+      <p><a name="1077020">The following adds the figure to the figGroup. </a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077021">dbAddFigToFigGroup(figGroup1 figOfRect)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077022">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbRemoveFigFromFigGroup
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbRemoveFigFromFigGroup"></a><a name="1077024">dbRemoveFigFromFigGroup</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1077025">dbRemoveFigFromFigGroup( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_figGroupId<dd>d_figId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="1077027">Description</a></h4>
+      <p><a name="1077029">Removes a figure from a figGroup object. </a></p>
+      <h4><a name="1077030">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1077033"><font size="2" face="'Courier New'" color="#000000"><em>d_figGroup</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1077035">The figGroup ID. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077037"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077039">The ID of the figure to be removed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077041">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1077044"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1077046">The figure was removed from the figGroup successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077048"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077050">An error occurred during execution.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077052">Example</a></h4>
+      <p><a name="1077053">The following removes the figure </a><font size="2" face="'Courier New'" color="#000000">figOfRect</font> from the figGroup <font size="2" face="'Courier New'" color="#000000">figGroup1</font>. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077054">dbRemoveFigFromFigGroup(figGroup1 figOfRect)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetFigGroupByName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetFigGroupByName"></a><a name="1077056">dbGetFigGroupByName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1077057">dbGetFigGroupByName( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView<dd>t_name<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_figGroupId</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="1077059">Description</a></h4>
+      <p><a name="1077061">Retrieves a figGroup by name. </a></p>
+      <h4><a name="1077062">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1077065"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1077067">The cellview ID. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077069"><font size="2" face="'Courier New'" color="#000000"><em>t_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077071">The name of the figGroup. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077073">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="198">
+            <p><a name="1077076"><font size="2" face="'Courier New'" color="#000000"><em>d_figGroupId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="1077078">The figGroup ID is returned successfully.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077080"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077082">An error occurred during execution.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1077084">Example</a></h4>
+      <p><a name="1077085">The following returns the database ID of the specified figGroup.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1077086">dbGetFigGroupByName(cv &#34;myFigGroup&#34;)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <h2><a name="Figure Creation and Retrieval Functions"></a><a name="1066755">Figure Creation and Retrieval Functions</a></h2>
+      <p><a name="4774143">The following functions create and retrieve figures (both shapes and instances, including mosaics) from the database.</a></p>
+      <p><a name="5113737">Supported functions include:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#4774147" title="9" name="5113852"><font color="#0000ff"><u>dbCopyFig</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#4774174" title="9" name="5113853"><font color="#0000ff"><u>dbMoveFig</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#4773995" title="9" name="5113854"><font color="#0000ff"><u>dbGetOverlaps</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1015775" title="9" name="5113789"><font color="#0000ff"><u>dbGetTrueOverlaps</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1015829" title="9" name="5113790"><font color="#0000ff"><u>dbGetNeighbor</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1015884" title="9" name="5113791"><font color="#0000ff"><u>dbGetNeighborList</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1029274" title="9" name="5113792"><font color="#0000ff"><u>dbGetMaxHierDepth</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#4019186" title="9" name="5113816"><font color="#0000ff"><u>dbGetPathSegStyle</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#4019025" title="9" name="5113817"><font color="#0000ff"><u>dbSetPathSegStyle</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#5385748" title="9" name="5113818"><font color="#0000ff"><u>dbProduceOverlap</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#1015964" title="9" name="5113819"><font color="#0000ff"><u>dbProduceOverlapInst</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbCopyFig
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbCopyFig"></a><a name="4774147">dbCopyFig</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4774150">dbCopyFig( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_transform </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_fig </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="4774151">Description</a></h4>
+      <p><a name="4774153">Copies and transforms a figure, and places it in a cellview. </a></p>
+      <p><a name="4774154">If </a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, the figure is copied in the same cellview as the original figure. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5114054">(Advanced Nodes Only) By default, coloring information is not copied. To copy coloring information, set the </a><font size="2" face="'Courier New'" color="#000000">cdba copyMPAttributes</font> environment variable to <font size="2" face="'Courier New'" color="#000000">t</font> before using <font size="2" face="'Courier New'" color="#000000">dbCopyFig</font>.</p>
+      <p><a name="5114055">When copying a </a><font size="2" face="'Courier New'" color="#000000">widthSpacingPattern</font> region:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="5114056">This function copies all Width Spacing Pattern (WSP) attributes except the committed pattern attributes. This is because the committed pattern attributes are recomputed by DRD based on the target location. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="4774864">This function skips the shapes in the WSP region for which the createType is </a><font size="2" face="'Courier New'" color="#000000">systemCreated</font>. This is because these shapes are maintained by the system and are not intended for interactive editing.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="5409624">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409633"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409635">Original </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the instance to be copied.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409637"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409639">The cellview to which the figure is copied; if</a> <font size="2" face="'Courier New'" color="#000000">nil</font>, the figure is copied to the same cellview.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409641"><font size="2" face="'Courier New'" color="#000000"><em>l_transform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409643">Describes the transformation of the original figure during the copy process, such as offset, rotation, and magnification.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5409628">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409650"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409652">A new </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409654"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409656">The figure is not copied or transformed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4774163">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4774164">dstFig = dbCopyFig(srcFig dstCellView list(0:0 &#34;R90&#34; 2.0))</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbMoveFig
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbMoveFig"></a><a name="4774174">dbMoveFig</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4774177">dbMoveFig( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_transform </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>d_fig </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="4774178">Description</a></h4>
+      <p><a name="4774180">Moves and transforms a figure, and places it in a cellview. </a></p>
+      <p><a name="4774181">If </a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, the figure is moved to the same cellview as the original figure and keeps the same ID. If <font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> is not <font size="2" face="'Courier New'" color="#000000">nil</font>, the figure is copied to the specified cellview, the original figure is deleted, and the new figure has a different ID.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="4774182">(Advanced Nodes Only) By default, coloring information is not copied. To copy coloring information, set the </a><font size="2" face="'Courier New'" color="#000000">cdba copyMPAttributes</font> environment variable to <font size="2" face="'Courier New'" color="#000000">t</font> before using <font size="2" face="'Courier New'" color="#000000">dbMoveFig</font>.</p>
+      <h4><a name="4774183">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409668"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409670">Original </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the instance to be moved.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409672"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409674">The cellview to which the figure is moved; if </a><font size="2" face="'Courier New'" color="#000000">nil</font>, the figure is moved within the same cellview.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409676"><font size="2" face="'Courier New'" color="#000000"><em>l_transform</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409678">Describes the transformation of the figure during the move, such as offset, rotation, and magnification.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4774187">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409685"><font size="2" face="'Courier New'" color="#000000"><em>d_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409687">The </a><font size="2" face="'Courier New'" color="#000000"><em>dbObject</em></font> of the figure.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409689"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409691">The figure is not moved or transformed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4774190">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4774191">dstFig = dbMoveFig(srcFig nil list(&#45;1:2 &#34;R180&#34;))</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetOverlaps
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetOverlaps"></a><a name="4773995">dbGetOverlaps</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4773998">dbGetOverlaps<dd>dbGetOverlaps( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>tx_layer</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> lx_level</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> g_doRowCol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font> <dd><dd>dbGetOverlaps( <dd><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[<font size="2" face="'Courier New'" color="#000000"><em> l_layerPurposePair </em></font>]<dd>[<font size="2" face="'Courier New'" color="#000000"><em> lx_level</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> g_doRowCol </em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font> </font>
+      </dl>
+      <h4><a name="1015721">Description</a></h4>
+      <p><a name="1015723">Returns a list of all the objects (such as, shapes, instances, and mosaics) in a cellview that overlaps the area specified by</a><font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font>.  <br>If the object comes from a lower level in the hierarchy, instead of from the specified cellview, the object is represented by a list (potentially a nested list, if it comes from more than one level down). Each level of the list has the ID of the instance in the corresponding level in the hierarchy. <br>For example, if there is a rectangle in a master cellview two levels down, for this rectangle, in the top cellview, <font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font> will return a nested list. The output of this function is same as <a href="#1015775" title="9"><font color="#0000ff"><u>dbGetTrueOverlaps</u></font></a>.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5445879">From OA 2.2 release onward, the shape query returns only those shapes whose geometry overlap the region. This means that the trueOverlap rule is applied to all shapes at all times. As a result no additional processing is required for performing trueOverlap.</a></p>
+      <h4><a name="1015724">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409701"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409703">Database ID of a cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409705"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409707">The searching box. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409709"><font size="2" face="'Courier New'" color="#000000"><em>tx_layer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5444378">Specifies the layer name or number. If specified, the function produces instances, mosaics, or shapes (the default). If not specified, </a><font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font> produces only instances and mosaics.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409713"><font size="2" face="'Courier New'" color="#000000"><em>tx_purpose</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5444449">Specifies the layer purpose.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409717"><font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409719">Search level. It can be a list of two integers (start and stop level for the search), or a single integer (stop level, start level is zero). If no level argument is specified, the start and stop levels are both zero, so that only the top&#45;level figures are returned. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="5409756"><font size="2" face="'Courier New'" color="#000000"><em>l_layerPurposePair</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409721"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409723">The layer&#45;purpose pair.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409725"><font size="2" face="'Courier New'" color="#000000"><em>g_doRowCol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409775">If set to </a><font size="2" face="'Courier New'" color="#000000">true</font>, displays row and column value, if the overlapped object is a mosaic instance. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015730">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409742"><font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409744">A list identifying all the objects encountered in the search. If the object is in the given cellview, it is identified by its own ID. Otherwise, the object is identified by its hierarchical path, represented as a list of object IDs where the length of the list is one greater than the level of the object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409746"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409748">An error occurs.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015733">Examples</a></h4>
+      <p><a name="1015734"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer with drawing purpose on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015735">shapeList = dbGetOverlaps(cv cv~&#62;bBox &#34;device&#34;) </a></font>
+      </p>
+      <p><a name="1015736"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer (with any purpose) on the top level. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015737">shapeList = dbGetOverlaps(cv cv~&#62;bBox list(&#34;device&#34;)) </a></font>
+      </p>
+      <p><a name="1015738"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer with pin purpose on the top level. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015739">shapeList = dbGetOverlaps(cv cv~&#62;bBox list(&#34;device&#34; &#34;pin&#34;))</a></font>
+      </p>
+      <p><a name="1015740"><font color="#000000"><em>figList</em></font></a> finds all the mosaics and instances on the top level. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015741">figList = dbGetOverlaps(cv cv~&#62;bBox nil) </a></font>
+      </p>
+      <p><a name="1015742"><font color="#000000"><em>figList</em></font></a> finds all the shapes, mosaics and instances on the top level. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015743">figList = dbGetOverlaps(cv cv~&#62;bBox) </a></font>
+      </p>
+      <p><a name="1015744"><font color="#000000"><em>figList</em></font></a> finds all the shapes, mosaics and instances from the top level to the level 5. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015745">figList = dbGetOverlaps(cv cv~&#62;bBox t 0:5) </a></font>
+      </p>
+      <p><a name="1015746"><font color="#000000"><em>figList</em></font></a> finds all the mosaics and instances on the top level. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015747">figList = dbGetOverlaps(cv cv~&#62;bBox nil) </a></font>
+      </p>
+      <p><a name="1015748"><font color="#000000"><em>figList</em></font></a> finds all the mosaics and instances from the top level to the level 3. </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015749">figList = dbGetOverlaps(cv cv~&#62;bBox nil 3) </a></font>
+      </p>
+      <p><a name="5444638">The illustration below shows that </a><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> overlaps the perimeters of B, C, and D.</p>
+      <p align="left"><a name="5444660"><img src="images/figure.12.1.1.png" width="492" height="267" alt=""><br></a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5444630">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetTrueOverlaps
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetTrueOverlaps"></a><a name="1015775">dbGetTrueOverlaps</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015778">dbGetTrueOverlaps<dd>dbgetTrueOverlaps( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>tx_layer</em></font> &#47; t &#47; nil [ <font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font> ] ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> g_doRowCol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font> &#47; nil <dd><dd>dbGetTrueOverlaps( <dd><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_layerPurposePair </em></font>] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> lx_level</em></font> ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> g_doRowCol</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font> &#47; nil </font>
+      </dl>
+      <h4><a name="5444263">Description</a></h4>
+      <p><a name="5444265">Returns a list of all the objects (such as, shapes, instances, and mosaics) in a cellview that overlaps the area specified by</a><font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font>.  <br>If the object comes from a lower level in the hierarchy, instead of from the specified cellview, the object is represented by a list (potentially a nested list, if it comes from more than one level down). Each level of the list has the ID of the instance in the corresponding level in the hierarchy. <br>For example, if there is a rectangle in a master cellview two levels down, for this rectangle, in the top cellview, the function will return a nested list. The output of this function is same as <a href="#4773995" title="9"><font color="#0000ff"><u>dbGetOverlaps</u></font></a>.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="5445901">From OA 2.2 release onward, the shape query returns only those shapes whose geometry overlap the region. This means that the trueOverlap rule is applied to all shapes at all times. As a result no additional processing is required for performing trueOverlap.</a></p>
+      <h4><a name="1015784">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409790"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409792">Database ID of a cellview</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409794"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409796">The searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409798"><font size="2" face="'Courier New'" color="#000000"><em>g_doRowCol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409800">If set to </a><font size="2" face="'Courier New'" color="#000000">true</font>, displays row and column value, if the overlapped object is a mosaic instance. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409802"><font size="2" face="'Courier New'" color="#000000"><em>tx_layer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409804">Specifies the layer name or number. If specified, the function produces instances, mosaics, or shapes (the default). If not specified, </a><font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font> produces only instances and mosaics.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409806"><font size="2" face="'Courier New'" color="#000000"><em>tx_purpose</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409808">Specifies the layer purpose.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409810"><font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409812">Search level. It can be a list of two integers (start and stop level for the search), or a single integer (stop level, start level is zero). If no level argument is specified, the start and stop levels are both zero, so that only the top&#45;level figures are returned.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409814"><font size="2" face="'Courier New'" color="#000000"><em>l_layerPurposePair</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409816">The layer purpose pair.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409818"><font size="2" face="'Courier New'" color="#000000"><em>g_doRowCol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409820">If set to </a><font size="2" face="'Courier New'" color="#000000">true</font>, displays row and column value, if the overlapped object is a mosaic instance. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015790">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409832"><font size="2" face="'Courier New'" color="#000000"><em>ld_fig</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409834">A list identifying all the objects encountered in the search. If the object is in the given cellview, it is identified by its own ID. Otherwise, the object is identified by its hierarchical path, represented as a list of object IDs where the length of the list is one greater than the level of the object. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409836"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409838">An error occurs.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015793">Examples</a></h4>
+      <p><a name="1326837"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer with drawing purpose on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1326838">shapeList = dbGetTrueOverlaps(cv cv~&#62;bBox &#34;device&#34;)</a></font>
+      </p>
+      <p><a name="1326839"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer (with any purpose) on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1326833">shapeList = dbGetTrueOverlaps(cv cv~&#62;bBox list(&#34;device&#34;))</a></font>
+      </p>
+      <p><a name="1326834"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the device layer with pin purpose on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015799">shapeList = dbGetTrueOverlaps(cv cv~&#62;bBox list(&#34;device&#34; &#34;pin&#34;))</a></font>
+      </p>
+      <p><a name="1015800"><font color="#000000"><em>figList</em></font></a> finds all the mosaics and instances on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015801">figList = dbGetTrueOverlaps(cv cv~&#62;bBox nil)</a></font>
+      </p>
+      <p><a name="1015802"><font color="#000000"><em>figList</em></font></a> finds all the shapes, mosaics, and instances on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015803">figList = dbGetTrueOverlaps(cv cv~&#62;bBox)</a></font>
+      </p>
+      <p><a name="1015804"><font color="#000000"><em>figList</em></font></a> finds all the shapes, mosaics, and instances from the top level to the level 5.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015805">figList = dbGetTrueOverlaps(cv cv~&#62;bBox t 0:5)</a></font>
+      </p>
+      <p><a name="1015806">The illustration below shows that </a><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> overlaps the perimeters of B, C, and D.</p>
+      <p align="left"><a name="1030256"><img src="images/figure.12.1.2.png" width="492" height="267" alt=""><br></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetNeighbor
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetNeighbor"></a><a name="1015829">dbGetNeighbor</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015832">dbGetNeighbor(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId <dd>l_bBox <dd>t_direction <dd></em></font>[ ( <font size="2" face="'Courier New'" color="#000000"><em>t_layer</em></font> [ <font size="2" face="'Courier New'" color="#000000"><em>t_purpose </em></font>] ) ] <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_depth </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_closestNeighbor </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015833">Description</a></h4>
+      <p><a name="1015835">Returns a list containing information about the closest neighboring shape in the specified direction of the given layer&#45;purpose pair. </a></p>
+      <p><a name="1015836">Shapes that overlap the searching box are ignored.</a></p>
+      <h4><a name="1015837">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409848"><font size="2" face="'Courier New'" color="#000000"><em>d_cellViewId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409850">Cellview ID.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409852"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409854">Specifies a bounding box that defines the search area.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409856"><font size="2" face="'Courier New'" color="#000000"><em>t_direction</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409858">Direction to search for the neighboring shape. The following strings identify the directions that can be specified:<br></a><font size="2" face="'Courier New'" color="#000000">T</font>, <font size="2" face="'Courier New'" color="#000000">t</font>, or <font size="2" face="'Courier New'" color="#000000">top</font> Above the searching box.<br><font size="2" face="'Courier New'" color="#000000">B</font>, <font size="2" face="'Courier New'" color="#000000">b</font>, or <font size="2" face="'Courier New'" color="#000000">bottom </font>Below the searching box.<br><font size="2" face="'Courier New'" color="#000000">L</font>, <font size="2" face="'Courier New'" color="#000000">l</font>, or <font size="2" face="'Courier New'" color="#000000">left</font>&nbsp;To the left of the searching box.<br><font size="2" face="'Courier New'" color="#000000">R</font>, <font size="2" face="'Courier New'" color="#000000">r</font>, or <font size="2" face="'Courier New'" color="#000000">right</font>&nbsp;To the right of the searching box.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409860"><font size="2" face="'Courier New'" color="#000000"><em>t_layer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409862">Layer specification with drawing purpose. Only the bounding boxes of the shapes on this layer&#45;drawing pair are checked against the searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409864"><font size="2" face="'Courier New'" color="#000000"><em>t_purpose</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409866">Layer&#45;purpose pair specification. Only the bounding boxes of the shapes on this layer&#45;purpose pair are checked against the searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409868"><font size="2" face="'Courier New'" color="#000000"><em>x_depth</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409870">The depth hierarchy up to which the search needs to be performed. If </a><font size="2" face="'Courier New'" color="#000000">x_depth</font> is 0, only the top&#45;level shapes are returned.</p>
+          </td>
+        </tr>
+      </table>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1997984">If you do not specify the values for the optional arguments, </a><font size="2" face="'Courier New'" color="#000000">dbGetNeighbor</font> uses the default values. For example, </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1997992">If </a><font size="2" face="'Courier New'" color="#000000">t_purpose</font> is not specified, the <font size="2" face="'Courier New'" color="#000000">(t_layer</font>, <font size="2" face="'Courier New'" color="#000000">drawing)</font> layer purpose pair is used.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1998069">If both </a><font size="2" face="'Courier New'" color="#000000">t_layer </font>and <font size="2" face="'Courier New'" color="#000000">t_purpose</font> are not specified, all layer purpose pairs are used.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1998070">If </a><font size="2" face="'Courier New'" color="#000000">x_depth</font> is not specified, 0 depth is used.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1998072">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="642">
+            <p><a name="ld_closestNeighbor"></a><a name="5409965"><font size="2" face="'Courier New'" color="#000000"><em>ld_closestNeighbor</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5409921"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5409936">A list containing the following information about the closest neighboring shape:<br>The distance to the closest shape in the specified direction.<br>The closest object ID identified by its hierarchical path.<br>The co&#45;ordinate pair representing the position of the closest shape.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409925"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5409927">The closest neighboring shape in the specified direction has not been found. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1997954">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015852">closestID = dbGetNeighbor(cell3 ((10 5)(25 12)) </a>&#34;T&#34;) </font>
+      </p>
+      <p><a name="1015853">In the example, </a><font size="2" face="'Courier New'" color="#000000">dbGetNeighbor</font> searches for the closest neighboring shape above the searching box. It returns the information about B because B is the closest shape above the specified searching box. </p>
+      <p><a name="1998229">Shapes D and E are ignored because they are fully or partially within the searching box. Shapes C and F are ignored because they do not satisfy the search constraints. Although shape A is above the box, it is ignored because it is not the closest shape in that direction.</a></p>
+      <p align="left"><a name="1030288"><img src="images/figure.12.1.3.png" width="449" height="339" alt=""><br></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetNeighborList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetNeighborList"></a><a name="1015884">dbGetNeighborList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015887">dbGetNeighborList( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView <dd>l_area <dd>t_direction <dd></em></font>[ ( <font size="2" face="'Courier New'" color="#000000"><em>t_layer</em></font> [ <font size="2" face="'Courier New'" color="#000000"><em>t_purpose</em></font> ] ) ] <dd>[<font size="2" face="'Courier New'" color="#000000"><em> lx_depth </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_closestNeighbor</em></font></font>
+      </dl>
+      <h4><a name="1015888">Description</a></h4>
+      <p><a name="1015890">Lists neighboring shapes in the specified direction of the given layer&#45;purpose pair. </a></p>
+      <p><a name="1015891">Shapes that overlap the searching box are ignored. </a></p>
+      <h4><a name="1015892">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410022"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410024">Cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410026"><font size="2" face="'Courier New'" color="#000000"><em>l_area</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410028">Specifies a bounding box that defines the search area.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410030"><font size="2" face="'Courier New'" color="#000000"><em>t_direction</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410032">Direction in which to search for neighboring shapes. The following strings identify the directions that can be specified:<br></a><font size="2" face="'Courier New'" color="#000000">T</font>, <font size="2" face="'Courier New'" color="#000000">t</font>, or <font size="2" face="'Courier New'" color="#000000">top</font> Above the searching box.<br><font size="2" face="'Courier New'" color="#000000">B</font>, <font size="2" face="'Courier New'" color="#000000">b</font>, or <font size="2" face="'Courier New'" color="#000000">bottom</font>&nbsp;Below the searching box.<br><font size="2" face="'Courier New'" color="#000000">L</font>, <font size="2" face="'Courier New'" color="#000000">l</font>, or <font size="2" face="'Courier New'" color="#000000">left</font>&nbsp;&nbsp;To the left of the searching box.<br><font size="2" face="'Courier New'" color="#000000">R</font>, <font size="2" face="'Courier New'" color="#000000">r</font>, or <font size="2" face="'Courier New'" color="#000000">right</font>&nbsp;To the right of the searching box.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410034"><font size="2" face="'Courier New'" color="#000000"><em>t_layer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410036">Specifies layer with the drawing purpose. Only the bounding boxes of the shapes on this layer&#45;drawing pair are checked against the searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410038"><font size="2" face="'Courier New'" color="#000000"><em>t_purpose</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410040">Specifies layer&#45;purpose pair. Only the bounding boxes of the shapes on this layer&#45;purpose pair are checked against the searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410042"><font size="2" face="'Courier New'" color="#000000"><em>lx_depth</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410044">Search level, that is, the depth hierarchy up to which the search needs to be performed. If </a><font size="2" face="'Courier New'" color="#000000">lx_depth</font> is 0, only the top&#45;level shapes are returned.</p>
+          </td>
+        </tr>
+      </table>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1998291">If you do not specify the values for the optional arguments, </a><font size="2" face="'Courier New'" color="#000000">dbGetNeighbor</font> uses the default values. For example, </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1998292">If </a><font size="2" face="'Courier New'" color="#000000">t_purpose</font> is not specified, the <font size="2" face="'Courier New'" color="#000000">(t_layer</font>, <font size="2" face="'Courier New'" color="#000000">drawing)</font> layer purpose pair is used.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1998293">If both </a><font size="2" face="'Courier New'" color="#000000">t_layer</font> and <font size="2" face="'Courier New'" color="#000000">t_purpose</font> are not specified, all layer purpose pairs are used.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1998294">If </a><font size="2" face="'Courier New'" color="#000000">lx_depth</font> is not specified, 0 depth is used.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="2004722">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410089"><font size="2" face="'Courier New'" color="#000000"><em>l_closestNeighbor</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410091">A list of </a><a href="chap2.html" title="2"><font size="2" face="'Courier New'" color="#000000">ld_closestNeighbor</font></a> (in the search direction). The list is in no specific order, but you can put the list into order of increasing distance with a sorting function.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015905">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015906">closestIDs = dbGetNeighborList(cell3 ((10 5)(20 12)) </a>&#34;T&#34;) </font>
+      </p>
+      <p><a name="1015907">In the example, </a><font size="2" face="'Courier New'" color="#000000">dbGetNeighborList</font> searches for the closest neighboring shapes that are above the searching box.</p>
+      <p><a name="1998352">It returns the information about shapes A and B because both shapes are above the specified searching box. Shapes C and F are ignored because they do not satisfy the search constraints and shapes D and E are ignored because they overlap the searching box.</a></p>
+      <p align="left"><a name="1030324"><img src="images/figure.12.1.4.png" width="449" height="352" alt=""><br></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetMaxHierDepth
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetMaxHierDepth"></a><a name="1029274">dbGetMaxHierDepth</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1029277">dbGetMaxHierDepth(<dd>) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>x_maxHierDepth</em></font></font>
+      </dl>
+      <h4><a name="1029278">Description</a></h4>
+      <p><a name="1029280">Returns the </a><font size="2" face="'Courier New'" color="#000000">dbcMaxHierDepth</font> constant in SKILL.</p>
+      <h4><a name="1029281">Arguments</a></h4>
+      <p><a name="1029282">None</a></p>
+      <h4><a name="1029283">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410101"><font size="2" face="'Courier New'" color="#000000"><em>x_maxHierDepth</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr>The dbcMaxHierDepth constant.</nobr>
+                    </div>
+                  </td>
+                  <td><a name="5447044">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+            <p><a name="5410103">&nbsp;</a></p>
+          </td>
+        </tr>
+      </table>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetPathSegStyle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetPathSegStyle"></a><a name="4019186">dbGetPathSegStyle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4019141">dbGetPathSegStyle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pathSeg<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_pathSegStyle</em></font></font>
+      </dl>
+      <h4><a name="4019142">Description</a></h4>
+      <p><a name="4019144">Returns the path segment end styles for the supplied pathSeg database object.</a></p>
+      <h4><a name="4019150">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="4019147"><font size="2" face="'Courier New'" color="#000000"><em>d_pathSeg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="4019149">Specifies the database identifier of the path segment object</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4019157">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="4019153"><font size="2" face="'Courier New'" color="#000000"><em>l_pathSegStyle</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="4019155">List of lists containing the following path seg style parameters:</a></p>
+            <p><a name="4019156">(</a><font size="2" face="'Courier New'" color="#000000"><em>n_width<br>t_beginStyle<br>t_endStyle<br></em></font>[<font size="2" face="'Courier New'" color="#000000"><em>n_beginExt n_endExt</em></font> [<font size="2" face="'Courier New'" color="#000000"><em>n_beginLeftDiagExt n_beginRightDiagExt n_beginRightHalfWidth</em></font> <font size="2" face="'Courier New'" color="#000000"><em>n_endLeftDiagExt n_endRightDiagExt n_endRightHalfWidth</em></font>]<br>]<br>)</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4019158">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019159">dbGetPathSegStyle(d_pathSeg)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019160">(1.0 &#34;custom&#34; &#34;custom&#34; </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019161">    (0.5 0.5 </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019162">&nbsp;&nbsp;&nbsp;&nbsp;(0.71 0.71 0.5 0.71 0.71</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019163"> &nbsp;&nbsp;&nbsp;&nbsp;    0.5</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019164"> &nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019165">     )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4019177">)</a></font>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr></nobr>
+              </div>
+            </td>
+            <td><a name="4019179">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetPathSegStyle
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetPathSegStyle"></a><a name="4019025">dbSetPathSegStyle</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="4018974">dbSetPathSegStyle(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_pathSeg<dd>n_width t_beginStyle t_endStyle </em></font>&nbsp;&nbsp;&nbsp;&nbsp;[ <font size="2" face="'Courier New'" color="#000000"><em>n_beginExt n_endExt <dd></em></font>&nbsp;&nbsp;&nbsp;&nbsp;[ <font size="2" face="'Courier New'" color="#000000"><em>n_beginLeftDiagExt n_beginRightDiagExt n_beginRightHalfWidth &nbsp;&nbsp;&nbsp;&nbsp;n_endLeftDiagExt n_endRightDiagExt n_endRightHalfWidth</em></font> ]&nbsp;&nbsp;&nbsp;&nbsp;]<dd>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="4018975">Description</a></h4>
+      <p><a name="5222986">Sets the path segment style of a given path seg database object.</a></p>
+      <h4><a name="5222996">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="649">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="262">
+            <p><a name="5407356"><font size="2" face="'Courier New'" color="#000000"><em>d_pathSeg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="387">
+            <p><a name="5407358">Specifies the database identifier of the pathSeg object</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="5407364"><font size="2" face="'Courier New'" color="#000000"><em>n_width t_beginStyle t_endStyle </em></font></a>[ <font size="2" face="'Courier New'" color="#000000"><em>n_beginExt n_endExt<br></em></font>[<font size="2" face="'Courier New'" color="#000000"><em>n_beginLeftDiagExt n_beginRightDiagExt n_beginRightHalfWidth n_endLeftDiagExt n_endRightDiagExt n_endRightHalfWidth </em></font>]]</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5407360"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5407362">Specifies the path seg style parameters</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5223006">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5222999"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5223001">If the path seg style is successfully set</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5223003"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5223005">If the path seg style is not set</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="4018998">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="4018966">dbSetPathSegStyle(p2 1.0 &#34;custom&#34; &#34;custom&#34; list(0.5 0.5 list(0.71 0.71 0.5 0.71 0.71 0.5)))</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetPathBoundary
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetPathBoundary"></a><a name="5224434">dbGetPathBoundary</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5222913">dbGetPathBoundary(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_path<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_points</em></font><font size="2" face="'Courier New'" color="#000000"> &#47; nil</font></font>
+      </dl>
+      <h4><a name="5222914">Description</a></h4>
+      <p><a name="5222916">Returns the polygon boundary for the specified path.</a></p>
+      <h4><a name="5222922">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5222919"><font size="2" face="'Courier New'" color="#000000"><em>d_path</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5222921">Database ID of a path.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5222929">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5223395"><font size="2" face="'Courier New'" color="#000000"><em>l_path</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5223398">List of vertices for the polygon boundary.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5222925"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5222927">Returned in case of failure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5222930">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223496">dbGetPathBoundary(dbCreatePath(cv &#39;(&#34;text&#34; &#34;drawing&#34;) list(0:0 10:0 10:10 0:0) 0.1))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223497">&#62; ((0.0 &#45;0.05) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223498">    (10.05 &#45;0.05) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223499">    (10.05 10.02) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223500">    (9.98 10.05) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223501">    (&#45;0.035 0.035)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223502">    (0.035 &#45;0.035) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223503">    (9.95 9.88) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223504">    (9.95 0.05) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5223505">    (0.0 0.05)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5385743">)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbProduceOverlap
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbProduceOverlap"></a><a name="5385748">dbProduceOverlap</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015941">dbProduceOverlap( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_layerPurposePair </em></font>] ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_shape</em></font> &#47; nil </font>
+      </dl>
+      <h4><a name="1015942">Description</a></h4>
+      <p><a name="1015944">Returns a list of all the shapes in a cellview whose bounding boxes overlap the area specified by </a><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font>. This function interface is simpler than <font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font> if you are only interested in finding the overlapping shapes. </p>
+      <h4><a name="5410117">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410155"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410157">The cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410159"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410161">Searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410163"><font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410165">Search level. It can be two integers (start and stop level for the search), or a single integer (stop level, start level is zero). If no level argument is specified, the start and stop levels are both zero, so that only the top&#45;level shapes are returned.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="5410175"><font size="2" face="'Courier New'" color="#000000"><em>l_layerPurposePair</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410171"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410173">Layer purpose pair. Defaults to </a><font size="2" face="'Courier New'" color="#000000">all</font> if not specified.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5410122">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410178"><font size="2" face="'Courier New'" color="#000000"><em>ld_shape</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410180">A list identifying all the overlapping shapes.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410182"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410184">An error occurred.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015954">Examples</a></h4>
+      <p><a name="1015955"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015956">shapeList = dbProduceOverlap(cv cv~&#62;bBox)</a></font>
+      </p>
+      <p><a name="1015957"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes from level 1 to level 5.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015958">shapeList = dbProduceOverlap(cv cv~&#62;bBox 1:5)</a></font>
+      </p>
+      <p><a name="1015959"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes from the top level to level 4.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015960">shapeList = dbProduceOverlap(cv cv~&#62;bBox 4)</a></font>
+      </p>
+      <p><a name="1015961"><font color="#000000"><em>shapeList</em></font></a> finds all the shapes on device layer with drawing purpose from the top level to level 4.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015962">shapeList = dbProduceOverlap(cv cv~&#62;bBox 4 &#34;device&#34;)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbProduceOverlapInst 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbProduceOverlapInst"></a><a name="1015964">dbProduceOverlapInst </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1015967">dbProduceOverlapInst( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>lx_level </em></font>] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>ld_inst </em></font>&#47; nil </font>
+      </dl>
+      <h4><a name="1015968">Description</a></h4>
+      <p><a name="1015970">Returns a list of all the instances in a cellview that overlap the area specified by </a><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font>. This function interface is simpler than <font size="2" face="'Courier New'" color="#000000">dbGetOverlaps</font> if you are only interested in finding instances. </p>
+      <h4><a name="1015971">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410194"><font size="2" face="'Courier New'" color="#000000"><em>d_cellView</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410196">The cellview.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410198"><font size="2" face="'Courier New'" color="#000000"><em>l_bBox</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410200">Searching box.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410202"><font size="2" face="'Courier New'" color="#000000"><em>lx_level</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410204">Search level. Must be two integers (start and stop level for the search). If no level argument is specified, the start and stop levels are both zero, so that only the top&#45;level instances are returned.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015975">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="643">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5410213"><font size="2" face="'Courier New'" color="#000000"><em>ld_inst</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="450">
+            <p><a name="5410215">A list identifying all the overlapping instances.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410217"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5410219">An error occurs.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1015978">Examples</a></h4>
+      <p><a name="1015979"><font color="#000000"><em>instList</em></font></a> finds all the instances on the top level.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015980">skillinstList = dbProduceOverlapInst(cv cv~&#62;bBox)</a></font>
+      </p>
+      <p><a name="1015981"><font color="#000000"><em>instList</em></font></a> finds all the instances from level 1 to level 5.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1015982">instList = dbProduceOverlapInst(cv cv~&#62;bBox 1:5)</a></font>
+      </p>
+      <p><a name="1015983"><font color="#000000"><em>instList</em></font></a> finds all the instances from the top level to level 4.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5122144">instList = dbProduceOverlapInst(cv cv~&#62;bBox 4:4)</a></font>
+      </p>
+      <p><a name="5413276">&nbsp;</a></p>
+      <p><a name="5443755">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="5445083">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="topology.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="figset.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 4</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075801">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="4">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075801">
+<META NAME="NextFile" CONTENT="stringfunc.html">
+<META NAME="PageCount" CONTENT="14">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="dataoperator.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 4">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="dataoperator.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="stringfunc.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>4<a name="1008200"><font color="#000000"><strong></strong></font></a></h1>
+      <h1><a name="1037758">Type Conversion Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=charToInt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="charToInt"></a><a name="1037774">charToInt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037776">charToInt( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_char</em></font><font color="#000000"><em> <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_ascii</em></font></font>
+      </dl>
+      <h4><a name="1037777">Description</a></h4>
+      <p><a name="1037780">Returns the ASCII code of the first character of the given symbol. In SKILL, a single character symbol can be used as a </a><font color="#000000"><em>character</em></font> value.</p>
+      <h4><a name="1037781">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046114"><font size="2" face="'Courier New'" color="#000000"><em>s_char</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046116">A symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037783">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046480"><font size="2" face="'Courier New'" color="#000000"><em>x_ascii</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046482">The ASCII code of the (first) character of the given symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037785">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037786">charToInt(&#39;B)<br>=&#62; 66</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038485">charToInt(&#39;Before)<br>=&#62; 66</a></font>
+      </p>
+      <h4><a name="1038515">Reference</a></h4>
+      <p><a href="#1038520" title="4" name="1038519"><font color="#0000ff"><u>intToChar</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=intToChar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="intToChar"></a><a name="1038520">intToChar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037761">intToChar( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_ascii</em></font><font color="#000000"><em> <dd></em></font>) <dd><font color="#000000"><em>=&#62;</em></font> <font size="2" face="'Courier New'" color="#000000"><em>s_char</em></font></font>
+      </dl>
+      <h4><a name="1037671">Description</a></h4>
+      <p><a name="1037674">Returns the single&#45;character symbol whose ASCII code is the given integer value.</a></p>
+      <h4><a name="1037675">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046134"><font size="2" face="'Courier New'" color="#000000"><em>x_ascii</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046136">ASCII code.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037677">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046143"><font size="2" face="'Courier New'" color="#000000"><em>s_char</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046145">Symbol of single&#45;character whose ASCII code is </a><font size="2" face="'Courier New'" color="#000000"><em>x_ascii</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037679">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037680">intToChar( 66)<br>=&#62; B</a></font>
+      </p>
+      <h4><a name="1037681">Reference</a></h4>
+      <p><a href="#1037774" title="4" name="1036598"><font color="#0000ff"><u>charToInt</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=listToVector
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="listToVector"></a><a name="1037820">listToVector</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037822">listToVector( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></font>
+      </dl>
+      <h4><a name="1037823">Description</a></h4>
+      <p><a name="1037826">Returns a vector (array) filled with the elements from the given list.</a></p>
+      <p><a name="1037827">A vector is represented by an array. </a></p>
+      <h4><a name="1037828">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046152"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046154">A list whose elements will be stored in consecutive entries in the vector.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037830">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046161"><font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046163">Vector filled with the elements from the given list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037832">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040240">V = listToVector( &#39;( 1 2 3 ) ) =&#62; array[3]:1954920<br>V[0] =&#62; 1<br>V[1] =&#62; 2<br>V[2] =&#62; 3<br>V[3]<br>*Error* arrayref: array index out of bounds &#45; V[3]</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=stringToFunction
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="stringToFunction"></a><a name="1037974">stringToFunction</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037977">stringToFunction( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>s_langMode</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>u_function</em></font></font>
+      </dl>
+      <h4><a name="1037978">Description</a></h4>
+      <p><a name="1037980">Wraps and converts a string of SKILL code into a parameterless SKILL function.</a></p>
+      <p><a name="1037981">Parses the given string argument and wraps the result with a parameterless </a><font size="2" face="'Courier New'" color="#000000">lambda</font>, then compiles the entire form into a function object. The returned function can later be <font color="#000000"><em>applied</em></font> with better performance than direct evaluation using <font size="2" face="'Courier New'" color="#000000">evalstring</font>.</p>
+      <h4><a name="1037982">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046205"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046207">String representing some SKILL code.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046209"><font size="2" face="'Courier New'" color="#000000"><em>s_langMode</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046211">Must be a symbol. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046213"><font color="#000000">Valid values</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046215"><font size="2" face="'Courier New'" color="#000000">&#39;ils: </font></a>Treats the string as SKILL++ code.</p>
+            <p><a name="1046275"><font size="2" face="'Courier New'" color="#000000">&#39;il: </font></a>Treats the string as SKILL code.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046200">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046484"><font size="2" face="'Courier New'" color="#000000"><em>u_function</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046486">Parameterless function equivalent to evaluating the string </a><font size="2" face="'Courier New'" color="#000000">(lambda( ) </font><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font><font size="2" face="'Courier New'" color="#000000">)</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037996">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037997">f = stringToFunction(&#34;1+2&#34;) =&#62; funobj:0x220038<br>apply(f nil) =&#62; 3</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=stringToSymbol
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="stringToSymbol"></a><a name="1038038">stringToSymbol</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038041">stringToSymbol( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_string <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font></font>
+      </dl>
+      <h4><a name="1038042">Description</a></h4>
+      <p><a name="1038045">Converts a string to a symbol of the same name.</a></p>
+      <h4><a name="1038046">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046297"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046299">String to convert to a symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038048">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046306"><font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046308">Symbol for the given string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038050">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038051">y = stringToSymbol( &#34;test&#34;)<br>=&#62; test<br>sprintf(nil &#34;%L&#34; y)<br>=&#62; &#34;test&#34;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=stringToTime
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="stringToTime"></a><a name="1038078">stringToTime</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038081">stringToTime( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_time</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></font>
+      </dl>
+      <h4><a name="1038082">Description</a></h4>
+      <p><a name="1038084">Given a date and time string, returns an integer time value representation. The time argument must be in the format as returned by the </a><font size="2" face="'Courier New'" color="#000000">timeToString</font> function, such as: <font size="2" face="'Courier New'" color="#000000">Dec 28 16:57:06 1996</font>.</p>
+      <p><a name="1038085">All time conversion functions assume local time, not GMT time.</a></p>
+      <h4><a name="1038086">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046315"><font size="2" face="'Courier New'" color="#000000"><em>t_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046317">String indicating a time and date in this format: &#34;</a><font size="2" face="'Courier New'" color="#000000">Dec 28 16:57:06 1996</font>&#34;. Same as format returned by <font size="2" face="'Courier New'" color="#000000">timeToString</font> or <font size="2" face="'Courier New'" color="#000000">getCurrentTime</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038088">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046328"><font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046330">Integer time value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038090">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038091">fileTimeModified( &#34;~&#47;.cshrc&#34; )<br>=&#62; 793561559</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038092">timeToString(793561559)<br>=&#62; &#34;Feb 23 09:45:59 1995&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038093">stringToTime(&#34;Feb 23 09:45:59 1995&#34;)<br>=&#62; 793561559</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=symbolToString
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="symbolToString"></a><a name="1038133">symbolToString</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038136">symbolToString( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></font>
+      </dl>
+      <h4><a name="1038137">Description</a></h4>
+      <p><a name="1038139">Converts a symbol to a string of the same name. Same as </a><font size="2" face="'Courier New'" color="#000000">get_pname</font>.</p>
+      <h4><a name="1038140">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046337"><font size="2" face="'Courier New'" color="#000000"><em>s_symbolName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046339">Symbol to convert.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038142">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046346"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046348">String with the same name as the input symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038144">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038145">y = symbolToString( &#39;test2)<br>=&#62; &#34;test2&#34;<br>sprintf(nil &#34;%L&#34; y)<br>=&#62; &#34;\&#34;test2\&#34;&#34; </a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tableToList
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tableToList"></a><a name="1040423">tableToList</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040426">tableToList( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_assoc_list</em></font></font>
+      </dl>
+      <h4><a name="1040427">Description</a></h4>
+      <p><a name="1040429">Converts the contents of an association table to an association list. Use this function interactively to look at the contents of a table.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1040430">This function eliminates the efficiency that you gain from referencing data in an association table. Do not use this function for processing data in an association table. Instead, use this function interactively to look at the contents of a table.</a></p>
+      <h4><a name="1040431">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046355"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046357">Association table to be converted.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040433">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046364"><font size="2" face="'Courier New'" color="#000000"><em>l_assoc_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046366">Association list containing key&#47;value pairs from the association table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040435">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038125">myTable = makeTable( &#34;table&#34; 0)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; table:table<br>myTable[ &#34;first&#34;] = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>myTable[ &#39;two] = 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2<br>tableToList(myTable)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; ((two 2)(&#34;first&#34; 1))</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=timeToString
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="timeToString"></a><a name="1038186">timeToString</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038189">timeToString( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_time <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_time &#47; </em></font><font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038190">Description</a></h4>
+      <p><a name="1038192">Takes an integer UNIX time value, returns a formatted string that the value denotes. The string is always in a form like: </a><font size="2" face="'Courier New'" color="#000000">Dec 28 16:57:06 1994</font>. </p>
+      <h4><a name="1038193">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046375"><font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046377">Integer time value. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038195">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046384"><font size="2" face="'Courier New'" color="#000000"><em>t_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046386">Formatted string the value denotes.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046388"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1046390">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if a negative argument is passed. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038198">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038199">valTime=fileTimeModified( &#34;~&#47;.cshrc&#34; )<br>timeToString(valTime)<br>=&#62; &#34;Feb 23 09:45:59 1995&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046578">timeToString(&#45;valTime)<br>=&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=timeToTm
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="timeToTm"></a><a name="1046583">timeToTm</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038238">timeToTm( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font></font>
+      </dl>
+      <h4><a name="1038239">Description</a></h4>
+      <p><a name="1038241">Given an integer time value, returns a </a><font size="2" face="'Courier New'" color="#000000">tm</font> structure.</p>
+      <p><a name="1038242"><font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font></a> is a defstruct similar to POSIX&#39;s <font size="2" face="'Courier New'" color="#000000">tm</font> struct:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038243">struct  tm {<br>int     tm_sec;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* seconds after the minute: [0, 61] *&#47;<br>int     tm_min;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* minutes after the hour: [0, 59] *&#47;<br>int     tm_hour;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* hours after midnight: [0, 23] *&#47;<br>int     tm_mday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* day of the month: [1, 31] *&#47;<br>int     tm_mon;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* month of the year: [0, 11] *&#47;<br>int     tm_year;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* year since 1900 *&#47;<br>int     tm_wday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* days since Sunday: [0, 6] *&#47;<br>int     tm_yday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* days since January: [0, 365] *&#47;<br>int     tm_isdst;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* daylight saving time flag: &#60;0,0,&#62;0*&#47;<br>};</a></font>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038244">Use </a><font size="2" face="'Courier New'" color="#000000">x&#45;&#62;??</font> to get all its fields.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038245">Use </a><font size="2" face="'Courier New'" color="#000000">x&#45;&#62;tm_sec</font> and so forth to access individual fields.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1038246">All time conversion functions assume local time, not GMT time.</a></p>
+      <h4><a name="1038247">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046397"><font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046399">Integer time value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038249">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046406"><font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046408">A defstruct similar to POSIX&#39;s </a><font size="2" face="'Courier New'" color="#000000">tm</font> struct.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038251">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038252">fileTimeModified( &#34;~&#47;.cshrc&#34; )<br>=&#62; 793561559</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038253">timeToString(793561559)<br>=&#62; &#34;Feb 23 09:45:59 1995&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038254">x = timeToTm(793561559)<br>=&#62;array[11]:1702872</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038255">x&#45;&#62;??</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038256">(tm_sec 59 tm_min 45 tm_hour<br>&nbsp;&nbsp;&nbsp;&nbsp;9 tm_mday 23 tm_mon 1<br>&nbsp;&nbsp;&nbsp;&nbsp;tm_year 95 tm_wday 4 tm_yday<br>&nbsp;&nbsp;&nbsp;&nbsp;53 tm_isdst 0<br>)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038257">x&#45;&#62;tm_mon<br>=&#62;1</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tmToTime
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tmToTime"></a><a name="1038308">tmToTime</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038311">tmToTime( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></font>
+      </dl>
+      <h4><a name="1038312">Description</a></h4>
+      <p><a name="1038314">Given a </a><font size="2" face="'Courier New'" color="#000000">tm</font> structure, returns the integer value of the time it represents.</p>
+      <p><a name="1038315"><font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font></a> is a defstruct similar to POSIX&#39;s <font size="2" face="'Courier New'" color="#000000">tm</font> struct:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038316">struct  tm {<br>int     tm_sec;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* seconds after the minute: [0, 61] *&#47;<br>int     tm_min;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* minutes after the hour: [0, 59] *&#47;<br>int     tm_hour;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* hours after midnight: [0, 23] *&#47;<br>int     tm_mday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* day of the month: [1, 31] *&#47;<br>int     tm_mon;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* month of the year: [0, 11] *&#47;<br>int     tm_year;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* year since 1900 *&#47;<br>int     tm_wday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* days since Sunday: [0, 6] *&#47;<br>int     tm_yday;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* days since January: [0, 365] *&#47;<br>int     tm_isdst;&nbsp;&nbsp;&nbsp;&nbsp;&#47;* daylight saving time flag: &#60;0,0,&#62;0*&#47;<br>};</a></font>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038317">Use </a><font size="2" face="'Courier New'" color="#000000">x&#45;&#62;??</font> to get all its fields.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038318">Use </a><font size="2" face="'Courier New'" color="#000000">x&#45;&#62;tm_sec</font> and so forth to access individual fields.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1038319">All time conversion functions assume local time, not GMT time.</a></p>
+      <h4><a name="1038320">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046415"><font size="2" face="'Courier New'" color="#000000"><em>r_tm</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046417">A defstruct similar to POSIX&#39;s tm struct.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038322">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046492"><font size="2" face="'Courier New'" color="#000000"><em>x_time</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046494">Integer time value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038324">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038325">fileTimeModified( &#34;~&#47;.cshrc&#34; )<br>=&#62; 793561559</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038326">timeToString(793561559)<br>=&#62; &#34;Feb 23 09:45:59 1995&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038327">x = timeToTm(793561559)<br>=&#62;array[11]:1702872</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038328">x&#45;&#62;??</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038329">(tm_sec 59 tm_min 45 tm_hour<br>&nbsp;&nbsp;&nbsp;&nbsp;9 tm_mday 23 tm_mon 1<br>&nbsp;&nbsp;&nbsp;&nbsp;tm_year 95 tm_wday 4 tm_yday<br>&nbsp;&nbsp;&nbsp;&nbsp;53 tm_isdst 0<br>)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038330">tmToTime(x)<br>=&#62; 793561559</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=vectorToList 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="vectorToList"></a><a name="1038377">vectorToList </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038380">vectorToList( <dd></a><font color="#000000"><em>a_vectorArray <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></font>
+      </dl>
+      <h4><a name="1038381">Description</a></h4>
+      <p><a name="1038383">Returns a list containing the elements of an array.</a></p>
+      <h4><a name="1038384">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046488"><font size="2" face="'Courier New'" color="#000000"><em>a_vectorArray</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046490">Vector to be converted.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038386">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1046442"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1046444">List constructed from the given vector.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038388">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038389">vectorToList( vector( 1 2 3 ) ) <br>=&#62; ( 1 2 3 )<br>vectorToList( Vector( 3 &#34;Hi&#34;))<br>=&#62; (3 &#34;Hi&#34;) </a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1045850">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="dataoperator.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="stringfunc.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

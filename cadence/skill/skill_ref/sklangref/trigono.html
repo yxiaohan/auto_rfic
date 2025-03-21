@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 8</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075801">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="8">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075801">
+<META NAME="NextFile" CONTENT="logicalrel.html">
+<META NAME="PageCount" CONTENT="8">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="bitwise.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 8">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="bitwise.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="logicalrel.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>8<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1008923">Trigonometric Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=asin
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="asin"></a><a name="1037652">asin</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037655">asin( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037656">Description</a></h4>
+      <p><a name="1037658">Returns the arc sine of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037659">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039851"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039853">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037661">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039860"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039862">Arc sine of the value passed in.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037663">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037664">asin(0.3) =&#62; 0.3046927</a></font>
+      </p>
+      <h4><a name="1037665">Reference</a></h4>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=atan
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="atan"></a><a name="1037693">atan</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037696">atan( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037697">Description</a></h4>
+      <p><a name="1037699">Returns the arc tangent of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037700">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039869"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039871">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037702">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039878"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039880">Arc tangent of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037704">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037705">atan(0.3) =&#62; 0.2914568</a></font>
+      </p>
+      <h4><a name="1037706">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037712">, </a><a href="#1037715" title="8"><font color="#0000ff"><u>atan2</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=atan2
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="atan2"></a><a name="1037715">atan2</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037717">atan2(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_y<dd>n_x<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037718">Description</a></h4>
+      <p><a name="1037720">Computes the principal value of the arc tangent of </a><font size="2" face="'Courier New'" color="#000000"><em>n_y</em></font>&#47;<font size="2" face="'Courier New'" color="#000000"><em>n_x</em></font>, using the signs of both arguments to determine the quadrant of the return value.</p>
+      <h4><a name="1037721">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039887"><font size="2" face="'Courier New'" color="#000000"><em>n_y</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039889">Vertical coordinate value.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039891"><font size="2" face="'Courier New'" color="#000000"><em>n_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039893">Horizontal coordinate value.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039908">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039910"><font size="2" face="'Courier New'" color="#000000"><em>n_y</em></font></a>&#47;<font size="2" face="'Courier New'" color="#000000"><em>n_x</em></font> is the tangent of the required angle.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040013">Value Returned	</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040006"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040008">Arc tangent of </a><font size="2" face="'Courier New'" color="#000000">y&#47;x</font> in the range <font size="2" face="'Courier New'" color="#000000">[&#45;pi,pi]</font> radians. If both arguments are 0.0, 0.0 is returned.If <font size="2" face="'Courier New'" color="#000000">x</font> or <font size="2" face="'Courier New'" color="#000000">y</font> is <font size="2" face="'Courier New'" color="#000000">NaN</font>, <font size="2" face="'Courier New'" color="#000000">NaN</font> is returned. In IEEE754 mode, <font size="2" face="'Courier New'" color="#000000">atan2()</font> handles  the  following exceptional arguments according to ANSI&#47;IEEE Std 754&#45;1985:</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040010">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1040012"><font size="2" face="'Courier New'" color="#000000">atan2(+0,x)</font></a> returns <font size="2" face="'Courier New'" color="#000000">+0</font> for <font size="2" face="'Courier New'" color="#000000">x&#62;0</font> or <font size="2" face="'Courier New'" color="#000000">x=+0</font></p>
+            <p><a name="1040043"><font size="2" face="'Courier New'" color="#000000">atan2(+0,x)</font></a> returns <font size="2" face="'Courier New'" color="#000000">+pi</font> for <font size="2" face="'Courier New'" color="#000000">x&#60;0</font> or <font size="2" face="'Courier New'" color="#000000">x=&#45;0</font></p>
+            <p><a name="1040050"><font size="2" face="'Courier New'" color="#000000">atan2(y,+0)</font></a> returns <font size="2" face="'Courier New'" color="#000000">pi&#47;2</font> for <font size="2" face="'Courier New'" color="#000000">y&#62;0</font></p>
+            <p><a name="1040057"><font size="2" face="'Courier New'" color="#000000">atan2(y,+0)</font></a> returns <font size="2" face="'Courier New'" color="#000000">&#45;pi&#47;2</font> for <font size="2" face="'Courier New'" color="#000000">y&#60;zatan2(+y,Inf)</font> returns <font size="2" face="'Courier New'" color="#000000">+0</font> for finite <font size="2" face="'Courier New'" color="#000000">y&#62;0atan2(+Inf,x)</font> returns <font size="2" face="'Courier New'" color="#000000">+pi&#47;2</font> for finite <font size="2" face="'Courier New'" color="#000000">xatan2(+y,&#45;Inf)</font> returns <font size="2" face="'Courier New'" color="#000000">+pi</font> for finite <font size="2" face="'Courier New'" color="#000000">y&#62;0atan2(+Inf,Inf)</font> returns <font size="2" face="'Courier New'" color="#000000">+pi&#47;4atan2(+Inf,&#45;Inf)</font> returns <font size="2" face="'Courier New'" color="#000000">+3pi&#47;4</font></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040015">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037731">atan2(1 1) =&#62; 0.7853982</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037732">atan2(0 0) =&#62; 0.0</a></font>
+      </p>
+      <h4><a name="1037733">Reference</a></h4>
+      <p><a href="#1037693" title="8" name="1037684"><font color="#0000ff"><u>atan</u></font></a>, </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=cos
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="cos"></a><a name="1037791">cos</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037794">cos( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037795">Description</a></h4>
+      <p><a name="1037797">Returns the cosine of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037798">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040064"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040066">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037800">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040073"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040075">Cosine of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037802">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037803">cos(0.3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0.9553365<br>cos(3.14&#47;2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0.0007963</a></font>
+      </p>
+      <h4><a name="1037804">Reference</a></h4>
+      <p><a name="1037779">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sin
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sin"></a><a name="1037827">sin</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037830">sin( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037831">Description</a></h4>
+      <p><a name="1037833">Returns the sine of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037834">Arguments		</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040082"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040084">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037836">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040091"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040093">Sine of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037838">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037839">sin(3.14&#47;2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 0.9999997<br>sin(3.14159&#47;2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1.0</a></font>
+      </p>
+      <p><a name="1037840">Floating point results from evaluating the same expressions may be machine dependent.</a></p>
+      <h4><a name="1037841">Reference</a></h4>
+      <p><a href="#1037652" title="8" name="1037819"><font color="#0000ff"><u>asin</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tan
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tan"></a><a name="1037877">tan</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037880">tan( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037881">Description</a></h4>
+      <p><a name="1037883">Returns the tangent of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037884">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040100"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040102">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037886">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040109"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040111">Tangent of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037888">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037889">tan( 3.0 ) =&#62; &#45;0.1425465</a></font>
+      </p>
+      <h4><a name="1037890">Reference</a></h4>
+      <p><a href="#1037693" title="8" name="1037869"><font color="#0000ff"><u>atan</u></font></a>, <a href="#1037715" title="8"><font color="#0000ff"><u>atan2</u></font></a> </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=acos
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="acos"></a><a name="1037929">acos</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1037933">acos( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1037934">Description</a></h4>
+      <p><a name="1037936">Returns the arc cosine of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1037937">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040118"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040120">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037939">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1040127"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1040129">Arc cosine of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1037941">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1037942">acos(0.3)<br>=&#62; 1.266104</a></font>
+      </p>
+      <h4><a name="1037943">Reference</a></h4>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1039689">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="bitwise.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="logicalrel.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

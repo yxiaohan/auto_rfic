@@ -1,0 +1,3410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 6</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="6">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="bitwise.html">
+<META NAME="PageCount" CONTENT="60">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="stringfunc.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990�2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 6">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="stringfunc.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="bitwise.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>6<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1037758">Arithmetic Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=abs
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="abs"></a><a name="1038670">abs</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038674">abs( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1038675">Description</a></h4>
+      <p><a name="1038677">Returns the absolute value of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1038678">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1081857"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1081859">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038680">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1081866"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1081868">Absolute value of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038682">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038683">abs( &#45;209.625)<br>=&#62; 209.625</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038684">abs( &#45;23)<br>=&#62; 23</a></font>
+      </p>
+      <h4><a name="1038685">Reference</a></h4>
+      <p><a href="#1039807" title="6" name="1038653"><font color="#0000ff"><u>min</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=add1
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="add1"></a><a name="1038712">add1</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038716">add1( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1038717">Description</a></h4>
+      <p><a name="1038719">Adds one to a floating&#45;point number or integer.</a></p>
+      <h4><a name="1038720">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077313"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077315">Floating&#45;point number or integer to increase by one.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038722">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077322"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077324"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a> plus one.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038724">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038725">add1( 59 )<br>=&#62; 60</a></font>
+      </p>
+      <h4><a name="1038726">Reference</a></h4>
+      <p><a href="#1040803" title="6" name="1038704"><font color="#0000ff"><u>sub1</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=atof
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="atof"></a><a name="1038767">atof</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038770">atof( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font><font color="#000000"><em> <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038771">Description</a></h4>
+      <p><a name="1038773">Converts a string into a floating&#45;point number. Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if the given string does not denote a number.</p>
+      <p><a name="1038774">The </a><font size="2" face="'Courier New'" color="#000000">atof</font> function calls the C library function <font size="2" face="'Courier New'" color="#000000">strtod</font> to convert a string into a floating&#45;point number. It returns <font size="2" face="'Courier New'" color="#000000">nil</font> if <font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> does not represent a number.</p>
+      <h4><a name="1038775">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077333"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077335">A string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038777">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077342"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077344">The floating&#45;point value represented by </a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077346"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077348">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> does not denote a floating&#45;point number.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038780">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038781">atof(&#34;123&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 123.0<br>atof(&#34;abc&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>atof(&#34;123.456&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 123.456<br>atof(&#34;123abc&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 123.0</a></font>
+      </p>
+      <h4><a name="1038782">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038788" title="6" name="1038785"><font color="#0000ff"><u>atoi</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=atoi
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="atoi"></a><a name="1038788">atoi</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038791">atoi( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font><font color="#000000"><em> <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038792">Description</a></h4>
+      <p><a name="1038794">Converts a string into an integer. Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> if the given string does not denote an integer.</p>
+      <p><a name="1038795">The </a><font size="2" face="'Courier New'" color="#000000">atoi</font> function calls the C library function <font size="2" face="'Courier New'" color="#000000">strtol</font> to convert a string into an integer. It returns <font size="2" face="'Courier New'" color="#000000">nil</font> if <font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> does not represent an integer.</p>
+      <h4><a name="1038796">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077356"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077358">A string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038798">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077365"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077367">The integer value represented by </a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077369"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077371">If </a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> does not denote an integer.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038801">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038802">atoi(&#34;123&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 123<br>atoi(&#34;abc&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>atoi(&#34;123.456&#34;)&nbsp;&nbsp;=&#62; 123<br>atoi(&#34;123abc&#34;)&nbsp;&nbsp;&nbsp;=&#62; 123</a></font>
+      </p>
+      <h4><a name="1038803">Reference</a></h4>
+      <p><a href="#1038767" title="6" name="1038752"><font color="#0000ff"><u>atof</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=ceiling 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="ceiling"></a><a name="1038844">ceiling </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038847">ceiling( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></font>
+      </dl>
+      <h4><a name="1038848">Description</a></h4>
+      <p><a name="1038850">Returns the smallest integer not smaller than the given argument.</a></p>
+      <h4><a name="1038851">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077379"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077381">Any number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038853">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077388"><font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077390">Smallest integer not smaller than </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038855">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038856">(ceiling &#45;4.3)&nbsp;&nbsp;=&#62; &#45;4<br>(ceiling 3.5)&nbsp;&nbsp;&nbsp;=&#62; 4</a></font>
+      </p>
+      <h4><a name="1038857">Reference</a></h4>
+      <p><a href="#1039438" title="6" name="1038829"><font color="#0000ff"><u>floor</u></font></a>, <a href="#1040534" title="6"><font color="#0000ff"><u>round</u></font></a>, <a href="#1040899" title="6"><font color="#0000ff"><u>truncate</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=defMathConstants
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="defMathConstants"></a><a name="1038892">defMathConstants</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038894">defMathConstants( <dd>s_</a><font size="2" face="'Courier New'" color="#000000"><em>id <dd></em></font>) <dd>=&#62;<font size="2" face="'Courier New'" color="#000000"><em> s_id</em></font></font>
+      </dl>
+      <h4><a name="1038895">Description</a></h4>
+      <p><a name="1038897">Associates a set of predefined math constants as properties of the given symbol.</a></p>
+      <h4><a name="1038898">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077398"><font size="2" face="'Courier New'" color="#000000"><em>s_id</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077400">Must be a symbol. The properties to be associated with the symbol are listed as name&#47;value pairs. The names are explained in the following table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p align="left"><a name="1038982">&nbsp;</a></p>
+<ul>      <table summary="" border="1" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF" width="550">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="200">
+            <p><a name="1038902"><font color="#000000"><strong>Name</strong></font></a></p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="top" width="350">
+            <p><a name="1038904"><font color="#000000"><strong>Meaning</strong></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1038906">E </a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1038908">The base of natural logarithms. (</a><font color="#000000"><em>e</em></font>)</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038910">LOG2E</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038912">The base&#45;2 logarithm of </a><font color="#000000"><em>e</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038914">LOG10E</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038916">The base&#45;10 logarithm of </a><font color="#000000"><em>e</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038918">LN2</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038920">The natural logarithm of 2.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038922">LN10</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038924">The natural logarithm of 10.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038926">PI</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038928">The ratio of the circumference of a circle to its diameter. ( </a>π )</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038930">PI_OVER_2</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038932">π </a>&#47;2</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038934">PI_OVER_4</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038936">π </a>&#47;4</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038938">ONE_OVER_PI</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038940">1&#47;</a>π</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038942">TWO_OVER_PI</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038944">2&#47;</a>π</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038946">TWO_OVER_SQRTPI</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038948">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038950">SQRT_TWO</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038952"> (The positive square root of 2.)</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038954">SQRT_POINT_FIVE</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038956">(The positive square root of 1&#47;2.)</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038958">INT_MAX</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038960">The maximum value of a SKILL integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038962">INT_MIN</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038964">The minimum value of a SKILL integer.</a></p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="1038965">The minimum value of a SKILL integer is &#45;2147483648. The minimum literal value which may appear in a program is &#45;2147483647.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038967">DBL_MAX</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038969">The maximum value of a SKILL double.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038971">DBL_MIN</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038973">The minimum value of a SKILL double.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038975">SHRT_MAX</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1038977">The maximum value of a SKILL &#34;short&#34; integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1038979">SHRT_MIN</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1038981">The minimum value of a SKILL &#34;short&#34; integer.</a></p>
+          </td>
+        </tr>
+      </table></ul>
+      <h4><a name="1038983">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="312">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077407"><font size="2" face="'Courier New'" color="#000000"><em>s_id</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="132">
+            <p><a name="1077409">Returns the symbol ID. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038985">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038986">defMathConstants(`m) =&#62; m</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038987">m.?? =&#62; ( <br>SQRT_POINT_FIVE 0.7071068 <br>SQRT_TWO 1.414214 <br>TWO_OVER_SQRTPI 1.128379 <br>TWO_OVER_PI 0.6366198 <br>ONE_OVER_PI 0.3183099 <br>PI_OVER_4 0.7853982 <br>PI_OVER_2 1.570796 <br>PI 3.141593 <br>LN10 2.302585 <br>LN2 0.6931472 <br>LOG10E 0.4342945 <br>LOG2E 1.442695 <br>E 2.718282 <br>DBL_MIN 2.225074e&#45;308 <br>DBL_MAX 1.797693e+308 <br>INT_MIN &#45;2147483648 <br>INT_MAX 2147483647 <br>SHRT_MIN &#45;32768 <br>SHRT_MAX 32767)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038988">m.SQRT_POINT_FIVE =&#62; 0.7071068</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038989">m.INT_MIN =&#62; &#45;2147483648</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038990">m.PI =&#62; 3.141593</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038991">printf("%0.17f\n" m.PI) =&#62; 3.14159265358979312</a></font>
+      </p>
+      <h4><a name="1042087">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="inputoutput.html#1040283" title="11" name="1042100"><font color="#0000ff"><u>printf</u></font></a>, <a href="dataoperator.html#1038989" title="3"><font color="#0000ff"><u>getqq</u></font></a>, <a href="dataoperator.html#1068205" title="3"><font color="#0000ff"><u>plist</u></font></a>, <a href="dataoperator.html#1040604" title="3"><font color="#0000ff"><u>setplist</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=difference
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="difference"></a><a name="1042101">difference</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039059">difference( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>n_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1039060">Description</a></h4>
+      <p><a name="1039062">Returns the result of subtracting one or more operands from the first operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#45;</font> arithmetic operator. </p>
+      <h4><a name="1039063">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077417"><font size="2" face="'Courier New'" color="#000000"><em>n_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077419">Number from which the others are to be subtracted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077421"><font size="2" face="'Courier New'" color="#000000"><em>n_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077423">Number to subtract.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077425"><font size="2" face="'Courier New'" color="#000000"><em>n_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077427">Optional additional numbers to subtract.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039067">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077434"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077436">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039069">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039070">difference(5 4 3 2 1)&nbsp;=&#62; &#45;5<br>difference(&#45;12 13)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;25<br>difference(12.2 &#45;13)&nbsp;&nbsp;=&#62; 25.2</a></font>
+      </p>
+      <h4><a name="1039071">Reference</a></h4>
+      <p><a href="#1040947" title="6" name="1039041"><font color="#0000ff"><u>xdifference</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=evenp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="evenp"></a><a name="1039099">evenp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039102">evenp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039103">Description</a></h4>
+      <p><a name="1039105">Checks if a number is an even integer.</a></p>
+      <h4><a name="1039106">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077444"><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077446">Number to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039108">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077453"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077455">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font> is an even integer.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077457"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077459">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039111">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039112">evenp( 59 )<br>=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039113">evenp( 60 )<br>=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039114">evenp( 2.0 )<br>=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Number is even, but not an integer.</a></font>
+      </p>
+      <h4><a name="1039115">Reference</a></h4>
+      <p><a href="#1039868" title="6" name="1039090"><font color="#0000ff"><u>minusp</u></font></a>, <a href="#1040079" title="6"><font color="#0000ff"><u>oddp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=exp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="exp"></a><a name="1039169">exp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039172">exp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1039173">Description</a></h4>
+      <p><a name="1039175">Raises </a><font size="2" face="'Courier New'" color="#000000">e</font> to a given power.</p>
+      <h4><a name="1039176">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077467"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077469">Power to raise </a><font size="2" face="'Courier New'" color="#000000">e</font> to.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039178">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077476"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077478">Value of </a><font size="2" face="'Courier New'" color="#000000">e</font> raised to the <font size="2" face="'Courier New'" color="#000000"><em>n_numberth</em></font> power.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039180">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039181">exp( 1 )&nbsp; =&#62; 2.718282<br>exp( 3.0) =&#62; 20.08554</a></font>
+      </p>
+      <h4><a name="1039182">Reference</a></h4>
+      <p><a href="trigono.html#1037652" title="8" name="1039153"><font color="#0000ff"><u>asin</u></font></a>, <a href="trigono.html#1037693" title="8"><font color="#0000ff"><u>atan</u></font></a>, <a href="trigono.html#1037791" title="8"><font color="#0000ff"><u>cos</u></font></a>, <a href="#1039664" title="6"><font color="#0000ff"><u>log</u></font></a>, <a href="trigono.html#1037827" title="8"><font color="#0000ff"><u>sin</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=expt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="expt"></a><a name="1039224">expt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039227">expt( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_base</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_power</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1039228">Description</a></h4>
+      <p><a name="1039230">Returns the result of raising a base number to a power. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">**</font> exponentiation operator.</p>
+      <h4><a name="1039231">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077487"><font size="2" face="'Courier New'" color="#000000"><em>n_base</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077489">Number to be raised to a power.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077491"><font size="2" face="'Courier New'" color="#000000"><em>n_power</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077493">Power to which the number is raised.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039234">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077500"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077502">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039236">Example</a></h4>
+      <p><a name="1039216"><font color="#000000">expt(2 3)&nbsp;&nbsp;&nbsp;=&#62; 8<br>expt(&#45;2 3)&nbsp;&nbsp;=&#62; &#45;8<br>expt(3.3 2)&nbsp;=&#62; 10.89</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=fix
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="fix"></a><a name="1039274">fix</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039277">fix( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039278">Description</a></h4>
+      <p><a name="1039280">Returns the largest integer not larger than the given argument.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1082059">If the given floating point argument </a><font size="2" face="'Courier New'" color="#000000">n_arg</font> is greater than the maximum integer value <font size="2" face="'Courier New'" color="#000000">INT_MAX</font>, a warning message displays and the <font size="2" face="'Courier New'" color="#000000">INT_MAX</font> value is returned. Similarly, if the floating point argument <font size="2" face="'Courier New'" color="#000000">n_arg</font> is less than the minimum integer value <font size="2" face="'Courier New'" color="#000000">INT_MIN</font>, a warning message displays and the <font size="2" face="'Courier New'" color="#000000">INT_MIN</font> value is returned.</p>
+      <p><a name="1039282">This function is equivalent to </a><font size="2" face="'Courier New'" color="#000000">floor</font>. See also <a href="../sklanguser/chap5.html#fixTip" target="external_window"><font color="#0000ff"><u>"Type Conversion Functions (fix and float)"</u></font></a> in the <font color="#000000"><em>Cadence SKILL Language User Guide</em></font>.</p>
+      <h4><a name="1039283">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077511"><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077513">Any number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039285">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077520"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077522">The largest integer not greater than </a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font>. If an integer is given as an argument, it returns the argument.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039287">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039288">fix(1.9)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>fix(&#45;5.6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;6<br>fix(100)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 100<br>fix(4.1 * 100)=&#62; 409</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082183">fix(1.111111e10)<br>*WARNING* (fix): Input value 11111110000.000000 is out of range. Using the maximum integer value allowed (2147483647) instead. Check your code to ensure that all input values and calculations have been correctly specified.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;2147483647</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082340">fix(&#45;1.1234e20)<br>*WARNING* (fix): Input value &#45;112340000000000000000.000000 is out of range. Using the minimum integer value allowed (&#45;2147483648) instead. Check your code to ensure that all input values and calculations have been correctly specified.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;&#45;2147483648</a></font>
+      </p>
+      <h4><a name="1082184">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038844" title="6" name="1039295"><font color="#0000ff"><u>ceiling</u></font></a>, <a href="#1039304" title="6"><font color="#0000ff"><u>fixp</u></font></a>, <a href="#1039438" title="6"><font color="#0000ff"><u>floor</u></font></a>, <a href="#1040534" title="6"><font color="#0000ff"><u>round</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=fixp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="fixp"></a><a name="1039304">fixp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039307">fixp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039308">Description</a></h4>
+      <p><a name="1039310">Checks if an object is an integer, that is, a fixed number.</a></p>
+      <p><a name="1039311">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function. This function is equivalent to <font size="2" face="'Courier New'" color="#000000">integerp</font>.</p>
+      <h4><a name="1039312">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077530"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077532">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039314">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077539"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077541">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is an integer, a data type whose internal name is <font size="2" face="'Courier New'" color="#000000">fixnum</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077543"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077545">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is not an integer.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039317">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039318">fixp(3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>fixp(3.0)&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039319">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039274" title="6" name="1039325"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1039334" title="6"><font color="#0000ff"><u>float</u></font></a>, <a href="#1039359" title="6"><font color="#0000ff"><u>floatp</u></font></a>, <a href="dataoperator.html#1039155" title="3"><font color="#0000ff"><u>integerp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=fix2
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="fix2"></a><a name="1046747">fix2</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046750">fix2( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1046920">Description</a></h4>
+      <p><a name="1046921">This function is a version of the </a><font size="2" face="'Courier New'" color="#000000">fix</font> function that works for rounding issue in floating&#45;point calculations. The function returns the largest integer not larger than the given argument.</p>
+      <p><a name="1054097">For more information, see "</a><a href="../sklanguser/chap5.html#comparefloatnum" target="external_window"><font color="#0000ff"><u>Comparing Floating&#45;Point Numbers</u></font></a>" in the "Arithmetic and Logical Expressions" chapter of the <font color="#000000"><em>SKILL Language User Guide</em></font>.</p>
+      <h4><a name="1046883">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077553"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077555">Any number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046885">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077562"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077564">Returns the largest integer not larger than the given argument.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077566"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077568">If </a><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font> is not an integer.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046760">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046852">fix2(4.1 * 100) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046761">=&#62; 410</a></font>
+      </p>
+      <h4><a name="1057856">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039274" title="6" name="1046775"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1039334" title="6"><font color="#0000ff"><u>float</u></font></a>, <a href="#1039359" title="6"><font color="#0000ff"><u>floatp</u></font></a>, <a href="dataoperator.html#1039155" title="3"><font color="#0000ff"><u>integerp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=float
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="float"></a><a name="1039334">float</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039337">float( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1039338">Description</a></h4>
+      <p><a name="1039340">Converts a number into its equivalent floating&#45;point number.</a></p>
+      <h4><a name="1039341">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077576"><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077578">Integer to be converted to floating&#45;point. If you give a floating&#45;point number as an argument, it returns the argument unchanged.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039343">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077585"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077587">A floating&#45;point number. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039345">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039346">float(3)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3.0<br>float(1.2)&nbsp;&nbsp;=&#62; 1.2</a></font>
+      </p>
+      <h4><a name="1039347">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039274" title="6" name="1039353"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1039304" title="6"><font color="#0000ff"><u>fixp</u></font></a>, <a href="#1039359" title="6"><font color="#0000ff"><u>floatp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=floatp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="floatp"></a><a name="1039359">floatp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039362">floatp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t </font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039363">Description</a></h4>
+      <p><a name="1039365">Checks if an object is a floating&#45;point number. Same as </a><font size="2" face="'Courier New'" color="#000000">realp</font>.</p>
+      <p><a name="1039366">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1039367">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077595"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077597">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039369">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077604"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077606">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is a floating&#45;point number, a data type whose internal name is <font size="2" face="'Courier New'" color="#000000">flonum</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077608"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077610">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is not a floating&#45;point number.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039372">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039373">floatp(3)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>floatp(3.0)&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039374">Reference</a></h4>
+      <p><a href="#1039274" title="6" name="1039259"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1039304" title="6"><font color="#0000ff"><u>fixp</u></font></a>, <a href="#1039334" title="6"><font color="#0000ff"><u>float</u></font></a>, <a href="#1040382" title="6"><font color="#0000ff"><u>realp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=floor 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="floor"></a><a name="1039438">floor </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039441">floor( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></font>
+      </dl>
+      <h4><a name="1039442">Description</a></h4>
+      <p><a name="1039444">Returns the largest integer not larger than the given argument.</a></p>
+      <h4><a name="1039445">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077618"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077620">Any number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039447">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077627"><font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077629">Largest integer not larger than </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039449">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039450">(floor &#45;4.3) =&#62; &#45;5<br>(floor 3.5)&nbsp;&nbsp;=&#62; 3</a></font>
+      </p>
+      <h4><a name="1039451">Reference</a></h4>
+      <p><a href="#1038844" title="6" name="1039423"><font color="#0000ff"><u>ceiling</u></font></a>, <a href="#1039274" title="6"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1040534" title="6"><font color="#0000ff"><u>round</u></font></a>, <a href="#1040899" title="6"><font color="#0000ff"><u>truncate</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=int
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="int"></a><a name="1039488">int</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039490">int( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value<dd></em></font>) <dd>=&#62; x_result</font>
+      </dl>
+      <h4><a name="1039491">Description</a></h4>
+      <p><a name="1039493">Rounds off the number value to the nearest integer. The </a><font size="2" face="'Courier New'" color="#000000">int</font> function works as an overloadable arithmetic operator adopted from DFII to the SKILL Core language. The argument (<font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font>) is specified on the number class (numberp arguments).</p>
+      <h4><a name="1057799">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077637"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077639">Specifies the number value you want to round off.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1057801">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077646"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077648">Returns the nearest integer</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039498">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039499">int(2.7)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039500">=&#62;2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039501">int(.7)</a></font>
+      </p>
+      <p><a name="1039479"><font color="#000000">=&#62;0</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=isInfinity 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="isInfinity"></a><a name="1039539">isInfinity </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039541">isInfinity( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039542">Description</a></h4>
+      <p><a name="1039544">Checks if the given flownum argument represents infinity (positive or negative).</a></p>
+      <h4><a name="1039545">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077656"><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077658">A floating&#45;point number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039547">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077665"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077667">If </a><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font> is infinity (positive or negative).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077669"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077671">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039550">Example</a></h4>
+      <p><a name="1039524"><font color="#000000">plus_inf = 2.0 * 1e999<br>isInfinity (plus_inf) =&#62; t<br>isInfinity (987.65) =&#62; nil</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=isNaN
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="isNaN"></a><a name="1039574">isNaN</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039576">isNaN( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039577">Description</a></h4>
+      <p><a name="1039579">Checks if the given flownum argument represents NaN (not&#45;a&#45;number), </a><font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+      <h4><a name="1039580">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077679"><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077681">A floating&#45;point number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039582">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077688"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077690">If </a><font size="2" face="'Courier New'" color="#000000"><em>f_flownum</em></font> is NaN.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077692"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077694">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039585">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039566">nan = 0.0 * 2.0 * 1e999<br>isNan (nan) =&#62; t<br>isNan (123.456) =&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=leftshift
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="leftshift"></a><a name="1039623">leftshift</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039626">leftshift( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_num</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font> </font>
+      </dl>
+      <h4><a name="1039627">Description</a></h4>
+      <p><a name="1039629">Returns the integer result of shifting a value a specified number of bits to the left. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#60;&#60;</font> arithmetic operator. <font size="2" face="'Courier New'" color="#000000">leftshift</font> is logical (that is, vacated bits are 0&#45;filled). </p>
+      <h4><a name="1039630">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077702"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077704">Value to be shifted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077706"><font size="2" face="'Courier New'" color="#000000"><em>x_num</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077708">Number of bits </a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> is shifted.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039633">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077715"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077717">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039635">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039636">leftshift(7 2)&nbsp;&nbsp;=&#62; 28<br>leftshift(10 1)&nbsp;=&#62; 20</a></font>
+      </p>
+      <h4><a name="1039637">Reference</a></h4>
+      <p><a href="#1040492" title="6" name="1039608"><font color="#0000ff"><u>rightshift</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=log
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="log"></a><a name="1039664">log</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039667">log( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1039668">Description</a></h4>
+      <p><a name="1039670">Returns the natural logarithm of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1039671">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077725"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077727">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039673">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077738"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077740">Natural logarithm of the value passed in. </a></p>
+            <p><a name="1077747">If the value of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> is not a positive number, an error is signaled.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039676">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039677">log( 3.0 ) =&#62; 1.098612</a></font>
+      </p>
+      <h4><a name="1039678">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039169" title="6" name="1039685"><font color="#0000ff"><u>exp</u></font></a>, <a href="#1040712" title="6"><font color="#0000ff"><u>sqrt</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=log10
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="log10"></a><a name="1039686">log10</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039689">log10( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1039690">Description</a></h4>
+      <p><a name="1039692">Returns the base 10 logarithm of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1039693">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077754"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077756">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039695">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077765"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077767">Base 10 logarithm of the value passed in. If the value of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> is not a positive number, an error is signaled.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039698">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039699">log10( 10.0 ) <br>=&#62; 1.0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039700">log10( &#45;20.0 )<br>*Error* log10: argument must be positive &#45; &#45;20</a></font>
+      </p>
+      <h4><a name="1039702">Reference</a></h4>
+      <p><a href="#1039664" title="6" name="1039656"><font color="#0000ff"><u>log</u></font></a>, <a href="#1040712" title="6"><font color="#0000ff"><u>sqrt</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=max
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="max"></a><a name="1039746">max</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039749">max( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>[ n_num2 ... ]<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1039750">Description</a></h4>
+      <p><a name="1039752">Returns the maximum of the values passed in. Requires a minimum of one argument.</a></p>
+      <h4><a name="1039753">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077776"><font size="2" face="'Courier New'" color="#000000"><em>n_num1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077778">First value to check.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077780"><font size="2" face="'Courier New'" color="#000000"><em>n_num2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077782">Additional values to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039756">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077789"><font size="2" face="'Courier New'" color="#000000"><em>n_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077791">Maximum of the values passed in.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039758">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039759">max(6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 6<br>max(3 2 1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br>max(&#45;3 &#45;2 &#45;1)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1</a></font>
+      </p>
+      <h4><a name="1039760">Reference</a></h4>
+      <p><a href="#1038670" title="6" name="1039738"><font color="#0000ff"><u>abs</u></font></a>, <a href="#1039807" title="6"><font color="#0000ff"><u>min</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=min
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="min"></a><a name="1039807">min</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039810">min( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1039811">Description</a></h4>
+      <p><a name="1039813">Returns the minimum of the values passed in. Requires a minimum of one argument. </a></p>
+      <h4><a name="1039814">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077799"><font size="2" face="'Courier New'" color="#000000"><em>n_num1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077801">First value to check.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077803"><font size="2" face="'Courier New'" color="#000000"><em>n_num2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077805">Additional values to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039817">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077812"><font size="2" face="'Courier New'" color="#000000"><em>n_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077814">Minimum of the values passed in.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039819">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039820">min(3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br>min(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>min(&#45;1 &#45;2.0 &#45;3)&nbsp;&nbsp;&nbsp;=&#62; &#45;3.0</a></font>
+      </p>
+      <h4><a name="1039821">Reference</a></h4>
+      <p><a href="#1038670" title="6" name="1042177"><font color="#0000ff"><u>abs</u></font></a>, <a href="#1039746" title="6"><font color="#0000ff"><u>max</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=minus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="minus"></a><a name="1039854">minus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039857">minus( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_op</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1039858">Description</a></h4>
+      <p><a name="1039860">Returns the negative of a number. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#45;</font> unary operator. </p>
+      <h4><a name="1039861">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077822"><font size="2" face="'Courier New'" color="#000000"><em>n_op</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077824">A number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039863">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077831"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077833">Negative of the number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039865">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039866">minus( 10 )&nbsp;&nbsp;&nbsp;=&#62; &#45;10<br>minus( &#45;1.0 )&nbsp;=&#62; 1.0<br>minus( &#45;0 )&nbsp;&nbsp;&nbsp;=&#62; 0</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=minusp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="minusp"></a><a name="1039868">minusp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039871">minusp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039872">Description</a></h4>
+      <p><a name="1039874">Checks if a value is a negative number. Same as </a><font size="2" face="'Courier New'" color="#000000">negativep</font>.</p>
+      <h4><a name="1039875">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077841"><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077843">Number to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039877">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077850"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077852">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_general</em></font> is a negative number.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077854"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077856">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039880">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039881">minusp( 3 )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>minusp( &#45;3 )&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039882">Reference</a></h4>
+      <p><a href="#1039099" title="6" name="1039846"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1040006" title="6"><font color="#0000ff"><u>negativep</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a>, <a href="#1040079" title="6"><font color="#0000ff"><u>oddp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mod
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mod"></a><a name="1058636">mod</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1058639">mod( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_integer2 <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1058640">Description</a></h4>
+      <p><a name="1058642">Returns the integer remainder of dividing two integers. The remainder is either zero or has the sign of the dividend.</a></p>
+      <p><a name="1058643">This function is equivalent to </a><font size="2" face="'Courier New'" color="#000000">remainder</font>.</p>
+      <h4><a name="1058644">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077864"><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077866">Dividend.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077868"><font size="2" face="'Courier New'" color="#000000"><em>x_integer2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077870">Divisor.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1058647">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077877"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077879">Integer remainder of the division. The sign is determined by the dividend.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1058649">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1058650">mod(4 3) =&#62; 1</a></font>
+      </p>
+      <h4><a name="1058651">Reference</a></h4>
+      <p><a name="1085874">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=modf
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="modf"></a><a name="1058653">modf</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1058655">modf( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>f_flonum1<dd>f_flonum2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1058656">Description</a></h4>
+      <p><a name="1058658">Returns the floating&#45;point remainder of the division of </a><font size="2" face="'Courier New'" color="#000000"><em>f_flonum1</em></font> by <font size="2" face="'Courier New'" color="#000000"><em>f_flonum2</em></font>.</p>
+      <h4><a name="1058668">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1058661"><font size="2" face="'Courier New'" color="#000000"><em>f_flonum1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1058663">A floating&#45;point number (Dividend).</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1058665"><font size="2" face="'Courier New'" color="#000000"><em>f_flonum2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1058667">A floating&#45;point number (Divisor).</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1058669">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077889"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077891">Floating&#45;point remainder of the division. </a></p>
+            <p><a name="1077898">The sign is determined by the dividend. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1058671">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1058672">;; Sign is determined by the dividend<br>modf(&#45;10.1 10.0) =&#62; &#45;0.1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1058700">modf(10.1 &#45;10.0) =&#62; 0.1</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=modulo
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="modulo"></a><a name="1058617">modulo</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039943">modulo( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_integer2 <dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></font>
+      </dl>
+      <h4><a name="1039944">Description</a></h4>
+      <p><a name="1039947">Returns the remainder of dividing two integers. The remainder always has the sign of the divisor.</a></p>
+      <p><a name="1039948">The </a><font size="2" face="'Courier New'" color="#000000">remainder (mod)</font> and <font size="2" face="'Courier New'" color="#000000">modulo</font> functions differ on negative arguments. The remainder is either zero or has the sign of the dividend if you use the <font size="2" face="'Courier New'" color="#000000">remainder</font> function. With <font size="2" face="'Courier New'" color="#000000">modulo</font> the return value always has the sign of the divisor.</p>
+      <h4><a name="1039949">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077907"><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077909">Dividend.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077911"><font size="2" face="'Courier New'" color="#000000"><em>x_integer2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077913">Divisor.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039952">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077920"><font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077922">The remainder of the division. The sign is determined by the divisor.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039954">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039955">modulo( 13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>remainder( 13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039956">modulo( &#45;13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br>remainder( &#45;13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039957">modulo( 13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;3<br>remainder( 13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039958">modulo( &#45;13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1<br>remainder( &#45;13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1<br></a></font>
+      </p>
+      <h4><a name="1039959">Reference</a></h4>
+      <p><a href="#1040429" title="6" name="1039933"><font color="#0000ff"><u>remainder</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nearlyEqual 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nearlyEqual"></a><a name="1084176">nearlyEqual </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1084179">nearlyEqual( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_val1 n_val2</em></font> <dd>[<font size="2" face="'Courier New'" color="#000000"><em>f_relTolerance</em></font> [<font size="2" face="'Courier New'" color="#000000"><em>f_absTolerance</em></font>]] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1084180">Description</a></h4>
+      <p><a name="1084258">Checks if one value (</a><font size="2" face="'Courier New'" color="#000000"><em>n_val1</em></font>) is approximately equal to another value (<font size="2" face="'Courier New'" color="#000000"><em>n_val2</em></font>).</p>
+      <h4><a name="1084188">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1084185"><font size="2" face="'Courier New'" color="#000000"><em>n_val1 n_val2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1084187">The values that need to be checked.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084491"><font size="2" face="'Courier New'" color="#000000"><em>f_relTolerance</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084672">The relative tolerance or the amount of error allowed, relative to the larger absolute value of </a><font size="2" face="'Courier New'" color="#000000"><em>n_val1</em></font> or <font size="2" face="'Courier New'" color="#000000"><em>n_val2</em></font>. It must be greater than 0. The default tolerance is 1e&#45;9, which ensures that the two values are the same within about 9 decimal digits. </p>
+            <p><a name="1084774">To set a tolerance of 5%, for example, the pass tolerance must be equal to 0.05. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084495"><font size="2" face="'Courier New'" color="#000000"><em>f_absTolerance</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084268">The minimum absolute tolerance level that can be used for comparisons near zero.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1084198">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1084191"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1084193"><font size="2" face="'Courier New'" color="#000000"><em>n_val1</em></font></a> is nearly equal to <font size="2" face="'Courier New'" color="#000000"><em>n_val2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084195"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1084197">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1084199">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1084369">nearlyEqual(0.7777777777777 0.7777777777777777777777) =&#62; t<br>nearlyEqual(0.7777777777777 0.7777777777777777777777 0.0) =&#62; nil<br>nearlyEqual(nan nan) =&#62; nil<br>nearlyEqual(infinity nan1) =&#62; nil</a></font>
+      </p>
+      <h4><a name="1084201">Reference</a></h4>
+      <p><a href="logicalrel.html#1038850" title="9" name="1084223"><font color="#0000ff"><u>eq</u></font></a>, <a href="logicalrel.html#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a>, <a href="logicalrel.html#1038922" title="9"><font color="#0000ff"><u>eqv</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=negativep 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="negativep"></a><a name="1040006">negativep </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040009">negativep( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040010">Description</a></h4>
+      <p><a name="1040012">Checks if a value is a negative number. Same as </a><font size="2" face="'Courier New'" color="#000000">minusp</font>.</p>
+      <h4><a name="1040013">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077930"><font size="2" face="'Courier New'" color="#000000"><em>n_num</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077932">Number to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040015">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077939"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077941"><font size="2" face="'Courier New'" color="#000000"><em>n_num</em></font></a> is a negative number.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077943"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077945">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040018">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040019">negativep( 3 )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>negativep( &#45;3 )&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1040020">Reference</a></h4>
+      <p><a href="#1039099" title="6" name="1039995"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1039868" title="6"><font color="#0000ff"><u>minusp</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a>, <a href="#1040079" title="6"><font color="#0000ff"><u>oddp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=oddp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="oddp"></a><a name="1040079">oddp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040082">oddp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040083">Description</a></h4>
+      <p><a name="1040085">Checks if an object is an odd integer.</a></p>
+      <p><a name="1040086"><font size="2" face="'Courier New'" color="#000000">oddp</font></a> is a predicate function.</p>
+      <h4><a name="1040087">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077953"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077955">A SKILL object that is an integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040089">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077962"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077964">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is an odd integer.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077966"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077968">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040092">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040093">oddp( 7 )<br>=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040094">oddp( 8 ) <br>=&#62; nil</a></font>
+      </p>
+      <h4><a name="1040095">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039099" title="6" name="1040110"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1039304" title="6"><font color="#0000ff"><u>fixp</u></font></a>, <a href="dataoperator.html#1039155" title="3"><font color="#0000ff"><u>integerp</u></font></a>, <a href="#1039868" title="6"><font color="#0000ff"><u>minusp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=onep
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="onep"></a><a name="1040119">onep</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040122">onep( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040123">Description</a></h4>
+      <p><a name="1040125">Checks if the given object is equal to one.</a></p>
+      <p><a name="1040126"><font size="2" face="'Courier New'" color="#000000">onep</font></a> is a predicate function.</p>
+      <h4><a name="1057650">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077976"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077978">A SKILL object that is either a floating&#45;point number or an integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1057652">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077985"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1077987">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is equal to one.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077989"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1077991">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040132">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040133">onep( 1 ) <br>=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040134">onep( 7 ) <br>=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040135">onep( 1.0 ) <br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1040136">Reference</a></h4>
+      <p><a href="#1039099" title="6" name="1040064"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1039868" title="6"><font color="#0000ff"><u>minusp</u></font></a>, <a href="logicalrel.html#1039447" title="9"><font color="#0000ff"><u>numberp</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=plus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="plus"></a><a name="1040192">plus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040195">plus( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>n_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1040196">Description</a></h4>
+      <p><a name="1040198">Returns the result of adding one or more operands to the first operand. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">+</font> arithmetic operator.</p>
+      <h4><a name="1040199">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1077999"><font size="2" face="'Courier New'" color="#000000"><em>n_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078001">First number to be added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078003"><font size="2" face="'Courier New'" color="#000000"><em>n_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078005">Second number to be added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078007"><font size="2" face="'Courier New'" color="#000000"><em>n_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078009">Optional additional numbers to be added.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040203">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078016"><font size="2" face="'Courier New'" color="#000000"><em>n_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078018">Sum of the numbers.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040205">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040206">plus(5 4 3 2 1)&nbsp;=&#62; 15<br>plus(&#45;12 &#45;13)&nbsp;&nbsp;&nbsp;=&#62; &#45;25<br>plus(12.2 13.3)&nbsp;=&#62; 25.5</a></font>
+      </p>
+      <h4><a name="1040207">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1041003" title="6" name="1040211"><font color="#0000ff"><u>xplus</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=plusp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="plusp"></a><a name="1040213">plusp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040216">plusp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040217">Description</a></h4>
+      <p><a name="1040219">Checks if the given object is a positive number.</a></p>
+      <p><a name="1040220"><font size="2" face="'Courier New'" color="#000000">plusp</font></a> is a predicate function.</p>
+      <h4><a name="1040221">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078026"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078028">A SKILL object that is either a floating&#45;point number or an integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040223">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078035"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078037">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is a positive number.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078039"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078041">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040226">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040227">plusp( &#45;209.623472)<br>=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040228">plusp( 209.623472)<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1040229">Reference</a></h4>
+      <p><a href="#1039099" title="6" name="1040177"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1039868" title="6"><font color="#0000ff"><u>minusp</u></font></a>, <a href="#1040079" title="6"><font color="#0000ff"><u>oddp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1041072" title="6"><font color="#0000ff"><u>zerop</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=quotient
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="quotient"></a><a name="1040285">quotient</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040288">quotient( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>n_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1040289">Description</a></h4>
+      <p><a name="1040291">Returns the result of dividing the first operand by one or more operands. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#47;</font> arithmetic operator. </p>
+      <h4><a name="1040292">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078048"><font size="2" face="'Courier New'" color="#000000"><em>n_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078050">Dividend.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078052"><font size="2" face="'Courier New'" color="#000000"><em>n_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078054">Divisor.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078056"><font size="2" face="'Courier New'" color="#000000"><em>n_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078058">Optional additional divisors for multiple divisions.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040296">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078065"><font size="2" face="'Courier New'" color="#000000"><em>n_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078067">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040298">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040299">quotient(5 4 3 2 1)&nbsp;=&#62; 0<br>quotient(&#45;10 &#45;2)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 5<br>quotient(10.8 &#45;2.2)&nbsp;=&#62; &#45;4.909091</a></font>
+      </p>
+      <h4><a name="1040300">Reference</a></h4>
+      <p><a href="#1041024" title="6" name="1040270"><font color="#0000ff"><u>xquotient</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=random
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="random"></a><a name="1040327">random</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040330">random( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1040331">Description</a></h4>
+      <p><a name="1040333">Returns a random integer between zero and a given number minus one.</a></p>
+      <p><a name="1040334">If you call </a><font size="2" face="'Courier New'" color="#000000">random</font> with no arguments, it returns an integer that has all of its bits randomly set.</p>
+      <h4><a name="1040335">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078074"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078076">An integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040337">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078083"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078085">Random integer between zero and </a><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font> minus one.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040339">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040340">random( 93 )<br>=&#62; 26</a></font>
+      </p>
+      <h4><a name="1040341">Reference</a></h4>
+      <p><a href="#1040749" title="6" name="1040319"><font color="#0000ff"><u>srandom</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=realp 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="realp"></a><a name="1040382">realp </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040385">realp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_obj <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040386">Description</a></h4>
+      <p><a name="1040388">Checks if a value is a real number. Same as </a><font size="2" face="'Courier New'" color="#000000">floatp</font>.</p>
+      <h4><a name="1040389">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078092"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078094">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040391">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078101"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078103">Argument is a real number.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078105"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078107">Argument is not a real number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040394">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040395">realp( 2789987)<br>=&#62; nil<br>realp( 2789.987)<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1040396">Reference</a></h4>
+      <p><a href="#1039359" title="6" name="1040367"><font color="#0000ff"><u>floatp</u></font></a>, <a href="dataoperator.html#1039155" title="3"><font color="#0000ff"><u>integerp</u></font></a>, <a href="#1039304" title="6"><font color="#0000ff"><u>fixp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remainder 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remainder"></a><a name="1040429">remainder </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040432">remainder( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_integer2 <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></font>
+      </dl>
+      <h4><a name="1040433">Description</a></h4>
+      <p><a name="1040435">Returns the remainder of dividing two integers. The remainder is either zero or has the sign of the dividend. Same as </a><font size="2" face="'Courier New'" color="#000000">mod</font>.</p>
+      <p><a name="1040436">The </a><font size="2" face="'Courier New'" color="#000000">remainder</font> and <font size="2" face="'Courier New'" color="#000000">modulo</font> functions differ on negative arguments. The remainder is either zero or has the sign of the dividend if you use the <font size="2" face="'Courier New'" color="#000000">remainder</font> function. With <font size="2" face="'Courier New'" color="#000000">modulo</font> the return value always has the sign of the divisor.</p>
+      <h4><a name="1040437">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078114"><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078116">Dividend.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078118"><font size="2" face="'Courier New'" color="#000000"><em>x_integer2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078120">Divisor.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040440">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078127"><font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078129">Remainder of dividing </a><font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font> by <font size="2" face="'Courier New'" color="#000000"><em>x_integer2</em></font>. The sign is determined by the sign of <font size="2" face="'Courier New'" color="#000000"><em>x_integer1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040442">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040443">modulo( 13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>remainder( 13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040444">modulo( &#45;13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br>remainder( &#45;13 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040445">modulo( 13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;3<br>remainder( 13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040446">modulo( &#45;13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1<br>remainder( &#45;13 &#45;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1</a></font>
+      </p>
+      <h4><a name="1040447">Reference</a></h4>
+      <p><a href="#1058617" title="6" name="1040421"><font color="#0000ff"><u>modulo</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=rightshift
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="rightshift"></a><a name="1040492">rightshift</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040495">rightshift( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_num</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1040496">Description</a></h4>
+      <p><a name="1040498">Returns the integer result of shifting a value a specified number of bits to the right. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#62;&#62;</font> arithmetic operator. <font size="2" face="'Courier New'" color="#000000">rightshift</font> is logical (that is, vacated bits are 0&#45;filled).</p>
+      <h4><a name="1040499">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078136"><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078138">Value to be shifted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078140"><font size="2" face="'Courier New'" color="#000000"><em>x_num</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078142">Number of bits </a><font size="2" face="'Courier New'" color="#000000"><em>x_val</em></font> is shifted.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040502">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078149"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078151">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040504">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040505">rightshift(7 2)&nbsp;&nbsp;=&#62; 1<br>rightshift(10 1)&nbsp;=&#62; 5</a></font>
+      </p>
+      <h4><a name="1040506">Reference</a></h4>
+      <p><a href="#1039623" title="6" name="1040483"><font color="#0000ff"><u>leftshift</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=round
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="round"></a><a name="1040534">round</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040537">round( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font> <dd>) <dd>=&#62;  <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1040538">Description</a></h4>
+      <p><a name="1040540">Rounds a floating&#45;point number to its closest integer value.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1082404">If the given floating point argument </a><font size="2" face="'Courier New'" color="#000000">n_arg</font> is greater than the maximum integer value <font size="2" face="'Courier New'" color="#000000">INT_MAX</font>, a warning message displays and the <font size="2" face="'Courier New'" color="#000000">INT_MAX</font> value is returned. Similarly, if the floating point argument <font size="2" face="'Courier New'" color="#000000">n_arg</font> is less than the minimum integer value <font size="2" face="'Courier New'" color="#000000">INT_MIN</font>, a warning message displays and the <font size="2" face="'Courier New'" color="#000000">INT_MIN</font> value is returned.</p>
+      <h4><a name="1040541">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078158"><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078160">Floating&#45;point number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040543">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078167"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078169">Integer whose value is closest to </a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040545">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082268">round(1.5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2<br>round(&#45;1.49)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#45;1<br>round(1.49)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082276">round(1.111111e10)<br>*WARNING* (round): Input value 11111110000.000000 is out of range. Using the maximum integer value allowed (2147483647) instead. Check your code to ensure that all input values and calculations have been correctly specified.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;2147483647</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082427">round(&#45;1.1234e20)<br>*WARNING* (round): Input value &#45;112340000000000000000.000000 is out of range. Using the minimum integer value allowed (&#45;2147483648) instead. Check your code to ensure that all input values and calculations have been correctly specified.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;&#45;2147483648</a></font>
+      </p>
+      <h4><a name="1082270">Reference</a></h4>
+      <p><a href="#1039274" title="6" name="1040525"><font color="#0000ff"><u>fix</u></font></a>, <a href="#1039334" title="6"><font color="#0000ff"><u>float</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=round2
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="round2"></a><a name="1046969">round2</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046972">round2( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font> <dd>) <dd>=&#62;  <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1046973">Description</a></h4>
+      <p><a name="1046975">This function is a version of the </a><font size="2" face="'Courier New'" color="#000000">round</font> function that rounds the result in floating&#45;point calculations to its closest integer value.</p>
+      <p><a name="1054116">For more information, see "</a><a href="../sklanguser/chap5.html#fixTip" target="external_window"><font color="#0000ff"><u>Type Conversion Functions (fix and float)</u></font></a>" in the Arithmetic and Logical Expressions chapter of the <font color="#000000"><em>SKILL Language User Guide</em></font>.</p>
+      <h4><a name="1078176">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1081914"><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1081916">A floating&#45;point number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1078178">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078192"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078194">Integer whose value is closest to </a><font size="2" face="'Courier New'" color="#000000"><em>n_arg</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046980">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047019">val=&#45;0.2865</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047020">round(val&#47;0.001)*0.001</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047021">=&#62; &#45;0.286</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047022">round2(val&#47;0.001)*0.001</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046956">=&#62; &#45;0.287</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sort
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sort"></a><a name="1040591">sort</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040594">sort( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040595">Description</a></h4>
+      <p><a name="1040597">Sorts a list according to the specified comparison function; defaults to an alphabetical sort when </a><font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>. This function does not create a new list. It returns the altered input list. This is a destructive operation. The<font size="2" face="'Courier New'" color="#000000"><em> l_data</em></font> list is modified in place and no new storage is allocated. Pointers previously pointing to <font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font> may not be pointing at the head of the sorted list.</p>
+      <p><a name="1040598">Sorts the list </a><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font> according to the <font size="2" face="'Courier New'" color="#000000">sort</font> function <font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font>. <font size="2" face="'Courier New'" color="#000000">u_comparefn( </font><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font><font size="2" face="'Courier New'" color="#000000"> </font><font size="2" face="'Courier New'" color="#000000"><em>g_y</em></font><font size="2" face="'Courier New'" color="#000000"> )</font> returns non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> if <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> can precede <font size="2" face="'Courier New'" color="#000000"><em>g_y</em></font> in sorted order, <font size="2" face="'Courier New'" color="#000000">nil</font> if <font size="2" face="'Courier New'" color="#000000"><em>g_y</em></font> must precede <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font>. If <font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, alphabetical order is used. The algorithm currently implemented in <font size="2" face="'Courier New'" color="#000000">sort</font> is based on recursive merge sort.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040599">The l_data list is modified in place and no new storage is allocated. Pointers previously pointing to l_data may not be pointing at the head of the sorted list.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040600">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078201"><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078203">List of objects to be sorted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078205"><font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078207">Comparison function to determine which of any two elements should come first.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040603">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078214"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078216"><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font></a> sorted by the comparison function <font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040605">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040606">y = &#39;(c a d b)<br>(sort y nil)<br>=&#62; (a b c d)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1082025">y<br>=&#62; (c d)&nbsp;&nbsp;;no longer points to head of list<br>y = &#39;(c a d b)<br>y = (sort y nil)<br>=&#62; (a b c d)<br>y <br>=&#62; (a b c d)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;reassignment points y to sorted list.</a></font>
+      </p>
+      <h4><a name="1040607">Reference</a></h4>
+      <p><a href="logicalrel.html#1039206" title="9" name="1040576"><font color="#0000ff"><u>lessp</u></font></a>, <a href="#1040654" title="6"><font color="#0000ff"><u>sortcar</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sortcar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sortcar"></a><a name="1040654">sortcar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040657">sortcar( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040658">Description</a></h4>
+      <p><a name="1040660">Similar to </a><font size="2" face="'Courier New'" color="#000000">sort</font> except that only the <font size="2" face="'Courier New'" color="#000000">car</font> of each element in a list is used for comparison by the sort function. This function does not create a new list. It returns the altered input list.</p>
+      <p><a name="1040661">This function also sorts </a><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font> based on the function <font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040662">The l_data list is modified in place and no new storage is allocated. Pointers previously pointing to l_data might not be pointing at the head of the sorted list.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040663">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078223"><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078225">List of objects to be sorted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078227"><font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078229">Comparison function to determine which of any two elements should come first.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040666">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078240"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078242"><font size="2" face="'Courier New'" color="#000000"><em>l_data</em></font></a> sorted by the comparison function <font size="2" face="'Courier New'" color="#000000"><em>u_comparefn</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040668">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040669">sortcar( &#39;((4 four) (3 three) (2 two)) &#39;lessp )<br>=&#62; ((2 two) (3 three) (4 four)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040670">sortcar( &#39;((d 4) (b 2) (c 3) (a 1)) nil )<br>=&#62; ((a 1) (b 2) (c 3) (d 4))</a></font>
+      </p>
+      <h4><a name="1040671">Reference</a></h4>
+      <p><a href="#1040591" title="6" name="1040639"><font color="#0000ff"><u>sort</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sqrt
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sqrt"></a><a name="1040712">sqrt</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040715">sqrt( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></font>
+      </dl>
+      <h4><a name="1040716">Description</a></h4>
+      <p><a name="1040718">Returns the square root of a floating&#45;point number or integer.</a></p>
+      <h4><a name="1040719">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078249"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078251">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040721">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078262"><font size="2" face="'Courier New'" color="#000000"><em>f_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078264">Square root of the value passed in. If the value of </a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> is not a positive number, an error is signaled.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040724">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040725">sqrt( 49 )<br>=&#62; 7.0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040697">sqrt( 43942 )<br>=&#62; 209.6235</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=srandom
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="srandom"></a><a name="1040749">srandom</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040752">srandom( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1040753">Description</a></h4>
+      <p><a name="1040755">Sets the seed of the random number generator to a given number.</a></p>
+      <h4><a name="1040756">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078271"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078273">An integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040758">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078280"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078282">Always.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040760">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040761">srandom( 89 )<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1040762">Reference</a></h4>
+      <p><a href="#1040327" title="6" name="1040741"><font color="#0000ff"><u>random</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sub1
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sub1"></a><a name="1040803">sub1</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040806">sub1( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1040807">Description</a></h4>
+      <p><a name="1040809">Subtracts one from a floating&#45;point number or integer.</a></p>
+      <h4><a name="1040810">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078289"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078291">Floating&#45;point number or integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040812">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078298"><font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078300"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a> minus one.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040814">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040815">sub1( 59 )<br>=&#62; 58</a></font>
+      </p>
+      <h4><a name="1040816">Reference</a></h4>
+      <p><a href="#1038712" title="6" name="1040788"><font color="#0000ff"><u>add1</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=times
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="times"></a><a name="1040843">times</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040846">times( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>n_op3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>n_result</em></font></font>
+      </dl>
+      <h4><a name="1040847">Description</a></h4>
+      <p><a name="1040849">Returns the result of multiplying the first operand by one or more operands. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">*</font> arithmetic operator. </p>
+      <h4><a name="1040850">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078311"><font size="2" face="'Courier New'" color="#000000"><em>n_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078313">First operand to be multiplied.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078315"><font size="2" face="'Courier New'" color="#000000"><em>n_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078317">Second operand to be multiplied.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078319"><font size="2" face="'Courier New'" color="#000000"><em>n_op3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078321">Optional additional operands to be multiplied.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040854">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078328"><font size="2" face="'Courier New'" color="#000000"><em>n_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078330">Result of the multiplication.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040856">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040857">times(5 4 3 2 1)&nbsp;&nbsp;=&#62; 120<br>times(&#45;12 &#45;13)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 156<br>times(12.2 &#45;13.3)&nbsp;=&#62; &#45;162.26</a></font>
+      </p>
+      <h4><a name="1040858">Reference</a></h4>
+      <p><a href="#1041045" title="6" name="1040835"><font color="#0000ff"><u>xtimes</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=truncate 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="truncate"></a><a name="1040899">truncate </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040902">truncate( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></font>
+      </dl>
+      <h4><a name="1040903">Description</a></h4>
+      <p><a name="1040905">Truncates a given number to an integer.</a></p>
+      <h4><a name="1040906">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078337"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078339">Any SKILL number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040908">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078346"><font size="2" face="'Courier New'" color="#000000"><em>x_integer</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078348"><font size="2" face="'Courier New'" color="#000000"><em>n_number</em></font></a> truncated to an integer.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040910">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040911">truncate( 1234.567)<br>=&#62; 1234</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040912">round( 1234.567)<br>=&#62; 1235</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040913">truncate( &#45;1.7)<br>=&#62; &#45;1</a></font>
+      </p>
+      <h4><a name="1040914">Reference</a></h4>
+      <p><a href="#1038844" title="6" name="1040884"><font color="#0000ff"><u>ceiling</u></font></a>, <a href="#1039438" title="6"><font color="#0000ff"><u>floor</u></font></a>, <a href="#1040534" title="6"><font color="#0000ff"><u>round</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xdifference
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xdifference"></a><a name="1040947">xdifference</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040950">xdifference( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_opt3</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1040951">Description</a></h4>
+      <p><a name="1040953">Returns the integer result of subtracting one or more operands from the first operand. </a><font size="2" face="'Courier New'" color="#000000">xdifference</font> is an integer&#45;only arithmetic function while <font size="2" face="'Courier New'" color="#000000">difference</font> can handle integers and floating&#45;point numbers. <font size="2" face="'Courier New'" color="#000000">xdifference</font> runs slightly faster than <font size="2" face="'Courier New'" color="#000000">difference</font> in integer arithmetic calculation.</p>
+      <h4><a name="1040954">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078357"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078359">Operand from which one or more operands are subtracted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078361"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078363">Operand to be subtracted.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078365"><font size="2" face="'Courier New'" color="#000000"><em>x_opt3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078367">Optional additional operands to be subtracted.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040958">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078374"><font size="2" face="'Courier New'" color="#000000"><em>x_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078376">Result of the subtraction.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040960">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040961">xdifference(12 13)&nbsp;&nbsp;=&#62; &#45;1<br>xdifference(&#45;12 13)&nbsp;=&#62; &#45;25</a></font>
+      </p>
+      <h4><a name="1040962">Reference</a></h4>
+      <p><a href="#1042101" title="6" name="1040939"><font color="#0000ff"><u>difference</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xplus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xplus"></a><a name="1041003">xplus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041006">xplus( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_opt3</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1041007">Description</a></h4>
+      <p><a name="1041009">Returns the integer result of adding one or more operands to the first operand. </a><font size="2" face="'Courier New'" color="#000000">xplus</font> is an integer&#45;only arithmetic function while <font size="2" face="'Courier New'" color="#000000">plus</font> can handle integers and floating&#45;point numbers. <font size="2" face="'Courier New'" color="#000000">xplus</font> runs slightly faster than <font size="2" face="'Courier New'" color="#000000">plus</font> in integer arithmetic calculation.</p>
+      <h4><a name="1041010">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078384"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078386">First operand to be added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078388"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078390">Second operand to be added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078392"><font size="2" face="'Courier New'" color="#000000"><em>x_opt3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078394">Optional additional operands to be added.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041014">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078401"><font size="2" face="'Courier New'" color="#000000"><em>x_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078403">Result of the addition.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041016">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041017">xplus(12 13)&nbsp;&nbsp;&nbsp;=&#62; 25<br>xplus(&#45;12 &#45;13)&nbsp;=&#62; &#45;25</a></font>
+      </p>
+      <h4><a name="1041018">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1040192" title="6" name="1041022"><font color="#0000ff"><u>plus</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xquotient
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xquotient"></a><a name="1041024">xquotient</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041027">xquotient( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_opt3</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1041028">Description</a></h4>
+      <p><a name="1041030">Returns the integer result of dividing the first operand by one or more operands. </a><font size="2" face="'Courier New'" color="#000000">xquotient</font> is an integer&#45;only arithmetic function while <font size="2" face="'Courier New'" color="#000000">quotient</font> can handle integers and floating&#45;point numbers. <font size="2" face="'Courier New'" color="#000000">xquotient</font> runs slightly faster than <font size="2" face="'Courier New'" color="#000000">quotient</font> in integer arithmetic calculation.</p>
+      <h4><a name="1041031">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078411"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078413">Dividend.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078415"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078417">Divisor.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078419"><font size="2" face="'Courier New'" color="#000000"><em>x_opt3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078421">Optional additional divisors.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041035">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078428"><font size="2" face="'Courier New'" color="#000000"><em>x_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078430">Result of the division.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041037">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041038">xquotient(10 2)&nbsp;&nbsp;&nbsp;=&#62; 5<br>xquotient(&#45;10 &#45;2)&nbsp;=&#62; 5</a></font>
+      </p>
+      <h4><a name="1041039">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1040285" title="6" name="1041043"><font color="#0000ff"><u>quotient</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xtimes
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xtimes"></a><a name="1041045">xtimes</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041048">xtimes( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_op1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_op2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>x_opt3</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1041049">Description</a></h4>
+      <p><a name="1041051">Returns the integer result of multiplying the first operand by one or more operands. </a><font size="2" face="'Courier New'" color="#000000">xtimes</font> is an integer&#45;only arithmetic function while <font size="2" face="'Courier New'" color="#000000">times</font> can handle integers and floating&#45;point numbers. <font size="2" face="'Courier New'" color="#000000">xtimes</font> runs slightly faster than <font size="2" face="'Courier New'" color="#000000">times</font> in integer arithmetic calculation.</p>
+      <h4><a name="1041052">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078437"><font size="2" face="'Courier New'" color="#000000"><em>x_op1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078439">First operand to be multiplied.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078441"><font size="2" face="'Courier New'" color="#000000"><em>x_op2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078443">Second operand to be multiplied.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078445"><font size="2" face="'Courier New'" color="#000000"><em>x_opt3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078447">Optional additional operands to be multiplied.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041056">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078454"><font size="2" face="'Courier New'" color="#000000"><em>x_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078456">Result of the multiplication.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041058">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041059">xtimes(12 13)&nbsp;&nbsp;&nbsp;=&#62; 156<br>xtimes(&#45;12 &#45;13)&nbsp;=&#62; 156</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1086142">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=zerop
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="zerop"></a><a name="1041072">zerop</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041075">zerop( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1041076">Description</a></h4>
+      <p><a name="1041078">Checks if an object is equal to zero.</a></p>
+      <p><a name="1041079"><font size="2" face="'Courier New'" color="#000000">zerop</font></a> is a predicate function.</p>
+      <h4><a name="1057521">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078463"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078465">A SKILL object that is either a floating&#45;point number or an integer.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1057523">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078472"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078474">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is equal to zero.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078476"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1078478">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041085">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041086">zerop( 0 )<br>=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1041087">zerop( 7 )<br>=&#62; nil</a></font>
+      </p>
+      <h4><a name="1041088">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039099" title="6" name="1041104"><font color="#0000ff"><u>evenp</u></font></a>, <a href="#1039868" title="6"><font color="#0000ff"><u>minusp</u></font></a>, <a href="#1040079" title="6"><font color="#0000ff"><u>oddp</u></font></a>, <a href="#1040119" title="6"><font color="#0000ff"><u>onep</u></font></a>, <a href="#1040213" title="6"><font color="#0000ff"><u>plusp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=zxtd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="zxtd"></a><a name="1041106">zxtd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1041109">zxtd( <dd></a><font color="#000000"><em>x_number <dd>x_bits <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font> </font>
+      </dl>
+      <h4><a name="1041110">Description</a></h4>
+      <p><a name="1041112">Zero&#45;extends the number represented by the rightmost specified number of bits in the given integer.</a></p>
+      <p><a name="1041113">Zero&#45;extends the rightmost </a><font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font> bits of <font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font>. Executes faster than doing <font size="2" face="'Courier New'" color="#000000">x_number&#60;x_bits &#45; 1:0&#62;</font>.</p>
+      <h4><a name="1041114">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1081933"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1081935">An integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1081937"><font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1081939">Number of bits.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041117">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078498"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078500"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a> with the rightmost <font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font> zero&#45;extended.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1041119">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040988">zxtd( 8 3 )&nbsp;&nbsp;=&#62; 0<br>zxtd( 10 2 ) =&#62; 2</a></font>
+      </p>
+      <p><a name="1086163">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1076208">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="stringfunc.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="bitwise.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -128,4 +128,13 @@ lib.defs
 display.drf
 
 # Help files
-cadence/skill/skill_ref/
+# cadence/skill/skill_ref/
+*.pdf
+
+# picture files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff

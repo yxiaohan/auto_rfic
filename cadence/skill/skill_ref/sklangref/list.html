@@ -1,0 +1,2489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 1</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="1">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="datastruct.html">
+<META NAME="PageCount" CONTENT="44">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="preface.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 1">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="preface.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="datastruct.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>1<a name="1008200">&nbsp;</a></h1>
+      <h1><a name="1037758">List Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=append
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="append"></a><a name="1050183">append</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1050184">append( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>l_list2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> <dd><dd>append( <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>g_assoc</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> &nbsp;&nbsp;&nbsp;&nbsp;<dd><dd>append( <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table1</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>o_table2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_newTable</em></font> </font>
+      </dl>
+      <h4><a name="1050186">Description</a></h4>
+      <p><a name="1038677">Creates a list containing the elements of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font> followed by the elements of <font size="2" face="'Courier New'" color="#000000"><em>l_list2</em></font> or returns the original association table including new entries.</p>
+      <p><a name="1038678">The top&#45;level list cells of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font> are duplicated and the <font size="2" face="'Courier New'" color="#000000">cdr</font> of the last duplicated list cell is set to point to <font size="2" face="'Courier New'" color="#000000"><em>l_list2</em></font>; therefore, this is a time&#45;consuming operation if <font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font> is a long list. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1038680">This is a slow operation and the functions </a><font size="2" face="'Courier New'" color="#000000">tconc</font>, <font size="2" face="'Courier New'" color="#000000">lconc</font>, and <font size="2" face="'Courier New'" color="#000000">nconc</font> can be used instead for adding an element or a list to the end of a list. The command <font size="2" face="'Courier New'" color="#000000">cons</font> is even better if the new list elements can be added to the beginning of the list.</p>
+      <p><a name="1038681">The </a><font size="2" face="'Courier New'" color="#000000">append</font> function can also be used with association tables as shown in the second syntax statement. Key&#47;value pairs are added to the original association table (not to a copy of the table). This function should be used mainly in converting existing association lists or disembodied property lists to an association table. See "<a href="../sklanguser/chap4.html#Association Tables" target="external_window"><font color="#0000ff"><u>Association Table</u></font></a> in the <font color="#000000"><em>Cadence SKILL Language User Guide</em></font> for more details.</p>
+      <h4><a name="1038683">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064188"><font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064190">List of elements to be added to a list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064192"><font size="2" face="'Courier New'" color="#000000"><em>l_list2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064194">List of elements to be added.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064196"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064198">Association table to be updated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064200"><font size="2" face="'Courier New'" color="#000000"><em>g_assoc</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064202">Key&#47;value pairs to be added to the association table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038688">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064221"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064223">Returns a list containing elements of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list1</em></font> followed by elements of <font size="2" face="'Courier New'" color="#000000"><em>l_list2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064225"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064227">Returns the original association table including the new entries.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038691">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038692">&#47;* List Example *&#47;<br>append( &#39;(1 2) &#39;(3 4) ) <br>=&#62; (1 2 3 4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038693">&#47;* Association Table Example *&#47;<br>myTable = makeTable(&#34;myAssocTable&#34;)<br>=&#62; table:myAssocTable<br>myTable[&#39;a] = 1<br>=&#62; 1<br>append(myTable &#39;((b 2) (c 3)))<br>=&#62; table:myAssocTable</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038694">&#47;* Check the contents of the assoc table *&#47;<br>tableToList(myTable)<br>=&#62; ((a 1) (b 2) (c 3))</a></font>
+      </p>
+      <h4><a name="1038695">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1040425" title="1" name="1038707"><font color="#0000ff"><u>tconc</u></font></a>, <a href="#1039200" title="1"><font color="#0000ff"><u>lconc</u></font></a>, <a href="#1039401" title="1"><font color="#0000ff"><u>nconc</u></font></a>, <a href="#1038713" title="1"><font color="#0000ff"><u>append1</u></font></a>, <a href="#1038941" title="1"><font color="#0000ff"><u>cons</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=append1
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="append1"></a><a name="1038713">append1</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038717">append1( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><em> <dd></em><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> </font>
+      </dl>
+      <h4><a name="1038718">Description</a></h4>
+      <p><a name="1038720">Adds new arguments to the end of a list.</a></p>
+      <p><a name="1038721">Returns a list just like </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> with <font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> added as the last element of the list.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1038722">This is a slow operation and the functions </a><font size="2" face="'Courier New'" color="#000000">tconc</font>, <font size="2" face="'Courier New'" color="#000000">lconc</font>, and <font size="2" face="'Courier New'" color="#000000">nconc</font> can be used instead for adding an element or a list to the end of a list. The command <font size="2" face="'Courier New'" color="#000000">cons</font> is even better if the new list elements can be added to the beginning of the list.</p>
+      <h4><a name="1038723">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064230"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064232">List to which </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> is added.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064234"><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064236">Argument to be added to the end of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038726">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064243"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064245">Returns a copy of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> with <font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> attached to the end.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038728">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038729">append1(&#39;(1 2 3) 4) =&#62; (1 2 3 4)</a></font>
+      </p>
+      <p><a name="1038730">Like </a><font size="2" face="'Courier New'" color="#000000">append</font>, <font size="2" face="'Courier New'" color="#000000">append1</font> duplicates the top&#45;level list cells of <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+      <h4><a name="1038731">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1050183" title="1" name="1038653"><font color="#0000ff"><u>append</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=caar, caaar, caadr, cadr, caddr, cdar, cddr, ...
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="cadr"></a><a name="caar"></a><a name="1061843">caar, caaar, caadr, cadr, caddr, cdar, cddr, ...</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1061845">ca|d[ a | d ][ a | d ][ a | d ] r( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1038777">Description</a></h4>
+      <p><a name="1038779">Performs operations on a list using repeated applications of </a><font size="2" face="'Courier New'" color="#000000">car</font> and <font size="2" face="'Courier New'" color="#000000">cdr</font>. For example, <font size="2" face="'Courier New'" color="#000000">caaar</font> is equivalent to <font size="2" face="'Courier New'" color="#000000">car( car( car( </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)))</font>. The possible combinations are caaaar, caaadr, caadar, caaddr, caar, caddar, cadddr, cadr, cdaaar, cdaadr, cdaar, cdadar, cdaddr, cdadr, cdar, cddaar, cddadr, cddar, cdddar, cddddr, cdddr, cddr, caaar, caadr, cadar, caddr, cdadr, cadaar, cadadr, caddar, cadddr, cdaaar, cdaadr, cdadar, cdaddr, cddaar, cddadr, cdddar, and cddddr.</p>
+      <p><a name="1038780">The </a><font size="2" face="'Courier New'" color="#000000">cadr(</font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font> expression, for example, applies <font size="2" face="'Courier New'" color="#000000">cdr</font> to get the tail of the list and then applies <font size="2" face="'Courier New'" color="#000000">car</font> to get the first element of the tail, in effect extracting the second element from the list. SKILL implements all <font size="2" face="'Courier New'" color="#000000">c...r</font><font color="#000000"><em> </em></font>functions with any combination of <font size="2" face="'Courier New'" color="#000000">a</font> and <font size="2" face="'Courier New'" color="#000000">d</font> up to four characters.</p>
+      <h4><a name="1038781">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064252"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064254">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038783">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064261"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064263">Returns the value of the specified operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038785">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038786">caaar(&#39;(((1 2 3)(4 5 6))(7 8 9))) =&#62; 1</a></font>
+      </p>
+      <p><a name="1038787"><font size="2" face="'Courier New'" color="#000000">caaar</font></a> is equivalent to <font size="2" face="'Courier New'" color="#000000">car( car( car( </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)))</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038788">caadr(&#39;(((1 2 3)(4 5 6))(7 8 9))) =&#62; 7</a></font>
+      </p>
+      <p><a name="1038789">Equivalent to </a><font size="2" face="'Courier New'" color="#000000">car( car( cdr( </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)))</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038790">caar(&#39;(((1 2 3)(4 5 6))(7 8 9))) =&#62; (1 2 3)</a></font>
+      </p>
+      <p><a name="1038791">Equivalent to </a><font size="2" face="'Courier New'" color="#000000">car( car( </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">))</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038792">z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>cadr(z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2</a></font>
+      </p>
+      <p><a name="1038793">Equivalent to </a><font size="2" face="'Courier New'" color="#000000">car( cdr( </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">))</font>.</p>
+      <h4><a name="1038794">Reference</a></h4>
+      <p><a href="#1038839" title="1" name="1038764"><font color="#0000ff"><u>car</u></font></a>, <a href="#1038898" title="1"><font color="#0000ff"><u>cdr</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=car
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="car"></a><a name="1038839">car</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038842">car( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1038843">Description</a></h4>
+      <p><a name="1038845">Returns the first element of a list. </a><font size="2" face="'Courier New'" color="#000000">car</font> is nondestructive, meaning that it returns the first element of a list but does not modify the list that was its argument.</p>
+      <p><a name="1038846">The functions </a><font size="2" face="'Courier New'" color="#000000">car</font> and <font size="2" face="'Courier New'" color="#000000">cdr</font> are typically used to take a list of objects apart, whereas the <font size="2" face="'Courier New'" color="#000000">cons</font> function is usually used to build up a list of objects. <font size="2" face="'Courier New'" color="#000000">car</font> was a machine language instruction on the first machine to run Lisp. <font size="2" face="'Courier New'" color="#000000">car</font> stands for <font color="#000000"><em>contents of the address register</em></font>.</p>
+      <h4><a name="1038847">Arguments</a></h4>
+      <h4><a name="1038849">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064270"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064272">A list of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064279"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064281">Returns the first element in a list. </a><font size="2" face="'Courier New'" color="#000000">car(nil)</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038851">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038852">car( &#39;(a b c) )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; a<br>z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>y = car(z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 1<br>z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>car(nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1038854">Reference</a></h4>
+      <p><a href="#1038898" title="1" name="1038830"><font color="#0000ff"><u>cdr</u></font></a>, <a href="#1038941" title="1"><font color="#0000ff"><u>cons</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=cdr
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="cdr"></a><a name="1038898">cdr</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038901">cdr( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1038902">Description</a></h4>
+      <p><a name="1038904">Returns the tail of the list, that is, the list without its first element.</a></p>
+      <p><a name="1038905">The expression </a><font size="2" face="'Courier New'" color="#000000">cdr(nil)</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font>.  <font size="2" face="'Courier New'" color="#000000">cdr</font> was a machine language instruction on the first machine to run Lisp. <font size="2" face="'Courier New'" color="#000000">cdr</font> stands for <font color="#000000"><em>contents of the decrement register</em></font>.</p>
+      <h4><a name="1038906">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064288"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064290">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038908">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064297"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064299">Returns the end of a list, or the list minus the first element.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038910">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038911">cdr( &#39;(a b c) )&nbsp;&nbsp;=&#62; (b c)<br>z = &#39;(1 2 3)<br>cdr(z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (2 3)</a></font>
+      </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1038913"><font size="2" face="'Courier New'" color="#000000">cdr</font></a> always returns a list, so <font size="2" face="'Courier New'" color="#000000">cdr(&#39;(2 3)) </font>returns the <font size="2" face="'Courier New'" color="#000000">list (3)</font> rather than the <font size="2" face="'Courier New'" color="#000000">integer 3</font>.</p>
+      <h4><a name="1038914">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1061843" title="1" name="1038883"><font color="#0000ff"><u>caar, caaar, caadr, cadr, caddr, cdar, cddr, ...</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=cons
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="cons"></a><a name="1038941">cons</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038944">cons( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1038945">Description</a></h4>
+      <p><a name="1038947">Adds an element to the beginning of a list.</a></p>
+      <p><a name="1038948">Thus the </a><font size="2" face="'Courier New'" color="#000000">car</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> is <font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> and the <font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> is <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>. <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> can be <font size="2" face="'Courier New'" color="#000000">nil</font>, in which case a new list containing the single element is created.</p>
+      <h4><a name="1038949">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064306"><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064308">Element to be added to the beginning of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064310"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064312">List that can be </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038952">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064319"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064321">List whose first element is </a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> and whose <font size="2" face="'Courier New'" color="#000000">cdr</font> is <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038954">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038955">cons(1 nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1)<br>cons( &#39;a &#39;(b c))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b c)</a></font>
+      </p>
+      <p><a name="1038956">The following example shows how to efficiently build a list from 1 to 100. You can reverse the list if necessary.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038957">x = nil<br>for( i 1 100 x = cons( i x ))&nbsp;=&#62; t<br>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (100 99 98 .. 2 1)<br>x = reverse( x )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3 .. 100)</a></font>
+      </p>
+      <h4><a name="1038958">Reference</a></h4>
+      <p><a href="#1038839" title="1" name="1038933"><font color="#0000ff"><u>car</u></font></a>, <a href="#1038898" title="1"><font color="#0000ff"><u>cdr</u></font></a>, <a href="#1050183" title="1"><font color="#0000ff"><u>append</u></font></a>, <a href="#1038713" title="1"><font color="#0000ff"><u>append1</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=constar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="constar"></a><a name="1039008">constar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039010">constar( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> ... ] <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039011">Description</a></h4>
+      <p><a name="1039013">Adds elements to the beginning of a list. </a></p>
+      <p><a name="1039014">This function is equivalent to </a><font size="2" face="'Courier New'" color="#000000">cons</font>\*(), and should be used instead.</p>
+      <p><a name="1039015">The last argument, </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>, must be a list. <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> can be <font size="2" face="'Courier New'" color="#000000">nil</font>, in which case a new list containing the elements is created.The car of <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> is the first argument passed to <font size="2" face="'Courier New'" color="#000000">constar</font>() and the <font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> is rest of the elements of the newly created list (including <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>).</p>
+      <h4><a name="1039016">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064328"><font color="#000000">[ </font></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> ... ]</p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064330">Elements to be added to the beginning of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064332"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064334">The last argument that must be a list (which can be </a><font size="2" face="'Courier New'" color="#000000">nil</font>).</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039019">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064341"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064343">List whose first element is the first argument and whose cdr is rest of the elements of the newly created list (including </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>).</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039021">Example</a></h4>
+      <p><a name="1039022">The first element of the newly created list is the first argument while cdr is rest of the elements (including </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>):</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039023">newList = constar( '(a b) '(&#34;hello&#34;) 1 2.3 '(x y) )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039024">=&#62; ((a b) (&#34;hello&#34;) 1 2.3 x y z)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039025">car( newList ) =&#62; (a b)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039026">cdr( newList ) =&#62; ((&#34;hello&#34;) 1 2.3 x y z)</a></font>
+      </p>
+      <p><a name="1039027">The last argument can be </a><font size="2" face="'Courier New'" color="#000000">nil</font>:</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039028">constar( 1 2 3 nil ) =&#62; (1 2 3)</a></font>
+      </p>
+      <p><a name="1039029">The last argument must be a list:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039030">constar( 'x 1 2 )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039031">*Error* constar: the last arg must be a list &#45; 2</a></font>
+      </p>
+      <p><a name="1039032"><font size="2" face="'Courier New'" color="#000000">constar</font></a>() is cleaner and more efficient in adding multiple elements to the beginning of a list than cons():</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039033">cons(1 cons(2 cons(3 '(a b c)))) =&#62; (1 2 3 a b c)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039034">constar( 1 2 3 '(a b c)) =&#62; (1 2 3 a b c)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=copy
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="copy"></a><a name="1039035">copy</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039038">copy( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039039">Description</a></h4>
+      <p><a name="1039041">Returns a copy of a list, that is, a list with all the top&#45;level cells duplicated.</a></p>
+      <p><a name="1039042">Because list structures in SKILL are typically shared, it is usually only necessary to pass around pointers to lists. If, however, any function that modifies a list destructively is used, </a><font size="2" face="'Courier New'" color="#000000">copy</font> is often used to create new copies of a list so that the original is not inadvertently modified by those functions. This call is costly so its use should be limited. This function only duplicates the top&#45;level list cells, all lower level objects are still shared.</p>
+      <h4><a name="1064363">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064370"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064372">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1064365">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064381"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064383">Returns a copy of </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039047">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039048">z = &#39;(1 (2 3) 4)&nbsp;=&#62; (1 (2 3) 4)<br>x = copy(z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 (2 3) 4)<br>equal(z x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <p><a name="1039049"><font size="2" face="'Courier New'" color="#000000">z</font></a> and <font size="2" face="'Courier New'" color="#000000">x</font> have the same value.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039050">eq(z x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <p><a name="1038993"><font size="2" face="'Courier New'" color="#000000">z</font></a> and <font size="2" face="'Courier New'" color="#000000">x</font> are not the same list.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dtpr
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dtpr"></a><a name="1039088">dtpr</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039091">dtpr( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039092">Description</a></h4>
+      <p><a name="1039094">Checks if an object is a non&#45;empty list.</a></p>
+      <p><a name="1039095"><font size="2" face="'Courier New'" color="#000000">dtpr</font></a> is a predicate function that is equivalent to <font size="2" face="'Courier New'" color="#000000">pairp</font>.</p>
+      <h4><a name="1039096">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="660">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1064390"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064392">An object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039098">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="660">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1064399"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064401">Object is a non&#45;empty list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064403"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064405">Otherwise. </a><font size="2" face="'Courier New'" color="#000000">dtpr(nil)</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039101">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039102">dtpr( 1 ) =&#62; nil<br>dtpr( list(1)) =&#62; t</a></font>
+      </p>
+      <h4><a name="1039103">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039344" title="1" name="1039080"><font color="#0000ff"><u>listp</u></font></a>, <a href="#1039623" title="1"><font color="#0000ff"><u>pairp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=last
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="last"></a><a name="1039150">last</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039153">last( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039154">Description</a></h4>
+      <p><a name="1039156">Returns the last list cell in a list.</a></p>
+      <h4><a name="1039157">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="660">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1064412"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064414">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039159">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="660">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1064421"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064423">Last list cell (not the last element) in </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039161">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039162">last( &#39;(a b c) )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (c)<br>z = &#39;(1 2 3)<br>last(z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (3)<br>last( &#39;(a b c (d e f)))&nbsp;&nbsp;=&#62; ((d e f))</a></font>
+      </p>
+      <h4><a name="1039163">Reference</a></h4>
+      <p><a href="#1038839" title="1" name="1039135"><font color="#0000ff"><u>car</u></font></a>, <a href="#1038898" title="1"><font color="#0000ff"><u>cdr</u></font></a>, <a href="#1039311" title="1"><font color="#0000ff"><u>list</u></font></a>, <a href="#1039344" title="1"><font color="#0000ff"><u>listp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=lconc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="lconc"></a><a name="1039200">lconc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039203">lconc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_tconc</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039204">Description</a></h4>
+      <p><a name="1039206">Uses a </a><font size="2" face="'Courier New'" color="#000000">tconc</font> structure to efficiently splice a list to the end of another list.</p>
+      <p><a name="1039207">See the example below.</a></p>
+      <h4><a name="1039208">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="660">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="1064430"><font size="2" face="'Courier New'" color="#000000"><em>l_tconc</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064432">A </a><font size="2" face="'Courier New'" color="#000000">tconc</font> structure that must initially be created using the <font size="2" face="'Courier New'" color="#000000">tconc</font> function.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064434"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064436">List to be spliced onto the end of the </a><font size="2" face="'Courier New'" color="#000000">tconc</font> structure.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039211">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064443"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064445">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>l_tconc</em></font>, which must be a <font size="2" face="'Courier New'" color="#000000">tconc</font> structure, with the list <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> spliced in at the end.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039213">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039214">x = tconc(nil 1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is initialized ((1) 1)<br>lconc(x &#39;(2 3 4))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now ((1 2 3 4) 4)<br>lconc(x nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Nothing is added to x.<br>lconc(x &#39;(5))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now ((1 2 3 4 5) 5)<br>x = car( x )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now (1 2 3 4 5)</a></font>
+      </p>
+      <h4><a name="1039215">Reference</a></h4>
+      <p><a href="#1050183" title="1" name="1039191"><font color="#0000ff"><u>append</u></font></a>, <a href="#1040425" title="1"><font color="#0000ff"><u>tconc</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=length
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="length"></a><a name="1039259">length</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039262">length( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>laot_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font> &#47; 0</font>
+      </dl>
+      <h4><a name="1065276">Description</a></h4>
+      <p><a name="1065278">Determines the length of a list, array, association table, or string. </a></p>
+      <p><a name="1065386">The time taken to compute the length depends on the type of object. For example, </a></p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065407">List</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065409">Time taken to compute the length of a list is proportional to the number of items in the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065411">Array</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065413">Time taken for computing the length of an array is constant.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065415">Association table</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065417">Time taken for computing the length of an association table is constant.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065419">String</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065513">Time taken to compute the length of a string is proportional to the number of characters in the string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1065393">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065390"><font size="2" face="'Courier New'" color="#000000"><em>laot_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065392">SKILL list, array, association table, or string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039268">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064465"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064467">Length of the </a><font size="2" face="'Courier New'" color="#000000"><em>laot_arg</em></font> object. (The length is either the number of elements in the list, string, or array or the number of key&#47;value pairs in the association table). </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064469"><font size="2" face="'Courier New'" color="#000000">0</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064471"><font size="2" face="'Courier New'" color="#000000"><em>laot_arg</em></font></a> is <font size="2" face="'Courier New'" color="#000000">nil</font> or an empty array or table.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039271">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039272">length( &#39;(a b c d) )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 4<br>z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>length( z )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1065217">length(&#34;hello&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 5</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039273">declare(a[11])<br>length( a )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 11<br>myTable = makeTable( &#34;atable&#34; 0)&nbsp;=&#62; table:atable<br>myTable[ &#39;one] = &#34;blue&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;blue&#34;<br>myTable[ &#34;two&#34;] = &#39;(red)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (r e d)<br>length(myTable)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2</a></font>
+      </p>
+      <h4><a name="1039274">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039311" title="1" name="1039244"><font color="#0000ff"><u>list</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=lindex
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="lindex"></a><a name="1052928">lindex</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1065607">lindex( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000">?all</font> <font size="2" face="'Courier New'" color="#000000"><em>g_all</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1052932">Description</a></h4>
+      <p><a name="1052934">Returns the index number of the given element in </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>. </p>
+      <h4><a name="1052935">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064482"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064484">A list of elements.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064486"><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064488">The element to be searched in </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065614"><font size="2" face="'Courier New'" color="#000000">?all</font></a> <font size="2" face="'Courier New'" color="#000000"><em>g_all</em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065616">Specifies whether to print the index number for all occurrences of </a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1052938">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064495"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064497">The index number of </a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> in <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> when <font size="2" face="'Courier New'" color="#000000">?all </font>is either <font size="2" face="'Courier New'" color="#000000">nil</font> or not specified.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065767"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065769">The list of index numbers for all occurrences of </a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> in <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> when <font size="2" face="'Courier New'" color="#000000">?all</font> is set to <font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064499"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064501">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font>, if the given element is not found in <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1052941">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1052942">lindex(&#39;(1 2 3 4) 2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1052421">&nbsp;&nbsp;&nbsp;=&#62; 2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1065661">lindex(&#39;(1 4 6 7 4 8 4) 4 ?all t)<br>&nbsp;&nbsp;&nbsp;=&#62;(2 5 7)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1065689">lindex(&#39;(1 4 6 7 4 8 4) 4 ?all nil)<br>&nbsp;&nbsp;&nbsp;=&#62;2</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=list
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="list"></a><a name="1039311">list</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039314">list( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1 <dd>g_arg2</em></font><em> </em>... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039315">Description</a></h4>
+      <p><a name="1039317">Creates a list with the given elements.</a></p>
+      <h4><a name="1039318">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064517"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064519">Element to be added to a list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064521"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064523">Additional elements to be added to a list</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039321">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064530"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064532">List whose elements are </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font>, and so on.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064534"><font size="2" face="'Courier New'" color="#000000">nil </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064536">No arguments are given.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039324">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039325">list(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>list(&#39;a &#39;b &#39;c)&nbsp;&nbsp;=&#62; (a b c)</a></font>
+      </p>
+      <h4><a name="1039326">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038839" title="1" name="1039338"><font color="#0000ff"><u>car</u></font></a>, <a href="#1038898" title="1"><font color="#0000ff"><u>cdr</u></font></a>, <a href="#1038941" title="1"><font color="#0000ff"><u>cons</u></font></a>, <a href="#1039344" title="1"><font color="#0000ff"><u>listp</u></font></a>, <a href="#1040425" title="1"><font color="#0000ff"><u>tconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=listp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="listp"></a><a name="1039344">listp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039347">listp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039348">Description</a></h4>
+      <p><a name="1039350">Checks if an object is a list.</a></p>
+      <p><a name="1039351">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1039352">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064543"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064545">A data object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039354">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064552"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064554">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is a list, a data type whose internal name is also <font size="2" face="'Courier New'" color="#000000">list</font>. <font size="2" face="'Courier New'" color="#000000">listp(nil)</font> returns <font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064556"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064558">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039357">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039358">listp(&#39;(1 2 3))&nbsp;&nbsp;=&#62; t<br>listp( nil )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>listp( 1 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039359">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039311" title="1" name="1039302"><font color="#0000ff"><u>list</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nconc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nconc"></a><a name="1039401">nconc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039404">nconc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg3</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039405">Description</a></h4>
+      <p><a name="1039407">Equivalent to a destructive </a><font size="2" face="'Courier New'" color="#000000">append</font> where the first argument is modified.</p>
+      <p><a name="1039408">This results in </a><font size="2" face="'Courier New'" color="#000000">nconc</font> being much faster than <font size="2" face="'Courier New'" color="#000000">append</font> but not as fast as <font size="2" face="'Courier New'" color="#000000">tconc</font> and <font size="2" face="'Courier New'" color="#000000">lconc</font>. Thus <font size="2" face="'Courier New'" color="#000000">nconc</font> returns a list consisting of the elements of <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>, followed by the elements of <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font>, followed by the elements of <font size="2" face="'Courier New'" color="#000000"><em>l_arg3</em></font>, and so on. The <font size="2" face="'Courier New'" color="#000000">cdr</font> of the last list cell of <font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font><font color="#000000"><sub>i</sub></font> is modified to point to<font size="2" face="'Courier New'" color="#000000"><em> l_arg</em></font><font color="#000000"><sub>i+1</sub></font>. Thus caution must be taken because if <font size="2" face="'Courier New'" color="#000000">nconc</font> is called with the <font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font><font color="#000000"><sub>i</sub></font> two consecutive times it can form an infinite structure where the <font color="#000000"><em>cdr</em></font> of the last list cell of <font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font><font color="#000000"><sub>i</sub></font> points to the <font color="#000000"><em>car</em></font> of <font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font><font color="#000000"><sub>i</sub></font>. </p>
+      <p><a name="1039409">Use the </a><font size="2" face="'Courier New'" color="#000000">nconc</font> function principally to reduce the amount of memory consumed. A call to <font size="2" face="'Courier New'" color="#000000">append</font> would normally duplicate the first argument whereas <font size="2" face="'Courier New'" color="#000000">nconc</font> does not duplicate any of its arguments, thereby reducing memory consumption.</p>
+      <h4><a name="1039410">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064565"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064567">List of elements.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064569"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064571">List elements concatenated to </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064573"><font size="2" face="'Courier New'" color="#000000"><em>l_arg3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064575">Additional lists.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039414">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064582"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064584">The modified value of </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039416">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039417">x = &#39;(a b c) <br>nconc( x &#39;(d))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now (a b c d)<br>nconc( x &#39;(e f g) )&nbsp;&nbsp;&nbsp;; x is now the list (a b c d e f g)<br>nconc( x x )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Forms an infinite structure.</a></font>
+      </p>
+      <p><a name="1065143">This forms an infinite list structure </a><font size="2" face="'Courier New'" color="#000000">(a b c d e f g a b c d e f g ...)</font>. </p>
+      <h4><a name="1039419">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039200" title="1" name="1039432"><font color="#0000ff"><u>lconc</u></font></a>, <a href="#1040425" title="1"><font color="#0000ff"><u>tconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=ncons
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="ncons"></a><a name="1039434">ncons</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039437">ncons( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039438">Description</a></h4>
+      <p><a name="1039440">Builds a list containing an element. Equivalent to </a><font size="2" face="'Courier New'" color="#000000">cons(</font> <font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font><font size="2" face="'Courier New'" color="#000000"> nil )</font>.</p>
+      <h4><a name="1039441">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064591"><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064593">Element to be added to the beginning of an empty list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039443">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064600"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064602">A list with </a><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font> as its single element.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039445">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039446">ncons( &#39;a )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a)<br>z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>ncons( z )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; ((1 2 3))</a></font>
+      </p>
+      <h4><a name="1039447">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039311" title="1" name="1039391"><font color="#0000ff"><u>list</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nth
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nth"></a><a name="1039505">nth</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039508">nth( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_index0</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039509">Description</a></h4>
+      <p><a name="1039511">Returns an index&#45;selected element of a list, assuming a zero&#45;based index.</a></p>
+      <p><a name="1039512">Thus </a><font size="2" face="'Courier New'" color="#000000">nth(0 </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font> is the same as <font size="2" face="'Courier New'" color="#000000">car(</font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font>. The value <font size="2" face="'Courier New'" color="#000000">nil</font> is returned if <font size="2" face="'Courier New'" color="#000000"><em>x_index0</em></font> is negative or is greater than or equal to the length of the list.</p>
+      <h4><a name="1039513">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064609"><font size="2" face="'Courier New'" color="#000000"><em>x_index0</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064611">Index of the list element you want returned.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064613"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064615">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039516">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064622"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064624">Indexed element of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>, assuming a zero&#45;based index</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064626"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064628">If </a><font size="2" face="'Courier New'" color="#000000"><em>x_index0</em></font> is negative or is greater than or equal to the length of the list.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039519">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039520">nth( 1 &#39;(a b c) )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; b<br>z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>nth(2 z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 3<br>nth(3 z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039521">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039311" title="1" name="1039530"><font color="#0000ff"><u>list</u></font></a>, <a href="#1039536" title="1"><font color="#0000ff"><u>nthcdr</u></font></a>, <a href="#1039563" title="1"><font color="#0000ff"><u>nthelem</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nthcdr
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nthcdr"></a><a name="1039536">nthcdr</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039539">nthcdr( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_count</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039540">Description</a></h4>
+      <p><a name="1039542">Applies </a><font size="2" face="'Courier New'" color="#000000">cdr</font> to a list a given number of times.</p>
+      <h4><a name="1039543">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064635"><font size="2" face="'Courier New'" color="#000000"><em>x_count</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064637">Number of times to apply </a><font size="2" face="'Courier New'" color="#000000">cdr</font> to <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064639"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064641">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039546">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064648"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064650">Result of applying </a><font size="2" face="'Courier New'" color="#000000">cdr</font> to <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>x_count</em></font> number of times.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039548">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039549">nthcdr( 3 &#39;(a b c d))&nbsp;&nbsp;=&#62; (d)<br>z = &#39;(1 2 3)<br>nthcdr(2 z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (3)<br>nthcdr(&#45;1 z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (nil 1 2 3)</a></font>
+      </p>
+      <p><a name="1039550">If </a><font size="2" face="'Courier New'" color="#000000"><em>x_count</em></font> is less than 0, then <font size="2" face="'Courier New'" color="#000000">cons(nil </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font> is returned. </p>
+      <h4><a name="1039551">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039505" title="1" name="1039561"><font color="#0000ff"><u>nth</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nthelem
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nthelem"></a><a name="1039563">nthelem</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039566">nthelem( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_index1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039567">Description</a></h4>
+      <p><a name="1039569">Returns the indexed element of the list, assuming a one&#45;based index.</a></p>
+      <p><a name="1039570">Thus </a><font size="2" face="'Courier New'" color="#000000">nthelem(1 </font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font> is the same as <font size="2" face="'Courier New'" color="#000000">car(</font><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font><font size="2" face="'Courier New'" color="#000000">)</font>.</p>
+      <h4><a name="1039571">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064657"><font size="2" face="'Courier New'" color="#000000"><em>x_index1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064659">Index of the element of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> you want returned.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064661"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064663">List of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039574">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064670"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064672">The </a><font size="2" face="'Courier New'" color="#000000"><em>x_index1</em></font> element of <font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064674"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064676">If </a><font size="2" face="'Courier New'" color="#000000"><em>x_index1</em></font> is less than or equal to 0 or is greater than the length of the list.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039577">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039578">nthelem( 1 &#39;(a b c) )&nbsp;&nbsp;=&#62; a<br>z = &#39;(1 2 3)<br>nthelem(2 z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2</a></font>
+      </p>
+      <h4><a name="1039579">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039505" title="1" name="1039490"><font color="#0000ff"><u>nth</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=pairp 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="pairp"></a><a name="1039623">pairp </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039626">pairp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_obj <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039627">Description</a></h4>
+      <p><a name="1039629">Checks if an object is a </a><font size="2" face="'Courier New'" color="#000000">cons</font> object, that is, a non&#45;empty list. </p>
+      <p><a name="1039630">This function is equivalent to </a><font size="2" face="'Courier New'" color="#000000">dtpr</font>.</p>
+      <h4><a name="1039631">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064683"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064685">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039633">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064692"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064694"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a> is a <font size="2" face="'Courier New'" color="#000000">cons</font> object.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064696"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064698"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a> is not a <font size="2" face="'Courier New'" color="#000000">cons</font> object.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039636">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039637">(pairp nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>(pairp 123)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>(pairp &#39;(1 2))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039638">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039344" title="1" name="1039615"><font color="#0000ff"><u>listp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=range
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="range"></a><a name="1039678">range</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039681">range( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039682">Description</a></h4>
+      <p><a name="1039684">Returns a list whose first element is </a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> and whose tail is <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>. Prefix form of the <font size="2" face="'Courier New'" color="#000000">:</font> operator. </p>
+      <h4><a name="1039685">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064705"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064707">First element of the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064709"><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064711">Tail of the list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039688">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064718"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064720">Result of the operation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039690">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039691">L = range(1 2) =&#62; (1 2)<br>car(L)&nbsp;=&#62; 1<br>cdr(L)&nbsp;=&#62; (2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039663">L = range(1.1 3.3) =&#62; (1.1 3.3)<br>car(L)&nbsp;=&#62; 1.1<br>cdr(L)&nbsp;=&#62; (3.3)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remd"></a><a name="1039715">remd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039718">remd( <dd></a><font color="#000000"><em>g_x <dd>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039719">Description</a></h4>
+      <p><a name="1039721">Removes all top&#45;level elements </a><font size="2" face="'Courier New'" color="#000000">equal</font> to a SKILL object from a list. This is a destructive removal, which means that the original list itself is modified. Therefore, any other reference to that list will also see the changes.</p>
+      <p><a name="1039722"><font size="2" face="'Courier New'" color="#000000">remd</font></a> uses <font size="2" face="'Courier New'" color="#000000">equal</font> for comparison.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1039723">This is a destructive removal. The original list itself will be modified except for the first element from the original list. Therefore, any other reference to that list will also see the changes. See example 3 where the same variable is used to hold the updated list.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039724">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064727"><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064729">Any SKILL object to be removed from the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064731"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064733">List from which to remove </a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039727">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064740"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064742">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> modified so that all top&#45;level elements equal to <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> are removed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039729">Example 1</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039730">y = &#39;(&#34;a&#34; &#34;b&#34; &#34;x&#34; &#34;d&#34; &#34;f&#34;)&nbsp;&nbsp;=&#62; (&#34;a&#34; &#34;b&#34; &#34;x&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039731">remd( &#34;x&#34; y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039732">y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <h4><a name="1039733">Example 2</a></h4>
+      <p><a name="1039734">The first element from the original list will not be modified in&#45;place.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039735">y = &#39;(&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)&nbsp;&nbsp;=&#62;  (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039736">remd( &#34;a&#34; y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;  (&#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039737">y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;  (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p><a name="1039738">Note the original list, y, is not modified.</a></p>
+      <h4><a name="1039739">Example 3</a></h4>
+      <p><a name="1039740">In order to remove the first element from the original list, use the same variable (that holds the original list) to hold the updated list.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039741">y = &#39;(&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;  (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039742">y=remd(&#34;a&#34; y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;  (&#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039743">y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62;  (&#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <h4><a name="1039744">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039756" title="1" name="1039747"><font color="#0000ff"><u>remdq</u></font></a>, <a href="#1039833" title="1"><font color="#0000ff"><u>remove</u></font></a>, <a href="#1039897" title="1"><font color="#0000ff"><u>remq</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remdq
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remdq"></a><a name="1039756">remdq</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039759">remdq( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039760">Description</a></h4>
+      <p><a name="1039762">Removes all top&#45;level elements that are identical to a SKILL object using </a><font size="2" face="'Courier New'" color="#000000">eq</font> from a list. This is a destructive removal, which means that the original list itself is modified. Therefore, any other reference to that list will also see the changes.</p>
+      <p><a name="1039763"><font size="2" face="'Courier New'" color="#000000">remdq</font></a> uses <font size="2" face="'Courier New'" color="#000000">eq</font> instead of <font size="2" face="'Courier New'" color="#000000">equal</font> for comparison.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1039764">This is a destructive removal, which means that the original list itself is modified. Therefore, any other reference to that list will also see the changes.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039765">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064753"><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064755">Any SKILL object to be removed from the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064757"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064759">List from which to remove </a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039768">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064770"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064772">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> modified so that all top&#45;level elements <font size="2" face="'Courier New'" color="#000000">eq</font> to <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> are removed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039770">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039771">y = &#39;(a b x d f x g)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b x d f x g)<br>remdq(&#39;x y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b d f g)<br>y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b d f g)</a></font>
+      </p>
+      <h4><a name="1039772">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039715" title="1" name="1039707"><font color="#0000ff"><u>remd</u></font></a>, <a href="#1039833" title="1"><font color="#0000ff"><u>remove</u></font></a>, <a href="#1039897" title="1"><font color="#0000ff"><u>remq</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remove
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remove"></a><a name="1039833">remove</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039835">remove( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; l_result<dd><dd>remove<font size="2" face="'Courier New'" color="#000000"><em>( <dd>g_key <dd>o_table <dd>) <dd></em></font>=&#62; g_value</font>
+      </dl>
+      <h4><a name="1039836">Description</a></h4>
+      <p><a name="1039838">Returns a copy of a list with all top&#45;level elements </a><font size="2" face="'Courier New'" color="#000000">equal</font> to a SKILL object removed. Can also be used to remove an entry from an association table, in which case the removal is destructive, that is, any other reference to the table will also see the changes. <font size="2" face="'Courier New'" color="#000000">remove</font> uses <font size="2" face="'Courier New'" color="#000000">equal</font> for comparison. <font size="2" face="'Courier New'" color="#000000">remove</font> can also be used with an association table to identify and remove an entry corresponding to the key specified in the function. </p>
+      <h4><a name="1039839">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064779"><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064781">Any SKILL object to be removed from the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064783"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064785">List from which to remove </a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064787"><font size="2" face="'Courier New'" color="#000000"><em>g_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064789">Key or first element of the key&#47;value pair.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064791"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064793">Association table containing the key&#47;value pairs to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039844">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064800"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064802">Copy of </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> with all top&#45;level elements equal to <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> removed.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064804"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064806">Value associated with the key that is removed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039847">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039848">remove( &#34;x&#34; &#39;(&#34;a&#34; &#34;b&#34; &#34;x&#34; &#34;d&#34; &#34;f&#34;)) <br>=&#62; (&#34;a&#34; &#34;b&#34; &#34;d&#34; &#34;f&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039849">myTable = makeTable(&#34;myTable&#34; &#45;1) <br>=&#62; table:myTable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;default is &#45;1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039850">myTable[&#34;two&#34;]=2<br>=&#62; 2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039851">remove(&#34;two&#34; myTable)<br>=&#62; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; permanently removed from table</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039852">myTable[&#34;two&#34;]<br>=&#62; &#45;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; the default value</a></font>
+      </p>
+      <h4><a name="1039853">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039715" title="1" name="1041384"><font color="#0000ff"><u>remd</u></font></a>, <a href="#1039833" title="1"><font color="#0000ff"><u>remove</u></font></a>, <a href="#1039897" title="1"><font color="#0000ff"><u>remq</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remq
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remq"></a><a name="1039897">remq</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039900">remq( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039901">Description</a></h4>
+      <p><a name="1039903">Returns a copy of a list with all top&#45;level elements that are identical to a SKILL object removed. Uses </a><font size="2" face="'Courier New'" color="#000000">eq</font>.</p>
+      <h4><a name="1039904">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064813"><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064815">Any SKILL object to be removed from the list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064817"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064819">List from which to remove </a><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039907">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064826"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064828">A copy of </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> with all top&#45;level elements <font size="2" face="'Courier New'" color="#000000"><em>eq</em></font> to <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> removed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039909">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039910">remq(&#39;x &#39;(a b x d f x g)) =&#62; (a b d f g)</a></font>
+      </p>
+      <h4><a name="1039911">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039715" title="1" name="1039889"><font color="#0000ff"><u>remd</u></font></a>, <a href="#1039833" title="1"><font color="#0000ff"><u>remove</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=reverse 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="reverse"></a><a name="1039958">reverse </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039961">reverse( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039962">Description</a></h4>
+      <p><a name="1039964">Returns a copy of the given list with the elements in reverse order.</a></p>
+      <p><a name="1039965">Because this function copies the list, it uses a lot of memory for large lists.</a></p>
+      <h4><a name="1039966">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064835"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064837">A list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039968">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064844"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064846">A new list with the elements at the top level in reverse order.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039970">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039971">reverse( &#39;(1 2 3) )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (3 2 1)<br>reverse( &#39;(a b (c d) e) )&nbsp;&nbsp;=&#62; &#39;(e (c d) b a)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=rplaca
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="rplaca"></a><a name="1040002">rplaca</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040005">rplaca( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040006">Description</a></h4>
+      <p><a name="1040008">Replaces the first element of a list with an object. This function does not create a new list; it alters the input list. Same as </a><font size="2" face="'Courier New'" color="#000000">setcar</font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040009">This is a destructive operation, meaning that any other reference to the list will also see the change. </a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040010">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064855"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064857">A list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064859"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064861">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040013">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064868"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064870">Modified </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> with the <font size="2" face="'Courier New'" color="#000000">car</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> replaced by <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040015">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040016">x = &#39;(a b c)<br>rplaca( x &#39;d )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (d b c)<br>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (d b c)</a></font>
+      </p>
+      <p><a name="1040017">The </a><font size="2" face="'Courier New'" color="#000000">car</font> of <font size="2" face="'Courier New'" color="#000000">x</font> is replaced by the second argument.</p>
+      <h4><a name="1040018">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1040068" title="1" name="1039994"><font color="#0000ff"><u>rplacd</u></font></a>, <a href="#1040134" title="1"><font color="#0000ff"><u>setcar</u></font></a>, <a href="#1040165" title="1"><font color="#0000ff"><u>setcdr</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=rplacd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="rplacd"></a><a name="1040068">rplacd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040071">rplacd( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040072">Description</a></h4>
+      <p><a name="1040074">Replaces the tail of a list with the elements of a second list. This function does not create a new list; it alters the input list. Same as </a><font size="2" face="'Courier New'" color="#000000">setcdr</font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040075">This is a destructive operation, meaning that any other reference to the list will also see the changes.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040076">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064881"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064883">List that is modified.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064885"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064887">List that replaces the </a><font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040079">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064894"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064896">Modified </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> with the <font size="2" face="'Courier New'" color="#000000">cdr</font> of the list <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> replaced with <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040081">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040082">x = &#39;(a b c)<br>rplacd( x &#39;(d e f))&nbsp;&nbsp;=&#62; (a d e f)<br>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a d e f)</a> </font>
+      </p>
+      <p><a name="1040083">The </a><font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000">x</font> is replaced by the second argument.</p>
+      <h4><a name="1040084">Reference</a></h4>
+      <p><a href="#1040002" title="1" name="1040053"><font color="#0000ff"><u>rplaca</u></font></a>, <a href="#1040134" title="1"><font color="#0000ff"><u>setcar</u></font></a>, <a href="#1040165" title="1"><font color="#0000ff"><u>setcdr</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setcar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setcar"></a><a name="1040134">setcar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040136">setcar( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040137">Description</a></h4>
+      <p><a name="1040140">Replaces the first element of a list with an object. Same as </a><font size="2" face="'Courier New'" color="#000000">rplaca</font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040141">This is a destructive operation, meaning that any other reference to the list will also see the change.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040142">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064907"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064909">A list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064911"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064913">A SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040145">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064920"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064922">Modified </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> with the <font size="2" face="'Courier New'" color="#000000">car</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> replaced by <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040147">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040148">x = &#39;(a b c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b c)<br>setcar( x &#39;d )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (d b c)<br>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (d b c)</a></font>
+      </p>
+      <p><a name="1040149">The </a><font size="2" face="'Courier New'" color="#000000">car</font> of <font size="2" face="'Courier New'" color="#000000">x</font> is replaced by the second argument.</p>
+      <h4><a name="1040150">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1040068" title="1" name="1040162"><font color="#0000ff"><u>rplacd</u></font></a>, <a href="#1040002" title="1"><font color="#0000ff"><u>rplaca</u></font></a>, <a href="#1040165" title="1"><font color="#0000ff"><u>setcdr</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setcdr
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setcdr"></a><a name="1040165">setcdr</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040167">setcdr( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040168">Description</a></h4>
+      <p><a name="1040171">Replaces the tail of a list with the elements of a second list. Same as </a><font size="2" face="'Courier New'" color="#000000">rplacd</font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1040172">This is a destructive operation, meaning that any other reference to the list will also see the change.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040173">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064929"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064931">List that is modified.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064933"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064935">List that replaces the </a><font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040176">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064946"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064948">Modified </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> with the <font size="2" face="'Courier New'" color="#000000">cdr</font> of the list <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> replaced with <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040178">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040179">x = &#39;(a b c)<br>setcdr( x &#39;(d e f))&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a d e f)<br>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a d e f)</a> </font>
+      </p>
+      <p><a name="1040180">The </a><font size="2" face="'Courier New'" color="#000000">cdr</font> of <font size="2" face="'Courier New'" color="#000000">x</font> is replaced by the second argument.</p>
+      <h4><a name="1040181">Reference</a></h4>
+      <p><a href="#1040068" title="1" name="1040112"><font color="#0000ff"><u>rplacd</u></font></a>, <a href="#1040134" title="1"><font color="#0000ff"><u>setcar</u></font></a>, <a href="#1040002" title="1"><font color="#0000ff"><u>rplaca</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tailp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tailp"></a><a name="1040386">tailp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040389">tailp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040390">Description</a></h4>
+      <p><a name="1040392">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>arg1</em></font> if a list cell <font size="2" face="'Courier New'" color="#000000">eq</font> to <font size="2" face="'Courier New'" color="#000000"><em>arg1</em></font> is found by <font size="2" face="'Courier New'" color="#000000">cdr</font> down <font size="2" face="'Courier New'" color="#000000"><em>arg2</em></font> zero or more times, <font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+      <p><a name="1040393">Because </a><font size="2" face="'Courier New'" color="#000000">eq</font> is being used for comparison <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> must point to a tail list in <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> for this predicate to return a non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> value.</p>
+      <h4><a name="1040394">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064961"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064963">A list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064965"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064967">Another list, which can contain </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> as its tail.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040397">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1064974"><font size="2" face="'Courier New'" color="#000000"><em>l_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1064976">If a list cell </a><font size="2" face="'Courier New'" color="#000000">eq</font> to <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> is found by <font size="2" face="'Courier New'" color="#000000">cdr</font>'ing down <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> zero or more times. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064978"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1064980">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040400">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040401">y = &#39;(b c)<br>z = cons( &#39;a y )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (a b c)<br>tailp( y z )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (b c)<br>tailp( &#39;(b c) z )&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <p><a name="1040371"><font size="2" face="'Courier New'" color="#000000">nil</font></a> was returned because &#39;<font size="2" face="'Courier New'" color="#000000">(b c)</font> is not <font size="2" face="'Courier New'" color="#000000">eq</font> the <font size="2" face="'Courier New'" color="#000000">cdr( z )</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=tconc 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="tconc"></a><a name="1040425">tconc </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040428">tconc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_ptr</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040429">Description</a></h4>
+      <p><a name="1040431">Creates a list cell whose </a><font size="2" face="'Courier New'" color="#000000">car</font> points to a list of the elements being constructed and whose <font size="2" face="'Courier New'" color="#000000">cdr</font> points to the last list cell of the list being constructed.</p>
+      <p><a name="1040432">A </a><font size="2" face="'Courier New'" color="#000000">tconc</font> structure is a special type of list that allows efficient addition of objects to the end of a list. It consists of a list cell whose <font size="2" face="'Courier New'" color="#000000">car</font> points to a list of the elements being constructed with <font size="2" face="'Courier New'" color="#000000">tconc</font> and whose <font size="2" face="'Courier New'" color="#000000">cdr</font> points to the last list cell of the list being constructed. If <font size="2" face="'Courier New'" color="#000000"><em>l_ptr</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, a new <font size="2" face="'Courier New'" color="#000000">tconc</font> structure is automatically created. To obtain the list under construction, take the <font size="2" face="'Courier New'" color="#000000">car</font> of the <font size="2" face="'Courier New'" color="#000000">tconc</font> structure.</p>
+      <p><a name="1040433"><font size="2" face="'Courier New'" color="#000000">tconc</font></a> and <font size="2" face="'Courier New'" color="#000000">lconc</font> are much faster than <font size="2" face="'Courier New'" color="#000000">append</font> when adding new elements to the end of a list. The <font size="2" face="'Courier New'" color="#000000">append</font> function is much slower, because it traverses and copies the list to reach the end, whereas <font size="2" face="'Courier New'" color="#000000">tconc</font> and <font size="2" face="'Courier New'" color="#000000">lconc</font> only manipulate pointers.</p>
+      <h4><a name="1064987">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065009"><font size="2" face="'Courier New'" color="#000000"><em>l_ptr</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065011">A </a><font size="2" face="'Courier New'" color="#000000">tconc</font> structure. Must be initialized to <font size="2" face="'Courier New'" color="#000000">nil</font> to create a new <font size="2" face="'Courier New'" color="#000000">tconc</font> structure.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065013"><font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065015">Element to add to the end of the list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040436">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065022"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065024">Returns </a><font size="2" face="'Courier New'" color="#000000"><em>l_ptr</em></font>, which must be a <font size="2" face="'Courier New'" color="#000000">tconc</font> structure or <font size="2" face="'Courier New'" color="#000000">nil</font>, with <font size="2" face="'Courier New'" color="#000000"><em>g_x</em></font> added to the end.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040438">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040439">x = tconc(nil 1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now ((1) 1)<br>tconc(x 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now ((1 2) 2)<br>tconc(x 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now ((1 2 3) 3)<br>x = car(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; x is now (1 2 3)</a></font>
+      </p>
+      <p><a name="1040440"><font size="2" face="'Courier New'" color="#000000">x</font></a> now equals <font size="2" face="'Courier New'" color="#000000">(1 2 3)</font>, the desired result.</p>
+      <h4><a name="1040441">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039200" title="1" name="1040417"><font color="#0000ff"><u>lconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xcons
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xcons"></a><a name="1040491">xcons</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040494">xcons( <dd></a><font color="#000000"><em>l_list <dd>g_element</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1040495">Description</a></h4>
+      <p><a name="1040497">Adds an element to the beginning of a list. Equivalent to </a><font size="2" face="'Courier New'" color="#000000">cons</font> but the order of the arguments is reversed.</p>
+      <h4><a name="1040498">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065031"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065033">A list, which can be </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065035"><font size="2" face="'Courier New'" color="#000000"><em>g_element</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1065037">Element to be added to the beginning of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040501">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065044"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065046">Returns a list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040503">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040504">xcons( &#39;(b c) &#39;a ) =&#62; ( a b c )</a></font>
+      </p>
+      <h4><a name="1040505">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038713" title="1" name="1040483"><font color="#0000ff"><u>append1</u></font></a>, <a href="#1039200" title="1"><font color="#0000ff"><u>lconc</u></font></a>, <a href="#1039311" title="1"><font color="#0000ff"><u>list</u></font></a>, <a href="#1039434" title="1"><font color="#0000ff"><u>ncons</u></font></a>, <a href="#1040425" title="1"><font color="#0000ff"><u>tconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=xCoord
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="xCoord"></a><a name="1040564">xCoord</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040565">xCoord( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1040567">Description</a></h4>
+      <p><a name="1040569">Returns the first element of a list. </a><font size="2" face="'Courier New'" color="#000000">D</font>oes not modify the argument list.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1040572">The </a><font size="2" face="'Courier New'" color="#000000">xCoord</font> and <font size="2" face="'Courier New'" color="#000000">yCoord</font> functions are aliases for the <a href="../sklangref/list.html#car" target="external_window"><font color="#0000ff"><u><em>car</em></u></font></a> and <a href="../sklangref/list.html#cadr" target="external_window"><font color="#0000ff"><u><em>cadr</em></u></font></a> functions. </p>
+      <h4><a name="1040573">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065053"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065055">A list of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040575">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065062"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065064">Returns the first element in a list. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040577">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040578">xValue = 300 <br>yValue = 400 <br>aCoordinate = xValue:yValue =&#62; ( 300 400 ) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040549">xCoord( aCoordinate ) =&#62; 300 <br>yCoord( aCoordinate ) =&#62; 400</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=yCoord
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="yCoord"></a><a name="1040602">yCoord</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040603">yCoord( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1040605">Description</a></h4>
+      <p><a name="1040607">Returns the tail of the list, that is, the list without its first element.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1040610">The </a><font size="2" face="'Courier New'" color="#000000">xCoord</font> and <font size="2" face="'Courier New'" color="#000000">yCoord</font> functions are aliases for the <a href="../sklangref/list.html#car" target="external_window"><font color="#0000ff"><u><em>car</em></u></font></a> and <a href="../sklangref/list.html#cadr" target="external_window"><font color="#0000ff"><u><em>cadr</em></u></font></a> functions. </p>
+      <h4><a name="1040611">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065071"><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065073">A list of elements.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040613">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1065080"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1065082">Returns the end of a list, or the list minus the first element. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040615">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040616">xValue = 300 <br>yValue = 400 <br>aCoordinate = xValue:yValue =&#62; ( 300 400 ) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040594">xCoord( aCoordinate ) =&#62; 300 <br>yCoord( aCoordinate ) =&#62; 400</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1063458">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="preface.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="datastruct.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,1303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 9</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="9">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="controlflow.html">
+<META NAME="PageCount" CONTENT="22">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="trigono.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 9">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="trigono.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="controlflow.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>9<a name="1008200"><font color="#000000"><strong></strong></font></a></h1>
+      <h1><a name="1037758">Logical and Relational Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=alphalessp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="alphalessp"></a><a name="1038670">alphalessp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038674">alphalessp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_arg1</em></font><font color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>S_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1038675">Description</a></h4>
+      <p><a name="1038677">Compares two string or symbol names alphabetically.</a></p>
+      <p><a name="1038678">This function returns </a><font size="2" face="'Courier New'" color="#000000">t</font> if the first argument is alphabetically less than the second argument. If <font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font> is a symbol, then its name is its print name. If <font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font> is a string, then its name is the string itself.</p>
+      <h4><a name="1048485">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048478"><font size="2" face="'Courier New'" color="#000000"><em>S_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048480">First name you want to compare. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048482"><font size="2" face="'Courier New'" color="#000000"><em>S_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048484">Name to compare against.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1049555">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1049548"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1049550">If </a><font size="2" face="'Courier New'" color="#000000"><em>S_arg1</em></font> is alphabetically less than the name of <font size="2" face="'Courier New'" color="#000000"><em>S_arg2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1049552"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1049554">In all other cases.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1049556">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1049557">alphalessp( &#34;name&#34; &#34;name1&#34; )&nbsp;&nbsp;&nbsp;=&#62; t<br>alphalessp( &#34;third&#34; &#34;fourth&#34; )&nbsp;=&#62; nil<br>alphalessp(&#39;a &#39;ab)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1038687">Reference</a></h4>
+      <p><a href="stringfunc.html#1040645" title="5" name="1038653"><font color="#0000ff"><u>strcmp</u></font></a>, <a href="stringfunc.html#1040843" title="5"><font color="#0000ff"><u>strncmp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=and
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="and"></a><a name="1038717">and</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038721">and( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_arg3</em></font>... ] <dd>) <dd>=&#62; nil &#47; <font size="2" face="'Courier New'" color="#000000"><em>g_val</em></font></font>
+      </dl>
+      <h4><a name="1038722">Description</a></h4>
+      <p><a name="1038724">Evaluates from left to right its arguments to see if the result is </a><font size="2" face="'Courier New'" color="#000000">nil</font>. As soon as an argument evaluates to <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">and</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font> without evaluating the rest of the arguments. Otherwise, <font size="2" face="'Courier New'" color="#000000">and</font> evaluates the next argument. If all arguments except for the last evaluate to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">and</font> returns the value of the last argument as the result of the function call. Prefix form of the <font size="2" face="'Courier New'" color="#000000">&amp;&amp;</font> binary operator.</p>
+      <h4><a name="1038725">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048501"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048503">Any SKILL object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048505"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048507">Any SKILL object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048509"><font size="2" face="'Courier New'" color="#000000"><em>g_arg3</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048511">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038729">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048518"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048520">If an argument evaluates to </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048522"><font size="2" face="'Courier New'" color="#000000"><em>g_val</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048524">Value of the last argument if all the preceding arguments evaluate to non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038732">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038733">and(nil t)&nbsp;&nbsp;=&#62; nil <br>and(t nil)&nbsp;&nbsp;=&#62; nil <br>and(18 12)&nbsp;&nbsp;=&#62; 12</a></font>
+      </p>
+      <h4><a name="1038734">Reference</a></h4>
+      <p><a href="bitwise.html#1038671" title="7" name="1038709"><font color="#0000ff"><u>band</u></font></a>, <a href="bitwise.html#1038836" title="7"><font color="#0000ff"><u>bnand</u></font></a>, <a href="bitwise.html#1038878" title="7"><font color="#0000ff"><u>bnor</u></font></a>, <a href="bitwise.html#1038920" title="7"><font color="#0000ff"><u>bnot</u></font></a>, <a href="bitwise.html#1039005" title="7"><font color="#0000ff"><u>bor</u></font></a>, <a href="bitwise.html#1039068" title="7"><font color="#0000ff"><u>bxnor</u></font></a>, <a href="bitwise.html#1039138" title="7"><font color="#0000ff"><u>bxor</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=compareTime
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="compareTime"></a><a name="1038796">compareTime</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038799">compareTime( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_time1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>t_time2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_difference</em></font></font>
+      </dl>
+      <h4><a name="1038800">Description</a></h4>
+      <p><a name="1038802">Compares two string arguments, representing a clock&#45;calendar time.</a></p>
+      <h4><a name="1048536">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048545"><font size="2" face="'Courier New'" color="#000000"><em>t_time1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048547">First string in the</a><font size="2" face="'Courier New'" color="#000000"><em> month day hour:minute:second year</em></font> format. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048549"><font size="2" face="'Courier New'" color="#000000"><em>t_time2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048551">Second string in the </a><font size="2" face="'Courier New'" color="#000000"><em>month day hour:minute:second year</em></font> format. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1048539">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048562"><font size="2" face="'Courier New'" color="#000000"><em>x_difference</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048564">An integer representing a time that is later than (positive), equal to (zero), or earlier than (negative) the second argument. The units are seconds.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038808">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038809">compareTime( &#34;Apr 8 4:21:39 1991&#34; &#34;Apr 16 3:24:36 1991&#34;)<br>=&#62; &#45;687777.</a></font>
+      </p>
+      <p><a name="1038810">687,777 seconds have occurred between the two dates given. For a positive number of seconds, the most recent date needs to be given as the first argument.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038811">compareTime(&#34;Apr 16 3:24:36 1991&#34; &#34;Apr 16 3:14:36 1991&#34;)<br>=&#62; 600</a></font>
+      </p>
+      <p><a name="1038812">600 seconds (10 minutes) have occurred between the two dates.</a></p>
+      <h4><a name="1038813">Reference</a></h4>
+      <p><a href="environment.html#1039237" title="14" name="1038781"><font color="#0000ff"><u>getCurrentTime</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=eq
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="eq"></a><a name="1038850">eq</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046507">eq( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1046508">Description</a></h4>
+      <p><a name="1038856">Checks addresses when testing for equality.</a></p>
+      <p><a name="1038857">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> if <font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are the same (that is, are at the same address in memory). The <font size="2" face="'Courier New'" color="#000000">eq</font> function runs considerably faster than <font size="2" face="'Courier New'" color="#000000">equal</font> but should only be used for testing equality of symbols, shared lists, or small numeric values (in the range of &#45;256 to +256). Using <font size="2" face="'Courier New'" color="#000000">eq</font> on types other than symbols, lists, or small numeric values will give unpredictable results and should be avoided. <br>For testing equality of numbers, strings, and lists in general, the <font size="2" face="'Courier New'" color="#000000">equal</font> function and not the <font size="2" face="'Courier New'" color="#000000">eq</font> function should be used. You can test for equality between symbols using <font size="2" face="'Courier New'" color="#000000">eq</font> more efficiently than using the <font size="2" face="'Courier New'" color="#000000">==</font> operator, which is the same as the <font size="2" face="'Courier New'" color="#000000">equal</font> function. If one argument of the <font size="2" face="'Courier New'" color="#000000">eq</font> function is a string, SKILL Lint prints an error suggesting that the <font size="2" face="'Courier New'" color="#000000">eqv</font> or <font size="2" face="'Courier New'" color="#000000">equal</font> function be used instead.</p>
+      <h4><a name="1038858">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048571"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048573">Any SKILL object. </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> is compared with <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> to see if they point to the same object.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048575"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048577">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038861">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048584"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048586">Both arguments are the same object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048588"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048590">The two objects are not identical.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038864">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038865">x = &#39;dog <br>eq( x &#39;dog )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>eq( x &#39;cat )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038866">y = &#39;dog <br>eq( x y )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1049569">Reference</a></h4>
+      <p><a href="#1049577" title="9" name="1049573"><font color="#0000ff"><u>equal</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=equal
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="equal"></a><a name="1049577">equal</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038897">equal( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font><font color="#000000"><em> <dd></em></font><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038898">Description</a></h4>
+      <p><a name="1038900">Checks contents of strings and lists when testing for equality.</a></p>
+      <p><a name="1038901">Checks if two arguments are equal or if they are logically equivalent, for example, </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are equal if they are both lists&#47;strings and their contents are the same. This test is slower than using <font size="2" face="'Courier New'" color="#000000">eq</font> but works for comparing objects other than symbols.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038902">If the arguments are the same object in virtual memory (that is, they are </a><font size="2" face="'Courier New'" color="#000000">eq</font><font color="#000000"><em>), </em></font><font size="2" face="'Courier New'" color="#000000">equal</font> returns <font size="2" face="'Courier New'" color="#000000">t</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038903">If the arguments are the same type and their contents are equal (for example, strings with identical character sequence), </a><font size="2" face="'Courier New'" color="#000000">equal</font> returns <font size="2" face="'Courier New'" color="#000000">t</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1038904">If the arguments are a mixture of fixnums and flonums, </a><font size="2" face="'Courier New'" color="#000000">equal</font> returns <font size="2" face="'Courier New'" color="#000000">t</font> if the numbers are identical (for example, 1.0<font color="#000000"><em> </em></font>and 1).</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1038905">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048598"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048600">Any SKILL object. </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are tested to see if they are logically equivalent.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048602"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048604">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038908">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048611"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048613">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are equal. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048615"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048617">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038911">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038912">x = &#39;cat <br>equal( x &#39;cat )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038913">x == &#39;dog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; == is the same as </a><font color="#000000"><em>equal</em></font>.<br></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038914">x = &#34;world&#34; <br>equal( x &#34;world&#34; ) =&#62; t<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038915">x = &#39;(a b c) <br>equal( x &#39;(a b c)) =&#62; t<br>equal(2 2.0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1038916">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038850" title="9" name="1038920"><font color="#0000ff"><u>eq</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=eqv 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="eqv"></a><a name="1038922">eqv </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038925">eqv( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_general1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_general2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038926">Description</a></h4>
+      <p><a name="1038928">Tests for the equality between two strings or two numbers of the same type (for example, both numbers are integers). Except for numbers, </a><font size="2" face="'Courier New'" color="#000000">eqv</font> is like <font size="2" face="'Courier New'" color="#000000">eq</font>.</p>
+      <h4><a name="1038929">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048625"><font size="2" face="'Courier New'" color="#000000"><em>g_general1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048627">The first SKILL object.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048629"><font size="2" face="'Courier New'" color="#000000"><em>g_general2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048631">The second SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038932">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048638"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048640"><font size="2" face="'Courier New'" color="#000000"><em>g_general1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>g_general2</em></font> represent the same string or the same number.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048642"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048644">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038935">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038936">(eqv 1.5 1.5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>(equal 1.5 1.5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>(eq 1.5 1.5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>(eqv (list 1 2) (list 1 2))&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038937">s1=&#34;world&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038938">s2=&#34;world&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038939">eqv(s1 s2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1038940">Reference</a></h4>
+      <p><a href="#1038850" title="9" name="1038886"><font color="#0000ff"><u>eq</u></font></a>, <a href="#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=geqp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="geqp"></a><a name="1038995">geqp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038998">geqp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038999">Description</a></h4>
+      <p><a name="1039001">This predicate function checks if the first argument is greater than or equal to the second argument. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#62;=</font> operator. </p>
+      <h4><a name="1039002">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048656"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048658">Number to be checked.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048660"><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048662">Number against which </a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> is checked.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039005">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048669"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048671"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is greater than or equal to <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048673"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048675"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is less than <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039008">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039009">geqp(2 2)&nbsp;&nbsp;&nbsp;=&#62; t<br>geqp(&#45;2 2)&nbsp;&nbsp;=&#62; nil<br>geqp(3 2.2)&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039010">Reference</a></h4>
+      <p><a href="#1039043" title="9" name="1038979"><font color="#0000ff"><u>greaterp</u></font></a>, <a href="#1039179" title="9"><font color="#0000ff"><u>leqp</u></font></a>, <a href="#1039206" title="9"><font color="#0000ff"><u>lessp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=greaterp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="greaterp"></a><a name="1039043">greaterp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039046">greaterp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039047">Description</a></h4>
+      <p><a name="1039049">This predicate function checks if the first argument is greater than the second argument. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#62;</font> operator. </p>
+      <h4><a name="1039050">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048683"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048685">Number to be checked.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048687"><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048689">Number against which </a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> is checked.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039053">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048696"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048698"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is greater than <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048700"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048702"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is less than or equal to <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039056">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039057">greaterp(2 2)&nbsp;&nbsp;&nbsp;=&#62; nil<br>greaterp(&#45;2 2)&nbsp;&nbsp;=&#62; nil<br>greaterp(3 2.2)&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039058">Reference</a></h4>
+      <p><a href="#1038995" title="9" name="1039035"><font color="#0000ff"><u>geqp</u></font></a>, <a href="#1039179" title="9"><font color="#0000ff"><u>leqp</u></font></a>, <a href="#1039206" title="9"><font color="#0000ff"><u>lessp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=leqp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="leqp"></a><a name="1039179">leqp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039182">leqp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039183">Description</a></h4>
+      <p><a name="1039185">This predicate function checks if the first argument is less than or equal to the second argument. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#60;=</font> operator. </p>
+      <h4><a name="1039186">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048710"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048712">Number to be checked.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048714"><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048716">Number against which </a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> is checked.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039189">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048723"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048725"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is less than or equal to <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048727"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048729"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is greater than <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039192">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039193">leqp(2 2)&nbsp;&nbsp;&nbsp;=&#62; t<br>leqp(&#45;2 2)&nbsp;&nbsp;=&#62; t<br>leqp(3 2.2)&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039194">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1038995" title="9" name="1039203"><font color="#0000ff"><u>geqp</u></font></a>, <a href="#1039043" title="9"><font color="#0000ff"><u>greaterp</u></font></a>, <a href="#1039206" title="9"><font color="#0000ff"><u>lessp</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=lessp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="lessp"></a><a name="1039206">lessp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039209">lessp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039210">Description</a></h4>
+      <p><a name="1039212">This predicate function checks if the first argument is less than the second argument. Prefix form of the </a><font size="2" face="'Courier New'" color="#000000">&#60;</font> operator. </p>
+      <h4><a name="1039213">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048736"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048738">Number to be checked.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048740"><font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048742">Number against which </a><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font> is checked.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039216">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048749"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048751"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is less than <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048753"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048755"><font size="2" face="'Courier New'" color="#000000"><em>n_num1</em></font></a> is greater than or equal to <font size="2" face="'Courier New'" color="#000000"><em>n_num2</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039219">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039220">lessp(2 2)&nbsp;&nbsp;&nbsp;=&#62; nil<br>lessp(&#45;2 2)&nbsp;&nbsp;=&#62; t<br>lessp(3 2.2)&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039221">Reference</a></h4>
+      <p><a href="#1038995" title="9" name="1039164"><font color="#0000ff"><u>geqp</u></font></a>, <a href="#1039043" title="9"><font color="#0000ff"><u>greaterp</u></font></a>, <a href="#1039179" title="9"><font color="#0000ff"><u>leqp</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=member, memq, memv
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="member"></a><a name="1039268">member, memq, memv</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1049841">member( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_sublist</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1049842">Description</a></h4>
+      <p><a name="1039273">Returns the largest sublist of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> whose first element is <font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> or checks whether the key <font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> exists in the association table. For comparison, <font size="2" face="'Courier New'" color="#000000">member</font> uses the <font size="2" face="'Courier New'" color="#000000">equal</font> function, <font size="2" face="'Courier New'" color="#000000">memq</font> uses the <font size="2" face="'Courier New'" color="#000000">eq</font> function, and <font size="2" face="'Courier New'" color="#000000">memv</font> uses <font size="2" face="'Courier New'" color="#000000">eqv</font>.</p>
+      <p><a name="1039277"><font size="2" face="'Courier New'" color="#000000">memq</font></a> should only be used when comparing symbols and lists. See <font size="2" face="'Courier New'" color="#000000">eq</font> for restrictions on when <font size="2" face="'Courier New'" color="#000000">eq</font> based comparisons can be used.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1039278">It is faster to convert a string to a symbol using </a><font size="2" face="'Courier New'" color="#000000">concat</font> in conjunction with <font size="2" face="'Courier New'" color="#000000">memq</font> than using <font size="2" face="'Courier New'" color="#000000">member</font>, which performs a comparison using <font size="2" face="'Courier New'" color="#000000">equal</font> which is slower, especially for large lists. These functions return a non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> value if the first argument matches a member of the list passed in as the second argument.</p>
+      <h4><a name="1039279">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048763"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048765">Element to be searched for in </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> or key to be searched in the association table.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048767"><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048769">A list or an association table.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039282">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048780"><font size="2" face="'Courier New'" color="#000000"><em>l_sublist</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048782">The part of </a><font size="2" face="'Courier New'" color="#000000"><em>l_list</em></font> or association table beginning with the first match of <font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048784"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1049782"><font color="#000000">Returns </font></a><font size="2" face="'Courier New'" color="#000000">t</font> if the key <font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> exists in the association table.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1049852"><font color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1049854"><font color="#000000">Returns </font></a><font size="2" face="'Courier New'" color="#000000">nil</font> if the key <font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> does not exist in the association table.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039285">Example 1</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039286">x = &#34;c&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;c&#34;<br>member( x &#39;(&#34;a&#34; &#34;b&#34; &#34;c&#34; &#34;d&#34;))&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (&#34;c&#34; &#34;d&#34;)<br>memq(&#39;c &#39;(a b c d c d))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (c d c d)<br>memq( concat( x ) &#39;(a b c d ))&nbsp;&nbsp;&nbsp;=&#62; (c d)<br>memv( 1.5 &#39;(a 1.0 1.5 &#34;1.5&#34;))&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1.5 &#34;1.5&#34;)</a></font>
+      </p>
+      <h4><a name="1049656">Example 2</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1049669">tb = makeTable(&#34;myTable&#34;)<br>tb[0]= 1<br>tb[&#34;skill&#34;] = 2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1049673">member(&#34;skill&#34; tb)<br>=&#62; t</a></font>
+      </p>
+      <h4><a name="1039287">Reference</a></h4>
+      <p><a href="#1038850" title="9" name="1039253"><font color="#0000ff"><u>eq</u></font></a>, <a href="#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a>, <a href="#1038922" title="9"><font color="#0000ff"><u>eqv</u></font></a>, <a href="dataoperator.html#1038735" title="3"><font color="#0000ff"><u>concat</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=neq
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="neq"></a><a name="1039331">neq</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039334">neq( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039335">Description</a></h4>
+      <p><a name="1039337">Checks if two arguments are </a>not identical using the <font color="#000000"><em>eq</em></font> function and returns <font size="2" face="'Courier New'" color="#000000">t</font> if they are not. That is, <font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are tested to see if they are at the same address in memory.</p>
+      <h4><a name="1039338">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048793"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048795">Any SKILL object. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048797"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048799">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039341">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048806"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048808">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are not <font size="2" face="'Courier New'" color="#000000">eq</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048810"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048812">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039344">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039345">a = &#39;dog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; dog<br>neq( a &#39;dog )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>neq( a &#39;cat )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039346">z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>neq(z z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>neq(&#39;(1 2 3) z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <h4><a name="1039347">Reference</a></h4>
+      <p><a href="#1038850" title="9" name="1040037"><font color="#0000ff"><u>eq</u></font></a>, <a href="#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a>, <a href="#1038922" title="9"><font color="#0000ff"><u>eqv</u></font></a>, <a href="#1039359" title="9"><font color="#0000ff"><u>nequal</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=nequal
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="nequal"></a><a name="1039359">nequal</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039362">nequal( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039363">Description</a></h4>
+      <p><a name="1039365">Checks if two arguments are</a><font color="#000000"><em> not </em></font>logically equivalent using the <font size="2" face="'Courier New'" color="#000000">equal</font> function and returns <font size="2" face="'Courier New'" color="#000000">t</font> if they are not.</p>
+      <p><a name="1039366"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are only equal if they are either <font size="2" face="'Courier New'" color="#000000">eqv</font> or they are both lists&#47;strings and their contents are the same.</p>
+      <h4><a name="1039367">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048819"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048821">Any SKILL object. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048823"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048825">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039370">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048832"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048834">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> and <font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> are not <font size="2" face="'Courier New'" color="#000000">equal</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048836"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048838">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039373">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039374">x = &#34;cow&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;cow&#34;<br>nequal( x &#34;cow&#34; )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>nequal( x &#34;dog&#34; )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039375">z = &#39;(1 2 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2 3)<br>nequal(z z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>nequal(&#39;(1 2 3) z)&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=null
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="null"></a><a name="1039423">null</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039426">null( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039427">Description</a></h4>
+      <p><a name="1039429">Checks if an object is equal to </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+      <p><a name="1039430"><font size="2" face="'Courier New'" color="#000000">null</font></a> is a type predicate function.</p>
+      <h4><a name="1039431">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048845"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048847">A data object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039433">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048854"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048856">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is equal to <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048858"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048860">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039436">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039437">null( 3 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>null(&#39;())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>null( nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=numberp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="numberp"></a><a name="1039447">numberp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039450">numberp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039451">Description</a></h4>
+      <p><a name="1039453">Checks if a data object is a number, that is, either an integer or floating&#45;point number.</a></p>
+      <p><a name="1039454">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1039455">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048871"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048873">A data object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039457">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048880"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048882">The data object is a number.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048884"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048886">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039460">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039461">numberp( 3 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>numberp(&#39;isASymbol)&nbsp;&nbsp;=&#62; nil<br>numberp( 3.5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=or
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="or"></a><a name="1039502">or</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046445">or( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_arg3</em></font>... ] <dd>) <dd>=&#62; nil &#47; <font size="2" face="'Courier New'" color="#000000"><em>g_val</em></font></font>
+      </dl>
+      <h4><a name="1046446">Description</a></h4>
+      <p><a name="1046439">Evaluates from left to right its arguments to see if the result is non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font>. As soon as an argument evaluates to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">or</font> returns that value without evaluating the rest of the arguments. If all arguments except the last evaluate to <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">or</font> returns the value of the last argument as the result of the function call. Prefix form of the <font size="2" face="'Courier New'" color="#000000">||</font> binary operator.</p>
+      <h4><a name="1046440">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048893"><font size="2" face="'Courier New'" color="#000000"><em>g_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048895">First argument to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048897"><font size="2" face="'Courier New'" color="#000000"><em>g_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048899">Second argument to be evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048901"><font size="2" face="'Courier New'" color="#000000"><em>g_arg3 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048903">Optional additional arguments to be evaluated.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039513">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048910"><font size="2" face="'Courier New'" color="#000000">nil </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048912">All arguments evaluate to </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048914"><font size="2" face="'Courier New'" color="#000000"><em>g_val </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048916">Value of the argument that evaluates to non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font>, or the value of the last argument if all the preceding arguments evaluate to <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039516">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039517">or(t nil)&nbsp;=&#62; t<br>or(nil t)&nbsp;=&#62; t<br>or(18 12)&nbsp;=&#62; 18</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sxtd
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sxtd"></a><a name="1039583">sxtd</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039586">sxtd( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>x_bits <dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></font>
+      </dl>
+      <h4><a name="1039587">Description</a></h4>
+      <p><a name="1039589">Sign&#45;extends the number represented by the rightmost specified number of bits in the given integer.</a></p>
+      <p><a name="1039590">Sign&#45;extends the rightmost </a><font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font> bits of <font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font>. That is, sign&#45;extends the bit field <font size="2" face="'Courier New'" color="#000000">x_number&#60;x_bits &#45; 1:0&#62;</font> with <font size="2" face="'Courier New'" color="#000000">x_number&#60;x_bits &#45; 1&#62;</font> as the sign bit.</p>
+      <h4><a name="1039591">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048924"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048926">An integer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048928"><font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1048930">Number of bits.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039594">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1048937"><font size="2" face="'Courier New'" color="#000000"><em>x_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1048939"><font size="2" face="'Courier New'" color="#000000"><em>x_number</em></font></a> with the rightmost <font size="2" face="'Courier New'" color="#000000"><em>x_bits</em></font> sign&#45;extended.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039596">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039597">sxtd( 7 4 )&nbsp;&nbsp;=&#62; 7<br>sxtd( 8 4 )&nbsp;&nbsp;=&#62; &#45;8<br>sxtd( 5 2 )&nbsp;&nbsp;=&#62; 5</a></font>
+      </p>
+      <h4><a name="1039598">Reference</a></h4>
+      <p><a href="arithmetic.html#1041106" title="6" name="1039561"><font color="#0000ff"><u>zxtd</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1047464">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="trigono.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="controlflow.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

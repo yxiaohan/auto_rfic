@@ -1,0 +1,2944 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 10</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="10">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="inputoutput.html">
+<META NAME="PageCount" CONTENT="58">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="logicalrel.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 10">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="logicalrel.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="inputoutput.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>10<a name="1008200"><font color="#000000"><strong></strong></font></a></h1>
+      <h1><a name="1037758">Flow Control Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=case
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="case"></a><a name="1038670">case</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038673">case( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_clause2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038675">Description</a></h4>
+      <p><a name="1038677">Branches to one of the clauses depending on the value of the given expression. caseq() evaluates g_keyForm and matches the resulting value sequentially against the clauses until it finds a match. Once a match is found it stops searching the clauses, evaluates the forms in the matching clause, and returns the resulting value. This is a syntax function. </a></p>
+      <p><a name="1038678">Each l_clause is in turn a list of the form (g_keys g_expr1 [g_expr2 ...]) in which the first element, that is g_keys, is either an atom (that is, a scalar) of any data type or a list of keys (to be compared with the given expression). If any of the keys matches the value from g_keyForm, that clause is selected. Keys are always treated as constants and are never evaluated. </a></p>
+      <p><a name="1038679">The symbol t has special meaning as a key in that it matches anything. It acts as a catch&#45;all and should be handled last to serve as a default case when no other match is found. To match the value t, use a list of t as the key.</a></p>
+      <h4><a name="1066146">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066179"><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066181">An expression whose value is evaluated and tested for equality against the keys in each clause. </a></p>
+            <p><a name="1066196">A match occurs when either the selector is equal to the key or the selector is equal to one of the elements in the list of keys. If a match is found, the expressions in that clause and that clause only (that is, the first match) are executed. The value of case is then the value of the last expression evaluated (that is, the last expression in the clause selected). If there is no match, case returns nil.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066183"><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066185">An expression whose first element is an atom or list of atoms to be compared against the value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font>. The remainder of the <font size="2" face="'Courier New'" color="#000000"><em>l_clause</em></font> is evaluated if a match is found. </p>
+            <p><a name="1066203"><font color="#000000"><strong>Note</strong></font></a>: Do not put quotes or use the list() function when specifying the lists in a clause.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066187"><font size="2" face="'Courier New'" color="#000000"><em>l_clause2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066189">Zero or more clauses of the same form as </a><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066153">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066210"><font size="2" face="'Courier New'" color="#000000"><em>g_resultb</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066212">Returns the value of the last expression evaluated in the matched clause, or </a><font size="2" face="'Courier New'" color="#000000">nil</font> if there is no match.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066214"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066216">If there is no match.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038690">Example 1</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038691">nameofmonth = &#34;February&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038692">month = case( nameofmonth</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038693">                (&#34;January&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038694">                (&#34;February&#34; 2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038695">                (t &#39;Other))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038696">=&#62; 2</a></font>
+      </p>
+      <h4><a name="1038697">Example 2</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038698">listofnums = list(2 4 6)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038699">case( listofnums</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038700"> (( (1 2 3) ) &#39;onetwothree)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038701"> (( (1 3 5)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038702">    (7 9 11) ) &#39;odd)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038703"> (( (2 4 6)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038704">    (8 10 12) ) &#39;even)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038705"> (t &#39;unknown))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038706">=&#62; even</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038707">&nbsp;</a></font>
+      </p>
+      <h4><a name="1038708">Example 3</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038709">case( myBool</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038710"> (nil &#39;never)  ; this will never match, it is a list of no keys</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038711"> (( nil ) nil) ; matches nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038712"> (( t ) t)     ; matches t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038713"> (t (error &#34;Expected t or nil&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038714">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038715">&nbsp;</a></font>
+      </p>
+      <h4><a name="1038716">Example 4</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038717">shapeType=&#34;line&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038718">rectCount=0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038719">labelOrLineCount=0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038720">miscount=0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038721">case( shapeType </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038722">(&#34;rect&#34; ++rectCount println( &#34;Shape is a rectangle&#34; ))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038723">(( &#34;label&#34; &#34;line&#34; ) ++labelOrLineCount println( &#34;Shape is a line or a label&#34; ))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038724">(t ++miscount println( &#34;Shape is miscellaneous&#34; ))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038725">) ; case</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038726">=&#62; Shape is a line or a label</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038727">&nbsp;</a></font>
+      </p>
+      <h4><a name="1038728">Example 5</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038729">procedure(migrateShape(shape &#34;d&#34;)</a></font>
+      </p>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038730">case(list(shape&#45;&#62;layerName shape&#45;&#62;purpose)</a></font>
+      </blockquote>
+      <blockquote>
+<blockquote>        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038731">(((&#34;POLY&#34; &#34;test1&#34;))</a></font></blockquote>
+      </blockquote>
+      <blockquote>
+<blockquote>        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038732">&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;layerName = &#34;CPO&#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;purpose = &#34;drawing&#34;</a></font></blockquote>
+      </blockquote>
+      <blockquote>
+<blockquote>        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038733">)<br>(((&#34;Oxide&#34; &#34;drawing&#34;) (&#34;abcd&#34; &#34;efgh&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;println(shape&#45;&#62;layerName)<br>)<br>(((&#34;M1&#34; &#34;net&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;purpose = &#34;label&#34;<br>)<br>(((&#34;M2&#34; &#34;net&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;purpose = &#34;label&#34;<br>)<br>(((&#34;M3&#34; &#34;net&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;purpose = &#34;label&#34;<br>)<br>(((&#34;M4&#34; &#34;net&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;shape&#45;&#62;purpose = &#34;label&#34;<br>)<br>)<br>) ; </a></font></blockquote>
+      </blockquote>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038734">&nbsp;</a></font>
+      </p>
+      <h4><a name="1038735">Reference</a></h4>
+      <p><a href="logicalrel.html#1038850" title="9" name="1038653"><font color="#0000ff"><u>eq</u></font></a>, <a href="logicalrel.html#1049577" title="9"><font color="#0000ff"><u>equal</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=caseq
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="caseq"></a><a name="1038809">caseq</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038811">caseq( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_clause2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result </em></font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1038813">Description</a></h4>
+      <p><a name="1038815">Works like the case() function, but uses eq() to find a matching clause instead of the equal() function. The keys used with caseq() should therefore not be strings or lists. In case you want to use a string value or a list, SKILL recommends using the case() function. See </a><a href="logicalrel.html#1038850" title="9"><font color="#0000ff"><u>eq</u></font></a> for details on the difference between the eq() and equal() functions. </p>
+      <h4><a name="1066259">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066268"><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066270">An expression whose value is evaluated and tested for equality against the comparators in each clause. A match occurs when either the selector is equal to the comparator or the selector is equal to one of the elements in the list given as the comparator.</a></p>
+            <p><a name="1066285">If a match is found, the expressions in that clause and that clause only (that is, the first match) are executed. The value of case is then the value of the last expression evaluated (that is, the last expression in the clause selected). </a></p>
+            <p><a name="1066292">If there is no match, case returns nil.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066272"><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066274">An expression whose first element is an atom or list of atoms to be compared against the value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_keyForm</em></font>. The remainder of the <font size="2" face="'Courier New'" color="#000000"><em>l_clause</em></font> is evaluated if a match is found.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066276"><font size="2" face="'Courier New'" color="#000000"><em>l_clause2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066278">Zero or more clauses of the same form as </a><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066263">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066299"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066301">Returns the value of the last expression evaluated in the matched clause, or </a><font size="2" face="'Courier New'" color="#000000">nil</font> if there is no match.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066303"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066305">If there is no match.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038829">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038830">caseq(value</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038831">((nil) printf(&#34;Failed.\n&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038832">(indeterminate printf(&#34;Indeterminate.\n&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038833">((t) printf(&#34;Succeeded.\n&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038834">(t printf(&#34;Default.\n&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038835">)) </a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=catch
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="catch"></a><a name="1038880">catch</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038881">catch(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_tag<dd>g_form<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1038883">Description</a></h4>
+      <p><a name="1038884">Establishes a control transfer or a return point for the </a><font size="2" face="'Courier New'" color="#000000">throw</font> and <font size="2" face="'Courier New'" color="#000000">err</font> functions. The return point is identified with a <font size="2" face="'Courier New'" color="#000000"><em>s_tag</em></font>. So, when a particular tag&#47;exception is caught, <font size="2" face="'Courier New'" color="#000000">catch</font> evaluates <font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font>. If the forms execute normally (without error), the value of the last body form is returned from the <font size="2" face="'Courier New'" color="#000000">catch</font>. There can also be nested <font size="2" face="'Courier New'" color="#000000">catch</font> blocks and <font size="2" face="'Courier New'" color="#000000"><em>s_tag</em></font> can be <font size="2" face="'Courier New'" color="#000000">t</font> (the value <font size="2" face="'Courier New'" color="#000000">t</font>  the <font size="2" face="'Courier New'" color="#000000">catch</font> function catch any condition thrown by <font size="2" face="'Courier New'" color="#000000">throw</font>).</p>
+      <h4><a name="1038886">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066312"><font size="2" face="'Courier New'" color="#000000"><em>s_tag</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066314">Identifies the return point for the </a><font size="2" face="'Courier New'" color="#000000">throw</font> and <font size="2" face="'Courier New'" color="#000000">err</font> functions</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066316"><font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066318">Specifies the forms that are evaluated</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038889">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066325"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066327">Returns the value of the last form if the forms exit normally, otherwise, returns the values that are thrown if a </a><font size="2" face="'Courier New'" color="#000000">throw</font> or <font size="2" face="'Courier New'" color="#000000">err</font> occurs</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038891">Example</a></h4>
+      <p><a name="1038892">The following example describes a nested catch. The tag, &#39;</a><font size="2" face="'Courier New'" color="#000000">wrongPlat</font>, is caught by the default handler <font size="2" face="'Courier New'" color="#000000">catch(t . . .). </font></p>
+      <p><a name="1038893">&nbsp;</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038894">catch(t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038895">    catch(&#39;issue1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&#34;Hello &#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(&#39;issue2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when(cdsPlat() == &#34;lnx86&#34;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw(&#39;wrongPlat printf(&#34;\n&#34;) nil); no exception is thrown on non&#45;lnx86 platforms<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&#34;world\n&#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038896"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038897">&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038898">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038899">Hello</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038900">=&#62; nil </a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=cond
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="cond"></a><a name="1038931">cond</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038933">cond( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font> ... <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1038934">Description</a></h4>
+      <p><a name="1070335">Examines conditional clauses from left to right until either a clause is satisfied or there are no more clauses remaining. This is a syntax function.</a></p>
+      <p><a name="1070573"><font size="2" face="'Courier New'" color="#000000">cond</font></a> clauses can have one of the following forms:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070574"><font size="2" face="'Courier New'" color="#000000">(</font></a> <font size="2" face="'Courier New'" color="#000000"><em>g_condition g_expr1 </em></font><font size="2" face="'Courier New'" color="#000000">... )</font> where <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> is any expression</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070632"><font size="2" face="'Courier New'" color="#000000">(</font></a> <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> <font size="2" face="'Courier New'" color="#000000">)</font></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070898">Alternate clause, </a>"<font size="2" face="'Courier New'" color="#000000">=&#62;</font> <font size="2" face="'Courier New'" color="#000000">clause"</font> where <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> =&#62; <font size="2" face="'Courier New'" color="#000000"><em>u_expression</em></font></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070899">Else clause of the form (</a><font size="2" face="'Courier New'" color="#000000"><em>else g_expr ...</em></font>), where the condition is replaced by the symbol <font size="2" face="'Courier New'" color="#000000">else</font>. This form is applicable only in SKILL++&#47;Scheme mode.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1070682"><font color="#000000">Each clause is considered in succession. If </font></a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> then processing stops and the value of the clause is used for the whole <font size="2" face="'Courier New'" color="#000000">cond</font> form. If one or more <font size="2" face="'Courier New'" color="#000000"><em>g_expr</em></font> forms are given, they are evaluated in order and the value of the final <font size="2" face="'Courier New'" color="#000000"><em>g_expr</em></font> is used as the value of the whole <font size="2" face="'Courier New'" color="#000000"><em>cond</em></font> form. If no <font size="2" face="'Courier New'" color="#000000"><em>g_expr</em></font> forms are given, the value of <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> is used. </p>
+      <p><a name="1070792">If the clause uses the alternate clause form, </a>&#34;<font size="2" face="'Courier New'" color="#000000">=&#62; clause</font>&#34;, <font size="2" face="'Courier New'" color="#000000"><em>u_expression</em></font> must evaluate to a function, which is called with the value of <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> as a single argument. The value returned by this function is used as the value of the whole <font size="2" face="'Courier New'" color="#000000">cond</font> form. </p>
+      <p><a name="1070917">If an </a><font size="2" face="'Courier New'" color="#000000">else</font> clause is encountered, its <font size="2" face="'Courier New'" color="#000000"><em>g_expr</em></font> forms are evaluated unconditionally and the value of the final <font size="2" face="'Courier New'" color="#000000"><em>g_expr</em></font> is used as the value of the whole <font size="2" face="'Courier New'" color="#000000">cond</font> form.</p>
+      <h4><a name="1038938">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066338"><font size="2" face="'Courier New'" color="#000000"><em>l_clause1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066340">Each clause should be of the form (</a><font size="2" face="'Courier New'" color="#000000"><em>g_condition g_expr1 ...</em></font>) where if <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> then all the succeeding expressions are evaluated.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038940">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066351"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066353">Value of the last expression of the satisfied clause, or </a><font size="2" face="'Courier New'" color="#000000">nil</font> if no clause is satisfied.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038942">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038943">procedure( test(x)<br>&nbsp;&nbsp;&nbsp;&nbsp;cond(((null x) (println &#34;Arg is null&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((numberp x)(println &#34;Arg is a number&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((stringp x)(println &#34;Arg is a string&#34;))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(t (println &#34;Arg is an unknown type&#34;))))<br></a></font>
+      </p>
+      <p><a name="1038872">test( nil )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil; Prints &#34;Arg is null&#34;.<br>test( 5 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil; Prints &#34;Arg is a number&#34;.<br>test( &#39;sym )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil; Prints &#34;Arg is an unknown type&#34;.<br></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=do
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="do"></a><a name="1039511">do</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039513">do( <dd>( <dd>( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_var1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_initExp1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_stepExp1</em></font> ] <dd>)<dd>( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_var2</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_initExp2</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_stepExp2</em></font> ] <dd>) ... <dd>)<dd>( <dd><font size="2" face="'Courier New'" color="#000000"><em>g_terminationExp</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_terminationExp1</em></font> ... <dd>)<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2" face="'Courier New'" color="#000000"><em>g_loopExp1</em></font> <dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2" face="'Courier New'" color="#000000"><em>g_loopExp2</em></font> ... <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></font>
+      </dl>
+      <h4><a name="1039514">Description</a></h4>
+      <p><a name="1039517">Iteratively executes one or more expressions. Used in SKILL++ mode only.</a></p>
+      <p><a name="1039518">Use </a><font size="2" face="'Courier New'" color="#000000">do</font> to iteratively execute one or more expressions. The <font size="2" face="'Courier New'" color="#000000">do</font> expression provides a <font size="2" face="'Courier New'" color="#000000">do&#45;while</font> facility allowing multiple loop variables with arbitrary variable initializations and step expressions. You can declare</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039519">One or more loop variables, specifying for each variable both its initial value and how it gets updated each time around the loop. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039520">A termination condition which is evaluated before the body expressions are executed.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039521">One or more termination expressions to be evaluated upon termination to determine a return value.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1039522"><font color="#000000"><strong>A do Expression Evaluates in Two Phases</strong></font></a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039523"><font color="#000000"><strong>Initialization phase</strong></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1039524">The initialization expressions </a><font size="2" face="'Courier New'" color="#000000"><em>g_initExp1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>g_initExp2</em></font>, ... are evaluated in an unspecified order and the results bound to the local variables <font size="2" face="'Courier New'" color="#000000"><em>var1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>var2</em></font>, ... </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039525"><font color="#000000"><strong>Iteration phase</strong></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1039526">This phase is a sequence of steps, informally described as going around the loop zero or more times with the exit determined by the termination condition. </a></blockquote>
+      <p><a name="1039527">More formally stated:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039528">Each iteration begins by evaluating the termination condition. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1039529">If the termination condition evaluates to a non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font> value, the <font size="2" face="'Courier New'" color="#000000">do</font> expression exits with a return value computed as follows:</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039530">The termination expressions </a><font size="2" face="'Courier New'" color="#000000"><em>terminationExp1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>terminationExp2</em></font>, ... are evaluated in order. The value of the last termination condition is returned as the value of the <font size="2" face="'Courier New'" color="#000000">do</font> expression. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1039531">Otherwise, the </a><font size="2" face="'Courier New'" color="#000000">do</font> expression continues with the next iteration as follows.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039532">The loop body expressions </a><font size="2" face="'Courier New'" color="#000000"><em>g_loopExp1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>g_loopExp2</em></font>, ... are evaluated in order.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039533">The step expressions </a><font size="2" face="'Courier New'" color="#000000"><em>g_stepExp1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>g_stepExp2</em></font>, ..., if given, are evaluated in an unspecified order.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1039534">The local variables </a><font size="2" face="'Courier New'" color="#000000"><em>var1</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>var2</em></font>, ... are bound to the above results. Reiterate from step one.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039535">Example</a></h4>
+      <p><a name="1039536">By definition, the sum of the integers </a><font color="#000000"><em>1</em></font>, ..., <font color="#000000"><em>N</em></font> is the <font color="#000000"><em>Nth</em></font> triangular number. The following example finds the first triangular number greater than a given limit.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039537">procedure( trTriangularNumber( limit )<br>&nbsp;&nbsp;&nbsp;&nbsp;do(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; start loop variables<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( i 0 i+1 )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( sum 0 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; no step expression<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; same as ( sum 0 sum )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; end loop variables<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( sum &#62; limit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; test<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; return result<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = sum+i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; body<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; do<br>&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; procedure<br><br>trTriangularNumber( 4 ) =&#62; 6<br>trTriangularNumber( 5 ) =&#62; 6<br>trTriangularNumber( 6 ) =&#62; 10</a></font>
+      </p>
+      <h4><a name="1039538">Reference</a></h4>
+      <p><a href="#1039449" title="10" name="1039492"><font color="#0000ff"><u>while</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=exists
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="exists"></a><a name="1046360">exists</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046363">exists( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result<dd></em></font><dd>exists( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1046364">Description</a></h4>
+      <p><a name="1046366">Returns the first tail of </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> whose <font size="2" face="'Courier New'" color="#000000">car</font> satisfies a predicate expression. Also verifies whether an entry in an association table satisfies a predicate expression. This is a syntax form.</p>
+      <p><a name="1046367">This process continues to apply the </a><font size="2" face="'Courier New'" color="#000000">cdr</font> function successively through <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> until it finds a list element that causes <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> to evaluate to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>. It then returns the tail that contains that list element as its first element.</p>
+      <p><a name="1046368">This function can also be used to verify whether an entry in an association table satisfies </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+      <h4><a name="1046369">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066360"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066362">Local variable that is usually referenced in </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066364"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066366">List of elements that are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>, one at a time.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066368"><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066370">SKILL expression that usually uses the value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066372"><font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066374">Key portion of an association table entry.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066376"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066378">Association table containing the entries to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046375">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066389"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066391">First tail of </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> whose <font size="2" face="'Courier New'" color="#000000">car</font> satisfies <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066393"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066395">If none of the elements in </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> can satisfy it.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066397"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066399">Entry in an association table satisfies </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046379">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046380">exists( x &#39;(1 2 3 4) (x &#62; 1) )&nbsp;&nbsp;=&#62; (2 3 4)<br>exists( x &#39;(1 2 3 4) (x &#62; 4) ) =&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046381">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046382">exists( key myTable (and (stringp key)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(stringp myTable[key])))<br>=&#62; t</a></font>
+      </p>
+      <p><a name="1046383">Tests an association table and verifies the existence of an entry where both the key and its corresponding value are of type </a><font size="2" face="'Courier New'" color="#000000">string</font>.</p>
+      <h4><a name="1046384">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="list.html#1038839" title="1" name="1046394"><font color="#0000ff"><u>car</u></font></a>, <a href="list.html#1038898" title="1"><font color="#0000ff"><u>cdr</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=existss
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="existss"></a><a name="1046395">existss</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046398">existss( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result<dd></em></font><dd>existss( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t </font>&#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1046399">Description</a></h4>
+      <p><a name="1046401">Returns the first tail of </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> whose <font size="2" face="'Courier New'" color="#000000">car</font> satisfies a predicate expression. Also verifies whether an entry in an association table satisfies a predicate expression. In the SKILL++ mode, this function always locally wraps the loop or iterator local variable (<font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>) in a <font size="2" face="'Courier New'" color="#000000">let</font> block while compiling the code. Local wrapping preserves the lexical scope of the loop variable. This function may work slower than its non&#45;wrapped counterpart <font size="2" face="'Courier New'" color="#000000">exists</font>. This is a syntax form.</p>
+      <p><a name="1046402">This process continues to apply the </a><font size="2" face="'Courier New'" color="#000000">cdr</font> function successively through <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> until it finds a list element that causes <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> to evaluate to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>. It then returns the tail that contains that list element as its first element.</p>
+      <p><a name="1046403">This function can also be used to verify whether an entry in an association table satisfies </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+      <h4><a name="1046404">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066406"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066408">Local variable that is usually referenced in </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066410"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066412">List of elements that are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>, one at a time.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066414"><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066416">SKILL expression that usually uses the value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066418"><font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066420">Key portion of an association table entry.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066422"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066424">Association table containing the entries to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046410">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066435"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066437">First tail of </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> whose <font size="2" face="'Courier New'" color="#000000">car</font> satisfies <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066439"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066441">If none of the elements in </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> can satisfy it.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066443"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066445">Entry in an association table satisfies </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046414">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046415">(defun test_exists (x)<br>&nbsp;&nbsp;&nbsp;&nbsp;existss( x (list x x+1 x+9) println(x))<br>&nbsp;&nbsp;&nbsp;&nbsp;println(x)<br>&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046416">test_exists(9)</a></font>
+      </p>
+      <p><a name="1046348"><font color="#000000"> =&#62; 9<br>10<br>18<br>9<br>nil</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=for
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="for&#xD;"></a><a name="1039864">for</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1053843">for( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_loopVar<dd>x_initialValue<dd>x_finalValue<dd>g_expr1<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_expr2 ...</em></font> ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1039867">Description</a></h4>
+      <p><a name="1039868">Evaluates the sequence </a>g_expr1, g_expr2 ... for each loop variable value, beginning with x_initialValue and ending with x_finalValue. This is a syntax form.</p>
+      <p><a name="1039869">First evaluates the initial and final values, which set the initial value and final limit for the local loop variable named </a>s_loopVar. Both x_initialValue and x_finalValue must be integer expressions. During each iteration, the sequence of expressions g_expr1, g_expr2 ... is evaluated and the loop variable is then incremented by one. If the loop variable is still less than or equal to the final limit, another iteration is performed. The loop terminates when the loop variable reaches a value greater than the limit. The maximum value for the loop variable is INT_MAX&#45;1. The loop variable must not be changed inside the loop. It is local to the for loop and would not retain any meaningful value upon exit from the for loop.</p>
+      <h4><a name="1039870">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066452">s_loopVar </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066454">Name of the local loop variable that must not be changed inside the loop.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066456">x_initialValue </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066458">Integer expression setting the initial value for the local loop variable.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066460">x_finalValue </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066462">Integer expression giving final limit value for the loop.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066464">g_expr1 </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066466">Expression to evaluate inside loop.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066468">g_expr2 </a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066470">Additional expression(s) to evaluate inside loop.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039876">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066477"><font color="#000000">t </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066479">This construct always returns </a>t.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039878">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039879">sum = 0<br>for( i 1 10<br>&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + i<br>&nbsp;&nbsp;&nbsp;&nbsp;printf(&#34;%d\n&#34; sum))<br>=&#62; t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Prints 10 numbers and returns t.</a></font>
+      </p>
+      <h4><a name="1039880">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039950" title="10" name="1039884"><font color="#0000ff"><u>foreach</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=fors
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="fors&#xD;"></a><a name="1053464">fors</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1053549">fors( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_loopVar<dd>x_initialValue<dd>x_finalValue<dd>g_expr1<dd></em></font>[ <font size="2" face="'Courier New'" color="#000000"><em>g_expr2 ...</em></font> ]<dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1053565">Description</a></h4>
+      <p><a name="1053582">Evaluates the sequence g_expr1, g_expr2 ... for each loop variable value, beginning with x_initialValue and ending with x_finalValue. In the SKILL++ mode, this function always locally wraps the loop or iterator local variable (s_loopVar) in a let() block while compiling the code. Local wrapping preserves the lexical scope of the loop variable. This function may work slower than its non&#45;wrapped counterpart </a><font size="2" face="'Courier New'" color="#000000">for</font>. This is a syntax form.</p>
+      <p><a name="1053574">First evaluates the initial and final values, which set the initial value and final limit for the local loop variable named s_loopVar. Both x_initialValue and x_finalValue must be integer expressions. During each iteration, the sequence of expressions g_expr1, g_expr2 ... is evaluated and the loop variable is then incremented by one. If the loop variable is still less than or equal to the final limit, another iteration is performed. The loop terminates when the loop variable reaches a value greater than the limit. The maximum value for the loop variable is INT_MAX&#45;1.The loop variable must not be changed inside the loop. It is local to the for loop and would not retain any meaningful value upon exit from the for loop.</a></p>
+      <h4><a name="1039891">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066486"><font size="2" face="'Courier New'" color="#000000"><em>s_loopVar</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066488">Name of the local loop variable that must not be changed inside the loop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066490"><font size="2" face="'Courier New'" color="#000000"><em>x_initialValue</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066492">Integer expression setting the initial value for the local loop variable</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066494"><font size="2" face="'Courier New'" color="#000000"><em>x_finalValue</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066496">Integer expression giving final limit value for the loop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066498"><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066500">Expression to evaluate inside loop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066502"><font size="2" face="'Courier New'" color="#000000"><em>g_expr2</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066504">Additional expression(s) to evaluate inside loop</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039897">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066515"><font size="2" face="'Courier New'" color="#000000">t</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066517">This construct always returns </a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039899">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053770">(defun test_for (x)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053771">&nbsp;&nbsp;&nbsp;&nbsp;fors( x x+1 x+9 println(x))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053772">&nbsp;&nbsp;&nbsp;&nbsp;println(x)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053773">&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053774">test_for(9)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053775"> =&#62; 10</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053776">11</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053777">12</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053778">13</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053779">14</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053780">15</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053781">16</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053782">17</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053783">18</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1053784">9</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039902">nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=forall
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="forall&#xD;"></a><a name="1046465">forall</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046568">forall(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar<dd>l_valueList<dd>g_predicateExpr<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil<dd></font>forall(<dd><font size="2" face="'Courier New'" color="#000000"><em>s_key<dd>o_table<dd>g_predicateExpr<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039908">Description</a></h4>
+      <p><a name="1039909">Checks if </a>g_predicateExpr evaluates to non&#45;nil for every element in l_valueList. This is a syntax form.</p>
+      <p><a name="1062913">Verifies that an expression remains true for every element in a list. The </a>forall function can also be used to verify that an expression remains true for every key&#47;value pair in an association table. The syntax for association table processing is provided in the second syntax statement.</p>
+      <h4><a name="1039911">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066524">s_formalVar</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066526">Local variable usually referenced in </a>g_predicateExpr.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066528">l_valueList</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066530">List of elements that are bound to </a>s_formalVar one at a time.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066532">g_predicateExpr</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066534">A SKILL expression that usually uses the value of </a>s_formalVar.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066536">s_key</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066538">Key portion of the table entry.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066540">o_table</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066542">Association table containing the entries to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039917">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066553"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066555">If </a>g_predicateExpr evaluates to non&#45;nil for every element in l_valueList or for every key in an association table.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066557"><font color="#000000">nil </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066559">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039920">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039921">forall( x &#39;(1 2 3 4) (x &#62; 0) )=&#62; t<br>forall( x &#39;(1 2 3 4) (x &#60; 4) )=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039922">forall(key myTable (and (stringp key)(stringp myTable[key])))<br>=&#62; t</a></font>
+      </p>
+      <p><a name="1039923">Returns </a>t if each key and its value in the association table are of the type string.</p>
+      <h4><a name="1039924">Reference</a></h4>
+      <p><a name="1039925">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=foralls
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="foralls&#xD;"></a><a name="1039927">foralls</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046682">foralls( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar<dd>l_valueList<dd>g_predicateExpr<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil<dd></font>foralls(<dd><font size="2" face="'Courier New'" color="#000000"><em>s_key<dd>o_table<dd>g_predicateExpr<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039931">Description</a></h4>
+      <p><a name="1039932">Checks if </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font> evaluates to non&#45;nil for every element in l_valueList. In the SKILL++ mode, this function always locally wraps the loop or iterator local variable (s_formalVar) in a let block while compiling the code. Local wrapping preserves the lexical scope of the loop variable. This function may work slower than its non&#45;wrapped counterpart forall. This is a syntax form.</p>
+      <p><a name="1039933">Verifies that an expression remains true for every element in a list. </a>The forall function can also be used to verify that an expression remains true for every key&#47;value pair in an association table. The syntax for association table processing is provided in the second syntax statement.</p>
+      <h4><a name="1039934">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066567"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066569">Local variable usually referenced in g_predicateExpr.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066571"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066573">List of elements that are bound to s_formalVar one at a time.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066575"><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpr</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066577">A SKILL expression that usually uses the value of s_formalVar.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066579"><font size="2" face="'Courier New'" color="#000000"><em>s_key</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066581">Key portion of the table entry.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066583"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066585">Association table containing the entries to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039940">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066593"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066595">If g_predicateExpr evaluates to non&#45;nil for every element in l_valueList or for every key in an association table.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066597"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066599">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039943">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039944">(defun test_forall (x)<br>&nbsp;&nbsp;&nbsp;&nbsp;foralls( x (list x x+1 x+9) println(x))<br>&nbsp;&nbsp;&nbsp;&nbsp;println(x)<br>&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039945">test_forall(9)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039946"> =&#62; 9<br>9<br>nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039947">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=foreach
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="foreach&#xD;"></a><a name="foreach&#xD;"></a><a name="foreach&#xD;"></a><a name="foreach&#xD;"></a><a name="foreach&#xD;"></a><font color="#0000ff"></font><a name="1039950">f</a>oreach</h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039952">foreach( <dd></a>s_formalVar <dd>g_exprList <dd>g_expr1 <dd>[ g_expr2 ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> &#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>foreach( <dd>( <dd>s_formalVar1... <dd>s_formalVarN <dd>) <dd>g_exprList1... <dd>g_exprListN <dd>g_expr1 <dd>[ g_expr2 ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> &#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>foreach( <dd>s_formalVar <dd>g_exprTable <dd>g_expr1 <dd>[ g_expr2 ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_valueTable</em></font> &#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039953">Description</a></h4>
+      <p><a name="1039954">Evaluates one or more expressions for each element of a list of values. This is a syntax form.</a></p>
+      <p><a name="1039955">foreach( </a>s_formalVar g_exprList g_expr1 [ g_expr2 ... ] )<br>=&#62; l_valueList &#47; l_result</p>
+      <p><a name="1039956">The first syntax form evaluates </a>g_exprList, which returns a list l_valueList. It then assigns the first element from l_valueList to the formal variable s_formalVar and  executes the expressions g_expr1, g_expr2 ... in sequence. The function then assigns the second element from l_valueList and repeats the process until l_valueList is exhausted.</p>
+      <p><a name="1039957">foreach( ( </a>s_formalVar1...s_formalVarN ) g_exprList1... g_exprListN g_expr1 [ g_expr2 ... ] )<br>=&#62; l_valueList &#47; l_result</p>
+      <p><a name="1039958">The second syntax form of </a>foreach can iterate over multiple lists to perform vector operations. Instead of a single formal variable, the first argument is a list of formal variables followed by a corresponding number of expressions for value lists and the expressions to be evaluated. </p>
+      <p><a name="1039959">foreach( </a>s_formalVar g_exprTable g_expr1 [ g_expr2 ... ])<br>=&#62; o_valueTable &#47; l_result</p>
+      <p><a name="1039960">The third syntax form of </a>foreach can be used to process the elements of an association table. In this case, s_formalVar is assigned each key of the association table one by one, and the body expressions are evaluated each iteration. The syntax for association table processing is provided in this syntax statement. </p>
+      <h4><a name="1039961">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066611">s_formalVar</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066613">Name of the variable.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066615">s_mappingFunction</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066617">One of </a>map, mapc, mapcan, mapcar, or maplist.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066619">g_exprList</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066621">Expression whose value is a list of elements to assign to the formal variable </a>s_formalVar.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066623">g_expr1</a>, g_expr2 </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066625">Expressions to execute.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066627">g_exprTable</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066629">Association table whose elements are to be processed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039967">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066636">l_valueList</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066638">Value of the second argument, </a>g_exprList. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066640">l_result</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066642">The result of the last expression evaluated.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066644">o_valueTable</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066646">Value of </a>g_exprTable.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039971">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039972">foreach( x &#39;(1 2 3 4) println(x))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039973">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Prints the numbers 1 through 4.<br>2<br>3<br>4<br>=&#62; (1 2 3 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns the second argument to </a><em>foreach</em>.</font>
+      </p>
+      <p><a name="1039974">The next example shows </a>foreach accessing an association table and printing each key and its associated data.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039975">foreach(key myTable printf(&#34;%L : %L\n&#34; key myTable[key]))</a></font>
+      </p>
+      <p><a name="1039976">Example with more than one loop variable:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039977">(foreach (x y) &#39;(1 2 3) &#39;(4 5 6) (println x+y))<br>5<br>7<br>9<br>=&#62; (1 2 3)</a></font>
+      </p>
+      <h4><a name="1039992">Errors and Warnings</a></h4>
+      <p><a name="1039993">The error messages from </a>foreach might at times appear cryptic because some foreach forms get expanded to call the mapping functions mapc, mapcar, mapcan, and so forth. </p>
+      <h4><a name="1039994">Advanced Usage</a></h4>
+      <p><a name="1039995">The </a>foreach function typically expands to call mapc; however, you can also request that a specific mapping function be applied by giving the name of the mapping function as the first argument to foreach. Thus, foreach can be used as an extremely powerful tool to construct new lists.</p>
+      <p><a name="1039996">Mapping functions are not accepted when this form is applied to association tables.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039997">foreach( mapcar x &#39;(1 2 3) (x &#62;1))=&#62; (nil t t) <br>foreach( mapcan x &#39;(1 2 3) if((x &#62; 1) ncons(x))) =&#62; (2 3)<br>foreach( maplist x &#39;(1 2 3) length(x)) =&#62; (3 2 1</a><u>)</u></font>
+      </p>
+      <p><a name="1039845">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=foreachs
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="foreachs"></a><a name="1040094">foreachs</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040098">foreachs( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_exprList</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_expr2</em></font> ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_valueList </em></font>&#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>foreachs( <dd>( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar1</em></font>... <dd><font size="2" face="'Courier New'" color="#000000"><em>s_formalVarN <dd></em></font>) <dd><font size="2" face="'Courier New'" color="#000000"><em>g_exprList1</em></font>... <dd><font size="2" face="'Courier New'" color="#000000"><em>g_exprListN</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_expr2</em></font> ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_valueList </em></font>&#47; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>foreachs( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_exprTable</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_expr2</em></font> ... ] <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>o_valueTable &#47; l_result</em></font></font>
+      </dl>
+      <h4><a name="1040099">Description</a></h4>
+      <p><a name="1040101">Evaluates one or more expressions for each element of a list of values. In the SKILL++ mode, this function always locally wraps the loop or iterator local variable, </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar,</em></font>in a <font size="2" face="'Courier New'" color="#000000">let</font> block while compiling the code. Local wrapping preserves the lexical scope of the loop variable. This function may work slower than its non&#45;wrapped counterpart <font size="2" face="'Courier New'" color="#000000">foreach</font>. This is a syntax form.</p>
+      <p><a name="1040102">The first form shown in the syntax above evaluates </a><font size="2" face="'Courier New'" color="#000000"><em>g_exprList</em></font>, which returns a list <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font>. It then assigns the first element from <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> to the formal variable <font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> and  executes the expressions<font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font><font color="#000000"><em>, </em></font><font size="2" face="'Courier New'" color="#000000"><em>g_expr2 ...</em></font> in sequence. The function then assigns the second element from <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> and repeats the process until <font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> is exhausted.</p>
+      <p><a name="1040103">The second form shown in the syntax above can iterate over multiple lists to perform vector operations. Instead of a single formal variable, the first argument is a list of formal variables followed by a corresponding number of expressions for value lists and the expressions to be evaluated. </a></p>
+      <p><a name="1040104">The third form shown in the syntax above can be used to process the elements of an association table. In this case, </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> is assigned each key of the association table one by one, and the body expressions are evaluated each iteration. The syntax for association table processing is provided in this syntax statement. </p>
+      <h4><a name="1040105">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066658"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066660">Name of the local loop variable that must not be changed inside the loop</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1066662"><font size="2" face="'Courier New'" color="#000000"><em>s_mappingFunction</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067609">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067618">One of </a><font size="2" face="'Courier New'" color="#000000">map</font>, <font size="2" face="'Courier New'" color="#000000">mapc</font>, <font size="2" face="'Courier New'" color="#000000">mapcan</font>, <font size="2" face="'Courier New'" color="#000000">mapcar</font>, or <font size="2" face="'Courier New'" color="#000000">maplist</font></p>
+            <p><a name="1067611">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066666"><font size="2" face="'Courier New'" color="#000000"><em>g_exprList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066668">Expression whose value is a list of elements to assign to the formal variable </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066670"><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font></a>, <font size="2" face="'Courier New'" color="#000000"><em>g_expr2 </em></font></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066672">Expressions to execute</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066674"><font size="2" face="'Courier New'" color="#000000"><em>g_exprTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066676">Association table whose elements are to be processed</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040111">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066687"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066689">Value of the second argument, </a><font size="2" face="'Courier New'" color="#000000"><em>g_exprList</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066691"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066693">The result of the last expression evaluated</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066695"><font size="2" face="'Courier New'" color="#000000"><em>o_valueTable</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066697">Value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_exprTable</em></font></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040115">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040116">toplevel(&#39;ils)<br>(defun test_foreach (x)<br>&nbsp;&nbsp;&nbsp;&nbsp;foreachs( x (list x x+1 x+9) println(x))<br>&nbsp;&nbsp;&nbsp;&nbsp;println(x)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040117">&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040118">test_foreach(9)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040079"> =&#62; 9<br>10<br>18<br>9<br>nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1042037">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=if
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="if"></a><a name="1042019">if</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040166">if( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_thenExpression</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpression</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result<dd></em></font><dd>if( <dd><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> <dd>then <font size="2" face="'Courier New'" color="#000000"><em>g_thenExpr1</em></font> ... <dd>[ else <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpr1</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1040167">Description</a></h4>
+      <p><a name="1040169">Selectively evaluates two groups of one or more expressions. This is a syntax form.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040170">if( </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font><font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>g_thenExpression</em></font> [ <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpression</em></font> ] ) <br>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </p>
+      <p><a name="1040171">The </a><font size="2" face="'Courier New'" color="#000000">if</font> form evaluates <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font>, typically a relational expression, and executes <font size="2" face="'Courier New'" color="#000000"><em>g_thenExpression</em></font> if the condition is true (that is, its value is non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>); otherwise, <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpression</em></font> is executed. The value returned by <font size="2" face="'Courier New'" color="#000000">if</font> is the value of the corresponding expression evaluated. The <font size="2" face="'Courier New'" color="#000000">if</font> form can therefore be used to evaluate expressions conditionally.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040172">if( </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> then <font size="2" face="'Courier New'" color="#000000"><em>g_thenExpr1</em></font> ... [ else <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpr1</em></font> ... ] ) <br>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </p>
+      <p><a name="1040173">The second form of </a><font size="2" face="'Courier New'" color="#000000">if</font> uses the keywords <font size="2" face="'Courier New'" color="#000000">then</font> and <font size="2" face="'Courier New'" color="#000000">else</font> to group sequences of expressions for conditional execution. If the condition is true, the sequence of expressions between <font size="2" face="'Courier New'" color="#000000">then</font> and <font size="2" face="'Courier New'" color="#000000">else</font> (or the end of the <font size="2" face="'Courier New'" color="#000000">if</font> form) is evaluated, with the value of the last expression evaluated returned as the value of the form. If the condition is <font size="2" face="'Courier New'" color="#000000">nil</font> instead, the sequence of expressions following the <font size="2" face="'Courier New'" color="#000000">else</font> keyword (if any) is evaluated instead. Again, the value of the last expression evaluated is returned as the value of the form.</p>
+      <h4><a name="1040174">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066709"><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066711">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066713"><font size="2" face="'Courier New'" color="#000000"><em>g_thenExpression</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066715">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066717"><font size="2" face="'Courier New'" color="#000000"><em>g_elseExpression</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066719">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040178">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066730"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066732">The value of </a><font size="2" face="'Courier New'" color="#000000"><em>g_thenExpression</em></font> if <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> has a non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font> value. The value of <font size="2" face="'Courier New'" color="#000000"><em>g_elseExpression</em></font> is returned if the above condition is not true. </p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040180">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040181">x = 2<br>if( (x &#62; 5) 1 0)<br>=&#62; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns 0 because x is less than 5.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040182">a = &#34;polygon&#34;<br>if( (a == &#34;polygon&#34;) print(a) ) <br><br>&#34;polygon&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Prints the string polygon.<br>=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns the result of print.<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040183">x = 5<br>if( x &#34;non&#45;nil&#34; &#34;nil&#34; )<br>=&#62; &#34;non&#45;nil&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns &#34;non&#45;nil&#34; because x was not<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; nil. If x was nil then &#34;nil&#34; would be<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; returned.<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040184">x = 7<br>if( (x &#62; 5) then 1 else 0)<br>=&#62; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns 1 because x is greater than 5.<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040185">if( (x &#62; 5)<br>&nbsp;&nbsp;&nbsp;&nbsp;then println(&#34;x is greater than 5&#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x + 1<br>&nbsp;&nbsp;&nbsp;&nbsp;else print(&#34;x is less &#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x &#45; 1)<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040186">x is greater than 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Printed if x was 7.<br>=&#62; 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returned 8 if x was 7.</a></font>
+      </p>
+      <h4><a name="1040187">Reference</a></h4>
+      <p><a href="#1038931" title="10" name="1040151"><font color="#0000ff"><u>cond</u></font></a>, <a href="#1039950" title="10"><font color="#0000ff"><u>foreach</u></font></a>, <a href="#1039335" title="10"><font color="#0000ff"><u>unless</u></font></a>, <a href="#1039449" title="10"><font color="#0000ff"><u>while</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=go
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="go"></a><a name="1038977">go</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038980">go( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_label</em></font> <dd>)</font>
+      </dl>
+      <h4><a name="1038981">Description</a></h4>
+      <p><a name="1038983">Transfers control to the statement following the label argument. This is a syntax form.</a></p>
+      <p><a name="1038984">The </a><font size="2" face="'Courier New'" color="#000000">go</font> statement is only meaningful when it is used inside a <font size="2" face="'Courier New'" color="#000000">prog</font> statement. Control can be transferred to any labeled statement inside any <font size="2" face="'Courier New'" color="#000000">progs</font> that contain the <font size="2" face="'Courier New'" color="#000000">go</font> statement, but cannot be transferred to labeled statements in a <font size="2" face="'Courier New'" color="#000000">prog</font> that is not active at the time the <font size="2" face="'Courier New'" color="#000000">go</font> statement is executed. Usually, using <font size="2" face="'Courier New'" color="#000000">go</font> is considered poor programming style when higher level control structures such as <font size="2" face="'Courier New'" color="#000000">foreach</font> and <font size="2" face="'Courier New'" color="#000000">while</font> can be used.</p>
+      <h4><a name="1038985">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066740"><font size="2" face="'Courier New'" color="#000000"><em>s_label</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066742">Label you want to transfer control to inside a </a><font size="2" face="'Courier New'" color="#000000">prog</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038987">Value Returned</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None</nobr>
+              </div>
+            </td>
+            <td><a name="1038988">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1038989">Example</a></h4>
+      <p><a name="1038990">The following example demonstrates how to use the </a><font size="2" face="'Courier New'" color="#000000">go</font> function form in a simple loop structure.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038991">procedure( testGo( data )<br>&nbsp;&nbsp;&nbsp;&nbsp;prog( ()<br>&nbsp;&nbsp;&nbsp;&nbsp;start<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print( car( data ))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = cdr( data )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( data go( start )) ; go statement to jump to start.<br>))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038992">testGo( &#39;(a b c))<br>abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Prints the variable data.<br>=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns nil.</a></font>
+      </p>
+      <h4><a name="1038993">Reference</a></h4>
+      <p><a href="#1039950" title="10" name="1038962"><font color="#0000ff"><u>foreach</u></font></a>, <a href="#1039235" title="10"><font color="#0000ff"><u>return</u></font></a>, <a href="#1039449" title="10"><font color="#0000ff"><u>while</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=map
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="map"></a><a name="1046981">map</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046984">map( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></font>
+      </dl>
+      <h4><a name="1046985">Description</a></h4>
+      <p><a name="1046987">Applies the given function to successive </a><font color="#000000"><em>sublists</em></font> of the argument lists and returns the first argument list. All of the lists should have the same length. This function is not the same as the standard Scheme <font size="2" face="'Courier New'" color="#000000">map</font> function. To get the behavior of the standard Scheme map function, use <font size="2" face="'Courier New'" color="#000000">mapcar</font> instead. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1046988">This function is usually used for its side effects, not its return value (see </a><font size="2" face="'Courier New'" color="#000000">mapc</font>). </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1046989">This function is not the same as the standard Scheme map function. To get the behavior of the standard Scheme map function, use mapcar instead.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1046991">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066754"><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066756">Function to apply to successive sublists. Must be a function that accepts lists as arguments.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066758"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066760">Argument list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066762"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066764">Additional argument lists, which must be the same length as </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046995">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066771"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066773">The first argument list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046997">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046998">map( &#39;list &#39;(1 2 3) &#39;(9 8 7) )<br>=&#62; (1 2 3)</a></font>
+      </p>
+      <p><a name="1046999">No interesting side effect.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047000">map( &#39;(lambda (x y) (print (append x y))) &#39;(1 2 3) &#39;(9 8 7) )<br>(1 2 3 9 8 7) (2 3 8 7) (3 7) <br>=&#62; (1 2 3)</a></font>
+      </p>
+      <p><a name="1047001">Prints three lists as a side effect and returns the list </a><font size="2" face="'Courier New'" color="#000000">(1 2 3)</font>.</p>
+      <h4><a name="1047002">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="funcprog.html#1038712" title="13" name="1047021"><font color="#0000ff"><u>apply</u></font></a>, <a href="#1039950" title="10"><font color="#0000ff"><u>foreach</u></font></a>, <a href="#1047023" title="10"><font color="#0000ff"><u>mapc</u></font></a>, <a href="#1047096" title="10"><font color="#0000ff"><u>mapcar</u></font></a>, <a href="#1047059" title="10"><font color="#0000ff"><u>mapcan</u></font></a>, <a href="#1047194" title="10"><font color="#0000ff"><u>maplist</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mapc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mapc"></a><a name="1047023">mapc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047026">mapc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></font>
+      </dl>
+      <h4><a name="1047027">Description</a></h4>
+      <p><a name="1047029">Applies a function to successive </a>elements of the argument lists and returns the first argument list. All of the lists should have the same length. <font size="2" face="'Courier New'" color="#000000">mapc</font> returns <font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>. </p>
+      <p><a name="1047030"><font size="2" face="'Courier New'" color="#000000">mapc</font></a> is primarily used with a <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> that has side effects, because the values returned by the <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> are not preserved. <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> must be an object acceptable as the first argument to apply and it must accept as many arguments as there are lists. It is first passed the <font size="2" face="'Courier New'" color="#000000">car</font> of all the lists given as arguments. The elements are passed in the order in which the lists are specified. The second elements are passed to <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font>, and so on until the last element.</p>
+      <h4><a name="1047031">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066781"><font size="2" face="'Courier New'" color="#000000"><em>u_func </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066783">Function to apply to argument lists.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066785"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066787">Argument list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066789"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066791">Additional argument lists, which must be the same length as </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047035">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066798"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066800">The first argument list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047037">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047038">mapc( &#39;list &#39;(1 2 3) &#39;(9 8 7) ) =&#62; (1 2 3)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047039">mapc( &#39;(lambda (x y) (print (list x y))) &#39;(1 2 3) &#39;(9 8 7) )<br>(1 9) (2 8) (3 7) =&#62; (1 2 3)</a></font>
+      </p>
+      <p><a name="1047040">Prints three lists as a side effect and returns the list </a><font size="2" face="'Courier New'" color="#000000">(1 2 3)</font>.</p>
+      <h4><a name="1047041">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039950" title="10" name="1047057"><font color="#0000ff"><u>foreach</u></font></a>, <a href="#1046981" title="10"><font color="#0000ff"><u>map</u></font></a>, <a href="#1047096" title="10"><font color="#0000ff"><u>mapcar</u></font></a>, <a href="#1047059" title="10"><font color="#0000ff"><u>mapcan</u></font></a>, <a href="#1047194" title="10"><font color="#0000ff"><u>maplist</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mapcan
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mapcan"></a><a name="1047059">mapcan</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047062">mapcan( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1047063">Description</a></h4>
+      <p><a name="1047065">Applies a function to successive </a><font color="#000000"><em>elements</em></font> of the argument lists and returns the result of appending these intermediate results. All of the lists should have the same length.</p>
+      <p><a name="1047066">Specifically</a>, a function is applied to the <font size="2" face="'Courier New'" color="#000000">car</font> of all the argument lists, passed in the same order as the argument lists. The second elements are processed next, continuing until the last element is processed. The result of each call to <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> must be a list. These lists are destructively modified and concatenated so that the resulting list of all the concatenations is the result of <font size="2" face="'Courier New'" color="#000000">mapcan</font>. The argument <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> must accept as many arguments as there are lists.</p>
+      <h4><a name="1066853">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066842"><font size="2" face="'Courier New'" color="#000000"><em>u_func </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066844">Function to apply to argument lists.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066846"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066848">Argument list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066850"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066852">Additional argument lists, which must be the same length as </a><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066859">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066856"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066858">List consisting of the concatenated results.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066860">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047074">mapcan( &#39;list &#39;(1 2 3) &#39;(a b c) )<br>=&#62; (1 a 2 b 3 c)<br>mapcan( (lambda (n) (and (plusp n) (list n))) &#39;(1 &#45;2 3 &#45;4 5))<br>=&#62; (1 3 5)</a></font>
+      </p>
+      <h4><a name="1047075">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1046981" title="10" name="1047094"><font color="#0000ff"><u>map</u></font></a>, <a href="#1047023" title="10"><font color="#0000ff"><u>mapc</u></font></a>, <a href="#1047059" title="10"><font color="#0000ff"><u>mapcan</u></font></a>, <a href="#1047096" title="10"><font color="#0000ff"><u>mapcar</u></font></a>, <a href="#1047194" title="10"><font color="#0000ff"><u>maplist</u></font></a>, <a href="list.html#1039401" title="1"><font color="#0000ff"><u>nconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mapcar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mapcar"></a><a name="1047096">mapcar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047099">mapcar( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1047100">Description</a></h4>
+      <p><a name="1063198">Applies a function to successive </a><font color="#000000"><em>elements</em></font> of the argument lists and returns the list of the corresponding results. </p>
+      <p><a name="1067480">The values returned from successive calls to</a> <font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> are put into a list using the <font size="2" face="'Courier New'" color="#000000">list</font> function. If the argument lists are of different lengths, the <font size="2" face="'Courier New'" color="#000000">mapcar</font> function iterates till the end of the shortest list.</p>
+      <h4><a name="1067494">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067483"><font size="2" face="'Courier New'" color="#000000"><em>u_func </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067485">Function to be applied to argument lists. The result of each call to </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> can be of any data type.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067487"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067489">Argument list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067491"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067493">Additional argument lists.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1067500">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067497"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067499">A list of results from applying </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> to successive elements of the argument list.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047110">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047111">mapcar( &#39;plus &#39;(1 2 3) &#39;(9 8 7) )<br>=&#62; (10 10 10) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1063217">mapcar( &#39;plus &#39;(1 2 3 4) &#39;(4 5) &#39;(1 2 3 4 5 6) &#39;(1 2 3))<br>=&#62; (7 11)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1063101">mapcar( &#39;list &#39;(a b c) &#39;(1 2 3) &#39;(x y z) )<br>=&#62; ((a 1 x) (b 2 y) (c 3 z)) </a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047113">mapcar( lambda( (x) plus( x 1 )) &#39;(2 4 6) )<br>=&#62; (3 5 7)</a></font>
+      </p>
+      <h4><a name="1047114">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1046981" title="10" name="1047133"><font color="#0000ff"><u>map</u></font></a>, <a href="#1047023" title="10"><font color="#0000ff"><u>mapc</u></font></a>, <a href="#1047059" title="10"><font color="#0000ff"><u>mapcan</u></font></a>, <a href="#1047137" title="10"><font color="#0000ff"><u>mapcon</u></font></a>, <a href="#1047194" title="10"><font color="#0000ff"><u>maplist</u></font></a>, <a href="list.html#1039401" title="1"><font color="#0000ff"><u>nconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mapcon
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mapcon"></a><a name="1047137">mapcon</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047140">mapcon( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>[l_arg2]</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1047141">Description</a></h4>
+      <p><a name="1047143">Applies the function </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> to successive sublists of the lists and returns a concatenated list.</p>
+      <h4><a name="1047144">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066893"><font size="2" face="'Courier New'" color="#000000"><em>u_func </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066895">Specifies the function to be applied to the given list. Must accept lists as arguments. The result of calling </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> can be of any data type.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066897"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066899">Specifies the argument list to be processed</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066901"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066903">Additional argument lists, which must be the same length as</a><font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047148">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066910"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066912">Returns a concatenated list that results from calling the </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> on the cons cells of the given list</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047150">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047151">mapcon((lambda (x)<br>(printf &#34;x = %L\n&#34; x)<br>(list (car x) (add1 (car x)))) &#39;(1 2 3 4)); lambda: (u_func) with one argument</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047152">x = (1 2 3 4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047153">x = (2 3 4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047154">x = (3 4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047155">x = (4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047156">result: (1 2 2 3 3 4 4 5)</a></font>
+      </p>
+      <p><a name="1047157">&nbsp;</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047158">mapcon((lambda (x y) (printf &#34;x = %L y = %L\n&#34; x y)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047159">  (list (car x) (add1 (car y))))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047160">  &#39;(1 2 3 4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047161">  &#39;(4 3 2 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047162">) ; lambda: (u_func) is with 2 arguments</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047163">x = (1 2 3 4) y = (4 3 2 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047164">x = (2 3 4) y = (3 2 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047165">x = (3 4) y = (2 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047166">x = (4) y = (1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047167">result : (1 5 2 4 3 3 4 2)</a></font>
+      </p>
+      <p><a name="1047168">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=mapinto
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="mapinto"></a><a name="1047169">mapinto</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047172">mapinto( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>l_resultSequence</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_function</em></font> <dd>({<font size="2" face="'Courier New'" color="#000000"><em>l_sequences}*)<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_resultSequence</em></font></font>
+      </dl>
+      <h4><a name="1047174">Description</a></h4>
+      <p><a name="1047176">Applies </a><font size="2" face="'Courier New'" color="#000000">g_function</font> to the elements of <font size="2" face="'Courier New'" color="#000000">l_sequences</font> and destructively modifies the <font size="2" face="'Courier New'" color="#000000">l_resultSequence</font>. The first argument is a sequence that receives the results of the mapping. If <font size="2" face="'Courier New'" color="#000000">l_resultSequence</font> and the other argument sequences are not all of the same length, the mapping stops when the shortest of <font size="2" face="'Courier New'" color="#000000">l_resultSequence</font> or <font size="2" face="'Courier New'" color="#000000">l_sequences</font> is exhausted.</p>
+      <p><a name="1047177">If </a><font size="2" face="'Courier New'" color="#000000">l_resultSequence</font> is longer than <font size="2" face="'Courier New'" color="#000000">l_sequences</font>, extra elements at the end of <font size="2" face="'Courier New'" color="#000000">l_resultSequence</font> are unchanged.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1047178">If you specify </a><font size="2" face="'Courier New'" color="#000000">nil</font> as the <font size="2" face="'Courier New'" color="#000000">l_resultSequence</font>, no mapping is performed since <font size="2" face="'Courier New'" color="#000000">nil</font> is a sequence of length zero.</p>
+      <h4><a name="1047179">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066925"><font size="2" face="'Courier New'" color="#000000"><em>l_resultSequence </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066927">A sequence that receives the results of the mapping.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066929"><font size="2" face="'Courier New'" color="#000000"><em>g_function </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066931">Function (</a><font size="2" face="'Courier New'" color="#000000">symbol</font> or <font size="2" face="'Courier New'" color="#000000">funobj</font>) that takes as many arguments as there are sequences. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066933"><font size="2" face="'Courier New'" color="#000000"><em>l_sequences </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066935">Several lists. Each element of these lists is used as an argument of </a><font size="2" face="'Courier New'" color="#000000">g_function</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047183">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066942"><font size="2" face="'Courier New'" color="#000000"><em>l_resultSequence </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066944">Updated first argument list.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047185">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047186"><font color="#000000">mapinto (&#39;(1 2 3 4) &#39;plus )</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047187"><font color="#000000">=&#62;(1 2 3 4)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047188"><font color="#000000">mapinto (&#39; (1 2 3 4) &#39;plus ())</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047189"><font color="#000000">=&#62;(1 2 3 4)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047190"><font color="#000000">a = &#39;(1 2 3 4 5)</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047191"><font color="#000000">mapinto ( a &#39;plus &#39;(1 1 1) &#39;(1 1))</font></a></font>
+      </p>
+      <p><a name="1047192"><font color="#000000">=&#62;(2 2 3 4 5)</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=maplist
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="maplist"></a><a name="1047194">maplist</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047197">maplist( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>l_arg2</em></font> ... ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1047198">Description</a></h4>
+      <p><a name="1047200">Applies a function to successive </a><font color="#000000"><em>sublists</em></font> of the argument lists and returns a list of the corresponding results. All of the lists should have the same length.</p>
+      <p><a name="1047201">The returned values of the successive function calls are concatenated using the function </a><font size="2" face="'Courier New'" color="#000000">list</font>.</p>
+      <h4><a name="1047202">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066952"><font size="2" face="'Courier New'" color="#000000"><em>u_func </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066954">Function to be applied to argument lists. Must accept lists as arguments. The result of calling </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> can be of any data type.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066956"><font size="2" face="'Courier New'" color="#000000"><em>l_arg1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066958">Argument list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066960"><font size="2" face="'Courier New'" color="#000000"><em>l_arg2 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1066962">Additional argument lists, which must be the same length as</a><font color="#000000"><em> </em></font><font size="2" face="'Courier New'" color="#000000"><em>l_arg1</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047206">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1066986"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1066988">A list of the results returned from calling </a><font size="2" face="'Courier New'" color="#000000"><em>u_func</em></font> on successive sublists of the argument list.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047208">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047209">maplist( &#39;length &#39;(1 2 3) )<br>=&#62; (3 2 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047210">maplist( &#39;list &#39;(a b c) &#39;(1 2 3) )<br>=&#62; (((a b c)(1 2 3))((b c)(2 3))((c)(3))) </a></font>
+      </p>
+      <h4><a name="1047211">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1046981" title="10" name="1047227"><font color="#0000ff"><u>map</u></font></a>, <a href="#1047023" title="10"><font color="#0000ff"><u>mapc</u></font></a>, <a href="#1047059" title="10"><font color="#0000ff"><u>mapcan</u></font></a>, <a href="#1047096" title="10"><font color="#0000ff"><u>mapcar</u></font></a>, <a href="list.html#1039401" title="1"><font color="#0000ff"><u>nconc</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=not 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="not"></a><a name="1039033">not </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039036">not( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039037">Description</a></h4>
+      <p><a name="1039039">Same as the </a><font size="2" face="'Courier New'" color="#000000">!</font> operator. Returns <font size="2" face="'Courier New'" color="#000000">t</font> if the object is <font size="2" face="'Courier New'" color="#000000">nil</font>, and returns <font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+      <h4><a name="1039040">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067000"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067002">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039042">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067009"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067011">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067013"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067015">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039045">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039046">(not nil)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t<br>(not 123)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil<br>(not t)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039047">Reference</a></h4>
+      <p><a href="logicalrel.html#1039423" title="9" name="1039024"><font color="#0000ff"><u>null</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=regExitAfter
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="regExitAfter"></a><a name="1039077">regExitAfter</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039080">regExitAfter( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039081">Description</a></h4>
+      <p><a name="1039083">Registers the action to be taken after the </a><font size="2" face="'Courier New'" color="#000000">exit</font> function has performed its bookkeeping tasks but before it returns control to the operating system.</p>
+      <h4><a name="1039084">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067022"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067024">Name of the function that is to be added to the head of the list of functions to be performed after the </a><font size="2" face="'Courier New'" color="#000000">exit</font> function.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039086">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067035"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067037">The function is added to the list of functions.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067039"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067041">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039089">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039090">procedure( foo( @rest args) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;println( &#34;After proc being executed&#34;))<br>regExitAfter( &#39;foo) =&#62; t</a></font>
+      </p>
+      <h4><a name="1039091">Reference</a></h4>
+      <p><a href="funcprog.html#1039045" title="13" name="1039062"><font color="#0000ff"><u>clearExitProcs</u></font></a>, <a href="environment.html#1039176" title="14"><font color="#0000ff"><u>exit</u></font></a>, <a href="#1039127" title="10"><font color="#0000ff"><u>regExitBefore</u></font></a>, <a href="#1039183" title="10"><font color="#0000ff"><u>remExitProc</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=regExitBefore
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="regExitBefore"></a><a name="1039127">regExitBefore</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039130">regExitBefore( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1039131">Description</a></h4>
+      <p><a name="1039133">Registers the action to be taken before the </a><font size="2" face="'Courier New'" color="#000000">exit</font> function is executed. If the function registered returns the <font size="2" face="'Courier New'" color="#000000">ignoreExit</font> symbol, the exit is aborted.</p>
+      <h4><a name="1039134">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067049"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067051">Name of the function that is to be added to the head of the list of functions to be executed before the </a><font size="2" face="'Courier New'" color="#000000">exit</font> function.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039136">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067062"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067064">Always.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039138">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039139">procedure( foo() println( &#34;Aborting exit&#34;) &#39;ignoreExit) <br>=&#62; foo<br>regExitBefore(&#39;foo) <br>=&#62; t<br>exit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Does not exit.<br>&#34;Aborting exit&#34;<br><br>procedure( foo() println( &#34;Exiting&#34;))<br>=&#62; foo<br>exit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Exits program.<br>&#34;Exiting&#34;</a></font>
+      </p>
+      <h4><a name="1039140">Reference</a></h4>
+      <p><a href="funcprog.html#1039045" title="13" name="1040499"><font color="#0000ff"><u>clearExitProcs</u></font></a>, <a href="environment.html#1039176" title="14"><font color="#0000ff"><u>exit</u></font></a>, <a href="#1039127" title="10"><font color="#0000ff"><u>regExitBefore</u></font></a>, <a href="#1039183" title="10"><font color="#0000ff"><u>remExitProc</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=remExitProc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="remExitProc"></a><a name="1039183">remExitProc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039186">remExitProc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1039187">Description</a></h4>
+      <p><a name="1039189">Removes a registered exit procedure. </a></p>
+      <p><a name="1039190">When SKILL exits, the function is not called.</a></p>
+      <h4><a name="1039191">Prerequisites</a></h4>
+      <p><a name="1039192">The exit procedure must have been previously registered with the </a><font size="2" face="'Courier New'" color="#000000">regExitBefore</font> or <font size="2" face="'Courier New'" color="#000000">regExitAfter</font> function.</p>
+      <h4><a name="1039193">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067071"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067073">Name of the registered exit procedure to be removed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039195">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067084"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067086">Always.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039197">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039198">remExitProc( &#39;endProc) =&#62; t</a></font>
+      </p>
+      <h4><a name="1039199">Reference</a></h4>
+      <p><a href="environment.html#1039176" title="14" name="1040528"><font color="#0000ff"><u>exit</u></font></a>, <a href="#1039127" title="10"><font color="#0000ff"><u>regExitBefore</u></font></a>, <a href="#1039077" title="10"><font color="#0000ff"><u>regExitAfter</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=return
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="return"></a><a name="1039235">return</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039238">return( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039239">Description</a></h4>
+      <p><a name="1039241">Forces the enclosing </a><font size="2" face="'Courier New'" color="#000000">prog</font> to exit and returns the given value. The <font size="2" face="'Courier New'" color="#000000">return</font> statement has meaning only when used inside a <font size="2" face="'Courier New'" color="#000000">prog</font> statement.</p>
+      <p><a name="1039242">Both </a><font size="2" face="'Courier New'" color="#000000">go</font> and <font size="2" face="'Courier New'" color="#000000">return</font> are not purely functional in the sense that they transfer control in a non&#45;standard way. That is, they don't return to their caller.</p>
+      <h4><a name="1039243">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067094"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067096">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039245">Value Returned</a></h4>
+      <p><a name="1039246">The enclosing </a><font size="2" face="'Courier New'" color="#000000">prog</font> statement exits with the value given to <font size="2" face="'Courier New'" color="#000000">return</font> as the <font size="2" face="'Courier New'" color="#000000">prog</font>'s value. If <font size="2" face="'Courier New'" color="#000000">return</font> is called with no arguments, <font size="2" face="'Courier New'" color="#000000">nil</font> is returned as the enclosing <font size="2" face="'Courier New'" color="#000000">prog</font>'s value.</p>
+      <h4><a name="1039247">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039248">procedure( summation(l)<br>&nbsp;&nbsp;&nbsp;&nbsp;prog( (sum temp)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = l<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while( temp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( null(car(temp))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(sum)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + car(temp)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = cdr(temp)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>) </a></font>
+      </p>
+      <p><a name="1039249">Returns the summation of previous numbers if a </a><font size="2" face="'Courier New'" color="#000000">nil</font> is encountered.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039250">summation( &#39;(1 2 3 nil 4)) <br>=&#62; 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; 1+2+3<br>summation( &#39;(1 2 3 4)) <br>=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; </a><font size="2" face="'Courier New'" color="#000000">prog</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font> if no explicit <font size="2" face="'Courier New'" color="#000000">return</font>)</font>
+      </p>
+      <h4><a name="1039251">Reference</a></h4>
+      <p><a href="funcprog.html#1040927" title="13" name="1039227"><font color="#0000ff"><u>nlambda</u></font></a>, <a href="#1038977" title="10"><font color="#0000ff"><u>go</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setof
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setof"></a><a name="1046270">setof</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046274">setof( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>setof( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1046275">Description</a></h4>
+      <p><a name="1046277">Returns a new list containing only those elements in a list or the keys in an association table that satisfy an expression. This is a syntax form.</a></p>
+      <p><a name="1046278">The </a><font size="2" face="'Courier New'" color="#000000">setof</font> form can also be used to identify all keys in an association table that satisfy the specified expression.</p>
+      <h4><a name="1067132">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067144"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067146">Local variable that is usually referenced in </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067148"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067150">List of elements that are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> one at a time.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1067152"><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067156">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067158">SKILL expression that usually uses the value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067160"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067162">Association table whose keys are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> one at time.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1067137">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067191"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067193">New list containing only those elements in </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> that satisfy <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font>, or list of all keys that satisfy the specified expression.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046286">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046287">setof( x &#39;(1 2 3 4) (x &#62; 2) )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (3 4)<br>setof( x &#39;(1 2 3 4) (x &#60; 3) )&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (1 2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046288">myTable = makeTable(&#34;atable&#34; 0)&nbsp;&nbsp;=&#62; table:atable<br>myTable[&#34;a&#34;]=&#34;first&#34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;first&#34;<br>myTable[&#34;b&#34;]=2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 2<br>setof(key myTable (and (stringp key)(stringp myTable[key])))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; (&#34;a&#34;)</a></font>
+      </p>
+      <p><a name="1046289">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setofs
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setofs"></a><a name="1046290">setofs</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1046294">setofs( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result<dd></em></font><dd>setofs( <dd><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1046295">Description</a></h4>
+      <p><a name="1046297">Returns a new list containing only those elements in a list or the keys in an association table that satisfy an expression. In the SKILL++ mode, this function always locally wraps the loop or iterator local variable (</a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>) in a <font size="2" face="'Courier New'" color="#000000">let</font> block while compiling the code. Local wrapping preserves the lexical scope of the loop variable. This function may work slower than its non&#45;wrapped counterpart <font size="2" face="'Courier New'" color="#000000">setof</font>. This is a syntax form.</p>
+      <p><a name="1046298">The </a><font size="2" face="'Courier New'" color="#000000">setof</font> form can also be used to identify all keys in an association table that satisfy the specified expression.</p>
+      <h4><a name="1046299">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067203"><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067205">Local variable that is usually referenced in </a><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067207"><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067209">List of elements that are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> one at a time.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="1067211"><font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067215">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067231">SKILL expression that usually uses the value of </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067219"><font size="2" face="'Courier New'" color="#000000"><em>o_table</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067221">Association table whose keys are bound to </a><font size="2" face="'Courier New'" color="#000000"><em>s_formalVar</em></font> one at time.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046304">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067255"><font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067257">New list containing only those elements in </a><font size="2" face="'Courier New'" color="#000000"><em>l_valueList</em></font> that satisfy <font size="2" face="'Courier New'" color="#000000"><em>g_predicateExpression</em></font>, or list of all keys that satisfy the specified expression.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1046306">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046307">(defun test_setof (x)<br>&nbsp;&nbsp;&nbsp;&nbsp;setofs( x (list x x+1 x+9) println(x))<br>&nbsp;&nbsp;&nbsp;&nbsp;println(x)<br>&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1046308">test_setof(9)</a></font>
+      </p>
+      <p><a name="1046258"><font color="#000000"> =&#62; 9<br>10<br>18<br>9<br>nil</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=throw
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="throw"></a><a name="1039294">throw</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039295">throw(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_tag<dd>g_value<dd></em></font>) <dd>=&#62; </font>
+      </dl>
+      <h4><a name="1039296">Description</a></h4>
+      <p><a name="1039297">Transfers the control back to the return point established in a catch block. The argument value is used as the value to be passed. The </a><font size="2" face="'Courier New'" color="#000000">throw</font> function should always be used inside <font size="2" face="'Courier New'" color="#000000">catch(. . . g_form . . .).</font></p>
+      <h4><a name="1039298">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067269"><font size="2" face="'Courier New'" color="#000000"><em>s_tag</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067271">Specifies the return point in a catch block</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067273"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067275">Evaluates forms and saves the results. If the form produces multiple values, then all the values are saved. The saved results are returned as the value or values of catch.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039301">Value Returned</a></h4>
+      <p><a name="1039302">Transfers the control back to the return point in a catch block</a></p>
+      <h4><a name="1039303">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039304">catch( &#39;problem<br>&nbsp;&nbsp;&nbsp;&nbsp;begin(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw( &#39;problem<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let( nil<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf( &#34;Caught %L\n&#34; 1) 1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039305">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039306">)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039307">Caught 1  ;  message is printed . . .</a></font>
+      </p>
+      <p><a name="1039286"><font color="#000000">= &#62; 1  ;  value returned by throw()</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=unless
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="unless"></a><a name="1039335">unless</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039338">unless( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> ... <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039339">Description</a></h4>
+      <p><a name="1039341">Evaluates a condition. If the result is true (non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font>), it returns <font size="2" face="'Courier New'" color="#000000">nil</font>; otherwise evaluates the body expressions in sequence and returns the value of the last expression. This is a syntax form.</p>
+      <p><a name="1039342">The semantics of this function can be read literally as &#34;unless the condition is true, evaluate the body expressions in sequence&#34;.</a></p>
+      <h4><a name="1039343">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067283"><font size="2" face="'Courier New'" color="#000000"><em>g_condition </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067285">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067287"><font size="2" face="'Courier New'" color="#000000"><em>g_expr1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067289">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039346">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067300"><font size="2" face="'Courier New'" color="#000000"><em>g_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067302">Value of the last expression of the sequence </a><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> if <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067304"><font size="2" face="'Courier New'" color="#000000">nil </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067306">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039349">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039350">x = &#45;123<br>unless( x &#62;= 0 println(&#34;x is negative&#34;) &#45;x)<br>=&#62; 123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Prints &#34;x is negative&#34; as side effect.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039351">unless( x &#60; 0 println(&#34;x is positive&#34;) x)<br>=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039352">Reference</a></h4>
+      <p><a href="#1038931" title="10" name="1039326"><font color="#0000ff"><u>cond</u></font></a>, <a href="#1042019" title="10"><font color="#0000ff"><u>if</u></font></a>, <a href="#1039395" title="10"><font color="#0000ff"><u>when</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=when 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="when"></a><a name="1039395">when </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039398">when( <dd></a><font color="#000000"><em>g_condition <dd>g_expr1</em></font> ... <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1039399">Description</a></h4>
+      <p><a name="1039401">Evaluates a condition. If the result is non&#45;</a><font size="2" face="'Courier New'" color="#000000">nil</font>, evaluates the sequence of expressions and returns the value of the last expression. This is a syntax form.</p>
+      <p><a name="1039402">If the result of evaluating </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> is <font size="2" face="'Courier New'" color="#000000">nil</font>, <font size="2" face="'Courier New'" color="#000000">when</font> returns <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+      <h4><a name="1039403">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067325"><font size="2" face="'Courier New'" color="#000000"><em>g_condition </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067327">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067329"><font size="2" face="'Courier New'" color="#000000"><em>g_expr1 </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067331">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039406">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067342"><font size="2" face="'Courier New'" color="#000000"><em>g_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067344">Value of the last expression of the sequence </a><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font> if <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to non&#45;<font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067346"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067348">If the </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> expression evaluates to <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039409">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039410">x = &#45;123<br>when( x &#60; 0 <br>   println(&#34;x is negative&#34;)<br>   &#45;x)<br>=&#62; 123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Prints &#34;x is negative&#34; as side effect.</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039411">when( x &#62;= 0<br>&nbsp;&nbsp;&nbsp;&nbsp;println(&#34;x is positive&#34;)<br>&nbsp;&nbsp;&nbsp;&nbsp;x)<br>=&#62; nil</a></font>
+      </p>
+      <h4><a name="1039412">Reference</a></h4>
+      <p><a href="#1038931" title="10" name="1039380"><font color="#0000ff"><u>cond</u></font></a>, <a href="#1042019" title="10"><font color="#0000ff"><u>if</u></font></a>, <a href="#1039335" title="10"><font color="#0000ff"><u>unless</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=while 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="while"></a><a name="1039449">while </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039452">while( <dd></a><font color="#000000"><em>g_condition <dd>g_expr1</em></font> ... <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font></font>
+      </dl>
+      <h4><a name="1039453">Description</a></h4>
+      <p><a name="1039455">Repeatedly evaluates a condition and sequence of expressions until the condition evaluates to false. This is a syntax form.</a></p>
+      <p><a name="1039456">Repeatedly evaluates </a><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> and the sequence of expressions <font size="2" face="'Courier New'" color="#000000"><em>g_expr1 ...</em></font> if the condition is true. This process is repeated until <font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font> evaluates to false (<font size="2" face="'Courier New'" color="#000000">nil</font>). Because this form always returns <font size="2" face="'Courier New'" color="#000000">t</font>, it is principally used for its side&#45;effects.</p>
+      <h4><a name="1039457">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067356"><font size="2" face="'Courier New'" color="#000000"><em>g_condition</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067358">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067360"><font size="2" face="'Courier New'" color="#000000"><em>g_expr1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1067362">Any SKILL expression.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039460">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1067369"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1067371">Always returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039462">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039463">i = 0<br>while( (i &#60;= 10) printf(&#34;%d\n&#34; i++) ) <br>=&#62; t</a></font>
+      </p>
+      <p><a name="1039464">Prints the digits 0 through 10.</a></p>
+      <h4><a name="1039465">Reference</a></h4>
+      <p><a href="#1039950" title="10" name="1067381"><font color="#0000ff"><u>foreach</u></font></a></p>
+      <p><a name="1064722">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1068629">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="logicalrel.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="inputoutput.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

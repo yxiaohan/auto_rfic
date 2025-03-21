@@ -79,65 +79,73 @@ procedure(getParameterValue(paramName defaultValue)
   )
 )
 
-; ;; Remote server initialization function - add this function
-; procedure(initializeRemoteServer()
-;   let((serverScript result scriptDir)
-;     rfLog("INFO" "Setting up remote SKILL execution server...")
-    
-;     ;; Get the current script's directory - fixed to use getWorkingDir() directly
-;     ;; instead of trying to parse a file path that might not be available
-;     scriptDir = getWorkingDir()
-    
-;     ;; Define path to the server script
-;     serverScript = sprintf(nil "%s/../remote_server.il" scriptDir)
-    
-;     ;; Try to load the server script
-;     if(isFile(serverScript) then
-;       load(serverScript)
-;       rfLog("INFO" sprintf(nil "Remote server script loaded from %s" serverScript))
-      
-;       ;; Start the server
-;       if(fboundp('startSkillServer) then
-;         startSkillServer()
-;         rfLog("INFO" "Remote SKILL server started successfully")
-;         result = t
-;       else
-;         rfLog("ERROR" "startSkillServer function not found after loading server script")
-;         result = nil
-;       )
-;     else
-;       rfLog("WARN" sprintf(nil "Server script not found at %s - skipping remote server initialization" serverScript))
-;       result = nil
-;     )
-    
-;     result  ; Return result implicitly
-;   )
-; )
-
 ;; =================================================================
 ;; Schematic Manipulation Functions
 ;; =================================================================
 
 ;; Create a simple RF amplifier schematic
 procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0.18u) (fingers 8))
-  let((cv schematicId transistorId result)
+  prog((cv schematicId transistorId result libId cellViewId)
     rfLog("INFO" sprintf(nil "Creating RF amplifier with W=%g L=%g fingers=%d" width length fingers))
+    
+    ;; Check if library exists and create it if needed
+    libId = ddGetObj(libName)
+    if(libId == nil then
+      rfLog("INFO" sprintf(nil "Library %s does not exist, creating it..." libName))
+      libId = ddCreateLib(libName)
+      if(libId == nil then
+        rfLog("ERROR" sprintf(nil "Failed to create library %s" libName))
+        return(nil)
+      )
+    )
     
     ;; Create or open the cell view
     cv = ddGetObj(libName cellName viewName)
     if(cv == nil then
       cv = dbOpenCellViewByType(libName cellName viewName "schematic" "w")
+      if(cv == nil then
+        rfLog("ERROR" sprintf(nil "Failed to create cell view %s/%s/%s" libName cellName viewName))
+        return(nil)
+      )
     else
-      schematicId = dbOpenCellViewByType(libName cellName viewName "schematic" "a")
+      cv = dbOpenCellViewByType(libName cellName viewName "schematic" "a")
+      if(cv == nil then
+        rfLog("ERROR" sprintf(nil "Failed to open existing cell view %s/%s/%s" libName cellName viewName))
+        return(nil)
+      )
     )
     
-    ;; Create the NMOS transistor
-    transistorId = dbCreateInst(cv "analogLib" "nmos4" "symbol" 0:0 "R0")
+    ;; Check if analogLib exists and get transistor cell view template
+    unless(ddGetObj("analogLib")
+      rfLog("ERROR" "analogLib not found in library path. Check your Cadence setup.")
+      dbClose(cv)
+      return(nil)
+    )
     
-    ;; Set the parameters
-    dbAddProp(transistorId "w" "float" width)
-    dbAddProp(transistorId "l" "float" length)
-    dbAddProp(transistorId "fingers" "int" fingers)
+    ;; Get the cell view template for nmos4 from analogLib
+    cellViewId = dbOpenCellViewByType("analogLib" "nmos4" "symbol" nil "r")
+    unless(cellViewId
+      rfLog("ERROR" "Failed to open analogLib/nmos4/symbol cell view.")
+      dbClose(cv)
+      return(nil)
+    )
+    
+    ;; Create the NMOS transistor using the cell view template
+    transistorId = dbCreateInst(cv cellViewId "I0" 0:0 "R0")
+    if(transistorId == nil then
+      rfLog("ERROR" "Failed to create NMOS transistor instance.")
+      dbClose(cellViewId)
+      dbClose(cv)
+      return(nil)
+    )
+    
+    ;; Close the cell view template
+    dbClose(cellViewId)
+    
+    ;; Set the parameters using dbSetInstPropValue instead of dbAddProp
+    dbSetInstPropValue(transistorId "w" width)
+    dbSetInstPropValue(transistorId "l" length)
+    dbSetInstPropValue(transistorId "fingers" fingers)
     
     ;; Add nets and pins
     createPin(cv "IN" "inputOutput" "R0" -100:0)
@@ -156,33 +164,64 @@ procedure(createRFAmplifier(libName cellName viewName @key (width 10u) (length 0
     dbClose(cv)
     
     rfLog("INFO" sprintf(nil "RF amplifier %s/%s/%s created successfully" libName cellName viewName))
-    t  ; Return t (true) implicitly
+    return(t)  ;; Using return explicitly since we're in a prog block
   )
 )
 
 ;; Helper function to create pins
 procedure(createPin(cv name type orient location)
-  let((pin)
+  prog((pin)
+    unless(cv
+      rfLog("ERROR" "Cannot create pin: invalid cell view")
+      return(nil)
+    )
+    
     pin = dbCreatePin(cv name type orient location)
-    pin  ; Return pin implicitly
+    unless(pin
+      rfLog("ERROR" sprintf(nil "Failed to create pin %s" name))
+    )
+    
+    return(pin)  ;; Return pin explicitly using return in prog block
   )
 )
 
 ;; Helper function to wire components
 procedure(wireComponents(cv netName pinName instanceId)
-  let((net term pin)
+  prog((net term pin)
+    unless(cv
+      rfLog("ERROR" "Cannot wire components: invalid cell view")
+      return(nil)
+    )
+    
+    unless(instanceId
+      rfLog("ERROR" sprintf(nil "Cannot wire components: invalid instance for net %s" netName))
+      return(nil)
+    )
+    
     net = dbFindNetByName(cv netName)
     if(net == nil then
       net = dbCreateNet(cv netName)
+      unless(net
+        rfLog("ERROR" sprintf(nil "Failed to create net %s" netName))
+        return(nil)
+      )
     )
     
     term = dbGetTermByName(instanceId pinName)
     if(term != nil then
       pin = dbCreatePin(term "symbol" "rectangle" 0:0)
-      dbAddNetToPin(pin net)
+      if(pin != nil then
+        dbAddNetToPin(pin net)
+      else
+        rfLog("ERROR" sprintf(nil "Failed to create pin for term %s" pinName))
+        return(nil)
+      )
+    else
+      rfLog("ERROR" sprintf(nil "Failed to find terminal %s on instance" pinName))
+      return(nil)
     )
     
-    t  ; Return t (true) implicitly
+    return(t)  ;; Return t (true) explicitly using return in prog block
   )
 )
 
@@ -313,42 +352,44 @@ procedure(rfSweepExample()
     libName = getParameterValue("RF_LIB" "RFDesign")
     cellName = getParameterValue("CELL_NAME" "rf_amplifier")
     
-    ; ;; Initialize remote server
-    ; initializeRemoteServer()
-    
-    ;; Create initial amplifier
-    createRFAmplifier(libName cellName "schematic")
-    
-    ;; Run width sweep from 5um to 20um in steps of 2.5um
-    runParameterSweep(libName cellName "width" 5.0e-6 20.0e-6 2.5e-6)
-    
-    rfLog("INFO" "Example completed successfully")
-    t  ; Return t (true) implicitly
+    ;; Verify analogLib exists (required for the NMOS transistor)
+    if(ddGetObj("analogLib") == nil then
+      rfLog("ERROR" "analogLib not found. Make sure Cadence libraries are properly loaded.")
+      nil  ;; Return nil implicitly
+    else
+      ;; Create initial amplifier
+      result = createRFAmplifier(libName cellName "schematic")
+      if(result == nil then
+        rfLog("ERROR" "Failed to create RF amplifier. Aborting example.")
+        nil  ;; Return nil implicitly
+      else
+        rfLog("INFO" sprintf(nil "Successfully created RF amplifier in %s/%s" libName cellName))
+        
+        ;; Uncomment to run width sweep when simulation is properly configured
+        ;; runParameterSweep(libName cellName "width" 5.0e-6 20.0e-6 2.5e-6)
+        
+        rfLog("INFO" "Example completed successfully")
+        t  ;; Return t (true) implicitly
+      )
+    )
   )
 )
 
 ;; Safe initialization function that catches errors
 procedure(safeInitialize()
   let((result)
-    ; rfLog("INFO" "Starting SKILL script initialization...")
+    ;; Auto-execute the RF sweep example
+    rfLog("INFO" "Running RF sweep example automatically...")
     
-    ; ;; Try to initialize the remote server, but catch errors
-    ; errset(
-    ;   result = initializeRemoteServer()
-    ;   t
-    ; )
+    ;; Try to run the example, but catch errors
+    result = errset(
+      rfSweepExample()
+      t
+    )
     
-    ;; Run the example if everything is configured
-    if(getShellEnvVar("RF_RUN_EXAMPLE") == "1" then
-      rfLog("INFO" "Running RF sweep example automatically...")
-      
-      ;; Try to run the example, but catch errors
-      errset(
-        rfSweepExample()
-        t
-      )
-    else
-      rfLog("INFO" "RF sweep example available. Run rfSweepExample() to execute.")
+    ;; Check for errors during execution
+    if(car(result) == nil && cdr(result) != nil then
+      rfLog("ERROR" "Error occurred during rfSweepExample execution")
     )
     
     rfLog("INFO" "SKILL script initialization complete.")

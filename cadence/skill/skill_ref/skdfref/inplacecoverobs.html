@@ -1,0 +1,2797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Virtuoso Design Environment SKILL Reference -- 12</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-08-17">
+<META NAME="CreateTime" CONTENT="1534487249">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that interface with Virtuoso design environment applications. These applications include the graphics editor, database access, design management, and design flow.">
+<META NAME="DocTitle" CONTENT="Virtuoso Design Environment SKILL Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="12">
+<META NAME="Keywords" CONTENT="">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Keyword" CONTENT="skdfref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-08-17">
+<META NAME="ModifiedTime" CONTENT="1534487249">
+<META NAME="NextFile" CONTENT="photonic.html">
+<META NAME="PageCount" CONTENT="34">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="generator.html">
+<META NAME="Product" CONTENT="SKILL, Virtuoso Shared Tools">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools, Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="Syntax" CONTENT="dbCreateInPlaceCoverObstruction(d_InstHeaderIdl_intRange) => t/nil,dbDestroyInPlaceCoverObstruction(d_InstHeaderId)=> t / nil,dbGetInPlaceCoverObstructionAbstractFileName(d_InstHeaderId) => t_fileName / nil,dbGetInPlaceCoverObstructionAbstractFilePath(d_InstHeaderId) => t_filePath / nil,dbGetInPlaceCoverObstructionAbstractViewName(d_InstHeaderId) => t_viewName / nil,dbGetInPlaceCoverObstructionBloat(d_InstHeaderIdt_layerName) => x_bloat,dbGetInPlaceCoverObstructionBlockageAttributeValue(d_InstHeaderIdt_layerName) => f_blockageAttributeValue,dbGetInPlaceCoverObstructionBlockageModel(d_InstHeaderIdt_layerName) => t_blockageModelName/nil,dbGetInPlaceCoverObstructionDoughnutHalo(d_InstHeaderIdt_layerName) => x_doughnutHalo,dbGetInPlaceCoverObstructionLayers(d_InstHeaderId) => l_layerNames / nil,dbGetInPlaceCoverObstructionMaxMask(d_InstHeaderId) => x_maxMask,dbGetInPlaceCoverObstructionMergeDistance(d_InstHeaderIdt_layerName) => f_mergeDistanceValue,dbGetInPlaceCoverObstructionMinMask(d_InstHeaderId) => x_minMask,dbGetInPlaceCoverObstructionNeedsRemodeling(d_InstHeaderId) => t / nil,dbGetInPlaceCoverObstructionPinCutOut(d_InstHeaderIdt_layerName) => t / nil,dbGetInPlaceCoverObstructionPinRemodeling(d_InstHeaderId) => t_remodelingName/nil,dbGetInPlaceCoverObstructionSpacingModel(d_InstHeaderIdt_layerName) => t_spacingModelName / nil,dbInPlaceCoverObstructionExists(d_InstHeaderId) => t / nil,dbSetInPlaceCoverObstructionAbstractFileName(d_InstHeaderIdt_fileName) => t / nil,dbSetInPlaceCoverObstructionAbstractFilePath(d_InstHeaderIdt_filePath) => t / nil,dbSetInPlaceCoverObstructionAbstractViewName(d_InstHeaderIdt_viewName) => t / nil,dbSetInPlaceCoverObstructionBloat(d_InstHeaderIdt_layerNamen_value) => t / nil,dbSetInPlaceCoverObstructionBlockageAttributeValue(d_InstHeaderIdt_layerNamen_value) => t / nil,dbSetInPlaceCoverObstructionBlockageModel(d_InstHeaderIdt_layerNamet_blockageModelName) => t/nil,dbSetInPlaceCoverObstructionDoughnutHalo(d_InstHeaderIdt_layerNamen_value) => t / nil,dbSetInPlaceCoverObstructionMergeDistance(d_InstHeaderId t_layerName n_value) => t / nil,dbSetInPlaceCoverObstructionNeedsRemodeling(d_InstHeaderIdg_value) => t/nil,dbSetInPlaceCoverObstructionPinCutOut(d_InstHeaderIdt_layerNameg_value) => t / nil,dbSetInPlaceCoverObstructionPinRemodeling(d_InstHeaderIdt_remodelingName) => t / nil,dbSetInPlaceCoverObstructionSpacingModel(d_InstHeaderIdt_layerNamet_spacingModelName)=> t / nil">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Virtuoso Design Environment SKILL Reference -- 12">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="generator.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="photonic.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Virtuoso Design Environment SKILL Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 August 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>12<a name="5461681">&nbsp;</a></h1>
+      <h1><a name="5461684">InPlace Cover Obstruction Database Access Functions</a></h1>
+      <p><a name="inplacecoverobs"></a><a name="inplacecoverobs"></a><a name="inplacecoverobs"></a><a name="5461637">The InPlaceCoverObstruction SKILL functions are used to create or destroy InPlaceCoverObstruction objects and to retrieve or set InPlaceCoverObstruction attributes. This chapter describes the following in place cover obstruction database SKILL functions:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5455625" title="12" name="5480249"><font color="#0000ff"><u>dbCreateInPlaceCoverObstruction</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5455772" title="12" name="5480253"><font color="#0000ff"><u>dbDestroyInPlaceCoverObstruction</u></font></a> </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5470246" title="12" name="5480257"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionAbstractFileName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5470272" title="12" name="5469550"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionAbstractFilePath</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5470300" title="12" name="5469551"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionAbstractViewName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5469572" title="12" name="5455514"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionBloat</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5460830" title="12" name="5455518"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionBlockageAttributeValue</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5455937" title="12" name="5455522"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionBlockageModel</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456049" title="12" name="5455526"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionDoughnutHalo</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456112" title="12" name="5455530"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionLayers</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456176" title="12" name="5455534"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionMaxMask</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5470577" title="12" name="5469459"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionMergeDistance</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5475599" title="12" name="5455538"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionMinMask</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456278" title="12" name="5473166"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionNeedsRemodeling</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5470950" title="12" name="5473203"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionPinCutOut</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456326" title="12" name="5473171"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionPinRemodeling</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456381" title="12" name="5455550"><font color="#0000ff"><u>dbGetInPlaceCoverObstructionSpacingModel</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456444" title="12" name="5455554"><font color="#0000ff"><u>dbInPlaceCoverObstructionExists</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5471456" title="12" name="5469505"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionAbstractFileName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5471481" title="12" name="5469506"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionAbstractFilePath</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5471506" title="12" name="5469507"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionAbstractViewName</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <u><font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font></u>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <u><a href="#5472663" title="12" name="5455558"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionBloat</u></font></a></u>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5460930" title="12" name="5455566"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionBlockageAttributeValue</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456628" title="12" name="5455570"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionBlockageModel</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456688" title="12" name="5455574"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionDoughnutHalo</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5472738" title="12" name="5469529"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionMergeDistance</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5473265" title="12" name="5473230"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionNeedsRemodeling</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5473702" title="12" name="5469530"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionPinCutOut</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5477583" title="12" name="5455578"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionPinRemodeling</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#5456834" title="12" name="5452628"><font color="#0000ff"><u>dbSetInPlaceCoverObstructionSpacingModel</u></font></a> &nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbCreateInPlaceCoverObstruction
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbCreateInPlaceCoverObstruction"></a><a name="5455625">dbCreateInPlaceCoverObstruction</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5455627">dbCreateInPlaceCoverObstruction(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>l_intRange<dd></em></font>) <dd>=&#62; t&#47;nil</font>
+      </dl>
+      <h4><a name="5455628">Description </a></h4>
+      <p><a name="5455630">Creates an InPlaceCoverObstruction object on the specified instance header.</a></p>
+      <h4><a name="5455640">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455633"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5455635">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455637"><font size="2" face="'Courier New'" color="#000000"><em>l_intRange</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455639">Integer mask range (</a><font size="2" face="'Courier New'" color="#000000">minMask</font>, <font size="2" face="'Courier New'" color="#000000">maxMask</font>) for the InPlaceCoverObstruction to be created on the instance header.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455650">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455643"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5455645">An InPlaceCoverObstruction object is created on the specified instance header. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455647"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455649">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455651">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455652">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455653">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455654">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5455757">The above function is passed an instance header ID along with a closed range of integers with minimum mask value of </a><font size="2" face="'Courier New'" color="#000000">1</font>, and maximum mask value of <font size="2" face="'Courier New'" color="#000000">4</font>, both values inclusive.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbDestroyInPlaceCoverObstruction
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbDestroyInPlaceCoverObstruction"></a><a name="5455772">dbDestroyInPlaceCoverObstruction</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5455774">dbDestroyInPlaceCoverObstruction(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5455775">Description </a></h4>
+      <p><a name="5455777">Destroys an InPlaceCoverObstruction object on the given instance header.</a></p>
+      <h4><a name="5455783">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455780"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5455782">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455793">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455786"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5455788">The InPlaceCoverObstruction object on the given instance header is destroyed.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455790"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455792">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455794">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455795">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455796">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455797">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5455763"><font color="#000000">     dbDestroyInPlaceCoverObstruction(instHeaderId)</font></a></p>
+      <p><a name="5469568">Destroys the InPlaceCoverObstruction object on the instance header </a><font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionAbstractFileName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionAbstractFileName"></a><a name="5470246">dbGetInPlaceCoverObstructionAbstractFileName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5470247">dbGetInPlaceCoverObstructionAbstractFileName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5470248">Description</a></h4>
+      <p><a name="5470249">Returns value of the InPlaceCoverObstruction AbstractFileName attribute for the specified instance header.</a></p>
+      <h4><a name="5470255">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470252"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5470254">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5482641">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470258"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5470260">Valid value of the InPlaceCoverObstruction AbstractFileName attribute.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470262"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5474677">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470265">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470266">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470267">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470268">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470269">         equal(dbGetInPlaceCoverObstructionAbstractFileName(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470270">         dbSetInPlaceCoverObstructionAbstractFileName(instHeaderId &#34;newFileName&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470271">         equal(dbGetInPlaceCoverObstructionAbstractFileName(instHeaderId) &#34;newFileName&#34;)</a></font>
+      </p>
+      <p><a name="5474509">Returns </a><font size="2" face="'Courier New'" color="#000000">newFileName</font> as the InPlaceCoverObstruction AbstractFileName attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionAbstractFilePath
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionAbstractFilePath"></a><a name="5470272">dbGetInPlaceCoverObstructionAbstractFilePath</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5470273">dbGetInPlaceCoverObstructionAbstractFilePath(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_filePath</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5470275">Description</a></h4>
+      <p><a name="5470276">Returns the value of the InPlaceCoverObstruction AbstractFilePath attribute for the specified instance header.</a></p>
+      <h4><a name="5470282">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470279"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5474128">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470292">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470285"><font size="2" face="'Courier New'" color="#000000"><em>t_filePath</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5470287">Value of the InPlaceCoverObstruction AbstractFilePath attribute for the specified instance header. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470289"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470291">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470293">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470294">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470295">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470296">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470297">         equal(dbGetInPlaceCoverObstructionAbstractFilePath(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470298">         dbSetInPlaceCoverObstructionAbstractFilePath(instHeaderId &#34;newFilePath&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470299">         equal(dbGetInPlaceCoverObstructionAbstractFilePath(instHeaderId) &#34;newFilePath&#34;)</a></font>
+      </p>
+      <p><a name="5474730">Returns </a><font size="2" face="'Courier New'" color="#000000">newFilePath</font> as the InPlaceCoverObstruction AbstractFilePath attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionAbstractViewName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionAbstractViewName"></a><a name="5470300">dbGetInPlaceCoverObstructionAbstractViewName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5470301">dbGetInPlaceCoverObstructionAbstractViewName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5470302">Description</a></h4>
+      <p><a name="5470303">Returns value of the InPlaceCoverObstruction AbstractViewName attribute for the specified instance header.</a></p>
+      <h4><a name="5470547">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5474817"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5474159">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470557">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470550"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5470552">Value of the AbstractViewName attribute.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470554"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470556">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470558">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470310">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470311">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470312">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470313">         equal(dbGetInPlaceCoverObstructionAbstractViewName(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470314">         dbSetInPlaceCoverObstructionAbstractViewName(instHeaderId &#34;newViewName&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470315">         equal(dbGetInPlaceCoverObstructionAbstractViewName(instHeaderId) &#34;newViewName&#34;)</a></font>
+      </p>
+      <p><a name="5475496">Returns </a><font size="2" face="'Courier New'" color="#000000">newViewName</font> as the InPlaceCoverObstruction AbstractViewName attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionBloat
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionBloat"></a><a name="5469572">dbGetInPlaceCoverObstructionBloat</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5469574">dbGetInPlaceCoverObstructionBloat(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_bloat</em></font></font>
+      </dl>
+      <h4><a name="5459771">Description</a></h4>
+      <p><a name="5459772">Returns value of the InPlaceCoverObstruction Bloat attribute from the specified instance header on the given layer.</a></p>
+      <h4><a name="5459763">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5459756"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5459758">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5459760"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5459762">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="5455843">Value Returned</a></p>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455836"><font size="2" face="'Courier New'" color="#000000"><em>x_bloat</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5455838">Valid Bloat attribute values. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455840"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455842">If the operation fails, returns </a><font size="2" face="'Courier New'" color="#000000">0</font> and displays a warning message.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455844">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455845">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455846">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455847">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455848">     equal(dbGetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34;) 0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455849">     dbSetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34; 10)</a></font>
+      </p>
+      <p><a name="5455809"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34;) 10)</font></a></p>
+      <p><a name="5460826">Returns </a><font size="2" face="'Courier New'" color="#000000">10</font> as the InPlaceCoverObstruction Bloat attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionBlockageAttributeValue
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionBlockageAttributeValue"></a><a name="5460830">dbGetInPlaceCoverObstructionBlockageAttributeValue</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5455879">dbGetInPlaceCoverObstructionBlockageAttributeValue(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_blockageAttributeValue</em></font></font>
+      </dl>
+      <h4><a name="5455880">Description</a></h4>
+      <p><a name="5455881">Returns value of the InPlaceCoverObstruction BlockageAttributeValue attribute from the specified instance header on the given layer.</a></p>
+      <h4><a name="5455892">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455885"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5455887">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455889"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455891">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455903">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="647">
+            <p><a name="5455895"><font size="2" face="'Courier New'" color="#000000"><em>f_blockageAttributeValue</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455899">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5455901">Valid BlockageAttributeValue values. </a></p>
+            <p><a name="5455902">If the operation fails, returns </a><font size="2" face="'Courier New'" color="#000000">0</font> and displays a warning message.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455904">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455905">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455906">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455907">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455908">     equal(dbGetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;Layer1&#34;) 0.0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455909">     dbSetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &#34;Layer1&#34; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.0)</a></font>
+      </p>
+      <p><a name="5455868"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;Layer1&#34;) 10.0)</font></a></p>
+      <p><a name="5461040">Returns </a><font size="2" face="'Courier New'" color="#000000">10.0 </font>as the InPlaceCoverObstruction BlockageAttributeValue on the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionBlockageModel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5455937">dbGetInPlaceCoverObstructionBlockageModel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5455939">dbGetInPlaceCoverObstructionBlockageModel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; t_blockageModelName&#47;nil</font>
+      </dl>
+      <h4><a name="5455940">Description </a></h4>
+      <p><a name="5455941">Returns value of the InPlaceCoverObstruction BlockageModel attribute from the specified instance header on the given layer.</a></p>
+      <h4><a name="5455952">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455945"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5455947">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455949"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455951">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455966">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="648">
+            <p><a name="5455955"><font size="2" face="'Courier New'" color="#000000"><em>t_blockageModelName</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5455959"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5455961">Valid BlockageModel value set on the specified instance header on the given layer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455963"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5455965">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5455967">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455968">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455969">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455970">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455971">     equal(dbGetInPlaceCoverObstructionBlockageModel(instHeaderId) &#34;fullCover&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5455972">     dbSetInPlaceCoverObstructionBlockageModel(instHeaderId &#34;doughnut&#34;)</a></font>
+      </p>
+      <p><a name="5455928"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBlockageModel(instHeaderId) &#34;doughnut&#34;)</font></a></p>
+      <p><a name="5461105">Returns </a><font size="2" face="'Courier New'" color="#000000">&#34;doughnut&#34;</font> as the InPlaceCoverObstruction BlockageModel attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionDoughnutHalo
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456049">dbGetInPlaceCoverObstructionDoughnutHalo</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456051">dbGetInPlaceCoverObstructionDoughnutHalo(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_doughnutHalo</em></font></font>
+      </dl>
+      <h4><a name="5456052">Description </a></h4>
+      <p><a name="5456053">Returns value of the InPlaceCoverObstruction DoughnutHalo attribute from the specified instance header on the given layer.</a></p>
+      <h4><a name="5456064">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456057"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456059">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456061"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456063">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456071">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456067"><font size="2" face="'Courier New'" color="#000000"><em>x_doughnutHalo</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456069">Valid DoughnutHalo values. </a></p>
+            <p><a name="5456070">If the operation fails, returns </a><font size="2" face="'Courier New'" color="#000000">0</font> and displays a warning message.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5460647">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460656">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460649">instHeaderId = inst~&#62;instHeader</a></font>
+      </blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460632">dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460633">equal(dbGetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34;) 0))</a></font>
+      </blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460634">dbSetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34; 10)</a></font>
+      </blockquote>
+      <blockquote>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"></font>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456078">equal(dbGetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34;) 10)</a></font>
+      </blockquote>
+      <p><a name="5461219">Returns </a><font size="2" face="'Courier New'" color="#000000">10</font> as the InPlaceCoverObstruction DoughnutHalo attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionLayers
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionLayers"></a><a name="5456112">dbGetInPlaceCoverObstructionLayers</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456114">dbGetInPlaceCoverObstructionLayers(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_layerNames</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5456115">Description </a></h4>
+      <p><a name="5456116">Returns a list of physical layer names in the technology database, with mask value lying between the </a><font size="2" face="'Courier New'" color="#000000">minMask</font> and <font size="2" face="'Courier New'" color="#000000">maxMask</font> values.</p>
+      <h4><a name="5456123">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456120"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456122">ID of the instance header on which InPlaceCoverObstruction object is present.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456133">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456126"><font size="2" face="'Courier New'" color="#000000"><em>l_layerNames</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456128">List of valid physical layer names.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456130"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456132">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456134">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456135">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456136">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456137">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5455991"><font color="#000000">     dbGetInPlaceCoverObstructionLayers(instHeaderId)</font></a></p>
+      <p><a name="5461299">Returns a list of physical layer names in the technology database for the instance header </a><font size="2" face="'Courier New'" color="#000000">instHeaderId</font>, with mask value lying between the minimum mask value of <font size="2" face="'Courier New'" color="#000000">1</font>, and maximum mask value of <font size="2" face="'Courier New'" color="#000000">4,</font> both values inclusive.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionMaxMask
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456176">dbGetInPlaceCoverObstructionMaxMask</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456178">dbGetInPlaceCoverObstructionMaxMask(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_maxMask</em></font></font>
+      </dl>
+      <h4><a name="5456179">Description </a></h4>
+      <p><a name="5456181">Returns value of the InPlaceCoverObstruction MaxMask attribute from the specified instance header.</a></p>
+      <h4><a name="5456187">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456184"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456186">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456194">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456190"><font size="2" face="'Courier New'" color="#000000"><em>x_maxMask</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456192">Valid InPlaceCoverObstruction MaxMask values for the specified instance header. </a></p>
+            <p><a name="5456193">If the operation fails, returns </a><font size="2" face="'Courier New'" color="#000000">0</font> and displays a warning message.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456195">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456196">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456197">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456198">     equal(dbGetInPlaceCoverObstructionMaxMask(instHeaderId) &#45;1))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456199">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456200">     equal(dbGetInPlaceCoverObstructionMaxMask(instHeaderId) 4))</a></font>
+      </p>
+      <p><a name="5461381">Returns </a><font size="2" face="'Courier New'" color="#000000">4</font> as the InPlaceCoverObstruction MaxMask attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionMergeDistance
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionMergeDistance"></a><a name="5470577">dbGetInPlaceCoverObstructionMergeDistance</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5470579">dbGetInPlaceCoverObstructionMergeDistance(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_mergeDistanceValue</em></font></font>
+      </dl>
+      <h4><a name="5470585">Description</a></h4>
+      <p><a name="5470715">Returns value of the InPlaceCoverObstruction MergeDistance attribute for the specified instance header on the given layer.</a></p>
+      <h4><a name="5470587">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5470901"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5470903">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470905"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5470907">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470814">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="648">
+            <p><a name="5475010"><font size="2" face="'Courier New'" color="#000000"><em>f_mergeDistanceValue</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5475006"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5475008">Valid MergeDistance value for the specified instance header. </a></p>
+            <p><a name="5475641">If the operation fails, default value of MergeDistance is returned.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5470596">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470842">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470597">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470598">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470599">         equal(dbGetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34;) 0.0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470600">         dbSetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34; 10.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5475595">         equal(dbGetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34;) 10.0)</a></font>
+      </p>
+      <p><a name="5475661">Returns </a><font size="2" face="'Courier New'" color="#000000">10.0</font> as the InPlaceCoverObstruction MergeDistance attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionMinMask
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5475599">dbGetInPlaceCoverObstructionMinMask</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456222">dbGetInPlaceCoverObstructionMinMask(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>x_minMask</em></font></font>
+      </dl>
+      <h4><a name="5456223">Description </a></h4>
+      <p><a name="5456224">Returns value of the InPlaceCoverObstruction MinMask attribute from the specifed instance header. </a></p>
+      <h4><a name="5456231">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456228"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456230">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456238">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456234"><font size="2" face="'Courier New'" color="#000000"><em>x_minMask</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5461503">Valid InPlaceCoverObstruction MinMask values for the specified instance header. </a></p>
+            <p><a name="5456237">If the operation fails, returns </a><font size="2" face="'Courier New'" color="#000000">0</font> and displays a warning message.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456239">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456240">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456241">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456242">     equal(dbGetInPlaceCoverObstructionMinMask(instHeaderId) &#45;1))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456243">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5456096"><font color="#000000">     equal(dbGetInPlaceCoverObstructionMinMask(instHeaderId) 1))</font></a></p>
+      <p><a name="5461446">Returns </a><font size="2" face="'Courier New'" color="#000000">1</font> as the InPlaceCoverObstruction MinMask attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionNeedsRemodeling
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456278">dbGetInPlaceCoverObstructionNeedsRemodeling</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456280">dbGetInPlaceCoverObstructionNeedsRemodeling(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; <dd>t &#47; nil</font>
+      </dl>
+      <h4><a name="5456281">Description </a></h4>
+      <p><a name="5456282">Returns value of the InPlaceCoverObstruction NeedsRemodeling attribute from the specified instance header.</a></p>
+      <h4><a name="5456289">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456286"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456288">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456299">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456292"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456294">The NeedsRemodeling attribute value for the specified instance is set to </a><font size="2" face="'Courier New'" color="#000000">t</font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456296"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456298">The NeedsRemodeling attribute value for the specified instance is set to </a><font size="2" face="'Courier New'" color="#000000">nil</font>. This is also the default value of NeedsRemodeling attribute when the InPlaceCoverObstruction is created.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456300">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456301">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456302">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456303">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456304">     equal(dbGetInPlaceCoverObstructionNeedsRemodeling(instHeaderId) nil)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456305">     dbSetInPlaceCoverObstructionNeedsRemodeling(instHeaderId t)</a></font>
+      </p>
+      <p><a name="5456269"><font color="#000000">     equal(dbGetInPlaceCoverObstructionNeedsRemodeling(instHeaderId) t)</font></a></p>
+      <p><a name="5461570">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> as the InPlaceCoverObstruction NeedsRemodeling attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionPinCutOut
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbGetInPlaceCoverObstructionPinCutOut"></a><a name="5470950">dbGetInPlaceCoverObstructionPinCutOut</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5470952">dbGetInPlaceCoverObstructionPinCutOut(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5475726">Description</a></h4>
+      <p><a name="5475760">Returns value of the InPlaceCoverObstruction PinCutOut attribute for the specified instance header on the given layer.</a></p>
+      <h4><a name="5475737">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5475730"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5475732">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475734"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475736">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5475747">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5475740"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5475880">The PinCutOut attribute value for the specified instance is set to </a><font size="2" face="'Courier New'" color="#000000">t</font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475744"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475926">The PinCutOut attribute value for the specified instance is set to </a><font size="2" face="'Courier New'" color="#000000">nil</font>. This is also the default value of PinCutOut attribute when the InPlaceCoverObstruction is created.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5475841">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471356">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470975">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470976">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470977">         equal(dbGetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34;) nil)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5470978">         dbSetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34; t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5476098">         equal(dbGetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34;) t)</a></font>
+      </p>
+      <p><a name="5476099">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> as the value to confirm that the PinCutOut attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font> is set to <font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionPinRemodeling
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456326">dbGetInPlaceCoverObstructionPinRemodeling</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456328">dbGetInPlaceCoverObstructionPinRemodeling(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; t_remodelingName&#47;nil</font>
+      </dl>
+      <h4><a name="5456329">Description </a></h4>
+      <p><a name="5456331">Returns value of the InPlaceCoverObstruction PinRemodeling attribute from the specified instance header. </a></p>
+      <h4><a name="5456337">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456334"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456336">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456347">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456340"><font size="2" face="'Courier New'" color="#000000"><em>t_remodeling</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456342">Valid PinRemodeling attribute values.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456344"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456346">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456348">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456349">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456350">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460061">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460062">     equal(dbGetInPlaceCoverObstructionPinRemodeling(instHeaderId) &#34;none&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5460063">     dbSetInPlaceCoverObstructionPinRemodeling(instHeaderId &#34;perimeterOnly&#34;)</a></font>
+      </p>
+      <p><a name="5460068"><font color="#000000">     equal(dbGetInPlaceCoverObstructionPinRemodeling(instHeaderId) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;perimeterOnly&#34;)</font></a></p>
+      <p><a name="5460070">Returns &#34;</a><font size="2" face="'Courier New'" color="#000000">perimeterOnly</font>&#34; as the InPlaceCoverObstruction PinRemodeling attribute value for the specified instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>. </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbGetInPlaceCoverObstructionSpacingModel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456381">dbGetInPlaceCoverObstructionSpacingModel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456383">dbGetInPlaceCoverObstructionSpacingModel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd></em></font>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_spacingModelName</em></font> &#47; nil</font>
+      </dl>
+      <h4><a name="5456384">Description </a></h4>
+      <p><a name="5456385">Returns value of the InPlaceCoverObstruction SpacingModel attribute from the specified instance header on the given layer.</a></p>
+      <h4><a name="5456396">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5456389">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456391">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <div>
+              <table border="0" cellspacing="0" cellpadding="3" summary="">
+                <tr valign="baseline">
+                  <td width="197.78303999999997">
+                    <div>
+                      <nobr><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></nobr>
+                    </div>
+                  </td>
+                  <td><a name="5456393">&nbsp;</a></td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456395">Name of a physical layer specified in the technology file. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456410">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="647">
+            <p><a name="5456399"><font size="2" face="'Courier New'" color="#000000"><em>t_blockageModelName</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456403"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456405">Valid SpacingModel values.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456407"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456409">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456411">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456412">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456413">instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456414">dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5460078"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equal(dbGetInPlaceCoverObstructionSpacingModel(instHeaderId) &#34;spacing&#34;)) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbSetInPlaceCoverObstructionSpacingModel(instHeaderId &#34;asIs&#34;)</font></a></p>
+      <p><a name="5460079"><font color="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equal(dbGetInPlaceCoverObstructionSpacingModel(instHeaderId) &#34;asIs&#34;) </font></a></p>
+      <p><a name="5460140">Returns &#34;</a><font size="2" face="'Courier New'" color="#000000">asIs</font>&#34; as the InPlaceCoverObstruction SpacingModel attribute value for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbInPlaceCoverObstructionExists
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456444">dbInPlaceCoverObstructionExists</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456446">dbInPlaceCoverObstructionExists(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456447">Description </a></h4>
+      <p><a name="5456448">Checks whether an InPlaceCoverObstruction object is present on the specified instance header.</a></p>
+      <h4><a name="5456455">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456452"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456454">ID of an instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456465">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456458"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456460">Returned in case the InPlaceCoverObstruction object is present on the specified instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456462"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456464">Returned in case the InPlaceCoverObstruction object is not present on the specified instance header.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456466">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456467">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456468">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456469">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p><a name="5456435"><font color="#000000">     equal(dbInPlaceCoverObstructionExists(instHeaderId) t)</font></a></p>
+      <p><a name="5461597">Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> as the InPlaceCoverObstruction object is present on the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionAbstractFileName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionAbstractFileName"></a><a name="5471456">dbSetInPlaceCoverObstructionAbstractFileName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5471458">dbSetInPlaceCoverObstructionAbstractFileName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_fileName<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5471461">Description</a></h4>
+      <p><a name="5471679">Sets value of the InPlaceCoverObstruction AbstractFileName attribute on the specified instance header.</a></p>
+      <h4><a name="5471820">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5471813"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5471815">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5471817"><font size="2" face="'Courier New'" color="#000000"><em>t_fileName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5471819">A valid AbstractFileName value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471821">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5471898"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5476222">The specified AbstractFileName attribute value is set for the specified instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5471902"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5476224">The operation failed. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471475">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471937">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471476">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471477">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471478">         equal(dbGetInPlaceCoverObstructionAbstractFileName(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471479">         dbSetInPlaceCoverObstructionAbstractFileName(instHeaderId &#34;newFileName&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471480">         equal(dbGetInPlaceCoverObstructionAbstractFileName(instHeaderId) &#34;newFileName&#34;)</a></font>
+      </p>
+      <p><a name="5476301">Sets the InPlaceCoverObstruction AbstractFileName attribute value </a><font size="2" face="'Courier New'" color="#000000">newFileName</font> for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionAbstractFilePath
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionAbstractFilePath"></a><a name="5471481">dbSetInPlaceCoverObstructionAbstractFilePath</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5471482">dbSetInPlaceCoverObstructionAbstractFilePath(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_filePath<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5471485">Description</a></h4>
+      <p><a name="5476392">Sets value of the InPlaceCoverObstruction AbstractFilePath attribute on the specified instance header.</a></p>
+      <h4><a name="5471487">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5472253"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5472255">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472257"><font size="2" face="'Courier New'" color="#000000"><em>t_filePath</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5476532">A valid AbstractFilePath value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471493">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5472230"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5476650">The specified AbstractFilePath attribute value is set for the given instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472234"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472236">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471499">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472214">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471500">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471501">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471502">         equal(dbGetInPlaceCoverObstructionAbstractFilePath(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471503">         dbSetInPlaceCoverObstructionAbstractFilePath(instHeaderId &#34;newFilePath&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471504">         equal(dbGetInPlaceCoverObstructionAbstractFilePath(instHeaderId) &#34;newFilePath&#34;)</a></font>
+      </p>
+      <p><a name="5476474">Sets the InPlaceCoverObstruction AbstractFilePath attribute value </a><font size="2" face="'Courier New'" color="#000000">newFilePath</font> for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionAbstractViewName
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionAbstractViewName"></a><a name="5471506">dbSetInPlaceCoverObstructionAbstractViewName</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5471508">dbSetInPlaceCoverObstructionAbstractViewName(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_viewName<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5471511">Description</a></h4>
+      <p><a name="5476597">Sets value of the InPlaceCoverObstruction AbstractViewName attribute on the specified instance header.</a></p>
+      <h4><a name="5471513">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5472675"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5472677">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472679"><font size="2" face="'Courier New'" color="#000000"><em>t_viewName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5476775">A valid AbstractViewName value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471519">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5472603"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5476798">The specified AbstractViewName attribute value is set for the specified instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472607"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472609">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5471525">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472596">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471526">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471527">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471528">         equal(dbGetInPlaceCoverObstructionAbstractViewName(instHeaderId) &#34;&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5471529">         dbSetInPlaceCoverObstructionAbstractViewName(instHeaderId &#34;newViewName&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5477029">         equal(dbGetInPlaceCoverObstructionAbstractViewName(instHeaderId) &#34;newViewName&#34;)</a></font>
+      </p>
+      <p><a name="5477030">Sets the InPlaceCoverObstruction AbstractViewName attribute value </a><font size="2" face="'Courier New'" color="#000000">newViewName</font> for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionBloat
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5472663">dbSetInPlaceCoverObstructionBloat</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456499">dbSetInPlaceCoverObstructionBloat(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>n_value<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456500">Description </a></h4>
+      <p><a name="5456501">Sets value of the InPlaceCoverObstruction Bloat attribute on the specified instance header on the given layer.</a></p>
+      <h4><a name="5456516">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456505"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456507">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456509"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456511">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456513"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456515">A valid Bloat value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456526">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456519"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456521">The specified InPlaceCoverObstruction Bloat attribute value is set on the given layer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456523"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456525">The operation failed. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456527">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456528">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456529">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456530">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456531">     equal(dbGetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34;) 0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456532">     dbSetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34; 10)</a></font>
+      </p>
+      <p><a name="5456488"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBloat(instHeaderId &#34;Layer1&#34;) 10)</font></a></p>
+      <p><a name="5460927">Sets the InPlaceCoverObstruction Bloat attribute value </a><font size="2" face="'Courier New'" color="#000000">10</font> for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">&#34;Layer1&#34;</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionBlockageAttributeValue
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5460930">dbSetInPlaceCoverObstructionBlockageAttributeValue</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456562">dbSetInPlaceCoverObstructionBlockageAttributeValue(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>n_value<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456563">Description </a></h4>
+      <p><a name="5456564">Sets value of the InPlaceCoverObstruction BlockageAttributeValue attribute on the specified instance header on the given layer.</a></p>
+      <h4><a name="5456579">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456568"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456570">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456572"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456574">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456576"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456578">Value of BlockageAttributeValue value that needs to be set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456589">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456582"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456584">The specified BlockageAttributeValue is set on the given instance header. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456586"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456588">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456590">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456591">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456592">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456593">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456594">     equal(dbGetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &#34;Layer1&#34;) 0.0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456595">     dbSetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &#34;Layer1&#34; 10.0)</a></font>
+      </p>
+      <p><a name="5456551"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBlockageAttributeValue(instHeaderId &#34;Layer1&#34;) 10.0)</font></a></p>
+      <p><a name="5460303">Sets the InPlaceCoverObstruction BlockageAttributeValue attribute value </a><font size="2" face="'Courier New'" color="#000000">10.0</font> for the instance <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">&#34;Layer1&#34;</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionBlockageModel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456628">dbSetInPlaceCoverObstructionBlockageModel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456630">dbSetInPlaceCoverObstructionBlockageModel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>t_blockageModelName<dd></em></font>) <dd>=&#62; t&#47;nil</font>
+      </dl>
+      <h4><a name="5456631">Description </a></h4>
+      <p><a name="5456633">Sets value of the InPlaceCoverObstruction BlockageModel attribute on the specified instance header on the specified layer.</a></p>
+      <h4><a name="5456651">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456636"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456638">ID of an instance header .</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456640"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456642">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="5456644"><font size="2" face="'Courier New'" color="#000000"><em>t_blockageModelName</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456648"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456650">Valid BlockageModel value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456661">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456654"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456656"> Returned in case of success.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456658"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456660"> The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456662">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456663">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456664">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456665">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456666">     equal(dbGetInPlaceCoverObstructionBlockageModel(instHeaderId &#34;Layer1&#34;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;fullCover&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456667">     dbSetInPlaceCoverObstructionBlockageModel(instHeaderId &#34;Layer1&#34; &#34;doughnut&#34;)</a></font>
+      </p>
+      <p><a name="5456614"><font color="#000000">     equal(dbGetInPlaceCoverObstructionBlockageModel(instHeaderId &#34;Layer1&#34;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;doughnut&#34;)</font></a></p>
+      <p><a name="5460370">Sets value of the InPlaceCoverObstruction BlockageModel attribute </a><font size="2" face="'Courier New'" color="#000000">&#34;doughnut&#34;</font>  on the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionDoughnutHalo
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456688">dbSetInPlaceCoverObstructionDoughnutHalo</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456690">dbSetInPlaceCoverObstructionDoughnutHalo(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>n_value<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456691">Description </a></h4>
+      <p><a name="5456692">Sets value of the InPlaceCoverObstruction DoughnutHalo attribute on the specified instance header on the given layer.</a></p>
+      <h4><a name="5456707">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456696"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456698">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456700"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456702">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456704"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456706">Valid DoughnutHalo value that needs to be set.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456717">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456710"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5456712">The specified InPlaceCoverObstruction DoughnutHalo attribute Value is set on the specified instance. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456714"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456716">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456718">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456719">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456720">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456721">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456722">     equal(dbGetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34;) 0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456723">     dbSetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34; 10)</a></font>
+      </p>
+      <p><a name="5456679"><font color="#000000">     equal(dbGetInPlaceCoverObstructionDoughnutHalo(instHeaderId &#34;Layer1&#34;) 10)</font></a></p>
+      <p><a name="5463674">Sets value of the InPlaceCoverObstruction DoughnutHalo attribute </a><font size="2" face="'Courier New'" color="#000000">10</font> on the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionMergeDistance
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionMergeDistance"></a><a name="5472738">dbSetInPlaceCoverObstructionMergeDistance</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5472831">dbSetInPlaceCoverObstructionMergeDistance(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId <dd>t_layerName <dd>n_value<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5472742">Description</a></h4>
+      <p><a name="5477079">Sets value of the InPlaceCoverObstruction MergeDistance attribute on the specified instance header.</a></p>
+      <h4><a name="5472744">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5472966"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5475283">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472970"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475118">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5472974"><font size="2" face="'Courier New'" color="#000000"><em>n_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5477148">A valid MergeDistance value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5472754">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5473094"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5477209">The specified MergeDistance attribute value is set for the specified instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473098"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473100">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5472760">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473133">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472761">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472762">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472763">         equal(dbGetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34;) 0.0))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472764">         dbSetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34; 10.0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5472765">         equal(dbGetInPlaceCoverObstructionMergeDistance(instHeaderId &#34;Layer1&#34;) 10.0)</a></font>
+      </p>
+      <p><a name="5480161">Sets the InPlaceCoverObstruction MergeDistance attribute value as </a><font size="2" face="'Courier New'" color="#000000">10.0 </font>for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionNeedsRemodeling
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5473265">dbSetInPlaceCoverObstructionNeedsRemodeling</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5473267">dbSetInPlaceCoverObstructionNeedsRemodeling(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>g_value<dd></em></font>) <dd>=&#62; t&#47;nil</font>
+      </dl>
+      <h4><a name="5473268">Description </a></h4>
+      <p><a name="5473269">Sets value of the InPlaceCoverObstruction NeedsRemodeling attribute on the specified instance header.</a></p>
+      <h4><a name="5473280">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5473273"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5473275">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473277"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473279">Valid NeedsRemodeling value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5473290">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5473283"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5473285">The InPlaceCoverObstruction NeedsRemodeling attribute value is set on the specified instance header. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473287"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473289">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5473291">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473292">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473293">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473294">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473295">     dbSetInPlaceCoverObstructionNeedsRemodeling(instHeaderId t)</a></font>
+      </p>
+      <p><a name="5473296"><font color="#000000">     equal(dbGetInPlaceCoverObstructionNeedsRemodeling(instHeaderId) t)</font></a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473256">Sets InPlaceCoverObstruction NeedsRemodeling attribute on the instance header </a><font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionPinCutOut
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionPinCutOut"></a><a name="5473702">dbSetInPlaceCoverObstructionPinCutOut</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5473703">dbSetInPlaceCoverObstructionPinCutOut(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>g_value<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5473704">Description</a></h4>
+      <p><a name="5477278">Sets value of the InPlaceCoverObstruction PinCutOut attribute on the specified instance header on the given layer.</a></p>
+      <h4><a name="5473719">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5473708"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5473710">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473712"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5475149">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473716"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5477419">A valid PinCutOut value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5473729">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5473722"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5477347">The specified PinCutOut attribute value is set for the specified instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473726"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5473728">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5473730">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473731">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473732">         instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473733">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473734">         equal(dbGetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34;) nil)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473735">         dbSetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34; t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5473345">         equal(dbGetInPlaceCoverObstructionPinCutOut(instHeaderId &#34;Layer1&#34;) t)</a></font>
+      </p>
+      <p><a name="5477578">Sets the InPlaceCoverObstruction PinCutOut attribute value </a><font size="2" face="'Courier New'" color="#000000">true</font> for the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionPinRemodeling
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="dbSetInPlaceCoverObstructionPinRemodeling"></a><a name="5477583">dbSetInPlaceCoverObstructionPinRemodeling</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5463761">dbSetInPlaceCoverObstructionPinRemodeling(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_remodelingName<dd></em></font>) <dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5463697">Description </a></h4>
+      <p><a name="5463698">Sets value of the InPlaceCoverObstruction PinRemodeling attribute on the specified instance header.</a></p>
+      <h4><a name="5463713">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5463702"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5463704">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5463706"><font size="2" face="'Courier New'" color="#000000"><em>t_remodelingName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5463708">Valid PinRemodeling attribute value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5463723">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5463716"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="456">
+            <p><a name="5463718">The specified InPlaceCoverObstruction PinRemodeling attribute Value is set on the specified instance. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5463720"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5463722">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5463724">Example</a></h4>
+      <p><a name="5463954"><font color="#000000">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</font></a></p>
+      <p><a name="5463955"><font color="#000000">         instHeaderId = inst~&#62;instHeader</font></a></p>
+      <p><a name="5463956"><font color="#000000">         dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</font></a></p>
+      <p><a name="5463957"><font color="#000000">         dbSetInPlaceCoverObstructionPinRemodeling(instHeaderId &#34;perimeterOnly&#34;)</font></a></p>
+      <p><a name="5463730"><font color="#000000">         equal(dbGetInPlaceCoverObstructionPinRemodeling(instHeaderId) &#34;perimeterOnly&#34;)</font></a></p>
+      <p><a name="5463685">Sets value of the InPlaceCoverObstruction PinRemodeling attribute </a><font size="2" face="'Courier New'" color="#000000">&#34;perimeterOnly&#34;</font> on the instance header <font size="2" face="'Courier New'" color="#000000">instHeaderId</font>.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=dbSetInPlaceCoverObstructionSpacingModel
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="5456834">dbSetInPlaceCoverObstructionSpacingModel</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="5456836">dbSetInPlaceCoverObstructionSpacingModel(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId<dd>t_layerName<dd>t_spacingModelName<dd></em></font>)<dd>=&#62; t &#47; nil</font>
+      </dl>
+      <h4><a name="5456837">Description </a></h4>
+      <p><a name="5456838">Sets value of the InPlaceCoverObstruction SpacingModel attribute on the specified instance header on the given layer.</a></p>
+      <h4><a name="5456857">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456842"><font size="2" face="'Courier New'" color="#000000"><em>d_InstHeaderId</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456844">ID of an instance header.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456846"><font size="2" face="'Courier New'" color="#000000"><em>t_layerName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456848">Name of a physical layer specified in the technology file.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top">
+            <p><a name="5456850"><font size="2" face="'Courier New'" color="#000000"><em>t_spacingModelName</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456854"><font size="2" face="'Courier New'" color="#000000"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456856">A valid SpacingModel value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456867">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="192">
+            <p><a name="5456860"><font size="2" face="'Courier New'" color="#000000">t </font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="455">
+            <p><a name="5456862">The InPlaceCoverObstruction SpacingModel attribute value is set on the specified instance header on the given layer.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456864"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="5456866">The operation failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="5456868">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456869">inst = dbCreateInst(cv master &#34;inst&#34; list(3 4) &#34;R0&#34; 1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456870">     instHeaderId = inst~&#62;instHeader</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456871">     dbCreateInPlaceCoverObstruction(instHeaderId list(&#34;closed&#34; 1 4))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456872">     equal(dbGetInPlaceCoverObstructionSpacingModel(instHeaderId &#34;Layer1&#34;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#34;spacing&#34;))</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="5456873">     dbSetInPlaceCoverObstructionSpacingModel(instHeaderId &#34;Layer1&#34; &#34;asIs&#34;)</a></font>
+      </p>
+      <p><a name="5456825"><font color="#000000">     equal(dbGetInPlaceCoverObstructionSpacingModel(instHeaderId &#34;Layer1&#34;) &#34;asIs&#34;)</font></a></p>
+      <p><a name="5460469">Sets the InPlaceCoverObstruction SpacingModel attribute value </a><font size="2" face="'Courier New'" color="#000000">&#34;asIs&#34;</font> for the instance <font size="2" face="'Courier New'" color="#000000">instHeaderId</font> on the layer <font size="2" face="'Courier New'" color="#000000">Layer1</font>.</p>
+      <p><a name="5457384">&nbsp;</a></p>
+      <p><a name="5458036">&nbsp;</a></p>
+      <p><a name="5458666">&nbsp;</a></p>
+      <p><a name="5462457">&nbsp;</a></p>
+      <p><a name="5463096">&nbsp;</a></p>
+      <p><a name="5464951">&nbsp;</a></p>
+      <p><a name="5466414">&nbsp;</a></p>
+      <p><a name="5479272">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="5482007">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="skdfrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="generator.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="photonic.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="skdfref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

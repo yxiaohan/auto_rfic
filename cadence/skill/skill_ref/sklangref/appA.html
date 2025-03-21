@@ -1,0 +1,2203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 16</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="16">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="appB.html">
+<META NAME="PageCount" CONTENT="10">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="nmspace.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 16">
+<META NAME="TopicTags" CONTENT="FALSE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="nmspace.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="appB.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>16<a name="1005655">&nbsp;</a></h1>
+      <h1><a name="1008199">Scheme&#47;SKILL++ Equivalents Tables</a></h1>
+      <p><a name="1008205">The purpose of this appendix is to help users familiar with Scheme to get a jump start with SKILL++. All of Scheme's special (syntax) forms and functions are listed along with their SKILL++ equivalents. </a></p>
+      <p><a name="Equivalents Table"></a><a name="Equivalents Table"></a><a name="1008207">The tables, which are divided into expressions, lexical structure, and functions, use these terms:</a></p>
+      <table summary="" border="0" cellpadding="4" cellspacing="0" bordercolor="#D3D3D3" width="622">
+        <tr>
+          <td cellpadding="4" valign="top" width="156">
+            <p><a name="1009358">Same</a></p>
+          </td>
+          <td cellpadding="4" valign="top" width="466">
+            <p><a name="1009360">Means that this Scheme functionality is provided with the same name (syntax) and same behavior in SKILL++.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009362">Supported</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009364">Means that this Scheme functionality is provided, but it is implemented under a different name and&#47;or is used somewhat differently. For example, </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009366">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009368">(1) In SKILL++, the Scheme function </a><font size="2" face="'Courier New'" color="#000000">&#45;vector</font> becomes <font size="2" face="'Courier New'" color="#000000">Vector</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009370">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009372">(2) The global variable </a><font size="2" face="'Courier New'" color="#000000">piport</font> is used in place of the Scheme function <font size="2" face="'Courier New'" color="#000000">current&#45;input&#45;port</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009374">Infix only</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009376">Means that the specific Scheme functionality is provided, but the given name can only be used as an infix operator in SKILL++. There is usually an equivalent function with a different name to which this infix operator can be mapped.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009378">Unsupported</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1009380">Means that this Scheme functionality is not yet provided in current SKILL++.</a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="1011136">See the following sections for more information:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1008212" title="16" name="1011140"><font color="Blue"><u>Lexical Structure</u></font></a><a href="#1008212" title="16"> </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1010253" title="16" name="1011144"><font color="Blue"><u>Expressions</u></font></a><a href="#1010253" title="16"> </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1008405" title="16" name="1011148"><font color="Blue"><u>Functions</u></font></a><a href="#1008405" title="16"> </a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="1008212">Lexical Structure</a></h2>
+      <p align="left"><a name="1010147">&nbsp;</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="580">
+        <caption>
+          <p>
+            <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010064"><font color="#000000"><strong>Scheme&#47;SKILL++ Equivalents Table - Lexical Structure</strong></font></a></strong></font>
+          </p>
+        </caption>
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="173">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010070">Scheme</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="124">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010072">SKILL++ </a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="283">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010074">Comment</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010076">Boolean literals #</a><font size="2" face="'Courier New'" color="#000000">t</font>, #<font size="2" face="'Courier New'" color="#000000">f</font></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010078">Supported.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010080">Use </a><font size="2" face="'Courier New'" color="#000000">t</font> for #<font size="2" face="'Courier New'" color="#000000">t</font>, <font size="2" face="'Courier New'" color="#000000">nil</font> for #<font size="2" face="'Courier New'" color="#000000">f</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010082">Character literals #</a><font size="2" face="'Courier New'" color="#000000">\...</font></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010084">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010086">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010088">Simple numeric literals such as integers &amp; floats</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010090">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010092">Use 0..., 0x..., and 0b... for #o..., #x..., and #b... (octal&#47;hex&#47;binary integers).</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010094">String literals &#34;...&#34;</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010096">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010098">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010100">Vector literals #(...)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010102">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010104">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010106">case&#45;insensitive symbols</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010108">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010110">Symbols in SKILL++ are always case&#45;sensitive.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010112"><font size="2" face="'Courier New'" color="#000000">nil</font></a> as a symbol</p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010114">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010116">In SKILL++, just as in SKILL, </a><font size="2" face="'Courier New'" color="#000000">nil</font> is not a symbol.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010118">Special symbol constituent characters such as !, $, %, &amp;, *, &#47;, &#60;, =, and so forth.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010120">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010122">Some of these are used for (infix) operators in SKILL++, others are illegal characters. </a><font size="2" face="'Courier New'" color="#000000">?</font> is used for keyword prefix.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010124">&#39; (single quote)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010126">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010128">Shorthand for </a><font size="2" face="'Courier New'" color="#000000">quote</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010130">` (back quote)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010132">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010134">Shorthand for </a><font size="2" face="'Courier New'" color="#000000">quasiquote</font> in Scheme and for <font size="2" face="'Courier New'" color="#000000">_backquote</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010136">, (comma)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010138">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010140">Shorthand for </a><font size="2" face="'Courier New'" color="#000000">unquote</font> in Scheme and for <br><font size="2" face="'Courier New'" color="#000000">_comma</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010142">,@</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010144">Same.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010146">Shorthand for </a><font size="2" face="'Courier New'" color="#000000">unquote&#45;splicing</font> in Scheme and for <font size="2" face="'Courier New'" color="#000000">_commaAt </font>in SKILL++.</p>
+          </td>
+        </tr>
+      </table>
+      <h2><a name="1010253">Expressions</a></h2>
+      <p align="left"><a name="1011125">&nbsp;</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="583">
+        <caption>
+          <p>
+            <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010151">Scheme&#47;SKILL++ Equivalents Table - Expressions</a></strong></font>
+          </p>
+        </caption>
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="173">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010157">Scheme</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="127">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010159">SKILL++ </a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="283">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010161">Comment</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010163">(improper lists), <br>such as (d ... . d)</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010165">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010167">SKILL++ lists must end with </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010169">(procedure calls), <br>such as (f e ...)</a><font color="#000000"><em> </em></font></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010171">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010173">Can be written as </a><font size="2" face="'Courier New'" color="#000000">f(e ...)</font> in SKILL++ if <font size="2" face="'Courier New'" color="#000000">f</font> is a symbol (variable).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010175">(and e ...)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010177">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010179">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010181">(begin e ...)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010183">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010185">Equivalent to </a><font size="2" face="'Courier New'" color="#000000">progn</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010187">(case ((d ...) e ...) ... [(else e ...)])</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010189">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010191">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010193">(cond (e ...) ... [(else e ...)])</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010195">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010197">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010199">(define x e) </a></p>
+            <p><a name="1010200">(define (x v ...) body)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010202">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010204">One can also use SKILL's </a><font size="2" face="'Courier New'" color="#000000">procedure</font> syntax to define functions in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010206">(do ((v e [e]) ...) (e ...) e ...)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010208">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010210">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010212">(if e1 e2 e3)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010214">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010216">SKILL++ allows extended </a><font size="2" face="'Courier New'" color="#000000">if</font> syntax (with <font size="2" face="'Courier New'" color="#000000">then</font> and <font size="2" face="'Courier New'" color="#000000">else</font> keywords) as in SKILL.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010218">(lambda (x ...) body)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010220">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010222">Improper variable list such as </a><font size="2" face="'Courier New'" color="#000000">(x ... . y)</font> can't be used as formals in SKILL++. Use SKILL style <font size="2" face="'Courier New'" color="#000000">@rest</font>, <font size="2" face="'Courier New'" color="#000000">@optional</font><font color="#000000"><em> </em></font>instead.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010224">(let [x] ((v e) ...) body)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010226">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010228">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010230">(let* ((v e) ...) body)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010232">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010234">Use </a><font size="2" face="'Courier New'" color="#000000">letseq</font> instead of <font size="2" face="'Courier New'" color="#000000">let*</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010236">(letrec ((v e) ...) body)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010238">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010240">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010242">(or e ...)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010244">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010246">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010248">(set! x e)</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010250">Supported.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010252">Use </a><font size="2" face="'Courier New'" color="#000000">setq</font> or the infix <font size="2" face="'Courier New'" color="#000000">=</font> operator.</p>
+          </td>
+        </tr>
+      </table>
+      <h2><a name="1008405">Functions</a></h2>
+      <p align="left"><a name="1011126">&nbsp;</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="578">
+        <caption>
+          <p>
+            <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010257">Scheme&#47;SKILL++ Equivalents Table - Functions</a></strong></font>
+          </p>
+        </caption>
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="173">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010263">Scheme</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="121">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010265">SKILL++ </a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="283">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1010267">Comment</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010269">+, &#45;, *, &#47;</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010271">Infix only.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1010273">Equivalent to functions </a><font size="2" face="'Courier New'" color="#000000">plus</font><font color="#000000"><em>, </em></font><font size="2" face="'Courier New'" color="#000000">difference</font><font color="#000000"><em>, </em></font><font size="2" face="'Courier New'" color="#000000">times</font><font color="#000000"><em>,</em></font> and <font size="2" face="'Courier New'" color="#000000">quotient</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010275">&#60;, &#60;=, &#62;, &#62;=</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010277">Infix only.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010279">Equivalent to functions </a><font size="2" face="'Courier New'" color="#000000">lessp</font><font color="#000000"><em>, </em></font><font size="2" face="'Courier New'" color="#000000">leqp</font><font color="#000000"><em>, </em></font><font size="2" face="'Courier New'" color="#000000">greaterp</font>, and <font size="2" face="'Courier New'" color="#000000">geqp</font> in SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010281">=</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010283">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010285">Used as the infix assignment operator in SKILL++. For equality, use the infix operator </a><font size="2" face="'Courier New'" color="#000000">==</font> or function <font size="2" face="'Courier New'" color="#000000">equal</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010287">abs</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010289">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010291">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010293">acos</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010295">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010297">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010299">angle</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010301">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010303">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010305">append</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010307">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010309">Takes two arguments only.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010311">apply</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010313">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010315">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010317">asin</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010319">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010321">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010323">assoc</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010325">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010327">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010329">assq</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010331">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010333">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010335">assv</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010337">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010339">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010341">atan</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010343">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010345">In SKILL++, </a><font size="2" face="'Courier New'" color="#000000">atan</font> takes one argument only; <font size="2" face="'Courier New'" color="#000000">atan2</font> takes two arguments.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010347">boolean?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010349">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010351">Use </a><font size="2" face="'Courier New'" color="#000000">booleanp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010353">car, cdr, caar, ..., cddddr</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010355">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010357">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010359">call&#45;with&#45;current&#45;continuation</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010361">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010363">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010365">call&#45;with&#45;input&#45;file</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010367">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010369">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010371">call&#45;with&#45;output&#45;file</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010373">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010375">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010377">ceiling</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010379">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010381">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010383">char&#45;&#62;integer</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010385">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010387">True character type is not supported in SKILL++. However, single&#45;character symbols can be used to simulate it. The function </a><font size="2" face="'Courier New'" color="#000000">charToInt</font> has the same effect on symbols.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010389">char&#45;alphabetic?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010391">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010393">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010395">char&#45;ci&#60;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010397">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010399">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010401">char&#45;ci&#60;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010403">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010405">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010407">char&#45;ci=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010409">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010411">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010413">char&#45;ci&#62;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010415">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010417">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010419">char&#45;ci&#62;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010421">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010423">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010425">char&#45;downcase</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010427">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010429">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010431">char&#45;lower&#45;case?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010433">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010435">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010437">char&#45;numeric?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010439">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010441">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010443">char&#45;upcase</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010445">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010447">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010449">char&#45;upper&#45;case?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010451">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010453">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010455">char&#45;whitespace?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010457">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010459">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010461">char&#60;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010463">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010465">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010467">char&#60;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010469">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010471">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010473">char=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010475">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010477">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010479">char&#62;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010481">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010483">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010485">char&#62;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010487">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010489">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010491">char?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010493">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010495">Character type not supported.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010497">close&#45;input&#45;port</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010499">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010501">Use </a><font size="2" face="'Courier New'" color="#000000">close</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010503">close&#45;output&#45;port</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010505">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010507">Use </a><font size="2" face="'Courier New'" color="#000000">close</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010509">complex?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010511">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010513">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010515">cons</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010517">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010519">The second argument must be a list.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010521">cos</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010523">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010525">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010527">current&#45;input&#45;port</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010529">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010531">Use the </a><font size="2" face="'Courier New'" color="#000000">piport</font> global variable.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010533">current&#45;output&#45;port</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010535">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010537">Use the </a><font size="2" face="'Courier New'" color="#000000">poport</font> global variable.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010539">denominator</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010541">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010543">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010545">display</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010547">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010549">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010551">eof&#45;object?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010553">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010555">SKILL++ reader returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> on EOF.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010557">eq?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010559">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010561">Use </a><font size="2" face="'Courier New'" color="#000000">eq</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010563">equal?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010565">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010567">Use </a><font size="2" face="'Courier New'" color="#000000">equal</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010569">eqv?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010571">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010573">Use </a><font size="2" face="'Courier New'" color="#000000">eqv</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010575">even?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010577">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010579">Use </a><font size="2" face="'Courier New'" color="#000000">evenp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010581">exact&#45;&#62;inexact</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010583">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010585">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010587">exact?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010589">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010591">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010593">exp</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010595">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010597">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010599">expt</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010601">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010603">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010605">floor</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010607">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010609">Use </a><font size="2" face="'Courier New'" color="#000000">fix</font> or <font size="2" face="'Courier New'" color="#000000">floor</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010611">for&#45;each</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010613">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010615">Use </a><font size="2" face="'Courier New'" color="#000000">mapc</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010617">gcd</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010619">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010621">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010623">imag&#45;part</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010625">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010627">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010629">inexact&#45;&#62;exact</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010631">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010633">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010635">inexact?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010637">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010639">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010641">input&#45;port?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010643">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010645">Use </a><font size="2" face="'Courier New'" color="#000000">inportp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010647">integer&#45;&#62;char</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010649">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010651">Character type not supported. Use </a><font size="2" face="'Courier New'" color="#000000">intToChar</font> for the same effect on symbols.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010653">integer?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010655">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010657">Use </a><font size="2" face="'Courier New'" color="#000000">fixp</font> or <font size="2" face="'Courier New'" color="#000000">integerp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010659">lcm</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010661">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010663">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010665">length</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010667">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010669">Works for both lists and vectors.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010671">list</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010673">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010675">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010677">list&#45;&#62;vector</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010679">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010681">Use </a><font size="2" face="'Courier New'" color="#000000">listToVector</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010683">list&#45;ref</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010685">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010687">Use </a><font size="2" face="'Courier New'" color="#000000">nth</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010689">list?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010691">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010693">Use </a><font size="2" face="'Courier New'" color="#000000">listp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010695">log</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010697">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010699">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010701">magnitude</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010703">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010705">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010707">&#45;polar</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010709">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010711">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010713">&#45;rectangular</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010715">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010717">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010719">&#45;string</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010721">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010723">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010725">&#45;vector</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010727">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010729">Use </a><font size="2" face="'Courier New'" color="#000000">Vector</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010731">map</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010733">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010737">Use </a><font size="2" face="'Courier New'" color="#000000">mapcar</font> instead. <font size="2" face="'Courier New'" color="#000000">map</font> in SKILL++ behaves differently from <font size="2" face="'Courier New'" color="#000000">map</font> in standard Scheme.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010739">max</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010741">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010743">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010745">member</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010747">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010749">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010751">memq</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010753">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010755">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010757">memv</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010759">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010761">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010763">min</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010765">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010767">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010769">modulo</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010771">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010773"><font size="2" face="'Courier New'" color="#000000">modulo</font></a> differs from <font size="2" face="'Courier New'" color="#000000">mod</font> in SKILL++, which is the same as <font size="2" face="'Courier New'" color="#000000">remainder</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010775">negative?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010777">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010779">Use </a><font size="2" face="'Courier New'" color="#000000">minusp</font> or <font size="2" face="'Courier New'" color="#000000">negativep</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010781">newline</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010783">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010785">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010787">not</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010789">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010791">New for SKILL++. Same as ! operator.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010793">null?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010795">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010797">Use </a><font size="2" face="'Courier New'" color="#000000">null</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010799">number&#45;&#62;string</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010801">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010803">Use </a><font size="2" face="'Courier New'" color="#000000">sprintf</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010805">number?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010807">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010809">Use </a><font size="2" face="'Courier New'" color="#000000">numberp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010811">numerator</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010813">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010815">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010817">odd?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010819">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010821">Use </a><font size="2" face="'Courier New'" color="#000000">oddp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010823">open&#45;input&#45;file</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010825">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010827">Use </a><font size="2" face="'Courier New'" color="#000000">infile</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010829">open&#45;output&#45;file</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010831">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010833">Use </a><font size="2" face="'Courier New'" color="#000000">outfile</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010835">output&#45;port?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010837">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010839">Use </a><font size="2" face="'Courier New'" color="#000000">outportp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010841">pair?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010843">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010845">Use </a><font size="2" face="'Courier New'" color="#000000">dtpr</font> or <font size="2" face="'Courier New'" color="#000000">pairp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010847">peek&#45;char</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010849">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010851">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010853">positive?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010855">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010857">Use </a><font size="2" face="'Courier New'" color="#000000">plusp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010859">procedure?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010861">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010863">Use </a><font size="2" face="'Courier New'" color="#000000">procedurep</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010865">quotient</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010867">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010869">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010871">rational?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010873">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010875">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010877">rationalize</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010879">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010881">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010883">read</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010885">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010887">Or use </a><font size="2" face="'Courier New'" color="#000000">lineread</font>. Returns <font size="2" face="'Courier New'" color="#000000">nil</font> on EOF.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010889">read&#45;char</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010891">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010893">Character type not supported. Use </a><font size="2" face="'Courier New'" color="#000000">getc</font> for similar effect.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010895">real&#45;part</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010897">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010899">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010901">real?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010903">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010905">Use </a><font size="2" face="'Courier New'" color="#000000">floatp</font> or <font size="2" face="'Courier New'" color="#000000">realp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010907">remainder</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010909">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010911">Use </a><font size="2" face="'Courier New'" color="#000000">mod</font> or <font size="2" face="'Courier New'" color="#000000">remainder</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010913">reverse</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010915">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010917">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010919">round</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010921">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010923">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010925">set&#45;car!</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010927">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010929">Use </a><font size="2" face="'Courier New'" color="#000000">rplaca</font> or <font size="2" face="'Courier New'" color="#000000">setcar</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010931">set&#45;cdr!</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010933">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010935">Use </a><font size="2" face="'Courier New'" color="#000000">rplacd</font> or <font size="2" face="'Courier New'" color="#000000">setcdr</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010937">sin</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010939">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010941">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010943">sqrt</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010945">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010947">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010949">string</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010951">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010953">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010955">string&#45;&#62;number</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010957">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010959">Use </a><font size="2" face="'Courier New'" color="#000000">readstring</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010961">string&#45;&#62;symbol</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010963">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010965">Use </a><font size="2" face="'Courier New'" color="#000000">concat</font> or <font size="2" face="'Courier New'" color="#000000">stringToSymbol</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010967">string&#45;append</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010969">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010971">Use </a><font size="2" face="'Courier New'" color="#000000">strcat</font><font color="#000000"><em>.</em></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010973">string&#45;ci&#60;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010975">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010977">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010979">string&#45;ci&#60;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010981">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010983">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010985">string&#45;ci&#62;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010987">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010989">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010991">string&#45;length</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010993">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010995">Use </a><font size="2" face="'Courier New'" color="#000000">strlen</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010997">string&#45;ref</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1010999">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011001">Use </a><font size="2" face="'Courier New'" color="#000000">getchar</font> for similar effect.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011003">string&#45;set!</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011005">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011007">Strings in SKILL++ are immutable.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011009">string&#60;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011011">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011013">Use </a><font size="2" face="'Courier New'" color="#000000">alphalessp</font> or <font size="2" face="'Courier New'" color="#000000">strcmp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011015">string=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011017">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011019">Use </a><font size="2" face="'Courier New'" color="#000000">alphalessp</font> or <font size="2" face="'Courier New'" color="#000000">strcmp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011021">string&#62;=?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011023">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011025">Use </a><font size="2" face="'Courier New'" color="#000000">alphalessp</font> or <font size="2" face="'Courier New'" color="#000000">strcmp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011027">string&#62;?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011029">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011031">Use </a><font size="2" face="'Courier New'" color="#000000">alphalessp</font> or <font size="2" face="'Courier New'" color="#000000">strcmp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011033">string?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011035">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011037">Use </a><font size="2" face="'Courier New'" color="#000000">stringp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011039">substring</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011041">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011043">Argument values differ. SKILL++ uses </a><font size="2" face="'Courier New'" color="#000000">index</font> and <font size="2" face="'Courier New'" color="#000000">length</font>. Scheme standard uses <font size="2" face="'Courier New'" color="#000000">start</font> and <font size="2" face="'Courier New'" color="#000000">end</font> (<font size="2" face="'Courier New'" color="#000000">index</font>).</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011045">symbol&#45;&#62;string</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011047">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011049">Use </a><font size="2" face="'Courier New'" color="#000000">get_pname</font> or <font size="2" face="'Courier New'" color="#000000">symbolToString</font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011051">symbol?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011053">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011055">Use </a><font size="2" face="'Courier New'" color="#000000">symbolp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011057">tan</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011059">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011061">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011063">truncate</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011065">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011067">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011069">vector</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011071">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011073">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011075">vector&#45;length</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011077">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011079">Use </a><font size="2" face="'Courier New'" color="#000000">length</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011081">vector&#45;&#62;list</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011083">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011085">Use </a><font size="2" face="'Courier New'" color="#000000">vectorToList</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011087">vector&#45;ref</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011089">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011091">Use </a><font size="2" face="'Courier New'" color="#000000">arrayref</font> or the <font size="2" face="'Courier New'" color="#000000">a[i]</font><font color="#000000"><em> </em></font>syntax.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011093">vector&#45;set!</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011095">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011097">Use </a><font size="2" face="'Courier New'" color="#000000">setarray</font> or the <font size="2" face="'Courier New'" color="#000000">a[i] = v</font> syntax.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011099">vector?</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011101">Supported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011103">Use </a><font size="2" face="'Courier New'" color="#000000">arrayp</font> or <font size="2" face="'Courier New'" color="#000000">vectorp</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011105">write</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011107">Same.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011109">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011111">write&#45;char</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011113">Unsupported.</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1011115">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1011117">zero?</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1011119">Supported.</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1011121">Use </a><font size="2" face="'Courier New'" color="#000000">zerop</font>.</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="nmspace.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="appB.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

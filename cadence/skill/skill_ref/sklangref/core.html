@@ -1,0 +1,2643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Cadence SKILL Language Reference -- 12</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-05-23">
+<META NAME="CreateTime" CONTENT="1527075800">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="Describes SKILL functions that are common to all of the Cadence tools used in a graphic or nongraphic environment.">
+<META NAME="DocTitle" CONTENT="Cadence SKILL Language Reference">
+<META NAME="DocType" CONTENT="SKILL Reference">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="12">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="SKILL Language">
+<META NAME="Keyword" CONTENT="sklangref">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-05-23">
+<META NAME="ModifiedTime" CONTENT="1527075800">
+<META NAME="NextFile" CONTENT="funcprog.html">
+<META NAME="PageCount" CONTENT="50">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="inputoutput.html">
+<META NAME="Product" CONTENT="SKILL">
+<META NAME="ProductFamily" CONTENT="Cadence Shared Tools">
+<META NAME="ProductVersion" CONTENT="IC6.1.7">
+<META NAME="RightsManagement" CONTENT="Copyright 1990Ð2018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="Cadence SKILL Language Reference -- 12">
+<META NAME="TopicTags" CONTENT="TRUE">
+<META NAME="Version" CONTENT="IC6.1.7">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+        <td>
+          <a href="inputoutput.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="funcprog.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>Cadence SKILL Language Reference</div>
+            <font >
+              <div>Product Version IC6.1.7 June 2018</div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>12<a name="1063469">&nbsp;</a></h1>
+      <h1><a name="1037758">Core Functions</a></h1>
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=arglist
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="arglist"></a><a name="1038670">arglist</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038673">arglist( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_function</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_argumentList</em></font></font>
+      </dl>
+      <h4><a name="1055450">Description</a></h4>
+      <p><a name="1055452">Returns the number and types of arguments expected for a function. Also checks if the specified function is a binary object, </a></p>
+      <p><a name="1055453">This function is useful for determining how many arguments a function takes and what they are.</a></p>
+      <p><a name="1038679">If the function is read&#45;protected, the arguments are still returned. If the function is a primitive (binary), the argument list is based on the type template for the function specified. If the function is defined in SKILL, the argument list in the function definition is returned.</a></p>
+      <h4><a name="1038682">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071791"><font size="2" face="'Courier New'" color="#000000"><em>g_function</em></font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071793">Name of the function or the symbol whose argument list you want to see.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038684">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071800"><font size="2" face="'Courier New'" color="#000000"><em>l_argumentList</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071802"> Number and types of arguments for </a><font size="2" face="'Courier New'" color="#000000"><em>g_function</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038686">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038687">arglist(&#39;rexMatchp) =&#62; ( t_string S_stringSymbol &#34;tS&#34;)</a></font>
+      </p>
+      <p><a name="1038688">The first argument of </a><font size="2" face="'Courier New'" color="#000000">rexMatchp</font> must be a string and the second must be a string or symbol.</p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=assert
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="assert"></a><a name="1047103">assert</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1047106">assert( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_expression</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>nil</em></font></font>
+      </dl>
+      <h4><a name="1047107">Description</a></h4>
+      <p><a name="1047109">Enables you to insert assertions into the SKILL code, either at the top&#45;level or within a function. It evaluates the expression (</a><font size="2" face="'Courier New'" color="#000000">g_expression</font>) and returns <font size="2" face="'Courier New'" color="#000000">nil</font> if the expression value is non&#45;nil. Otherwise, throws an error and returns the unevaluated expression.</p>
+      <h4><a name="1047115">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047112"><font size="2" face="'Courier New'" color="#000000"><em>g_expression</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047114">A generic expression.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047125">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1047118"><font size="2" face="'Courier New'" color="#000000"><em>nil</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1047120">Assertion is successful.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047122"><font color="#000000">g_expression</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1047124">Assertion failed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1047126">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1047127">assert(1 == 1)<br>=&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=atom
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="atom"></a><a name="1047150">atom</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040726">atom( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040727">Description</a></h4>
+      <p><a name="1040729">Checks if an object is an atom.</a></p>
+      <p><a name="1040730"><font color="#000000"><em>Atoms</em></font></a> are all SKILL objects except non&#45;empty lists. The special symbol <font size="2" face="'Courier New'" color="#000000">nil</font> is both an atom and a list.</p>
+      <h4><a name="1040731">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071811"><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071813">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040733">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071820"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071822">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> is an atom.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071824"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071826">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_arg</em></font> is not an atom.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040736">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040737">atom( &#39;hello )&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040738">x = &#39;(a b c)<br>atom( x )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040739">atom( nil )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=bcdp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="bcdp"></a><a name="1040766">bcdp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040769">bcdp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040770">Description</a></h4>
+      <p><a name="1040772">Checks if an object is a binary primitive function.</a></p>
+      <p><a name="1040773">The suffix </a><font size="2" face="'Courier New'" color="#000000">p</font> is usually added to the name of a function to indicate that it is a predicate function.</p>
+      <h4><a name="1040774">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071836"><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071838">Object to check.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040776">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071845"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071847">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_value</em></font> is a binary function.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071849"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071851">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040779">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040780">bcdp(getd(&#39;plus)) =&#62; t<br>bcdp(&#39;plus) =&#62; nil</a></font>
+      </p>
+      <p><a name="1040785">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=booleanp 
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="booleanp"></a><a name="1040786">booleanp </a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040789">booleanp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040790">Description</a></h4>
+      <p><a name="1040792">Checks if an object is a boolean. Returns </a><font size="2" face="'Courier New'" color="#000000">t</font> if the object is <font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>. Returns <font size="2" face="'Courier New'" color="#000000">nil</font> otherwise.</p>
+      <h4><a name="1040793">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071859"><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071861">Any SKILL object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040795">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071868"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071870">If </a><font size="2" face="'Courier New'" color="#000000"><em>g_obj</em></font> is either <font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071872"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071874">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040798">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040799">(booleanp 0 ) =&#62; nil<br>(booleanp nil) =&#62; t<br>(booleanp t) =&#62; t</a></font>
+      </p>
+      <p><a name="1040800">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=boundp
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="boundp"></a><a name="1040801">boundp</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040804">boundp( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>e_environment</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1040805">Description</a></h4>
+      <p><a name="1040807">Checks if the variable named by a symbol is bound, that is, has been assigned a value. The single argument form of </a><font size="2" face="'Courier New'" color="#000000">boundp</font> only works in SKILL mode.</p>
+      <p><a name="1040808">Remember that a variable can be set to the special symbol </a><font size="2" face="'Courier New'" color="#000000">unbound</font>.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1040809"><font size="2" face="'Courier New'" color="#000000">boundp()</font></a> does not check the current language mode. If single argument is specified, SKILL semantics are used, whereas if two arguments are specified, SKILL++ semantics are used.</p>
+      <h4><a name="1040810">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071882"><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071884">Symbol to be tested to see if it is bound.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071886"><font size="2" face="'Courier New'" color="#000000"><em>e_environment</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071888">If this argument is given, SKILL++ semantics are used. The symbol will be searched for within the given (lexical) environment.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040813">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1071895"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1071897">If the symbol </a><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font> has been assigned a value.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071899"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1071901">If the symbol </a><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font> has not been assigned a value.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040816">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040817">x = 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Binds x to the value 5.<br>y = &#39;unbound&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Unbind y<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040818">boundp( &#39;x )<br>=&#62; t<br></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040819">boundp( &#39;y )<br>=&#62; nil<br></a></font>
+      </p>
+      <p><a name="1040758"><font color="#000000">y = &#39;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Bind y to the constant x.<br>boundp( y )<br>=&#62; t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Returns t because y evaluates to x, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; which is bound.</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=describe
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="describe"></a><a name="1068440">describe</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1068443">describe( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>s_symbol</em></font> ] <dd>) <dd>=&#62; t</font>
+      </dl>
+      <h4><a name="1068444">Description</a></h4>
+      <p><a name="1068496">Prints information about the symbol </a><font size="2" face="'Courier New'" color="#000000">s_symbol</font>. If the symbol has a function definition, information on the argument list and other available details will be printed. If the symbol has a variable definition, information about its value and function will be printed. If the function is called without any arguments, the help message will be printed.</p>
+      <h4><a name="1068576">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072810"><font size="2" face="'Courier New'" color="#000000"><em>s_symbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072812">SKILL symbol to print information for.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1068578">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072819"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072821">Information about the symbol is printed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1068580">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1068625"><font color="#000000">describe(&#39;append)<br>Symbol append has a function definition.<br>Its argument list is (g_general g_general &#34;gg&#34;)<br>This is a built&#45;in function.<br>=&#62; t</font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=fdoc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="fdoc"></a><a name="1068696">fdoc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1068699">fdoc( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_function</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_doc</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1068700">Description</a></h4>
+      <p><a name="1068749">Returns the documentation string for the function bound to the symbol </a><font size="2" face="'Courier New'" color="#000000"><em>s_function</em></font>. SKILL switch <font size="2" face="'Courier New'" color="#000000">saveInlineDoc</font> must be set to save and retrieve the doc string.</p>
+      <h4><a name="1068703">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072833"><font size="2" face="'Courier New'" color="#000000"><em>s_function</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072835">A symbol for the SKILL function name.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1068705">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072842"><font size="2" face="'Courier New'" color="#000000"><em>t_doc</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072844">Documentation string if available. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1072846"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1072848">Inline documentation is not available.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1068926">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1068935"><font color="#000000">sstatus(saveInlineDoc t) ;; enable inline documentation in compile time<br>defun(myFun (a b)<br>&#34;documentation for myFun: return sum a and b&#34;<br>a + b<br>)<br>fdoc(&#39;myFun)<br>=&#62; &#34;documentation for myFun: return sum a and b&#34;=</font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=gc
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="gc"></a><a name="1068929">gc</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038887">gc( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> ] <dd>) <dd>=&#62; nil</font>
+      </dl>
+      <h4><a name="1038888">Description</a></h4>
+      <p><a name="1038890">Forces a garbage collection. This function is also called by the system.</a></p>
+      <p><a name="1038891">Garbage collection (</a><font size="2" face="'Courier New'" color="#000000">gc</font>) refers to the process in which SKILL locates storage cells that are no longer needed (thus the term garbage) and recycles them by putting them back on the free storage list. Garbage collection is also called by the system. Garbage collection is transparent to SKILL users and to users of applications built on top of SKILL.</p>
+      <p><a name="1038892">You can turn on the printing of garbage collection messages by setting the </a><font size="2" face="'Courier New'" color="#000000">_gcprint</font> variable to <font size="2" face="'Courier New'" color="#000000">t</font> (that is, <font size="2" face="'Courier New'" color="#000000">_gcprint=t</font>). Garbage collection can be turned off at any time by setting the <font size="2" face="'Courier New'" color="#000000">gcdisable</font> variable to <font size="2" face="'Courier New'" color="#000000">t</font>. To enable garbage collection again, you can restore <font size="2" face="'Courier New'" color="#000000">gcdisable</font> to its previous value. You can force a garbage collection at any time by calling the <font size="2" face="'Courier New'" color="#000000">gc</font> function. </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1038893">Because some applications turn off garbage collection during their execution, you should be careful about enabling it. Corrupted data can result.</a></em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1038894">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072856"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072858">File into which additional information is dumped.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038896">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072865"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072867">Always returns </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038898">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038899">gc( ) </a>=&#62; nil</font>
+      </p>
+      <h4><a name="1038900">Reference</a></h4>
+      <p><a name="1038869"><font size="2" face="'Courier New'" color="#0000ff"><u>gcsummary</u></font></a>, </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=gensym
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="gensym"></a><a name="1038942">gensym</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038944">gensym( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_result</em></font></font>
+      </dl>
+      <h4><a name="1038946">Description</a></h4>
+      <p><a name="1038948">Returns a new symbol based on the input argument.</a></p>
+      <p><a name="1038949">The new symbol's print name is the result of concatenating the printed representation of the argument, or "G" if no argument is given, and the printed (decimal) representation of a number. The returned new symbol is unique in the sense that it does not exist at the time this function is called.</a></p>
+      <h4><a name="1038950">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072875"><font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072877">String or symbol to be concatenated into a new symbol. If not supplied, the default value is </a><font size="2" face="'Courier New'" color="#000000">G</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038952">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072884"><font size="2" face="'Courier New'" color="#000000"><em>s_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072886">New unique symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1038954">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1038955">gensym()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; G5<br>gensym(&#34;test&#34;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; test6<br>test7 = 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;test7 exists now.<br>gensym(&#39;test)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; test8&nbsp;&nbsp;&nbsp;;test7 is skipped.<br>gensym() == gensym()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Always returns </a><font color="#000000"><em>nil</em></font>.</font>
+      </p>
+      <p><a name="1038927">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=getSkillVersion
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="getSkillVersion"></a><a name="1044006">getSkillVersion</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1044008">getSkillVersion( <dd>[</a><font size="2" face="'Courier New'" color="#000000"><em>g_printSubVersion</em></font>]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_version</em></font></font>
+      </dl>
+      <h4><a name="1044009">Description</a></h4>
+      <p><a name="1044011">Returns the major version if the argument is left </a><font size="2" face="'Courier New'" color="#000000">blank</font>; otherwise, returns the current subversion (or tarkit version) of SKILL that is running in the build</p>
+      <h4><a name="1044012">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td colspan="2" cellpadding="4" border="0" valign="top" width="648">
+            <p><a name="1072894"><font size="2" face="'Courier New'" color="#000000"><em>g_printSubVersion</em></font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1078512">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1078514">(Optional) Specify a flag to print the current subversion (or tarkit version) of SKILL running in the build</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044014">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072903"><font size="2" face="'Courier New'" color="#000000"><em>t_version</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072905">If the argument flag is left </a><font size="2" face="'Courier New'" color="#000000">blank</font>, returns the major version of SKILL running in the build. If the argument flag is specified, returns the current subversion (tarkit version) of SKILL running in the build</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1044016">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044017">getSkillVersion()<br>=&#62; &#34;SKILL04.20&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1043993">getSkillVersion(t)<br>&#34;@(#)$CDS:   il skillSrc33.12&#45;d009 08&#47;31&#47;11 14:50 fwinteg sjfdl803 $&#34;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=get_pname
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="get_pname"></a><a name="1038993">get_pname</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1038996">get_pname( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_result</em></font></font>
+      </dl>
+      <h4><a name="1038997">Description</a></h4>
+      <p><a name="1038999">Returns the print name of a symbol as a string.</a></p>
+      <p><a name="1039000">This function is useful for converting symbols to strings. If you just want to print the name of a symbol, you do </a><font color="#000000"><em>not</em></font> need to use this function. This function is equivalent to <font size="2" face="'Courier New'" color="#000000">symbolToString</font>.</p>
+      <h4><a name="1039001">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072913"><font size="2" face="'Courier New'" color="#000000"><em>s_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072915">A symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039003">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072922"><font size="2" face="'Courier New'" color="#000000"><em>t_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072924">Print name of the symbol. </a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039005">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039006">get_pname( &#39;a )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;a&#34;<br>get_pname(concat(&#34;Cell_&#34; 123))&nbsp;&nbsp;&nbsp;=&#62; &#34;Cell_123&#34;</a></font>
+      </p>
+      <h4><a name="1039007">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039022" title="12" name="1039013"><font color="#0000ff"><u>get_string</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=get_string
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="get_string"></a><a name="1039022">get_string</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039025">get_string( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_result</em></font></font>
+      </dl>
+      <h4><a name="1039026">Description</a></h4>
+      <p><a name="1039028">Converts the argument to a string if it is a symbol. Otherwise it returns the string itself.</a></p>
+      <h4><a name="1039029">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072932"><font size="2" face="'Courier New'" color="#000000"><em>S_arg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072934">String or symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039031">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072941"><font size="2" face="'Courier New'" color="#000000"><em>t_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072943">Of the argument is a string, returns the argument itself. If the argument is a symbol, returns the print name as a string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039033">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039034">get_string(&#39;xyz)&nbsp;&nbsp;&nbsp;&nbsp;=&#62; &#34;xyz&#34;<br>get_string(&#34;xyz&#34;)&nbsp;&nbsp;&nbsp;=&#62; &#34;xyz&#34;</a></font>
+      </p>
+      <h4><a name="1039035">Reference</a></h4>
+      <p><a href="#1038993" title="12" name="1038984"><font color="#0000ff"><u>get_pname</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=getVersion
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="getVersion"></a><a name="1039079">getVersion</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039082">getVersion( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>g_opt</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_[sub]version</em></font></font>
+      </dl>
+      <h4><a name="1039083">Description</a></h4>
+      <p><a name="1039085">Returns the version number of the Cadence software you are currently using. If you specify the optional argument </a><font size="2" face="'Courier New'" color="#000000"><em>g_opt,</em></font> as <font size="2" face="'Courier New'" color="#000000"><em>t</em></font> (or a non&#45;nil value), the subversion number of the Cadence software currently used is returned. By default, the full version number, including the hotfix version, of the Cadence software currently used is returned.</p>
+      <p><a name="1039086">Use the SKILL system structure to determine the bitType (32bit &#47; 64bit) of the current Virtuoso session:</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039087"><font size="2" face="'Courier New'" color="#000000">system.LP64</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039088"><font size="2" face="'Courier New'" color="#000000">=&#62; nil ;; 32bit</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039089"><font size="2" face="'Courier New'" color="#000000">=&#62; t  ;; 64bit</font></a></font>
+      </p>
+      <p><a name="1039090">or</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039091"><font size="2" face="'Courier New'" color="#000000">system.system.ILP32</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039092"><font size="2" face="'Courier New'" color="#000000">=&#62; nil ;; 64bit</font></a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039093"><font size="2" face="'Courier New'" color="#000000">=&#62; t  ;; 32bit</font></a></font>
+      </p>
+      <p><a name="1039094">These </a><font size="2" face="'Courier New'" color="#000000">system.??</font> properties are initialized at startup.</p>
+      <h4><a name="1039095">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072951"><font size="2" face="'Courier New'" color="#000000"><em>g_opt</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072953">Optional argument. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1072955">&nbsp;</a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1072957">If the optional argument, </a><font size="2" face="'Courier New'" color="#000000"><em>g_opt</em></font>, is specified as <font size="2" face="'Courier New'" color="#000000"><em>t</em></font> (or a non&#45;nil value), the subversion number of the Cadence software currently used is returned. By default, the full version number, including the hotfix version, of the Cadence software currently used is returned.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039098">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072964"><font size="2" face="'Courier New'" color="#000000"><em>t_[sub]version</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072966">String identifying the version&#47;subversion of the program you are running.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039100">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039101">getVersion() =&#62; &#34;@(#)$CDS: virtuoso version 6.1.6 07&#47;24&#47;2012 11:02 (cic612sun) $&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039102">getVersion(nil) =&#62; &#34;@(#)$CDS: virtuoso version 6.1.6 07&#47;24&#47;2012 11:02 (cic612sun) $&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039103">getVersion( 'subVer ) =&#62; &#34;sub&#45;version IC6.1.6.DEL.410&#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039104">getVersion(t) =&#62; &#34;sub&#45;version  IC6.1.6.DEL.410 &#34;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039105">getVersion("subversion") =&#62; &#34;sub&#45;version  IC6.1.6.DEL.410 &#34;</a></font>
+      </p>
+      <h4><a name="1039106">Reference</a></h4>
+      <p><a name="1039071"> </a><a href="../skdfref/chap2.html#dbGetVersion" target="external_window"><font color="#0000ff"><u>dbGetVersion</u></font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=getWarn
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="getWarn"></a><a name="1039144">getWarn</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039147">getWarn( <dd>) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>t_warning</em></font></font>
+      </dl>
+      <h4><a name="1039148">Description</a></h4>
+      <p><a name="1039150">Returns the buffered warning if it has not already been printed.</a></p>
+      <h4><a name="1039151">Arguments</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None.</nobr>
+              </div>
+            </td>
+            <td><a name="1039152">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039153">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072978"><font size="2" face="'Courier New'" color="#000000"><em>t_warning</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072980">The warning message that would have been printed if it had not been intercepted by the call to </a><font size="2" face="'Courier New'" color="#000000">getWarn</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039155">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039156">procedure( testWarn( @key ( getLastWarn nil ) )<br>&nbsp;&nbsp;&nbsp;&nbsp;warn(&#34;This is warning %d\n&#34; 1 )&nbsp;;;; print previous warning<br>&nbsp;&nbsp;&nbsp;&nbsp;warn(&#34;This is warning %d\n&#34; 2 )&nbsp;;;; and buffer new one.<br>&nbsp;&nbsp;&nbsp;&nbsp;warn(&#34;This is warning %d\n&#34; 3 )<br>&nbsp;&nbsp;&nbsp;&nbsp;when( getLastWarn <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thrownAwayWarn = getWarn( ) ;;; throw away last warning<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;; return nil<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; when<br>&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; procedure</a></font>
+      </p>
+      <p><a name="1039157">The </a><font size="2" face="'Courier New'" color="#000000">testWarn</font> function intercepts the last warning message and stores it in a global variable if <font size="2" face="'Courier New'" color="#000000">t</font> is passed in, and lets the system print all the warnings if <font size="2" face="'Courier New'" color="#000000">nil</font> is given as an argument. Use of the getWarn( ) function makes it possible to throw away a warning message, if desired.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039158">testWarn( ?getLastWarn t)<br>=&#62; nil<br>*WARNING* This is warning 1<br>*WARNING* This is warning 2</a></font>
+      </p>
+      <p><a name="1039159">Returns </a><font size="2" face="'Courier New'" color="#000000">nil. </font>The system prints the first two warnings and the third is intercepted and stored in global variable <font size="2" face="'Courier New'" color="#000000"><em>thrownAwayWarn</em></font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039160">testWarn( ?getLastWarn nil) <br>=&#62; nil<br>*WARNING* This is warning 1<br>*WARNING* This is warning 2<br>*WARNING* This is warning 3</a></font>
+      </p>
+      <p><a name="1039161">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font>. The system prints all the queued warnings.</p>
+      <p><a name="1039162">The return value may be interleaved with the warning message output. The following example shows how the output can appear in the CIW.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039163">testWarn( ?getLastWarn t)<br>*WARNING* This is warning 1<br>*WARNING* This is warning 2<br>=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039164">testWarn( ?getLastWarn nil)<br>*WARNING* This is warning 1<br>*WARNING* This is warning 2<br>=&#62; nil<br>*WARNING* This is warning 3</a></font>
+      </p>
+      <p><a name="1039136">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=help
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="help"></a><a name="1039209">help</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039212">help( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039213">Description</a></h4>
+      <p><a name="1039215">Retrieves and prints the cdsFinder documentation strings for the given function name (a symbol). If the given name is a string, it is interpreted as a regular expression, and the entire cdsFinder database is searched for functions whose name or documentation string contains or matches the given string. Help is an </a><font size="2" face="'Courier New'" color="#000000">nlambda</font> function.</p>
+      <h4><a name="1039216">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073320"><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073322">Name to search for.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039218">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1072997"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1072999">The given function name is found in the cdsFinder.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073001"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073003">No match is found for </a><font size="2" face="'Courier New'" color="#000000"><em>S_name</em></font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039221">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039222">help nonexist</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039223">=&#62; nil</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039224">help scanf</a></font>
+      </p>
+      <p><a name="1039225">Prints the following and returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039226">fscanf( p_inputPort t_formatString [s_var1 ...]  )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039227">scanf( t_formatString [s_var1 ...]  )</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039228">sscanf( t_sourceString t_formatString [s_var1 ...]  )</a></font>
+      </p>
+      <p><a name="1039229">The only difference between these functions is the source of input. </a><font size="2" face="'Courier New'" color="#000000"><em>fscanf</em></font> reads input from a port according to format specifications and returns the number of items read in. <font size="2" face="'Courier New'" color="#000000"><em>scanf</em></font> takes its input from piport implicitly. <font size="2" face="'Courier New'" color="#000000"><em>scanf</em></font> only works in standalone SKILL when the piport is not the CIW. <font size="2" face="'Courier New'" color="#000000"><em>sscanf</em></font> reads its input from a string instead of a port.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039230">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039231">help println</a></font>
+      </p>
+      <p><a name="1039232">Prints the following and returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039233">println( g_value [p_outputPort] ) =&#62; nil</a></font>
+      </p>
+      <p><a name="1039234">Prints a SKILL object using the default format for the data type of the value, then prints a newline character.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039235">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039236">help &#34;read&#34;</a></font>
+      </p>
+      <p><a name="1039237">Prints the following and returns </a><font size="2" face="'Courier New'" color="#000000">t</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039238">fscanf, scanf, sscanf, getWarn, infile, instring, ipcReadProcess, ipcWaitForProcess, isReadable, lineread, linereadstring, load, loadstring, outfile, pp, putpropq, putpropqq, read, readTable, readstring</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039239">=&#62; t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039240">help &#34;match nowhere&#34;</a></font>
+      </p>
+      <p><a name="1039201"><font color="#000000">=&#62; nil</font></a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=inScheme
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="inScheme"></a><a name="1039278">inScheme</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039281">inScheme( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1039282">Description</a></h4>
+      <p><a name="1039284">Evaluates a form as top&#45;level SKILL++ code, disregarding the surrounding evaluation context.</a></p>
+      <h4><a name="1039285">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073011"><font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073013">Form to be evaluated as top&#45;level SKILL++ code.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039287">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073020"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073022">Result of the evaluation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039289">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039290">(inScheme<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(define myVar 100)) =&#62; myVar</a></font>
+      </p>
+      <p><a name="1039291">Defines a SKILL++ global variable, even if this code appears inside a SKILL file.</a></p>
+      <h4><a name="1039292">Reference</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a href="#1039298" title="12" name="1039295"><font color="#0000ff"><u>inSkill</u></font></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=inSkill
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="inSkill"></a><a name="1039298">inSkill</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039300">inSkill( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font><font color="#000000"><em> <dd></em></font>) <dd><font color="#000000"><em>=&#62;</em></font> <font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></font>
+      </dl>
+      <h4><a name="1039301">Description</a></h4>
+      <p><a name="1039304">Evaluates a form as top&#45;level SKILL code, disregarding the surrounding evaluation context.</a></p>
+      <h4><a name="1039305">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073037"><font size="2" face="'Courier New'" color="#000000"><em>g_form</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073039">Form to be evaluated as top&#45;level SKILL code.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039307">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073046"><font size="2" face="'Courier New'" color="#000000"><em>g_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073048">Result of the evaluation.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039309">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039310">(inSkill<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skillVar = 100) =&#62; 100</a></font>
+      </p>
+      <p><a name="1039311">Sets a SKILL global variable, even if this code appears inside a SKILL++ file.</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=isVarImported
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="isVarImported"></a><a name="1039355">isVarImported</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039357">isVarImported( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039358">Description</a></h4>
+      <p><a name="1039360">Checks if the specified variable was imported into SKILL++ or not. </a></p>
+      <h4><a name="1039361">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073056"><font size="2" face="'Courier New'" color="#000000"><em>s_var</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073058">The variable to be checked.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039363">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073065"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073067">The specified variable </a><font size="2" face="'Courier New'" color="#000000">s_var</font> was imported into SKILL++.</p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073069"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073071">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font>, if the given variable is not imported.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039366">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039367">isVarImported(&#39;myvar)<br>=&#62; nil</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=makeSymbol
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="makeSymbol"></a><a name="1056341">makeSymbol</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1056343">makeSymbol( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>S_createSymbol</em></font> <dd>[ <font size="2" face="'Courier New'" color="#000000"><em>t_namespaceArg</em></font> ]<dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>s_result</em></font></font>
+      </dl>
+      <h4><a name="1056344">Description</a></h4>
+      <p><a name="1056346">Creates a symbol corresponding to the specified symbol or character string. In IC6.1.6 and later releases, optionally specify the namespace name (</a><font size="2" face="'Courier New'" color="#000000"><em>t_namespace</em></font>) in which you want to create the symbol. </p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1056509">The function </a><font size="2" face="'Courier New'" color="#000000">gensym()</font> also creates symbols. However, the symbol names are determined internally (and are therefore unique) whereas in the case of <font size="2" face="'Courier New'" color="#000000">makeSymbol()</font> the symbol name depends upon the string passed as a parameter to the function.</p>
+      <h4><a name="1056347">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073079"><font size="2" face="'Courier New'" color="#000000"><em>S_createSymbol</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073081">Specifies the value for which a corresponding symbol needs to be created.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073083"><font size="2" face="'Courier New'" color="#000000"><em>t_namespaceArg</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073085">(Optional) Specifies the name of the namespace in which you want to create the symbol.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1056349">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073092"><font size="2" face="'Courier New'" color="#000000"><em>s_result</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073094">Returns a symbol corresponding to the specifed string value.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1056352">Example 1</a></h4>
+      <p><a name="1056585">The following example creates a symbol corresponding to the specified string value, </a><font size="2" face="'Courier New'" color="#000000">myString</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056637">makeSymbol("myString")<br>=&#62; myString</a></font>
+      </p>
+      <h4><a name="1056627">Example 2</a></h4>
+      <p><a name="1056656">The following example usesd an increment counter (</a><font size="2" face="'Courier New'" color="#000000">count</font>) to create unique symbols (<font size="2" face="'Courier New'" color="#000000">myString1, myString2, and so on</font>)</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056611">count=0</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056587">makeSymbol(strcat(&#34;myString&#34; sprintf(nil &#34;%L&#34; ++count)))</a></font>
+      </p>
+      <h4><a name="1056806">Example 3</a></h4>
+      <p><a name="1056816">The following example creates a symbol, </a><font size="2" face="'Courier New'" color="#000000">myString,</font> in the namespace, <font size="2" face="'Courier New'" color="#000000">newNamespace</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056853">makeNamespace(&#34;newNamespace&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056854">makeSymbol(&#34;myString&#34; &#34;newNamespace&#34;)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1056855">=&#62; newNamespace:::myString</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039452">&nbsp;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=measureTime
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="measureTime"></a><a name="1039545">measureTime</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039548">measureTime( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>g_expression</em></font> ... <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>l_result</em></font></font>
+      </dl>
+      <h4><a name="1039549">Description</a></h4>
+      <p><a name="1039551">Measures the time needed to evaluate an expression and returns a list with performance data (</a><font size="2" face="'Courier New'" color="#000000"><em>n_utime</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>n_stime</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>n_clockTime</em></font>, and <font size="2" face="'Courier New'" color="#000000"><em>x_pageFaults</em></font>) for the executed expressions. This is a syntax form. </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039552"><font size="2" face="'Courier New'" color="#000000"><em>n_utime</em></font></a>: The amount of user CPU time, in seconds, spent on the execution of expressions (counted with <font size="2" face="'Courier New'" color="#000000">getrusage()</font>). </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1071598"><font size="2" face="'Courier New'" color="#000000"><em>n_stime</em></font></a>: The amount of system CPU time, in seconds, spent on the execution of expressions (counted with <font size="2" face="'Courier New'" color="#000000">getrusage()</font>). </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1071599"><font size="2" face="'Courier New'" color="#000000"><em>n_clockTime</em></font></a>: The clock time used on execution of the expressions (in seconds) (counted with <font size="2" face="'Courier New'" color="#000000">gettimeofday()</font>). This function assumes that the executed expressions do not alter <font size="2" face="'Courier New'" color="#000000">getimeofday()</font> result.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1039555"><font size="2" face="'Courier New'" color="#000000"><em>x_pageFaults</em></font></a>: The number of page faults that occurred during the execution of the expressions (counted with <font size="2" face="'Courier New'" color="#000000">gettimeofday()</font>).</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039556">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073102"><font size="2" face="'Courier New'" color="#000000"><em>g_expression </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073104">Expression(s) to be evaluated and timed.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039558">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073111"><font size="2" face="'Courier New'" color="#000000"><em>l_result </em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073113">Returns a list with performance data (</a><font size="2" face="'Courier New'" color="#000000"><em>n_utime</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>n_stime</em></font>, <font size="2" face="'Courier New'" color="#000000"><em>n_clockTime</em></font>, and <font size="2" face="'Courier New'" color="#000000"><em>x_pageFaults</em></font>) for the executed expressions.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039560">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039561">myList = nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Initializes the variable myList.<br>measureTime( for( i 1 10000 myList = cons(i myList) ) )<br>=&#62; (0.4 0.05 0.4465 0)</a></font>
+      </p>
+      <p><a name="1039562">Result indicates that it took .4 seconds and 0 page faults to build a list from 1 to 10,000 using </a><font size="2" face="'Courier New'" color="#000000">cons</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039563">myList = nil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Initializes the variable myList.<br>measureTime( for( i 1 1000 myList = append1(myList i) ) )<br>=&#62; (5.04 0.03 5.06 0)</a></font>
+      </p>
+      <p><a name="1039564">Result indicates that it took 5 seconds and 0 page faults to build a list from 1 to 1000 using </a><font size="2" face="'Courier New'" color="#000000">append1</font>.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1071703">tab = makeTable(&#34;testTable&#34; &#39;unbound 5000)<br>=&#62; table:testTable</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1071705">result = measureTime(for(i 0 10000 tab[i] = t))<br>=&#62; (0.003 0.0 0.002537012 0)</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=needNCells
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="needNCells"></a><a name="1039609">needNCells</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1065505">needNCells( <dd>{</a><font size="2" face="'Courier New'" color="#000000"><em>s_cellType </em></font>| <font size="2" face="'Courier New'" color="#000000"><em>S_userType</em></font>} <dd><font size="2" face="'Courier New'" color="#000000"><em>x_cellCount</em></font> <dd>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039613">Description</a></h4>
+      <p><a name="1039615">Ensures that there is enough memory available for the specified number of SKILL objects (cells).</a></p>
+      <p><a name="1039616">If necessary, more memory is allocated. The name of the user type can be passed in as a string or a symbol, however internal types like </a><font size="2" face="'Courier New'" color="#000000">list</font> or <font size="2" face="'Courier New'" color="#000000">fixnum</font> must be passed in as symbols.</p>
+      <h4><a name="1039617">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073121"><font size="2" face="'Courier New'" color="#000000"><em>s_cellType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073123">Objects of type </a><font size="2" face="'Courier New'" color="#000000"><em>cellType</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073125"><font size="2" face="'Courier New'" color="#000000"><em>S_userType</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073127">Objects of type </a><font size="2" face="'Courier New'" color="#000000"><em>userType</em></font>. </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073129"><font size="2" face="'Courier New'" color="#000000"><em>x_cellCount</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073131">Number of objects.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039621">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073138"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073140">Enough memory is available. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073142"><font size="2" face="'Courier New'" color="#000000">nil</font></a> </p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073144">Otherwise.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039624">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039625">needNCells( &#39;list 1000 ) =&#62; t</a></font>
+      </p>
+      <p><a name="1044082">Guarantees there will always be 1000 list cells available in the system.</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=restoreFloat
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="restoreFloat"></a><a name="1039662">restoreFloat</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039665">restoreFloat( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>f_number</em></font></font>
+      </dl>
+      <h4><a name="1039666">Description</a></h4>
+      <p><a name="1039668">Restores a floating point number (</a><font size="2" face="'Courier New'" color="#000000">f_number</font>) from its serialized string (<font size="2" face="'Courier New'" color="#000000">t_string</font>) representation.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1039669"><font size="2" face="'Courier New'" color="#000000">t_string</font></a> should be created by <font size="2" face="'Courier New'" color="#000000">saveFloat()</font>.</p>
+      <h4><a name="1039670">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073152"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073154">A serialized float created by </a><font size="2" face="'Courier New'" color="#000000">ilSaveFloat()</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039672">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073161"><font size="2" face="'Courier New'" color="#000000"><em>f_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073163">The restored floating point number.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039674">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039675">str = saveFloat(1.4106)<br>=&#62; &#34;float:3ff6a09e667f3bcd@3ff691d14e3bcd36&#34;<br>restoreFloat(str) == 1.4106</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=saveFloat
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="saveFloat"></a><a name="1039704">saveFloat</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039706">saveFloat( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>f_number</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></font>
+      </dl>
+      <h4><a name="1039708">Description</a></h4>
+      <p><a name="1039710">Serializes the given floating point number (</a><font size="2" face="'Courier New'" color="#000000">f_number</font>) to string (<font size="2" face="'Courier New'" color="#000000">t_string</font>).</p>
+      <h4><a name="1039711">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073171"><font size="2" face="'Courier New'" color="#000000"><em>f_number</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073173">The floating point number that needs to be serialized.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039713">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073180"><font size="2" face="'Courier New'" color="#000000"><em>t_string</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073182">The string representation of </a><font size="2" face="'Courier New'" color="#000000">f_number</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039715">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039716">str = saveFloat(1.4106)<br>=&#62; &#34;float:3ff6a09e667f3bcd@3ff691d14e3bcd36&#34;</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=schemeTopLevelEnv
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="schemeTopLevelEnv"></a><a name="1039740">schemeTopLevelEnv</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039742">schemeTopLevelEnv( <dd>) <dd>=&#62; </a><font size="2" face="'Courier New'" color="#000000"><em>e_envobj</em></font></font>
+      </dl>
+      <h4><a name="1039743">Description</a></h4>
+      <p><a name="1039747">Returns the top level SKILL++ environment as an environment object.</a></p>
+      <h4><a name="1039748">Arguments</a></h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="197.78303999999997">
+              <div>
+                <nobr>None. </nobr>
+              </div>
+            </td>
+            <td><a name="1039749">&nbsp;</a></td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1039750">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073190"><font size="2" face="'Courier New'" color="#000000"><em>e_envobj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073192">The top level SKILL++ environment object.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039752">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1044099">schemeTopLevelEnv() =&#62; envobj:0x1ad018</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=setPrompts
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="setPrompts"></a><a name="1039833">setPrompts</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039837">setPrompts(<dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_prompt1<dd>s_prompt2<dd></em></font>)<dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font></font>
+      </dl>
+      <h4><a name="1039838">Description</a></h4>
+      <p><a name="1039839">Sets the prompt text string for the CIW. The first prompt is used to indicate the topmost top&#45;level. The second prompt is used whenever a nested top&#45;level is entered.</a></p>
+      <p><a name="1039841">The text string for </a><font size="2" face="'Courier New'" color="#000000"><em>s_prompt2</em></font> should always be the <font size="2" face="'Courier New'" color="#000000">%d</font> format string, which behaves the same as the <font size="2" face="'Courier New'" color="#000000">print</font>f() format string, such that the nesting level of a nested top&#45;level will be shown as it deepens.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1039842">Changing prompts in some applications can seriously interfere with their functioning; be careful using this function.</a></p>
+      <h4><a name="1039852">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039845"><font size="2" face="'Courier New'" color="#000000"><em>s_prompt1</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039847">Prompt text string.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039849"><font size="2" face="'Courier New'" color="#000000"><em>s_prompt2</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039851">Prompt text string.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039862">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1039855"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1039857">The prompt has been set. </a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039859"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1039861">Returns </a><font size="2" face="'Courier New'" color="#000000">nil</font> and issues an error message if the prompt is not changed.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1039863">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039864">&#62; setPrompts(&#34;~&#62; &#34; &#34;&#60;%d&#62;&#62; &#34;)<br>t<br>~&#62; toplevel( 'ils )<br>ILS&#45;&#60;2&#62;&#62; toplevel( 'ils )<br>ILS&#45;&#60;3&#62;&#62;</a></font>
+      </p>
+      <p><a name="1039865">Sets the topmost top&#45;level to </a><font size="2" face="'Courier New'" color="#000000">~&#62;</font> and the nested top&#45;level to <font size="2" face="'Courier New'" color="#000000">&#60;%d&#62;&#62;</font> :</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1039866">&#62; setPrompts(&#34;~&#62; &#34; &#34;&#60;%s&#62;&#62; &#34;)<br>*Error* setPrompts: setPrompts expected %d not %s in prompt &#45;&#45;<br>&#60;%s&#62;&#62;</a></font>
+      </p>
+      <p><a name="1039867"><font size="2" face="'Courier New'" color="#000000">%s</font></a> is an illegal format string.</p>
+      <p><a name="1039824">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=sstatus
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="sstatus"></a><a name="1039905">sstatus</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1039908">sstatus( <dd></a><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font> <dd><font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font></font>
+      </dl>
+      <h4><a name="1039909">Description</a></h4>
+      <p><a name="sstatus;"></a><a name="1039912">Sets the internal system variable named to a given value. This is a syntax form.</a></p>
+      <p><a name="1039897">The internal variables are typically Boolean switches that accept only the Boolean values of </a><font size="2" face="'Courier New'" color="#000000">t</font> and <font size="2" face="'Courier New'" color="#000000">nil</font>. Efficiency and security are the reasons why these system variables are stored as internal variables that can only be set by <font size="2" face="'Courier New'" color="#000000">sstatus</font>, rather than as SKILL variables you can set directly.</p>
+      <h4><a name="1039940">Internal System Variables</a></h4>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="648">
+        <tr>
+          <td cellpadding="0" border="2" bordercolor="#000000" valign="middle" width="180">
+            <p>
+              <font size="3" face="Sans-Serif" color="#000000"><strong><a name="1079725"><font color="#000000"><strong>Name</strong></font></a></strong></font>
+            </p>
+          </td>
+          <td cellpadding="0" border="2" bordercolor="#000000" width="372">
+            <p><a name="1079727">Meaning </a></p>
+          </td>
+          <td cellpadding="0" border="2" bordercolor="#000000" width="96">
+            <p><a name="1079729">Default</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079733"><font size="2" face="'Courier New'" color="#000000">autoReload</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079735">If </a>t, the debugger will try to auto&#45;reload a file that is not loaded under debugMode when the user tries to single step into the code defined by that file. Note: this may not work correctly for SKILL++ functions defined using assignment.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079737">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079739"><font size="2" face="'Courier New'" color="#000000">classAuxAutoLoad</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079741">If </a><font size="2" face="'Courier New'" color="#000000">t</font>, the SKILL++ code that accesses classes located in SKILL context files autoloads the context (if this context has not already been loaded.)</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079743">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079745"><font size="2" face="'Courier New'" color="#000000">classContextAutoLoad</font></a> </p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079747"><u>I</u></a>f t, sets the status function to allow class search in .aux files.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079749">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079753"><font size="2" face="'Courier New'" color="#000000">debugMode</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079755">Debug mode provides more information for debugging SKILL programs. Allows you to redefine write&#45;protected SKILL functions.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079757">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079761"><font size="2" face="'Courier New'" color="#000000">echoInput</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079763">When set to </a>t each user input in CIW is repeated in the output port. </p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079765">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079769"><font size="2" face="'Courier New'" color="#000000">errsetTrace</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079771">Prints errors and stacktrace information that is normally suppressed by </a>errset.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079773">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079775"><font color="#000000">forceWarnings</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1080121">When set to </a>t all warnings are flushed immediately, even if <font size="2" face="'Courier New'" color="#000000">getWarn()</font> is used or the warning is stored in a temporary buffer to be printed later in the CIW.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079779">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079783"><font size="2" face="'Courier New'" color="#000000">fullPrecision</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079785">If </a>t, unformatted print functions (print, println, printlev) print floating point numbers in full precision (usually 16 digits); otherwise, the default is about 7 digits of precision.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079787">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079791"><font size="2" face="'Courier New'" color="#000000">integermode</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079793">When on (default is off), the parser translates all arithmetic operators into calls to functions that operate only on </a>fixnums. This results in small execution time savings and makes sense only for compute&#45;intensive tasks whose inner loops are dominated by integer arithmetic calculations.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079795">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079799"><font size="2" face="'Courier New'" color="#000000">keepSrcInfo</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079801">When set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, the source information (file&#47;line information) is added to <font size="2" face="'Courier New'" color="#000000">funobject</font> during compilation.</p>
+            <p><a name="1079802">It is an auxiliary switch used by the V&#45;code compiler.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079804">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079808"><font size="2" face="'Courier New'" color="#000000">lazyComp</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079810">When set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, tells V&#45;code compiler to generate code (compile function) when it is called for the first time. That is, not to compile function after it is entered by the user (or loaded from a file) until it is called. </p>
+            <p><a name="1079811">If set to </a><font size="2" face="'Courier New'" color="#000000">nil</font>, enables the eager mode, where each function is compiled immediately after it is entered.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079813">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079817"><font size="2" face="'Courier New'" color="#000000">mergemode</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079819">When on (default), arithmetic expressions are merged by the parser whenever possible into a minimum number of function calls and therefore run somewhat faster because most of the arithmetic functions such as </a>plus, difference, times, and quotient can accept a variable number of arguments. </p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079821">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079823"><font size="2" face="'Courier New'" color="#000000">multilineString</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079825">Allows SKILL strings inside double quotes to be spanned on several lines.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079827">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079829"><font size="2" face="'Courier New'" color="#000000">saveInlineDoc</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079831">When a SKILL function has inline documentation, allows the documentation string to be stored in function symbol property.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079833">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079837"><font size="2" face="'Courier New'" color="#000000">optimizeTailCall</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079839">If </a><font size="2" face="'Courier New'" color="#000000">t</font>, sets the tail call recursion to on, which prevents runtime stack overflow when a function is called recursively. </p>
+            <p><a name="1079840">This works only in Scheme mode (</a><font size="2" face="'Courier New'" color="#000000">toplevel &#39;ils</font>).</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079842">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079846"><font size="2" face="'Courier New'" color="#000000">printinfix</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079848">Printing of arithmetic expressions and function calls in </a>infix notation is turned off (on) if the second argument is nil (t).</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079850">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079852"><font size="2" face="'Courier New'" color="#000000">printPretty</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079854">If </a><font size="2" face="'Courier New'" color="#000000">t</font>, causes <font size="2" face="'Courier New'" color="#000000">printself</font> method to be called when printing standard objects. If set to <font size="2" face="'Courier New'" color="#000000">nil</font>, then <font size="2" face="'Courier New'" color="#000000">printself</font> method is not called and standard objects are printed as <font size="2" face="'Courier New'" color="#000000">stdobj@0x12345678</font>.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079856">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079858"><font size="2" face="'Courier New'" color="#000000">pprintresult</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079860"><font size="2" face="'Courier New'" color="#000000">If </font></a><font size="2" face="'Courier New'" color="#000000">t</font><font size="2" face="'Courier New'" color="#000000">, causes SKILL I&#47;O APIs to print lists with alignment and indentation (for example, print 5 elements per line)</font></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079862">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">t</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079864"><font size="2" face="'Courier New'" color="#000000">keepNLInString</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1082787">When set to </a><font size="2" face="'Courier New'" color="#000000">nil</font>, newline characters in strings are replaced with spaces. When set to <font size="2" face="'Courier New'" color="#000000">t</font>, the newline characters are retained as they are. </p>
+            <p><a name="1082789">This option is applicable only if </a><font size="2" face="'Courier New'" color="#000000">status(multilineString)</font> is <font size="2" face="'Courier New'" color="#000000">t</font> and the parsed string is inside a SKILL expression. </p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079868">&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079872"><font size="2" face="'Courier New'" color="#000000">writeProtect</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079874">When on, all functions being defined have their write protection set to </a>t so they cannot be redefined. </p>
+            <p><a name="1079875">When off, all functions being defined for the first time are not write&#45;protected and thus can be redefined. When developing SKILL code, be sure this switch is set to off.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079877">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079879"><font size="2" face="'Courier New'" color="#000000">savePcreData</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079881">When set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, all <font size="2" face="'Courier New'" color="#000000">pcre</font> compiled objects are saved to context. After the context is loaded these objects are restored.</p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="1079882"><font size="2" face="'Courier New'" color="#000000">savePcreData</font></a> can cause context incompatibility with previous versions of SKILL.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079884">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079888"><font size="2" face="'Courier New'" color="#000000">stacktraceDump</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079890">Prints the local variables when an error occurs if </a>sstatus( stacktrace t) is set. Toggle on&#47;off with t &#47; nil.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079892">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079896"><font size="2" face="'Courier New'" color="#000000">stacktrace</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079898">Prints stack frames every time an error occurs. Toggle on&#47;off with </a>t &#47; nil, or set the number of frames to display.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079900">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">0</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079903"><font size="2" face="'Courier New'" color="#000000">sourceTracing</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079905">If </a><font size="2" face="'Courier New'" color="#000000">t</font>, the debugger will try to print the corresponding source location at stop&#47;breakpoints (as well as in stack tracing). </p>
+            <p><a name="1079906">A file must be loaded in when </a><font size="2" face="'Courier New'" color="#000000">debugMode</font> is set to t in order to get its source line numbers. The source forms printed are truncated to fit on one line. </p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079908">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079910"><font size="2" face="'Courier New'" color="#000000">traceArgs</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079912">If set to non&#45;</a>nil, the system will save the evaluated arguments of function calls, which can then be displayed in the stacktrace. </p>
+            <p><a name="1079913"><br>Setting </a>debugMode or tracing functions (using tracef) will no longer turn on traceArgs automatically. The default behavior is to turn off this switch because it is expensive to keep the evaluated arguments around all the time.</p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="1079914">Turning on this switch could slow down the execution speed significantly.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079916">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079918"><font size="2" face="'Courier New'" color="#000000">traceTEnable</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079920">Allows the use of </a><font size="2" face="'Courier New'" color="#000000">t</font> as an argument to the <font size="2" face="'Courier New'" color="#000000">trace</font>, <font size="2" face="'Courier New'" color="#000000">tracev</font>, and <font size="2" face="'Courier New'" color="#000000">tracep</font> functions.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079922">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079924"><font size="2" face="'Courier New'" color="#000000">tracelength</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079926">Limits the trace output width. If it exceeds the specifed width, ellipsis (...) are printed.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079928">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079930"><font size="2" face="'Courier New'" color="#000000">tracelevel</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079932">Limits the depth of nested trace printing.</a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079934">&nbsp;</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079936"><font size="2" face="'Courier New'" color="#000000">profCount</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079938">If </a><font size="2" face="'Courier New'" color="#000000">t</font>, the SKILL Profiler provides the number of times a SKILL function is called (as an additional column in the table view of the profiler&#39;s result).</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079940">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079942"><font size="2" face="'Courier New'" color="#000000">verboseLoad</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079944">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, prints the complete path of the loaded file in CIW in debug mode.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079946">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079948"><font size="2" face="'Courier New'" color="#000000">verboseNamespace</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079950">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, enables the printing of warnings related to SKILL namespaces.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079952">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079954"><font size="2" face="'Courier New'" color="#000000">showStepResult</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079956">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, prints the expression evaluation results performed by the step command in CIW. If SKILL IDE is also running, a new assistant window is displayed, which also displays the expression evaluation results.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079958">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079960"><font size="2" face="'Courier New'" color="#000000">optimizeNestedLet</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079962">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, instructs the SKILL compiler to parse the code for <font size="2" face="'Courier New'" color="#000000">let</font> constructions (defining local variables and local functions) and expand&#47;remove them by moving their local variables to the top&#45;level function&#39;s local variables section.</p>
+            <p><font color="#000000"><strong>Note: </strong></font><a name="1079963">This variable works only for Scheme functions (for example, </a><font size="2" face="'Courier New'" color="#000000">.ils</font>&#47;<font size="2" face="'Courier New'" color="#000000">.scm</font> files).</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079965">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079967"><font size="2" face="'Courier New'" color="#000000">traceIndent</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079969">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, prints the trace with many &#39;|||||&#39;, that is the old trace style. To print the trace in the new &#39;|[%level]&#39; construction, use the default value (<font size="2" face="'Courier New'" color="#000000">nil</font>).</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079971">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079973"><font size="2" face="'Courier New'" color="#000000">debugMacro</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079975">If set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, the IL compiler sets the lineNumber on the expanded macro code to the lineNumber of the original form.</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079977">&nbsp;&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079995"><font size="2" face="'Courier New'" color="#000000">stackTraceFormat</font></a></p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1080033">Controls the stacktrace output format. It can have three values: </a><font size="2" face="'Courier New'" color="#000000">fullStack</font>, <font size="2" face="'Courier New'" color="#000000">onlyCall</font>, and <font size="2" face="'Courier New'" color="#000000">onlyTop</font>. </p>
+            <p><a name="1080034"><font size="2" face="'Courier New'" color="#000000">fullStack</font></a> prints the complete set of SKILL stack frames. </p>
+            <p><a name="1080035"><font size="2" face="'Courier New'" color="#000000">onlyCall</font></a> suppresses the printing of non&#45;function frames in the output.</p>
+            <p><a name="1079997"><font size="2" face="'Courier New'" color="#000000">onlyTop</font></a> suppresses the printing of non&#45;function frames except for the top most function frame</p>
+          </td>
+          <td cellpadding="0" valign="top">
+            <p><a name="1079999">&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">fullStac</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="0" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1079979"><font size="2" face="'Courier New'" color="#000000">scopedMacros</font></a> </p>
+          </td>
+          <td cellpadding="0" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1080074">Identifies the scope of the macros and controls how the macros are expanded when processing the Scheme function body. </a></p>
+            <p><a name="1079984">If this switch is set to </a><font size="2" face="'Courier New'" color="#000000">t</font>, the scope is checked before expanding <font size="2" face="'Courier New'" color="#000000">MACRO&#47;ALIAS: FUN(ARGS)</font>. If the function is found in local scope (in Scheme environment), the <font size="2" face="'Courier New'" color="#000000">MACRO&#47;ALIAS</font> is not expanded to prevent it from calling a <font size="2" face="'Courier New'" color="#000000">GLOBAL</font> function.</p>
+          </td>
+          <td cellpadding="0" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1079986">&nbsp;&nbsp;</a><font size="2" face="'Courier New'" color="#000000">nil</font></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040226">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073206"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073208">Name of internal system variable.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073210"><font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073212">New value for internal system variable, usually </a><font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040229">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073223"><font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073225">The second argument to </a><font size="2" face="'Courier New'" color="#000000">sstatus</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040231">Example 1</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040232">sstatus( debugMode t )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <p><a name="1040233">Turns on debug mode.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040234">sstatus( integermode t )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <p><a name="1040235">Turns on integer mode.</a></p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040236">sstatus( stacktraceDump t)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; t</a></font>
+      </p>
+      <p><a name="1040237">Prints the local variables when an error occurs if<br></a><font size="2" face="'Courier New'" color="#000000">sstatus( stacktrace t)</font> is set.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040238">sstatus( stacktrace 6 )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&#62; 6</a></font>
+      </p>
+      <p><a name="1040239">Prints the first six stack frames every time an error occurs.</a></p>
+      <h4><a name="1055595">Example 2</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055681"><br>defun factorial (n) (if (n== 0) 1 (n*factorial(n&#45;1]</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055682">=&#62;factorial</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055683">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055769">(trace factorial);value of the traceIndent variable is nil, which is the default value</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055684">=&#62;(factorial)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055688">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055762">(factorial 10)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055689">|[1]factorial(10)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055690">|[2]factorial(9)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055691">|[3]factorial(8)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055692">|[4]factorial(7)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055693">|[5]factorial(6)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055694">|[6]factorial(5)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055695">|[7]factorial(4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055696">|[8]factorial(3)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055697">|[9]factorial(2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055698">|[10]factorial(1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055699">|[11]factorial(0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055700">|[11]factorial &#45;&#45;&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055701">|[10]factorial &#45;&#45;&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055702">|[9]factorial &#45;&#45;&#62; 2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055703">|[8]factorial &#45;&#45;&#62; 6</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055704">|[7]factorial &#45;&#45;&#62; 24</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055705">|[6]factorial &#45;&#45;&#62; 120</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055706">|[5]factorial &#45;&#45;&#62; 720</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055707">|[4]factorial &#45;&#45;&#62; 5040</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055708">|[3]factorial &#45;&#45;&#62; 40320</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055709">|[2]factorial &#45;&#45;&#62; 362880</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055710">|[1]factorial &#45;&#45;&#62; 3628800</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055711">3628800</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055712">&nbsp;</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055714">(sstatus traceIndent t)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055715">t</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055716">(factorial 10)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055717">|factorial(10)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055718">||factorial(9)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055719">|||factorial(8)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055720">||||factorial(7)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055721">|||||factorial(6)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055722">||||||factorial(5)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055723">|||||||factorial(4)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055724">||||||||factorial(3)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055725">|||||||||factorial(2)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055726">||||||||||factorial(1)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055727">|||||||||||factorial(0)</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055728">|||||||||||factorial &#45;&#45;&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055729">||||||||||factorial &#45;&#45;&#62; 1</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055730">|||||||||factorial &#45;&#45;&#62; 2</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055731">||||||||factorial &#45;&#45;&#62; 6</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055732">|||||||factorial &#45;&#45;&#62; 24</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055733">||||||factorial &#45;&#45;&#62; 120</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055734">|||||factorial &#45;&#45;&#62; 720</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055735">||||factorial &#45;&#45;&#62; 5040</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055736">|||factorial &#45;&#45;&#62; 40320</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055737">||factorial &#45;&#45;&#62; 362880</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055738">|factorial &#45;&#45;&#62; 3628800</a></font>
+      </p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1055596">3628800<br></a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=status
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="status"></a><a name="1055598">status</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040426">status( <dd></a><font color="#000000"><em>s_name</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font></font>
+      </dl>
+      <h4><a name="1040427">Description</a></h4>
+      <p><a name="1040429">Returns the value of the internal system variable named. This </a><font size="2" face="'Courier New'" color="#000000">nlambda</font> function also works in SKILL++ mode.</p>
+      <p><a name="1040431">See the </a><font size="2" face="'Courier New'" color="#000000">sstatus</font> function for a list of the <a href="#1039940" title="12"><font color="#0000ff"><u>Internal System Variables</u></font></a>.</p>
+      <h4><a name="1040432">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073233"><font size="2" face="'Courier New'" color="#000000"><em>s_name</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073235">Name of internal system variable.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040434">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073242"><font size="2" face="'Courier New'" color="#000000"><em>g_switchValue</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073244">Status of the internal system variable, usually either </a><font size="2" face="'Courier New'" color="#000000">t</font> or <font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040436">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040437">status( debugMode ) =&#62; t</a></font>
+      </p>
+      <p><a name="1040438">Checks the status of </a><font size="2" face="'Courier New'" color="#000000">debugMode</font> and returns <font size="2" face="'Courier New'" color="#000000">t</font> if <font size="2" face="'Courier New'" color="#000000">debugMode</font> is on.</p>
+      <p><a name="1040439">The </a><font size="2" face="'Courier New'" color="#000000">status</font> function gets a switch. The <font size="2" face="'Courier New'" color="#000000">sstatus</font> function sets a switch.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040440">status debugMode&nbsp;&nbsp;&nbsp;&nbsp;; read the current value of the switch<br>=&#62; nil<br>sstatus debugMode t&nbsp;; set the value of the switch to new value<br>=&#62; t<br>status debugMode<br>=&#62; t</a></font>
+      </p>
+      <p><a name="1040410">&nbsp;</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=theEnvironment
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="theEnvironment"></a><a name="1040516">theEnvironment</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1040519">theEnvironment( <dd>[ </a><font size="2" face="'Courier New'" color="#000000"><em>u_funobj</em></font> ] <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000"><em>e_environment</em></font> &#47; <font size="2" face="'Courier New'" color="#000000">nil</font> </font>
+      </dl>
+      <h4><a name="1040520">Description</a></h4>
+      <p><a name="1040523">(SKILL++ mode only) Returns the top level environment if called from a SKILL++ top&#45;level. Returns the enclosing lexical environment if called within a SKILL++ function. Returns the associated environment if passed a SKILL++ function object. Otherwise returns </a><font size="2" face="'Courier New'" color="#000000">nil</font>.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040524">In SKILL++, there is a unique top&#45;level environment that implicitly encloses all other local environments. If you do not pass the optional argument, when you call </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font> from a SKILL++ top&#45;level, <font size="2" face="'Courier New'" color="#000000">theEnvironment</font> returns this environment. The <font size="2" face="'Courier New'" color="#000000">schemeTopLevelEnv</font> function also returns this environment.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040525">If you call </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font> from within a SKILL++ function and if you do not pass the optional argument, <font size="2" face="'Courier New'" color="#000000">theEnvironment</font> returns the enclosing lexical environment.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040526">If you are in debug mode, you can pass a closure to </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font>. A <font color="#000000"><em>closure</em></font> is another term for a function object returned by evaluating a SKILL++ <font size="2" face="'Courier New'" color="#000000">lambda</font> expression which abstractly, consists of two parts: </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040527">The code for the </a><font size="2" face="'Courier New'" color="#000000">lambda</font> expression.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040528">The environment in which the free variables in the body are bound when the </a><font size="2" face="'Courier New'" color="#000000">lambda</font> expression is evaluated.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1040529">If you call </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font> from a SKILL function and do not pass a <font color="#000000"><em>closure</em></font>, then <font size="2" face="'Courier New'" color="#000000">theEnvironment</font> function returns <font size="2" face="'Courier New'" color="#000000">nil</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1040530">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073259"><font size="2" face="'Courier New'" color="#000000"><em>u_funobj</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073261">Optional argument. Should be a SKILL++ closure.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040532">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073268"><font size="2" face="'Courier New'" color="#000000">nil</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073270">Returned when called from a SKILL function and you do not pass a SKILL++ closure as the optional argument.</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073272"><font size="2" face="'Courier New'" color="#000000"><em>e_environment</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top">
+            <p><a name="1073274">Either the top&#45;level environment, or the enclosing environment, or the closure's environment.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1040535">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040536">Z = let( ( x ) <br>&nbsp;&nbsp;&nbsp;&nbsp;x = 3 <br>&nbsp;&nbsp;&nbsp;&nbsp;theEnvironment() <br>&nbsp;&nbsp;&nbsp;&nbsp;) ; let<br>=&#62; envobj:0x1e0060</a></font>
+      </p>
+      <p><a name="1040537">Returns the environment that the </a><font size="2" face="'Courier New'" color="#000000">let</font> expression establishes. The value of <font size="2" face="'Courier New'" color="#000000">Z</font> is an environment in which <font size="2" face="'Courier New'" color="#000000">x</font> is bound to 3. Each time you execute the above expression, it returns a different environment object, as you can tell by observing the print representation.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040538">Z = let( (( x theEnvironment()))<br>&nbsp;&nbsp;&nbsp;&nbsp;x<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>=&#62; envobj:0x2fc018<br>eq( schemeTopLevelEnv() Z ) =&#62; t </a></font>
+      </p>
+      <p><a name="1040539">Uses </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font> to illustrate that the variable initialization expressions in a <font size="2" face="'Courier New'" color="#000000">let</font> expression refer to the enclosing environment.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040540">V = letrec( (( x theEnvironment()))<br>&nbsp;&nbsp;&nbsp;&nbsp;x<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>=&#62; envobj:0x33506c<br>eq( schemeTopLevelEnv() V ) =&#62; nil<br>eq( V~&#62;x V ) =&#62; t</a></font>
+      </p>
+      <p><a name="1040541">Uses </a><font size="2" face="'Courier New'" color="#000000">theEnvironment</font> to illustrate that the variable initialization expressions in a <font size="2" face="'Courier New'" color="#000000">letrec</font> expression refers to the <font size="2" face="'Courier New'" color="#000000">letrec</font>'s environment.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040542">W = let( (( r 3 ) ( y 4 ))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let( (( z 5 ) ( v 6 ))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theEnvironment()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; let<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; let<br>=&#62; envobj:0x456030c<br>W~&#62;r =&#62; 3<br>W~&#62;z =&#62; 5<br>W~&#62;?? =&#62; ((z(5) (v 6)) ((r 3) y(4)))</a></font>
+      </p>
+      <p><a name="1040543">Returns the environment that the nested </a><font size="2" face="'Courier New'" color="#000000">let</font> expressions establish. Notice that assigning it to the top&#45;level variable W makes it persistent.</p>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1040544">Q = letrec( <br>&nbsp;&nbsp;&nbsp;&nbsp;( ;; begin locals<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( X 6 )<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( self <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lambda( ( ) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theEnvironment() <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; lambda<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ; self<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ;;; end of locals<br>&nbsp;&nbsp;&nbsp;&nbsp;self <br>&nbsp;&nbsp;&nbsp;&nbsp;) ; letrec <br>=&#62; funobj:0x1e38b8<br>Q() =&#62; envobj:0x1e00e4<br>theEnvironment( Q ) =&#62; envobj:0x1e00e4 ;in debug mode only</a></font>
+      </p>
+      <p><a name="1040545">Returns a function object which, in turn, returns its local environment.</a></p>
+<!-- [TOPIC_END] -->
+
+      <!-- [TOPIC_START_OPEN]type=cmdref
+
+[TOPIC_START_ATTR]text=unbindVar
+
+[TOPIC_START_ATTR]description=
+
+[TOPIC_START_ATTR]keyword=
+
+[TOPIC_START_CLOSE] -->
+
+      <h3><a name="unbindVar"></a><a name="1066575">unbindVar</a></h3>
+      <dl>
+        <font size="2" face="'Courier New'" color="#000000"><a name="1066578">unbindVar( <dd>s</a><font size="2" face="'Courier New'" color="#000000"><em>_varName</em></font> <dd>) <dd>=&#62; <font size="2" face="'Courier New'" color="#000000">t</font> </font>
+      </dl>
+      <h4><a name="1066579">Description</a></h4>
+      <p><a name="1066581">Resets a SKILL or Scheme variable so that its value becomes unbound..</a></p>
+      <h4><a name="1066588">Arguments</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073282"><font size="2" face="'Courier New'" color="#000000"><em>s_varName</em></font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073284">The name of a variable.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066590">Value Returned</a></h4>
+      <table summary="" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF" width="648">
+        <tr>
+          <td cellpadding="4" border="0" valign="top" width="180">
+            <p><a name="1073291"><font size="2" face="'Courier New'" color="#000000">t</font></a></p>
+          </td>
+          <td cellpadding="4" border="0" valign="top" width="468">
+            <p><a name="1073293">The variable is not bound anymore.</a></p>
+          </td>
+        </tr>
+      </table>
+      <h4><a name="1066593">Example</a></h4>
+      <p>
+        <font size="2" face="&quot;Courier New&quot;" color="#000000"><a name="1066698">myVar = 42 <br>unbindVar(myVar) <br>boundp(&#39;myVar) <br>=&#62; nil ; this variable is not bound anymore</a></font>
+      </p>
+<!-- [TOPIC_END] -->
+
+      <p><a name="1077928">&nbsp;</a></p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="sklangrefTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<img src="../support/nav2_index_b.gif" border="0">
+</td>
+
+          <td>
+            <a href="inputoutput.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="funcprog.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="sklangref.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>
