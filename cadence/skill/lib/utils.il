@@ -65,7 +65,7 @@ defun(autoRficTimestamp ()
 
 ;; Function to check if a file exists
 defun(autoRficFileExists (filePath)
-    (isFile(filePath)
+    (isFile(filePath))
 )
 
 ;; Function to create a directory if it doesn't exist
@@ -73,7 +73,7 @@ defun(autoRficEnsureDirectory (dirPath)
     (unless(isDir(dirPath)
         system(sprintf(nil "mkdir -p %s" dirPath))
     )
-    isDir(dirPath)
+    isDir(dirPath))
 )
 
 ;; Function to safely read a file

@@ -1,6 +1,9 @@
 ;; logging.il - Logging system for auto_rfic
 ;; This file contains functions for logging messages at different severity levels
 
+;; Load required dependencies
+load("utils.il")
+
 ;; Define the logging namespace
 autoRficLogging = list(nil)
 
