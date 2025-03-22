@@ -1,42 +1,33 @@
 ;; generator.il - Schematic generation functions for auto_rfic
 ;; This file contains functions for generating schematics from templates and specifications
 
-;; Define the generator namespace
-autoRficGenerator = list(nil)
+;; Initialize the generator namespace
+unless(boundp('autoRficGenerator)
+    autoRficGenerator = makeTable("generator" nil)
+)
 
 ;; Function to generate a schematic from a template
-procedure(autoRficGenerateSchematic(templateName cellName @optional params)
-  let((template paramDefs mergedParams library)
-    ;; Get the template
-    template = autoRficGetTemplate(templateName)
-    unless(template
-      autoRficLogError(sprintf(nil "Template not found: %s" templateName))
-      return(nil)
+procedure(autoRficGenerateSchematic(template params)
+    let((templateName templateFunc result)
+        ;; Get template function
+        when(tablep(template)
+            templateFunc = getq(template 'func)
+            templateName = getq(template 'name)
+            
+            if(procedurep(templateFunc) then
+                autoRficLogInfo(sprintf(nil "Generating schematic from template: %L" templateName))
+                result = apply(templateFunc list(params))
+                unless(result
+                    autoRficLogError(sprintf(nil "Failed to generate schematic from template: %L" templateName))
+                )
+            else
+                autoRficLogError("Invalid template function")
+            )
+        else
+            autoRficLogError("Invalid template object")
+        )
+        result
     )
-    
-    ;; Get parameter definitions
-    paramDefs = template->params
-    
-    ;; Use default design library if not specified
-    library = autoRficGetParameter('designLibrary "auto_rfic_designs")
-    
-    ;; Create default parameters
-    mergedParams = list(
-      'library library
-      'cell cellName
-    )
-    
-    ;; Merge with provided parameters
-    when(boundp('params)
-      foreach(param params
-        mergedParams = append(mergedParams list(car(param) cadr(param)))
-      )
-    )
-    
-    ;; Instantiate the template
-    autoRficLogInfo(sprintf(nil "Generating schematic %s using template %s" cellName templateName))
-    autoRficInstantiateTemplate(templateName mergedParams)
-  )
 )
 
 ;; Function to generate a hierarchical schematic
@@ -166,9 +157,13 @@ procedure(autoRficCreateSymbolFromSchematic(library cellName)
   )
 )
 
+;; Add generator functions to namespace
+when(boundp('autoRficGenerator)
+    autoRficGenerator['generateSchematic] = 'autoRficGenerateSchematic
+)
+
 ;; Add all generator functions to the namespace
 autoRficGenerator = append(autoRficGenerator list(
-  'generateSchematic autoRficGenerateSchematic
   'generateHierarchical autoRficGenerateHierarchicalSchematic
   'createSymbol autoRficCreateSymbolFromSchematic
 ))

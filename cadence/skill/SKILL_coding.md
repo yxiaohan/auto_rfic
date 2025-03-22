@@ -437,3 +437,66 @@ cadence/skill/skill_ref/skdfref/skdfref.xml
    - Check for module availability using boundp()
    - Provide meaningful error messages when dependencies missing
    - Use conditional feature enabling based on available modules
+
+# SKILL Programming Guidelines
+
+## Table and Symbol Handling
+
+### Table Access Patterns
+1. Always check table existence and type before access:
+```skill
+when(and(boundp('tableName) tablep(tableName))
+    // table operations here
+)
+```
+
+2. For accessing table entries:
+- Use `assoc` for association lists: `assoc('keySymbol table)`
+- Use `getq` for symbol-indexed tables: `getq(table 'keySymbol)`
+- Check return values before use
+
+### Symbol Handling
+1. String to symbol conversion:
+```skill
+; Preferred method
+symbolVar = stringToSymbol(stringVar)
+
+; Alternative method for complex cases
+symbolVar = car(parseString(strcat("(" stringVar ")")))
+```
+
+2. Always validate symbol type:
+```skill
+unless(symbolp(var)
+    error("Invalid symbol")
+)
+```
+
+## Best Practices
+
+### Error Handling
+1. Use proper error logging with descriptive messages
+2. Check return values of table operations
+3. Provide meaningful error context:
+```skill
+sprintf(nil "Template not found: %L" templateName)
+```
+
+### Function Parameters
+1. Document parameter types and requirements
+2. Validate input types before use
+3. Use descriptive parameter names
+
+### Table Initialization
+1. Initialize tables with meaningful names:
+```skill
+tableVar = makeTable("tableName" nil)
+```
+
+2. Use symbol keys for better performance and reliability
+
+### Code Organization
+1. Group related functions together
+2. Document dependencies
+3. Initialize all required variables/tables
+4. Use proper namespacing to avoid conflicts

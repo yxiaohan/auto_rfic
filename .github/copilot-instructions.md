@@ -9,10 +9,10 @@ You can update and take notes of (cadence/skill/SKILL_coding.md) as a coding gui
 
 ## Working Examples
 
-There are SKILL scripts should work, which can be taken as references:
-cadence/skill/examples/SKILL/utils/
-cadence/skill/examples/skill2/
-cadence/skillbridge/skillbridge/server/python_server.il
+There are SKILL scripts should work, which can be taken as references (Do NOT change them):
+- cadence/skill/examples/SKILL/utils/
+- cadence/skill/examples/skill2/
+- cadence/skillbridge/skillbridge/server/python_server.il
 
 ## Documentation References
 

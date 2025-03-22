@@ -18,25 +18,35 @@ unless(boundp('autoRficTemplateRegistry)
 
 ;; Function to register a new template
 defun(autoRficRegisterTemplate (templateName templateFunc paramDefs)
-    let((templateInfo templateSymbol success)
+    let((templateSymbol templateInfo success)
         success = nil
         
-        ;; Ensure templateName is a symbol
-        templateSymbol = if(stringp(templateName)
-                           car(parseString(strcat("(" templateName ")")))
-                           templateName)
+        ;; Convert template name to symbol and validate
+        templateSymbol = cond(
+            (symbolp(templateName) templateName)
+            (stringp(templateName) stringToSymbol(templateName))
+            (t nil)
+        )
         
-        when(templateSymbol
-            ;; Create template info table
-            templateInfo = makeTable("templateInfo")
+        unless(templateSymbol
+            autoRficLogError(sprintf(nil "Invalid template name type: %L" templateName))
+            return(nil)
+        )
+        
+        ;; Create template info table with proper symbol keys
+        templateInfo = makeTable("templateInfo" nil)
+        when(templateInfo
             templateInfo['func] = templateFunc
             templateInfo['params] = paramDefs
             
-            ;; Store in registry using symbol key
-            autoRficTemplateRegistry[templateSymbol] = templateInfo
-            
-            autoRficLogInfo(sprintf(nil "Registered template: %L" templateSymbol))
-            success = t
+            ;; Store in registry using proper symbol handling
+            when(and(boundp('autoRficTemplateRegistry) tablep(autoRficTemplateRegistry))
+                autoRficTemplateRegistry[templateSymbol] = templateInfo
+                autoRficLogInfo(sprintf(nil "Registered template: %L" templateSymbol))
+                success = t
+            else
+                autoRficLogError("Template registry not properly initialized")
+            )
         )
         success
     )
@@ -44,10 +54,28 @@ defun(autoRficRegisterTemplate (templateName templateFunc paramDefs)
 
 ;; Function to get a template by name
 defun(autoRficGetTemplate (templateName)
-    let((template)
-        template = get(autoRficTemplateRegistry templateName)
-        unless(template
-            autoRficLogError(sprintf(nil "Template not found: %L" templateName))
+    let((template templateSymbol)
+        ;; Convert string to symbol if needed
+        when(stringp(templateName)
+            templateSymbol = stringToSymbol(templateName)
+        else
+            templateSymbol = templateName
+        )
+        
+        unless(symbolp(templateSymbol)
+            autoRficLogError(sprintf(nil "Invalid template name: %L - must be symbol or string" templateName))
+            return(nil)
+        )
+        
+        ;; In SKILL, when accessing table entries, ensure the table itself exists and is a table
+        when(and(boundp('autoRficTemplateRegistry) tablep(autoRficTemplateRegistry))
+            template = get(autoRficTemplateRegistry templateSymbol)
+            unless(template
+                autoRficLogError(sprintf(nil "Template not found: %L" templateSymbol))
+            )
+        else
+            autoRficLogError("Template registry not initialized properly")
+            template = nil
         )
         template
     )
@@ -60,20 +88,41 @@ defun(autoRficListTemplates ()
 
 ;; Function to instantiate a template with parameters
 defun(autoRficInstantiateTemplate (templateName params)
-    let((template templateFunc)
-        template = autoRficGetTemplate(templateName)
-        if(template
-            prog(()
-                templateFunc = template['func]
-                if(procedurep(templateFunc)
-                    templateFunc(params)
-                    autoRficLogError(sprintf(nil "Template function for %s is not a procedure" templateName))
+    let((template templateFunc templateSymbol)
+        ;; Convert template name to symbol and validate
+        templateSymbol = cond(
+            (symbolp(templateName) templateName)
+            (stringp(templateName) stringToSymbol(templateName))
+            (t nil)
+        )
+
+        unless(templateSymbol
+            autoRficLogError(sprintf(nil "Invalid template name type: %L" templateName))
+            return(nil)
+        )
+
+        ;; Get template using proper symbol handling
+        template = when(and(boundp('autoRficTemplateRegistry) tablep(autoRficTemplateRegistry))
+            getq(autoRficTemplateRegistry templateSymbol)
+        )
+
+        if(template then
+            ;; Get function using proper table access
+            if(tablep(template) then
+                templateFunc = getq(template 'func)
+                if(procedurep(templateFunc) then
+                    apply(templateFunc list(params))
+                else
+                    autoRficLogError(sprintf(nil "Invalid template function for %L" templateSymbol))
+                    nil
                 )
-            )
-            prog(()
-                autoRficLogError(sprintf(nil "Template not found: %s" templateName))
+            else
+                autoRficLogError(sprintf(nil "Invalid template data structure for %L" templateSymbol))
                 nil
             )
+        else
+            autoRficLogError(sprintf(nil "Template not found: %L" templateSymbol))
+            nil
         )
     )
 )
@@ -226,43 +275,43 @@ procedure(autoRficMixerTemplate(params)
 )
 
 ;; Register the built-in templates
-let((result)
-    result = autoRficRegisterTemplate(
-        "LNA"
-        'autoRficLnaTemplate
-        list(
-            list("library" "string" "Required library name")
-            list("cell" "string" "Required cell name")
-            list("width" "float" "Transistor width in um")
-            list("length" "float" "Transistor length in um")
-            list("fingers" "int" "Number of fingers")
-            list("inductance" "float" "Load inductance in nH")
-        )
+let((result templateInfo)
+    ;; First template
+    templateInfo = makeTable("LNATemplate" nil)
+    templateInfo['func] = 'autoRficLnaTemplate
+    templateInfo['params] = list(
+        list('library "string" "Required library name")
+        list('cell "string" "Required cell name")
+        list('width "float" "Transistor width in um")
+        list('length "float" "Transistor length in um")
+        list('fingers "int" "Number of fingers")
+        list('inductance "float" "Load inductance in nH")
     )
-    unless(result
-        autoRficLogError("Failed to register LNA template")
+    when(tablep(autoRficTemplateRegistry)
+        autoRficTemplateRegistry['LNA] = templateInfo
     )
 
-    result = autoRficRegisterTemplate(
-        "Mixer"
-        'autoRficMixerTemplate
-        list(
-            list("library" "string" "Required library name")
-            list("cell" "string" "Required cell name")
-            list("width" "float" "Transistor width in um")
-            list("length" "float" "Transistor length in um")
-        )
+    ;; Second template
+    templateInfo = makeTable("MixerTemplate" nil)
+    templateInfo['func] = 'autoRficMixerTemplate
+    templateInfo['params] = list(
+        list('library "string" "Required library name")
+        list('cell "string" "Required cell name")
+        list('width "float" "Transistor width in um")
+        list('length "float" "Transistor length in um")
     )
-    unless(result
-        autoRficLogError("Failed to register Mixer template")
+    when(tablep(autoRficTemplateRegistry)
+        autoRficTemplateRegistry['Mixer] = templateInfo
     )
 )
 
-;; Add all template functions to the namespace
-autoRficTemplates['register] = 'autoRficRegisterTemplate
-autoRficTemplates['get] = 'autoRficGetTemplate
-autoRficTemplates['list] = 'autoRficListTemplates
-autoRficTemplates['instantiate] = 'autoRficInstantiateTemplate
+;; Add template functions to namespace with proper symbol handling
+when(and(boundp('autoRficTemplates) tablep(autoRficTemplates))
+    autoRficTemplates['register] = 'autoRficRegisterTemplate
+    autoRficTemplates['get] = 'autoRficGetTemplate
+    autoRficTemplates['list] = 'autoRficListTemplates
+    autoRficTemplates['instantiate] = 'autoRficInstantiateTemplate
+)
 
 ;; Export the templates namespace
 autoRficTemplates
