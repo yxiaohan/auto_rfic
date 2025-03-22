@@ -104,6 +104,23 @@ defun(autoRficParameterForm (title paramList @optional (callback nil))
     )
 )
 
+;; GUI refresh trigger function
+procedure(autoRficGuiRefreshTrigger(cellView)
+  let((cellName viewName libName)
+    when(cellView
+      cellName = dbGetCellName(cellView)
+      viewName = dbGetViewName(cellView)
+      libName = dbGetLibName(cellView)
+      
+      autoRficLogInfo(sprintf(nil "GUI refreshed for: %s %s %s" libName cellName viewName))
+      
+      ;; Perform any GUI refresh actions here
+      ;; For example, update custom overlays or highlighting
+    )
+    t
+  )
+)
+
 ;; Add all GUI functions to the namespace
 autoRficGui['showMessage] = 'autoRficShowMessage
 autoRficGui['confirmDialog] = 'autoRficConfirmDialog

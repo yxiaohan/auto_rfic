@@ -246,27 +246,8 @@ procedure(autoRficGenerateLvsReport(lvsResults @optional (reportFile "lvs_report
   )
 )
 
-;; Function to extract parasitics
-procedure(autoRficExtractParasitics(layout @optional (extractionLevel "detailed"))
-  let((extractionResults)
-    autoRficLogInfo(sprintf(nil "Extracting parasitics with level: %s" extractionLevel))
-    
-    ;; Save the layout before extracting parasitics
-    dbSave(layout)
-    
-    ;; Extract parasitics (this is a placeholder - actual implementation would use Cadence API)
-    ;; In a real implementation, this would call the appropriate Cadence parasitic extraction function
-    extractionResults = envSetVal("extractionResults" 'string 
-      sprintf(nil "extractParasitics(\"%s\" \"%s\")" 
-        dbGetCellName(layout) 
-        extractionLevel
-      )
-    )
-    
-    autoRficLogInfo("Parasitic extraction completed")
-    extractionResults
-  )
-)
+;; Function to extract parasitics - moved to parasitic.il
+;; See autoRficExtractParasitics in parasitic.il for implementation
 
 ;; Function to check extraction results
 procedure(autoRficCheckExtractionResults(extractionResults)

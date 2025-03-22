@@ -51,6 +51,31 @@ defun(autoRficIsDatabaseOpen (cv)
     )
 )
 
+;; Database save trigger function
+procedure(autoRficDbSaveTrigger(cellView)
+  let((cellName viewName libName)
+    when(cellView
+      cellName = dbGetCellName(cellView)
+      viewName = dbGetViewName(cellView)
+      libName = dbGetLibName(cellView)
+      
+      autoRficLogInfo(sprintf(nil "Cell saved: %s %s %s" libName cellName viewName))
+      
+      ;; Perform any post-save actions here
+      ;; For example, run DRC after save
+      when(viewName == "layout" && autoRficGetParameter('runDrcAfterSave nil)
+        when(boundp('autoRficDrc)
+          when(get(autoRficDrc 'runDrc)
+            autoRficLogInfo("Running DRC after save")
+            funcall(get(autoRficDrc 'runDrc) cellView)
+          )
+        )
+      )
+    )
+    t
+  )
+)
+
 ;; Add all database functions to the namespace
 autoRficDb['loadDatabase] = 'autoRficLoadDatabase
 autoRficDb['saveDatabase] = 'autoRficSaveDatabase

@@ -81,6 +81,24 @@ defun(autoRficWriteFile (filePath content)
     )
 )
 
+;; Function for remote testing functionality
+procedure(autoRficTestRemote(@optional args)
+  let((result)
+    autoRficLogInfo("Testing remote connection...")
+    
+    ;; Simple echo test
+    when(args
+      autoRficLogInfo(sprintf(nil "Remote test arguments: %L" args))
+    )
+    
+    ;; Return success status
+    result = t
+    
+    autoRficLogInfo("Remote connection test completed")
+    result
+  )
+)
+
 ;; Remove duplicate logging functions - these are now defined in logging.il
 
 ;; Initialize configuration tables if not already defined

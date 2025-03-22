@@ -123,7 +123,7 @@ procedure(autoRficInit()
         
         ;; Setup core systems
         dbRegSaveTrigger('autoRficDbSaveTrigger)
-        geRegRefreshTrigger('autoRficGuiRefreshTrigger)
+        dbRegRefreshTrigger('autoRficGuiRefreshTrigger)
         CCSCreateAlias("testRemote" 'autoRficTestRemote)
         
         result = t
