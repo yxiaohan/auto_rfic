@@ -28,6 +28,36 @@
      load("./analyses.il")
      ```
 
+## SKILL Block Structure and Scoping
+1. **Let Block Usage**
+   - Each let block creates a new scope for its variables
+   - Declare all variables at block start, even if used later
+   - Example:
+     ```lisp
+     let((state result)  ;; declare all variables upfront
+         state = doSomething()
+         unless(state return(nil))
+         result = processState(state)
+     )
+     ```
+
+2. **State and Resource Management**
+   - Create state objects before resource cleanup
+   - Use nested let blocks to manage complex state transitions
+   - Always cleanup resources in reverse order of creation
+   - Example:
+     ```lisp
+     let((state)
+         state = createState(resource)
+         unless(state
+             return(nil)
+         )
+         ;; Save and cleanup after state use
+         save(resource)
+         cleanup(resource)
+     )
+     ```
+
 # SKILL Programming Style Guide
 
 ## File Organization
