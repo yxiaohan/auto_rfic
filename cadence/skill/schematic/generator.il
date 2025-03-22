@@ -157,16 +157,12 @@ procedure(autoRficCreateSymbolFromSchematic(library cellName)
   )
 )
 
-;; Add generator functions to namespace
+;; Add generator functions to namespace with proper symbol handling
 when(boundp('autoRficGenerator)
     autoRficGenerator['generateSchematic] = 'autoRficGenerateSchematic
+    autoRficGenerator['generateHierarchical] = 'autoRficGenerateHierarchicalSchematic
+    autoRficGenerator['createSymbol] = 'autoRficCreateSymbolFromSchematic
 )
-
-;; Add all generator functions to the namespace
-autoRficGenerator = append(autoRficGenerator list(
-  'generateHierarchical autoRficGenerateHierarchicalSchematic
-  'createSymbol autoRficCreateSymbolFromSchematic
-))
 
 ;; Export the generator namespace
 autoRficGenerator

@@ -1,68 +1,73 @@
 ;; optimizer.il - Parameter optimization for auto_rfic
 ;; This file contains functions for optimizing schematic parameters
 
-;; Define the optimizer namespace
-autoRficOptimizer = list(nil)
+;; Initialize the optimizer namespace
+unless(boundp('autoRficOptimizer)
+    autoRficOptimizer = makeTable("optimizer" nil)
+)
 
 ;; Function to perform a parameter sweep
-procedure(autoRficSweepParameter(paramName startValue stopValue stepSize evaluationFunc)
-  let((currentValue results bestValue bestResult)
-    autoRficLogInfo(sprintf(nil "Starting parameter sweep for %s from %g to %g with step %g" 
-                           paramName startValue stopValue stepSize))
-    
-    ;; Initialize results
-    results = list()
-    bestResult = -1e9  ; Assuming higher is better
-    bestValue = startValue
-    
-    ;; Create progress bar
-    progressBar = autoRficCreateProgressBar(
-      sprintf(nil "Sweeping %s" paramName)
-      ceiling((stopValue - startValue) / stepSize) + 1
-    )
-    
-    ;; Perform the sweep
-    for(currentValue startValue stopValue stepSize
-      let((result progress)
-        ;; Update progress bar
-        progress = ceiling((currentValue - startValue) / stepSize)
-        autoRficUpdateProgressBar(
-          progressBar
-          progress
-          sprintf(nil "Evaluating %s = %g" paramName currentValue)
+procedure(autoRficSweepParameter(schematic paramName start stop step)
+    let((cv paramType result results currentValue)
+        ;; Get cellview and validate parameter type
+        cv = if(stringp(schematic) then
+            dbOpenCellViewByType(
+                autoRficGetParameter('designLibrary "autoRfic")
+                schematic
+                "schematic"
+                nil
+                "r"
+            )
+            schematic
         )
         
-        ;; Set the parameter value
-        autoRficSetParameter(paramName currentValue)
-        
-        ;; Evaluate the design
-        result = evaluationFunc(paramName currentValue)
-        
-        ;; Store the result
-        results = append(results list(currentValue result))
-        
-        ;; Check if this is the best result so far
-        when(result > bestResult
-          bestResult = result
-          bestValue = currentValue
+        unless(cv
+            autoRficLogError("Invalid schematic")
+            return(nil)
         )
-      )
+        
+        ;; Initialize results table
+        results = makeTable("sweep_results" nil)
+        currentValue = start
+        
+        ;; Store sweep configuration
+        results['paramName] = paramName
+        results['start] = start
+        results['stop] = stop
+        results['step] = step
+        results['values] = list()
+        results['metrics] = list()
+        
+        ;; Perform sweep
+        while(currentValue <= stop
+            ;; Update parameter
+            autoRficLogInfo(sprintf(nil "Sweeping %s = %g" paramName currentValue))
+            
+            ;; Create analysis for current value
+            when(tbCreateTestbench(cv)
+                ;; Set parameter value in testbench
+                let((testbench)
+                    testbench = tbGetTestbench(cv)
+                    tbSetParameter(testbench paramName currentValue)
+                    
+                    ;; Run simulation and collect results
+                    result = tbRunSimulation(testbench)
+                    when(result
+                        ;; Store value and results
+                        results['values] = append(results['values] list(currentValue))
+                        results['metrics] = append(results['metrics] list(result))
+                    )
+                )
+            )
+            
+            ;; Increment value
+            currentValue = currentValue + step
+        )
+        
+        ;; Generate sweep report
+        autoRficLogInfo(sprintf(nil "Parameter sweep complete for %s" paramName))
+        results
     )
-    
-    ;; Close progress bar
-    autoRficCloseProgressBar(progressBar)
-    
-    ;; Log the results
-    autoRficLogInfo(sprintf(nil "Parameter sweep complete. Best value: %s = %g (result: %g)" 
-                           paramName bestValue bestResult))
-    
-    ;; Return the results
-    list(
-      'bestValue bestValue
-      'bestResult bestResult
-      'allResults results
-    )
-  )
 )
 
 ;; Function to perform gradient descent optimization
@@ -253,12 +258,12 @@ procedure(autoRficMonteCarloOptimize(paramNames minValues maxValues evaluationFu
   )
 )
 
-;; Add all optimizer functions to the namespace
-autoRficOptimizer = append(autoRficOptimizer list(
-  'sweepParameter autoRficSweepParameter
-  'gradientOptimize autoRficGradientOptimize
-  'monteCarloOptimize autoRficMonteCarloOptimize
-))
+;; Add optimizer functions to namespace
+when(boundp('autoRficOptimizer)
+    autoRficOptimizer['sweepParameter] = 'autoRficSweepParameter
+    autoRficOptimizer['gradientOptimize] = 'autoRficGradientOptimize
+    autoRficOptimizer['monteCarloOptimize] = 'autoRficMonteCarloOptimize
+)
 
 ;; Export the optimizer namespace
 autoRficOptimizer
