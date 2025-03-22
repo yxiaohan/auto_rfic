@@ -1,8 +1,8 @@
 ;; placement.il - Component placement for auto_rfic
 ;; This file contains functions for placing components in RF layouts
 
-;; Define the placement namespace
-autoRficPlacement = list(nil)
+;; Use the placement namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to place differential pairs symmetrically
 procedure(autoRficPlaceDifferentialPair(layout instNames @optional (centerX nil) (centerY nil))
@@ -396,15 +396,15 @@ procedure(autoRficPlaceRfComponents(layout instNames)
 )
 
 ;; Add all placement functions to the namespace
-autoRficPlacement = append(autoRficPlacement list(
-  'placeDifferentialPair autoRficPlaceDifferentialPair
-  'placeCurrentMirror autoRficPlaceCurrentMirror
-  'placeMatchedComponents autoRficPlaceMatchedComponents
-  'placeCommonCentroid autoRficPlaceCommonCentroid
-  'placeInterdigitated autoRficPlaceInterdigitated
-  'placeCrossCoupled autoRficPlaceCrossCoupled
-  'placeRfComponents autoRficPlaceRfComponents
-))
+when(boundp('autoRficPlacement)
+    autoRficPlacement['placeDifferentialPair] = 'autoRficPlaceDifferentialPair
+    autoRficPlacement['placeCurrentMirror] = 'autoRficPlaceCurrentMirror
+    autoRficPlacement['placeMatchedComponents] = 'autoRficPlaceMatchedComponents
+    autoRficPlacement['placeCommonCentroid] = 'autoRficPlaceCommonCentroid
+    autoRficPlacement['placeInterdigitated] = 'autoRficPlaceInterdigitated
+    autoRficPlacement['placeCrossCoupled] = 'autoRficPlaceCrossCoupled
+    autoRficPlacement['placeRfComponents] = 'autoRficPlaceRfComponents
+)
 
 ;; Export the placement namespace
 autoRficPlacement

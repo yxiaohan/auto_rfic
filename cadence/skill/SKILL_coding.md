@@ -51,19 +51,22 @@
 ## Module Organization
 
 1. **Namespace Management**
-   - Each module should define its own namespace using makeTable
-   - Never use `export` - SKILL doesn't have this function
-   - Export the namespace by making it the last expression in the file
-   Example:
+   - Each module should use the namespace table created in main.il
+   - Never redefine an existing namespace table with a list
+   - Always check if a namespace exists using boundp() before using it
+   - Example:
    ```lisp
-   unless(boundp('autoRficModule)
-       autoRficModule = makeTable("module" nil)
+   ;; DON'T do this in a module file:
+   autoRficModule = list(nil)
+   
+   ;; INSTEAD, use the existing table:
+   ;; (no initialization needed, table already created in main.il)
+   
+   ;; Then, add functions to namespace:
+   when(boundp('autoRficModule)
+       autoRficModule['function1] = 'function1
+       autoRficModule['function2] = 'function2
    )
-   
-   ;; Define functions...
-   
-   ;; Add functions to namespace
-   autoRficModule['function1] = 'function1
    
    ;; Export namespace as last expression
    autoRficModule
@@ -115,18 +118,35 @@
 ## Variable and Namespace Initialization
 
 1. **Table Initialization**
-   - Always initialize tables before use
-   - Use unless(boundp()) to check for existence
+   - Tables should be initialized in the main.il file
+   - Module files should NOT reinitialize namespace tables
+   - Use unless(boundp()) to check for existence before use
    ```lisp
-   unless(boundp('myTable)
-       myTable = makeTable("myTable" nil)
+   ;; In main.il:
+   unless(boundp('myNamespace)
+       myNamespace = makeTable("myNamespace" nil)
    )
+   
+   ;; In module files:
+   ;; DON'T recreate the namespace table
+   ;; Just use the existing one
    ```
 
 2. **Table Access**
    - Use get() for safe table value access
    - Use table index syntax for assignment: table[key] = value
    - Check tablep() before accessing a table
+
+3. **Namespace Handling**
+   - Never overwrite a namespace table with a list
+   - Always check if a namespace exists using boundp() before adding functions
+   - Use when() to safely add functions to a namespace
+   ```lisp
+   ;; Safe namespace function assignment
+   when(boundp('autoRficModule)
+       autoRficModule['functionName] = 'functionSymbol
+   )
+   ```
 
 ## Configuration Management
 
@@ -500,3 +520,45 @@ tableVar = makeTable("tableName" nil)
 2. Document dependencies
 3. Initialize all required variables/tables
 4. Use proper namespacing to avoid conflicts
+
+## Common Namespace Errors
+
+1. **Namespace Redefinition**
+   - **ERROR**: Redefining a namespace table as a list
+   ```lisp
+   autoRficModule = list(nil)  ;; WRONG - overwrites the table
+   ```
+   - **CORRECT**: Use existing namespace table
+   ```lisp
+   when(boundp('autoRficModule)
+       autoRficModule['func] = 'funcSymbol
+   )
+   ```
+
+2. **Unsafe Namespace Additions**
+   - **ERROR**: Adding to namespace without checking existence
+   ```lisp
+   autoRficModule['func] = 'funcSymbol  ;; WRONG - may fail
+   ```
+   - **CORRECT**: Check existence before adding
+   ```lisp
+   when(boundp('autoRficModule)
+       autoRficModule['func] = 'funcSymbol
+   )
+   ```
+
+3. **List-based Namespace Population**
+   - **ERROR**: Using append() to populate a table namespace
+   ```lisp
+   autoRficModule = append(autoRficModule list(
+       'func1 funcSymbol1
+       'func2 funcSymbol2
+   ))  ;; WRONG - treats table as list
+   ```
+   - **CORRECT**: Individual assignments
+   ```lisp
+   when(boundp('autoRficModule)
+       autoRficModule['func1] = 'funcSymbol1
+       autoRficModule['func2] = 'funcSymbol2
+   )
+   ```

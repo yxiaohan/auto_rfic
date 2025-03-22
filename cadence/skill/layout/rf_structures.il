@@ -1,8 +1,8 @@
 ;; rf_structures.il - RF-specific structures for auto_rfic
 ;; This file contains functions for creating RF-specific layout structures
 
-;; Define the RF structures namespace
-autoRficRfStructures = list(nil)
+;; Use the RF structures namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to create a spiral inductor
 procedure(autoRficCreateSpiralInductor(layout centerPoint @optional (inductance 1.0) (numTurns 3.5) (width 5.0) (spacing 2.0))
@@ -501,15 +501,15 @@ procedure(autoRficCreateRfPad(layout centerPoint @optional (width 100.0) (height
 )
 
 ;; Add all RF structure functions to the namespace
-autoRficRfStructures = append(autoRficRfStructures list(
-  'createSpiralInductor autoRficCreateSpiralInductor
-  'createDifferentialInductor autoRficCreateDifferentialInductor
-  'createMomCapacitor autoRficCreateMomCapacitor
-  'createTransmissionLine autoRficCreateTransmissionLine
-  'createBalun autoRficCreateBalun
-  'createGuardRing autoRficCreateGuardRing
-  'createRfPad autoRficCreateRfPad
-))
+when(boundp('autoRficRfStructures)
+    autoRficRfStructures['createSpiralInductor] = 'autoRficCreateSpiralInductor
+    autoRficRfStructures['createDifferentialInductor] = 'autoRficCreateDifferentialInductor
+    autoRficRfStructures['createMomCapacitor] = 'autoRficCreateMomCapacitor
+    autoRficRfStructures['createTransmissionLine] = 'autoRficCreateTransmissionLine
+    autoRficRfStructures['createBalun] = 'autoRficCreateBalun
+    autoRficRfStructures['createGuardRing] = 'autoRficCreateGuardRing
+    autoRficRfStructures['createRfPad] = 'autoRficCreateRfPad
+)
 
 ;; Export the RF structures namespace
 autoRficRfStructures

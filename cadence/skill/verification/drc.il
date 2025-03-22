@@ -1,8 +1,8 @@
 ;; drc.il - Design Rule Check functions for auto_rfic
 ;; This file contains functions for running and analyzing DRC checks
 
-;; Define the DRC namespace
-autoRficDrc = list(nil)
+;; Use the DRC namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to run DRC on a layout
 procedure(autoRficRunDrc(layout @optional (ruleset "default"))
@@ -243,18 +243,18 @@ procedure(autoRficGenerateDrcReport(drcResults @optional (reportFile "drc_report
 )
 
 ;; Add all DRC functions to the namespace
-autoRficDrc = append(autoRficDrc list(
-  'runDrc autoRficRunDrc
-  'isDrcClean autoRficIsDrcClean
-  'getDrcErrorCount autoRficGetDrcErrorCount
-  'getDrcErrorsByType autoRficGetDrcErrorsByType
-  'getDrcErrorsByLayer autoRficGetDrcErrorsByLayer
-  'getDrcErrorsBySeverity autoRficGetDrcErrorsBySeverity
-  'getDrcErrorLocations autoRficGetDrcErrorLocations
-  'highlightDrcErrors autoRficHighlightDrcErrors
-  'fixCommonDrcErrors autoRficFixCommonDrcErrors
-  'generateDrcReport autoRficGenerateDrcReport
-))
+when(boundp('autoRficDrc)
+    autoRficDrc['runDrc] = 'autoRficRunDrc
+    autoRficDrc['isDrcClean] = 'autoRficIsDrcClean
+    autoRficDrc['getDrcErrorCount] = 'autoRficGetDrcErrorCount
+    autoRficDrc['getDrcErrorsByType] = 'autoRficGetDrcErrorsByType
+    autoRficDrc['getDrcErrorsByLayer] = 'autoRficGetDrcErrorsByLayer
+    autoRficDrc['getDrcErrorsBySeverity] = 'autoRficGetDrcErrorsBySeverity
+    autoRficDrc['getDrcErrorLocations] = 'autoRficGetDrcErrorLocations
+    autoRficDrc['highlightDrcErrors] = 'autoRficHighlightDrcErrors
+    autoRficDrc['fixCommonDrcErrors] = 'autoRficFixCommonDrcErrors
+    autoRficDrc['generateDrcReport] = 'autoRficGenerateDrcReport
+)
 
 ;; Export the DRC namespace
 autoRficDrc

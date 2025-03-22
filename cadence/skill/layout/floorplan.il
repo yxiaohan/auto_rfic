@@ -1,8 +1,8 @@
 ;; floorplan.il - Floor planning functions for auto_rfic
 ;; This file contains functions for creating and optimizing layout floorplans
 
-;; Define the floorplan namespace
-autoRficFloorplan = list(nil)
+;; Use the floorplan namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to create a new layout from schematic
 procedure(autoRficCreateLayoutFromSchematic(library cellName)
@@ -346,14 +346,14 @@ procedure(autoRficGenerateLayout(library cellName)
 )
 
 ;; Add all floorplan functions to the namespace
-autoRficFloorplan = append(autoRficFloorplan list(
-  'createLayout autoRficCreateLayoutFromSchematic
-  'estimateDimensions autoRficEstimateLayoutDimensions
-  'createBasic autoRficCreateBasicFloorplan
-  'placeInstances autoRficPlaceInstancesByConnectivity
-  'optimize autoRficOptimizeFloorplan
-  'generate autoRficGenerateLayout
-))
+when(boundp('autoRficFloorplan)
+    autoRficFloorplan['createLayout] = 'autoRficCreateLayoutFromSchematic
+    autoRficFloorplan['estimateDimensions] = 'autoRficEstimateLayoutDimensions
+    autoRficFloorplan['createBasic] = 'autoRficCreateBasicFloorplan
+    autoRficFloorplan['placeInstances] = 'autoRficPlaceInstancesByConnectivity
+    autoRficFloorplan['optimize] = 'autoRficOptimizeFloorplan
+    autoRficFloorplan['generate] = 'autoRficGenerateLayout
+)
 
 ;; Export the floorplan namespace
 autoRficFloorplan

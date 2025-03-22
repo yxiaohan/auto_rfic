@@ -1,8 +1,8 @@
 ;; lvs.il - Layout vs. Schematic functions for auto_rfic
 ;; This file contains functions for running and analyzing LVS checks
 
-;; Define the LVS namespace
-autoRficLvs = list(nil)
+;; Use the LVS namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to run LVS between layout and schematic
 procedure(autoRficRunLvs(layout schematic @optional (runDir "./lvs_run"))
@@ -312,21 +312,21 @@ procedure(autoRficGenerateNetlistWithParasitics(layout extractionResults @option
 )
 
 ;; Add all LVS functions to the namespace
-autoRficLvs = append(autoRficLvs list(
-  'runLvs autoRficRunLvs
-  'isLvsClean autoRficIsLvsClean
-  'getLvsErrorCount autoRficGetLvsErrorCount
-  'getLvsErrorsByType autoRficGetLvsErrorsByType
-  'getMismatchedNets autoRficGetMismatchedNets
-  'getMismatchedDevices autoRficGetMismatchedDevices
-  'highlightLvsErrors autoRficHighlightLvsErrors
-  'highlightLvsErrorsInSchematic autoRficHighlightLvsErrorsInSchematic
-  'fixCommonLvsErrors autoRficFixCommonLvsErrors
-  'generateLvsReport autoRficGenerateLvsReport
-  'extractParasitics autoRficExtractParasitics
-  'checkExtractionResults autoRficCheckExtractionResults
-  'generateNetlistWithParasitics autoRficGenerateNetlistWithParasitics
-))
+when(boundp('autoRficLvs)
+    autoRficLvs['runLvs] = 'autoRficRunLvs
+    autoRficLvs['isLvsClean] = 'autoRficIsLvsClean
+    autoRficLvs['getLvsErrorCount] = 'autoRficGetLvsErrorCount
+    autoRficLvs['getLvsErrorsByType] = 'autoRficGetLvsErrorsByType
+    autoRficLvs['getMismatchedNets] = 'autoRficGetMismatchedNets
+    autoRficLvs['getMismatchedDevices] = 'autoRficGetMismatchedDevices
+    autoRficLvs['highlightLvsErrors] = 'autoRficHighlightLvsErrors
+    autoRficLvs['highlightLvsErrorsInSchematic] = 'autoRficHighlightLvsErrorsInSchematic
+    autoRficLvs['fixCommonLvsErrors] = 'autoRficFixCommonLvsErrors
+    autoRficLvs['generateLvsReport] = 'autoRficGenerateLvsReport
+    autoRficLvs['extractParasitics] = 'autoRficExtractParasitics
+    autoRficLvs['checkExtractionResults] = 'autoRficCheckExtractionResults
+    autoRficLvs['generateNetlistWithParasitics] = 'autoRficGenerateNetlistWithParasitics
+)
 
 ;; Export the LVS namespace
 autoRficLvs

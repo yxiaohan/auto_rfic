@@ -1,8 +1,8 @@
 ;; routing.il - Signal routing for auto_rfic
 ;; This file contains functions for routing signals in RF layouts
 
-;; Define the routing namespace
-autoRficRouting = list(nil)
+;; Use the routing namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to route a net between two points
 procedure(autoRficRouteNet(layout netName startPoint endPoint @optional (width 1.0) (layer "M1"))
@@ -390,17 +390,17 @@ procedure(autoRficRouteAllNets(layout @optional (strategy "performance"))
 )
 
 ;; Add all routing functions to the namespace
-autoRficRouting = append(autoRficRouting list(
-  'routeNet autoRficRouteNet
-  'routeNetWithSegments autoRficRouteNetWithSegments
-  'routeDifferential autoRficRouteDifferential
-  'createVia autoRficCreateVia
-  'routeMultiLayer autoRficRouteMultiLayer
-  'routePowerNets autoRficRoutePowerNets
-  'routeRfSignals autoRficRouteRfSignals
-  'addShielding autoRficAddShielding
-  'routeAllNets autoRficRouteAllNets
-))
+when(boundp('autoRficRouting)
+    autoRficRouting['routeNet] = 'autoRficRouteNet
+    autoRficRouting['routeNetWithSegments] = 'autoRficRouteNetWithSegments
+    autoRficRouting['routeDifferential] = 'autoRficRouteDifferential
+    autoRficRouting['createVia] = 'autoRficCreateVia
+    autoRficRouting['routeMultiLayer] = 'autoRficRouteMultiLayer
+    autoRficRouting['routePowerNets] = 'autoRficRoutePowerNets
+    autoRficRouting['routeRfSignals] = 'autoRficRouteRfSignals
+    autoRficRouting['addShielding] = 'autoRficAddShielding
+    autoRficRouting['routeAllNets] = 'autoRficRouteAllNets
+)
 
 ;; Export the routing namespace
 autoRficRouting

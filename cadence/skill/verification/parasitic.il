@@ -1,8 +1,8 @@
 ;; parasitic.il - Parasitic extraction and analysis for auto_rfic
 ;; This file contains functions for parasitic extraction, analysis, and optimization
 
-;; Define the parasitic namespace
-autoRficParasitic = list(nil)
+;; Use the parasitic namespace table already defined in main.il
+;; (Don't redefine it as a list)
 
 ;; Function to extract parasitics with different levels of detail
 procedure(autoRficExtractParasitics(layout @optional (level "detailed") (outputFile "parasitics.spef"))
@@ -286,17 +286,17 @@ procedure(autoRficAnalyzePowerNetParasitics(layout @optional (level "detailed"))
 )
 
 ;; Add all parasitic functions to the namespace
-autoRficParasitic = append(autoRficParasitic list(
-  'extractParasitics autoRficExtractParasitics
-  'analyzeParasitics autoRficAnalyzeParasitics
-  'getCriticalParasiticNets autoRficGetCriticalParasiticNets
-  'optimizeParasitics autoRficOptimizeParasitics
-  'generateParasiticReport autoRficGenerateParasiticReport
-  'compareParasitics autoRficCompareParasitics
-  'analyzeNetParasitics autoRficAnalyzeNetParasitics
-  'analyzeDifferentialPairParasitics autoRficAnalyzeDifferentialPairParasitics
-  'analyzePowerNetParasitics autoRficAnalyzePowerNetParasitics
-))
+when(boundp('autoRficParasitic)
+    autoRficParasitic['extractParasitics] = 'autoRficExtractParasitics
+    autoRficParasitic['analyzeParasitics] = 'autoRficAnalyzeParasitics
+    autoRficParasitic['getCriticalParasiticNets] = 'autoRficGetCriticalParasiticNets
+    autoRficParasitic['optimizeParasitics] = 'autoRficOptimizeParasitics
+    autoRficParasitic['generateParasiticReport] = 'autoRficGenerateParasiticReport
+    autoRficParasitic['compareParasitics] = 'autoRficCompareParasitics
+    autoRficParasitic['analyzeNetParasitics] = 'autoRficAnalyzeNetParasitics
+    autoRficParasitic['analyzeDifferentialPairParasitics] = 'autoRficAnalyzeDifferentialPairParasitics
+    autoRficParasitic['analyzePowerNetParasitics] = 'autoRficAnalyzePowerNetParasitics
+)
 
 ;; Export the parasitic namespace
 autoRficParasitic
