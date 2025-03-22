@@ -182,60 +182,6 @@ procedure(createADEState(testbench)
     )
 )
 
-;; Function to configure a specific analysis in ADE
-procedure(autoRficConfigureAnalysis(state analysisType analysisParams)
-    case(analysisType
-        ("ac"
-            adeAddAnalysis(state "ac"
-                ?start analysisParams->start
-                ?stop analysisParams->stop
-                ?dec analysisParams->dec
-            )
-        )
-        ("tran"
-            adeAddAnalysis(state "tran"
-                ?stop analysisParams->stop
-                ?step analysisParams->step
-            )
-        )
-        ("dc"
-            adeAddAnalysis(state "dc"
-                ?param analysisParams->param
-                ?start analysisParams->start
-                ?stop analysisParams->stop
-                ?step analysisParams->step
-            )
-        )
-        ("sp"
-            adeAddAnalysis(state "sp"
-                ?start analysisParams->start
-                ?stop analysisParams->stop
-                ?dec analysisParams->dec
-                ?port analysisParams->port
-            )
-        )
-        ("noise"
-            adeAddAnalysis(state "noise"
-                ?start analysisParams->start
-                ?stop analysisParams->stop
-                ?dec analysisParams->dec
-                ?outport analysisParams->outport
-                ?inport analysisParams->inport
-            )
-        )
-        ("hb"
-            adeAddAnalysis(state "hb"
-                ?fund analysisParams->fund
-                ?nharm analysisParams->nharm
-            )
-        )
-        (t
-            autoRficLogError(sprintf(nil "Unknown analysis type: %s" analysisType))
-            nil
-        )
-    )
-)
-
 ;; Function to create a complete RF testbench with common analyses
 procedure(autoRficCreateRfTestbench(schematic)
     let((cv state params)
@@ -248,18 +194,17 @@ procedure(autoRficCreateRfTestbench(schematic)
         unless(state return(nil))
         
         ;; Configure standard RF analyses
-        params = list(
-            'start 100e6  ; 100MHz
-            'stop 10e9    ; 10GHz
-            'dec 20       ; Points per decade
-            'port 2       ; Two-port analysis
-        )
+        params = makeTable("params" nil)
+        params['start] = 100e6  ; 100MHz
+        params['stop] = 10e9    ; 10GHz
+        params['dec] = 20       ; Points per decade
+        params['ports] = 2      ; Two-port analysis
         
         ;; Add S-parameter analysis
-        autoRficConfigureAnalysis(state "sp" params)
+        autoRficAnalyses['configure](state "sp" params)
         
         ;; Add noise analysis
-        autoRficConfigureAnalysis(state "noise" params)
+        autoRficAnalyses['configure](state "noise" params)
         
         ;; Save state
         adeSaveState(state)
@@ -271,7 +216,6 @@ procedure(autoRficCreateRfTestbench(schematic)
 when(boundp('autoRficTestbench)
     autoRficTestbench['create] = 'autoRficCreateTestbench
     autoRficTestbench['createRf] = 'autoRficCreateRfTestbench
-    autoRficTestbench['configureAnalysis] = 'autoRficConfigureAnalysis
 )
 
 ;; Export the testbench namespace

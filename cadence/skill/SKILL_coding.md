@@ -5,6 +5,29 @@
 1. The `return` statement can only be used within a `prog` block, not within a `let` block
 2. In a `let` block, the return value is the last expression evaluated
 
+## Path Handling
+1. **Base Directory Configuration**
+   - Use environment variables for configurable paths
+   - Provide sensible defaults using `getShellEnvVar("HOME")`
+   - Example:
+     ```lisp
+     baseDir = getShellEnvVar("AUTO_RFIC_DIR")
+     unless(baseDir
+         baseDir = strcat(getShellEnvVar("HOME") "/projects/auto_rfic/cadence/skill")
+     )
+     ```
+2. **Module Loading Paths**
+   - Use absolute paths or paths relative to a known base directory
+   - Avoid paths relative to current directory (./)
+   - Example:
+     ```lisp
+     ;; Good - using base directory
+     load(strcat(baseDir "/simulation/analyses.il"))
+     
+     ;; Bad - using relative path
+     load("./analyses.il")
+     ```
+
 # SKILL Programming Style Guide
 
 ## File Organization
@@ -30,6 +53,19 @@
    - Define each function exactly once
    - Avoid reloading modules that define functions
    - Use main.il to control the loading sequence
+
+3. **Module Loading Order**
+   - Load modules in dependency order (dependencies before dependents)
+   - Example order for simulation modules:
+     ```lisp
+     ;; Load core analysis functionality first
+     load("simulation/analyses.il")
+     ;; Then load modules that depend on it
+     load("simulation/testbench.il")
+     load("simulation/results.il")
+     ```
+   - If module A uses functions from module B, load module B first
+   - Consider documenting dependencies in module headers
 
 ## Module Dependencies and Initialization
 

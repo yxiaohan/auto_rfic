@@ -82,7 +82,7 @@ procedure(autoRficInit()
         ;; Get the base directory
         baseDir = getShellEnvVar("AUTO_RFIC_DIR")
         unless(baseDir
-            baseDir = "/Volumes/970-1t/yuan/projects/auto_rfic/cadence/skill"
+            baseDir = strcat(getShellEnvVar("HOME") "/projects/auto_rfic/cadence/skill")
         )
         
         ;; First load core utilities and logging
@@ -106,8 +106,8 @@ procedure(autoRficInit()
         autoRficLoadModule(sprintf(nil "%s/schematic/optimizer.il" baseDir))
         
         printf("Loading simulation modules...\n")
-        autoRficLoadModule(sprintf(nil "%s/simulation/testbench.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/simulation/analyses.il" baseDir))
+        autoRficLoadModule(sprintf(nil "%s/simulation/testbench.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/simulation/results.il" baseDir))
         
         printf("Loading layout modules...\n")
@@ -124,7 +124,7 @@ procedure(autoRficInit()
         ;; Setup core systems
         dbRegSaveTrigger('autoRficDbSaveTrigger)
         dbRegRefreshTrigger('autoRficGuiRefreshTrigger)
-        CCSCreateAlias("testRemote" 'autoRficTestRemote)
+        ; CCSCreateAlias("testRemote" 'autoRficTestRemote)
         
         result = t
         result
