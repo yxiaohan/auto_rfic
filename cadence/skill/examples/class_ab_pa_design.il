@@ -546,87 +546,76 @@ procedure(createClassABPA()
 
 ;; Improved procedure for displaying a GUI - using proper hiDisplayAppDBox format
 procedure(showDesignToolUI()
-  printf("Starting Class AB PA Design Tool UI...\n")
+  printf("\n[DEBUG] Starting showDesignToolUI procedure...\n")
+  printf("[DEBUG] Creating dialog box...\n")
   
-  let((form)
-    form = hiCreateAppForm(
-      ?name           'designToolDialog
-      ?formTitle      "Class AB Power Amplifier Design Tool"
-      ?buttonLayout   'OKCancel
-      ?unmapAfterCB   nil
+  hiDisplayAppDBox(
+    ?name           'designToolDialog
+    ?dboxBanner     "Class AB Power Amplifier Design Tool"
+    ?dboxText       "Select an operation:"
+    ?buttonLayout   'OKCancel
+    ?buttons        list(
+      hiCreateButton(
+        ?name           'designButton
+        ?buttonText     "Design PA"
+        ?callback       "createClassABPA()"
+      )
+      hiCreateButton(
+        ?name           'listLibButton
+        ?buttonText     "List Libraries"
+        ?callback       "listAvailableLibraries()"
+      )
+      hiCreateButton(
+        ?name           'browseButton
+        ?buttonText     "Browse Libraries"
+        ?callback       "browseLibraries()"
+      )
     )
-    
-    hiCreateLabel(
-      ?parent         form
-      ?name           'infoLabel
-      ?label          "Please select an operation:"
-    )
-    
-    hiCreateButton(
-      ?parent         form
-      ?name           'designButton
-      ?buttonText     "Design PA"
-      ?callback       "createClassABPA()"
-    )
-    
-    hiCreateButton(
-      ?parent         form
-      ?name           'listLibButton
-      ?buttonText     "List Libraries"
-      ?callback       "listAvailableLibraries()"
-    )
-    
-    hiCreateButton(
-      ?parent         form
-      ?name           'browseButton
-      ?buttonText     "Browse Libraries"
-      ?callback       "browseLibraries()"
-    )
-    
-    hiSetFormCallbacks(form
-      ?cancelCallBack "hiDBoxCancel()"
-    )
-    
-    hiDisplayForm(form)
-    
-    ; Store form reference globally to prevent garbage collection
-    setq(_designToolForm form)
-    
-    form
   )
+  
+  printf("[DEBUG] Dialog box created and displayed\n")
 )
 
 ;; Helper function to browse libraries with GUI
 procedure(browseLibraries()
+  printf("[DEBUG] Starting browseLibraries procedure...\n")
   let((form libs libNames selectedLib)
     ;; Get list of libraries
+    printf("[DEBUG] Fetching library list...\n")
     libs = ddGetLibList()
     libNames = '()
     foreach(lib libs
       libNames = append(libNames list(lib->name))
     )
+    printf("[DEBUG] Found %d libraries\n" length(libNames))
     
     ;; Sort library names
     libNames = sort(libNames 'alphLessp)
+    printf("[DEBUG] Sorted library names\n")
     
     ;; Display library list dialog
+    printf("[DEBUG] Creating library list dialog...\n")
     hiDisplayListBox(
       ?name           'libListDialog
-      ?title          "Select a Library"
+      ?dboxBanner     "Select a Library"
       ?buttonLayout   'OKCancel
       ?choices        libNames
       ?numVisChoice   15
       ?itemAction     "browseLibraryContents()"
     )
+    printf("[DEBUG] Library list dialog displayed\n")
   )
 )
 
 ;; Browse contents of selected library
 procedure(browseLibraryContents()
+  printf("[DEBUG] Starting browseLibraryContents procedure...\n")
   let((libName cells cellNames)
     libName = hiGetSelectedItem()
+    printf("[DEBUG] Selected library: %L\n" libName)
     
     ;; Get cells
+    printf("[DEBUG] Fetching cells from library %L...\n" libName)
     cells = listCellsInLibrary(libName)
     
     ;; Display in a new list box or dialog
@@ -635,20 +624,25 @@ procedure(browseLibraryContents()
       foreach(cell cells
         cellNames = append(cellNames list(cell->name))
       )
+      printf("[DEBUG] Found %d cells in library\n" length(cellNames))
       
       ;; If there are cells, display them
       if(length(cellNames) > 0 then
+        printf("[DEBUG] Creating cell list dialog...\n")
         hiDisplayListBox(
           ?name           'cellListDialog
-          ?title          sprintf(nil "Cells in %s" libName)
+          ?dboxBanner     sprintf(nil "Cells in %s" libName)
           ?buttonLayout   'OKCancel
           ?choices        cellNames
           ?numVisChoice   15
         )
+        printf("[DEBUG] Cell list dialog displayed\n")
       else
+        printf("[DEBUG] No cells found, displaying message box\n")
         hiDisplayAppDBox(
-          ?title          "No Cells"
-          ?prompt         sprintf(nil "No cells found in library %s" libName)
+          ?name           'noCellsDialog
+          ?dboxBanner     "No Cells"
+          ?dboxText       sprintf(nil "No cells found in library %s" libName)
           ?buttonLayout   'OK
         )
       )
@@ -663,13 +657,18 @@ procedure(promptAndListCells()
 
 ;; Main startup procedure - completely GUI-based
 procedure(main()
+  printf("\n[DEBUG] ====================================\n")
+  printf("[DEBUG] Starting Class AB PA Design Tool...\n")
+  printf("[DEBUG] ====================================\n")
   printf("Class AB Power Amplifier Design Tool (65nm CMOS)\n")
   printf("=============================================\n")
   printf("Starting GUI interface...\n")
   
-  ;; Display the main interface with error handling
-  errset(showDesignToolUI())
+  ;; Display the main interface directly without error protection for debugging
+  printf("[DEBUG] Calling showDesignToolUI...\n")
+  showDesignToolUI()
+  printf("[DEBUG] GUI initialization complete\n")
 )
 
-;; Launch the main function directly with error protection
-errset(main())
+;; Launch the main function directly without error protection for debugging
+main()

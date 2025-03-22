@@ -1,4 +1,4 @@
-# SKILL Programming Guidelines
+# SKILL Programming Guidelines for Auto RFIC Project
 
 ## Table of Contents
 1. [Language Basics](#language-basics)
@@ -408,6 +408,59 @@ Different Cadence versions have different API functions:
      - "error" for errors
      - "question" for confirmations
 
+## UI Function Parameter Differences
+
+### Dialog Box Functions (hiDisplayAppDBox)
+
+1. **Valid parameters:**
+   - `?name`: Unique identifier for the dialog box
+   - `?dboxBanner`: Title displayed in window banner (NOT `?title` or `?dboxTitle`)
+   - `?dboxText`: Main message text
+   - `?buttons`: List of button definitions
+   - `?buttonLayout`: Must be one of these predefined values:
+     - 'Close
+     - 'Quit
+     - 'CloseHelp
+     - 'QuitHelp
+     - 'OKCancel (default)
+     - 'YesNo
+     - 'YesNoCancel
+     - 'CloseMore
+   
+2. **Invalid parameters:**
+   - `?unmapAfterCB`: Not supported in hiDisplayAppDBox (use only in hiCreateAppForm)
+   - `?title`: Not recognized, use `?dboxBanner` instead
+   - Custom button layouts like 'Vertical' or 'Horizontal' are not supported
+
+### Form Functions (hiCreateAppForm)
+
+1. **Valid parameters:**
+   - `?name`: Unique identifier for the form
+   - `?formTitle`: Title displayed in form window
+   - `?callback`: Callback procedure
+   - `?buttonLayout`: Button layout ('OK, 'OKCancel, 'OKCancelApply etc)
+   - `?unmapAfterCB`: Whether to unmap form after callback
+
+### List Box Functions (hiDisplayListBox)
+
+1. **Valid parameters:**
+   - `?name`: Unique identifier for the list box
+   - `?dboxBanner`: Title displayed in window banner (NOT `?title` or `?dlgTitle`)
+   - `?buttonLayout`: Button configuration
+   - `?choices`: List of items to display
+   - `?numVisChoice`: Number of visible items
+   - `?itemAction`: Procedure called when item selected
+
+## Common Patterns
+
+1. **Dialog boxes vs Forms:**
+   - Use hiDisplayAppDBox for simple message boxes and confirmations
+   - Use hiCreateAppForm for more complex input forms with multiple fields
+
+2. **Button callbacks:**
+   - For form buttons, use hiSetFormCallbacks to set the actions
+   - For dialog box buttons, provide callbacks directly in button creation
+
 ## Documentation References
 
 - **SKILL Language Reference**
@@ -461,3 +514,21 @@ Not:
 ```skill
 dbCreateLabel(cvId "pin" list(50:50) "VDD" "centerLeft" "R0" "stick" 1.0)
 ```
+
+## GUI Function Parameter Differences
+
+When working with SKILL UI functions, note that parameters differ between functions:
+
+1. **hiDisplayAppDBox** does NOT support:
+   - `?unmapAfterCB` parameter (use this only in hiCreateAppForm)
+
+2. **Parameter naming conventions:**
+   - Use `?dboxBanner` for dialog titles in hiDisplayAppDBox
+   - Use `?formTitle` for form titles in hiCreateAppForm 
+   - Use `?buttonText` for button labels
+
+3. **Button layout management:**
+   - Valid button layout options include: 'OKCancel, 'OK, 'YesNo, etc.
+   - For custom buttons, use `?buttonLayout 'Vertical` or `'Horizontal`
+
+Always refer to the official Cadence SKILL documentation or the SKILL_UI_API.md file in this project for the correct parameters.

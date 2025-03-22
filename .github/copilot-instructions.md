@@ -27,6 +27,9 @@ The project includes these documentation references for SKILL:
   - Complete index located at: `cadence/skill/skill_ref/skdfref/skdfref.xml`
   - Contains documentation for Cadence-specific API functions
 
+- **Virtuoso GUI API**
+  - cadence/skill/skill_ref/SKILL_UI_API.md
+
 
 ## Project Structure
 
