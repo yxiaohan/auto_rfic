@@ -8,7 +8,7 @@ unless(boundp('autoRficAnalyses)
 
 ;; Function to configure AC analysis
 procedure(autoRficConfigureAcAnalysis(state params)
-    let((result start stop dec)
+    prog((result start stop dec)
         start = if(member('start params) params->start 1)  ; Default 1Hz
         stop = if(member('stop params) params->stop 1e9)   ; Default 1GHz
         dec = if(member('dec params) params->dec 20)       ; Default 20 points/decade
@@ -32,7 +32,7 @@ procedure(autoRficConfigureAcAnalysis(state params)
 
 ;; Function to configure DC analysis
 procedure(autoRficConfigureDcAnalysis(state params)
-    let((result paramName start stop step)
+    prog((result paramName start stop step)
         paramName = if(member('param params) params->param "v1")
         start = if(member('start params) params->start 0)
         stop = if(member('stop params) params->stop 5)
@@ -56,7 +56,7 @@ procedure(autoRficConfigureDcAnalysis(state params)
 
 ;; Function to configure transient analysis
 procedure(autoRficConfigureTransientAnalysis(state params)
-    let((result stop step)
+    prog((result stop step)
         stop = if(member('stop params) params->stop 1e-6)   ; Default 1us
         step = if(member('step params) params->step 1e-9)   ; Default 1ns
         
@@ -77,7 +77,7 @@ procedure(autoRficConfigureTransientAnalysis(state params)
 
 ;; Function to configure S-parameter analysis
 procedure(autoRficConfigureSpAnalysis(state params)
-    let((result start stop dec ports)
+    prog((result start stop dec ports)
         start = if(member('start params) params->start 100e6)   ; Default 100MHz
         stop = if(member('stop params) params->stop 10e9)       ; Default 10GHz
         dec = if(member('dec params) params->dec 20)            ; Default 20 points/decade
@@ -102,7 +102,7 @@ procedure(autoRficConfigureSpAnalysis(state params)
 
 ;; Function to configure noise analysis
 procedure(autoRficConfigureNoiseAnalysis(state params)
-    let((result start stop dec output input)
+    prog((result start stop dec output input)
         start = if(member('start params) params->start 100e6)   ; Default 100MHz
         stop = if(member('stop params) params->stop 10e9)       ; Default 10GHz
         dec = if(member('dec params) params->dec 20)            ; Default 20 points/decade
@@ -128,7 +128,7 @@ procedure(autoRficConfigureNoiseAnalysis(state params)
 
 ;; Function to configure harmonic balance analysis
 procedure(autoRficConfigureHbAnalysis(state params)
-    let((result fund nharm order)
+    prog((result fund nharm order)
         fund = if(member('fund params) params->fund 1e9)      ; Default 1GHz
         nharm = if(member('nharm params) params->nharm 10)    ; Default 10 harmonics
         order = if(member('order params) params->order 7)     ; Default 7th order
@@ -151,7 +151,7 @@ procedure(autoRficConfigureHbAnalysis(state params)
 
 ;; Function to configure PSS analysis
 procedure(autoRficConfigurePssAnalysis(state params)
-    let((result fund nharm order tstab)
+    prog((result fund nharm order tstab)
         fund = if(member('fund params) params->fund 1e9)      ; Default 1GHz
         nharm = if(member('nharm params) params->nharm 10)    ; Default 10 harmonics
         order = if(member('order params) params->order 7)     ; Default 7th order

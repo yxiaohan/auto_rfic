@@ -428,20 +428,20 @@ when(boundp('autoRficResults)
     autoRficResults['getPeriodic] = 'autoRficGetPeriodic
     autoRficResults['get] = 'autoRficGetSimResults
     autoRficResults['getResults] = 'autoRficGetSimResults  ; Alias for backward compatibility
+    
+    ;; Add analysis functions to namespace using pairlis to create alist
+    autoRficResults = append(autoRficResults 
+        pairlis(
+            '(extractSignal calculateGain calculateNoiseFigure calculateInputImpedance
+              calculatePowerConsumption calculate1dBCompressionPoint calculateIIP3
+              exportToCsv generateReport)
+            '(autoRficExtractSignal autoRficCalculateGain autoRficCalculateNoiseFigure
+              autoRficCalculateInputImpedance autoRficCalculatePowerConsumption
+              autoRficCalculate1dBCompressionPoint autoRficCalculateIIP3
+              autoRficExportResultsToCsv autoRficGeneratePerformanceReport)
+        )
+    )
 )
-
-;; Add analysis functions to namespace 
-autoRficResults = append(autoRficResults list(
-    'extractSignal 'autoRficExtractSignal
-    'calculateGain 'autoRficCalculateGain
-    'calculateNoiseFigure 'autoRficCalculateNoiseFigure
-    'calculateInputImpedance 'autoRficCalculateInputImpedance
-    'calculatePowerConsumption 'autoRficCalculatePowerConsumption
-    'calculate1dBCompressionPoint 'autoRficCalculate1dBCompressionPoint
-    'calculateIIP3 'autoRficCalculateIIP3
-    'exportToCsv 'autoRficExportResultsToCsv
-    'generateReport 'autoRficGeneratePerformanceReport
-))
 
 ;; Export the results namespace
 autoRficResults
