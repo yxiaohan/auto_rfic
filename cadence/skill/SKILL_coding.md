@@ -267,6 +267,20 @@ The function performs these safety checks:
 - Ensures cell view can be opened
 - Returns the cell view object or errors with descriptive message
 
+### Cell View Cleanup
+1. **Resource Management**
+   - Always close cell views after use with `dbClose()`
+   - Close source cell views only if they're from a different library
+   - Example:
+     ```lisp
+     ;; Save and close cell views
+     dbSave(targetCv)
+     when(sourceLib != targetCv->libName
+         dbClose(sourceCv)  ; Close source only if from different lib
+     )
+     dbClose(targetCv)
+     ```
+
 ## Template Management
 
 1. **Template Registry**

@@ -8,7 +8,7 @@ unless(boundp('autoRficTestbench)
 
 ;; Function to create a simulation testbench from a schematic
 procedure(autoRficCreateTestbench(schematic)
-    let((cv testbenchName sourceCv sourceLib sourceCell result)
+    let((cv testbenchName sourceCv sourceLib sourceCell result state)
         ;; Handle both string and dbObject inputs
         sourceCv = if(stringp(schematic) then
             dbOpenCellViewByType(
@@ -134,21 +134,27 @@ procedure(autoRficCreateTestbench(schematic)
                     1
                 )
                 
-                ;; Save testbench
-                dbSave(cv)
-                when(sourceLib != sourceLib
-                    dbClose(sourceCv)
-                )
-                dbClose(cv)
-                
-                ;; Create ADE state
-                unless(createADEState(cv)
+                ;; Create and store ADE state reference
+                state = createADEState(cv)
+                unless(state
                     autoRficLogError("Failed to create ADE state")
+                    when(dbValidP(cv) dbSave(cv))
+                    when(and(dbValidP(sourceCv) sourceLib != cv->libName) dbClose(sourceCv))
+                    when(dbValidP(cv) dbClose(cv))
                     return(nil)
                 )
                 
-                autoRficLogInfo(sprintf(nil "Created testbench: %s" testbenchName))
-                result = cv
+                ;; Save changes and return result
+                when(dbValidP(cv) 
+                    dbSave(cv)
+                    ;; Close source cell view if from different library
+                    when(and(dbValidP(sourceCv) sourceLib != cv->libName)
+                        dbClose(sourceCv)
+                    )
+                    dbClose(cv)
+                    autoRficLogInfo(sprintf(nil "Created testbench: %s" testbenchName))
+                    result = cv
+                )
             )
             result
         )
