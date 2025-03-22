@@ -239,8 +239,8 @@ procedure(selectLibrary()
       libNames = append(libNames list(lib->name))
     )
     
-    ;; Sort library names alphabetically
-    libNames = sort(libNames 'alphLessp)
+    ;; Sort library names alphabetically - using lexLess instead of alphLessp
+    libNames = sort(libNames 'lexLess)
     
     ;; Library selection field
     hiCreateCyclicField(
@@ -343,41 +343,47 @@ procedure(createClassABPA()
     capCellView = nil
     resCellView = nil
     
-    ;; Try common view names
-    foreach(viewName '("symbol" "schematic"))
+    ;; Try common view names - fixing foreach syntax
+    viewNames = '("symbol" "schematic")
+    foreach(viewName viewNames
       when(ddGetObj(nmosLib nmosMaster viewName)
         nmosCellView = dbOpenCellViewByType(nmosLib nmosMaster viewName)
         printf("Found NMOS view: %s\n", viewName)
         break()
       )
+    )
     
-    foreach(viewName '("symbol" "schematic"))
+    foreach(viewName viewNames
       when(ddGetObj(pmosLib pmosMaster viewName)
         pmosCellView = dbOpenCellViewByType(pmosLib pmosMaster viewName)
         printf("Found PMOS view: %s\n", viewName)
         break()
       )
+    )
     
-    foreach(viewName '("symbol" "schematic"))
+    foreach(viewName viewNames
       when(ddGetObj(indLib indMaster viewName)
         indCellView = dbOpenCellViewByType(indLib indMaster viewName)
         printf("Found inductor view: %s\n", viewName)
         break()
       )
+    )
     
-    foreach(viewName '("symbol" "schematic"))
+    foreach(viewName viewNames
       when(ddGetObj(capLib capMaster viewName)
         capCellView = dbOpenCellViewByType(capLib capMaster viewName)
         printf("Found capacitor view: %s\n", viewName)
         break()
       )
+    )
     
-    foreach(viewName '("symbol" "schematic"))
+    foreach(viewName viewNames
       when(ddGetObj(resLib resMaster viewName)
         resCellView = dbOpenCellViewByType(resLib resMaster viewName)
         printf("Found resistor view: %s\n", viewName)
         break()
       )
+    )
     
     ;; Check if we were able to open all required cell views
     if(nmosCellView && pmosCellView && indCellView && capCellView && resCellView then
@@ -544,36 +550,105 @@ procedure(createClassABPA()
   )
 )
 
-;; Improved procedure for displaying a GUI - using proper hiDisplayAppDBox format
+;; Improved procedure for displaying a GUI based on Cadence samples
 procedure(showDesignToolUI()
   printf("\n[DEBUG] Starting showDesignToolUI procedure...\n")
-  printf("[DEBUG] Creating dialog box...\n")
+  printf("[DEBUG] Creating form interface...\n")
   
-  hiDisplayAppDBox(
-    ?name           'designToolDialog
-    ?dboxBanner     "Class AB Power Amplifier Design Tool"
-    ?dboxText       "Select an operation:"
-    ?buttonLayout   'OKCancel
-    ?buttons        list(
-      hiCreateButton(
-        ?name           'designButton
-        ?buttonText     "Design PA"
-        ?callback       "createClassABPA()"
-      )
-      hiCreateButton(
-        ?name           'listLibButton
-        ?buttonText     "List Libraries"
-        ?callback       "listAvailableLibraries()"
-      )
-      hiCreateButton(
-        ?name           'browseButton
-        ?buttonText     "Browse Libraries"
-        ?callback       "browseLibraries()"
-      )
+  let((descTitle operationsFrame designButton listLibButton browseButton recommendButton form)
+    ;; Create title label
+    descTitle = hiCreateLabel(
+      ?name           'descTitle
+      ?labelText      "Class AB Power Amplifier Design (3.3-3.8 GHz, 23 dBm)"
+      ?justification  'center
     )
+    
+    ;; Create a frame to group operations - fixing param name from ?title to ?labelText
+    operationsFrame = hiCreateFrameField(
+      ?name           'operationsFrame
+      ?labelText      "Design Operations"
+    )
+    
+    ;; Add description label inside frame
+    hiCreateLabel(
+      ?parent         operationsFrame
+      ?name           'descriptionLabel
+      ?labelText      "Select an operation:"
+    )
+    
+    ;; Create buttons inside the operations frame
+    designButton = hiCreateButton(
+      ?parent         operationsFrame
+      ?name           'designButton
+      ?buttonText     "Design PA"
+      ?callback       "createClassABPA()"
+    )
+    
+    listLibButton = hiCreateButton(
+      ?parent         operationsFrame
+      ?name           'listLibButton
+      ?buttonText     "List Libraries"
+      ?callback       "listAvailableLibraries()"
+    )
+    
+    browseButton = hiCreateButton(
+      ?parent         operationsFrame
+      ?name           'browseButton
+      ?buttonText     "Browse Libraries"
+      ?callback       "browseLibraries()"
+    )
+    
+    recommendButton = hiCreateButton(
+      ?parent         operationsFrame
+      ?name           'recommendButton
+      ?buttonText     "Recommend Devices"
+      ?callback       "recommendDevices()"
+    )
+    
+    ;; Create the form with pre-created fields
+    form = hiCreateAppForm(
+      ?name           'designToolForm
+      ?formTitle      "Class AB Power Amplifier Design Tool"
+      ?fields         list(descTitle operationsFrame)
+      ?buttonLayout   'OKCancel
+      ?unmapAfterCB   nil
+    )
+    
+    ;; Set form callbacks using sample-based pattern
+    hiSetFormCallbacks(form
+      ?okCallBack       "designFormOK()"
+      ?cancelCallBack   "designFormCancel()"
+    )
+    
+    ;; Display the form - as done in sample code
+    hiDisplayForm(form)
+    printf("[DEBUG] Form created and displayed\n")
+    
+    ;; Store form for global reference
+    setq(_designToolForm form)
+    
+    ;; Return the form handle
+    form
   )
-  
-  printf("[DEBUG] Dialog box created and displayed\n")
+)
+
+;; Callback functions for the design form
+procedure(designFormOK()
+  let((form)
+    form = hiGetCurrentForm()
+    printf("[DEBUG] Form OK clicked, closing form\n")
+    hiFormDone(form)
+    t  ;; Return t to indicate successful completion
+  )
+)
+
+procedure(designFormCancel()
+  let((form)
+    form = hiGetCurrentForm()
+    printf("[DEBUG] Form Cancel clicked, closing form\n")
+    hiFormCancel(form)
+    t  ;; Return t to indicate successful completion
+  )
 )
 
 ;; Helper function to browse libraries with GUI
@@ -589,8 +664,8 @@ procedure(browseLibraries()
     )
     printf("[DEBUG] Found %d libraries\n" length(libNames))
     
-    ;; Sort library names
-    libNames = sort(libNames 'alphLessp)
+    ;; Sort library names alphabetically - using lexLess which is a standard function
+    libNames = sort(libNames 'lexLess)
     printf("[DEBUG] Sorted library names\n")
     
     ;; Display library list dialog
@@ -607,10 +682,11 @@ procedure(browseLibraries()
   )
 )
 
-;; Browse contents of selected library
+;; Enhanced function to display device details when browsing libraries
 procedure(browseLibraryContents()
   printf("[DEBUG] Starting browseLibraryContents procedure...\n")
   let((libName cells cellNames)
+    ;; Use hiGetSelectedItem as shown in samples
     libName = hiGetSelectedItem()
     printf("[DEBUG] Selected library: %L\n" libName)
     
@@ -635,6 +711,7 @@ procedure(browseLibraryContents()
           ?buttonLayout   'OKCancel
           ?choices        cellNames
           ?numVisChoice   15
+          ?itemAction     sprintf(nil "viewDeviceDetails(\"%s\")" libName)
         )
         printf("[DEBUG] Cell list dialog displayed\n")
       else
@@ -646,6 +723,215 @@ procedure(browseLibraryContents()
           ?buttonLayout   'OK
         )
       )
+    )
+  )
+)
+
+;; New function to view details of selected device
+procedure(viewDeviceDetails(libName)
+  let((cellName views viewNames parameters)
+    cellName = hiGetSelectedItem()
+    printf("[DEBUG] Viewing details for %s in library %s\n" cellName libName)
+    
+    ;; Get views for the cell
+    views = ddGetObj(libName cellName)->views
+    viewNames = '()
+    foreach(view views
+      viewNames = append(viewNames list(view->name))
+    )
+    
+    ;; Try to get device parameters if a symbol or model view exists
+    parameters = getDeviceParameters(libName cellName)
+    
+    ;; Create a dialog to show device details
+    hiDisplayAppDBox(
+      ?name           'deviceDetailsDialog
+      ?dboxBanner     sprintf(nil "Device Details: %s" cellName)
+      ?dboxText       sprintf(nil "Library: %s\nCell: %s\nAvailable Views: %L\n%s" 
+                              libName cellName viewNames parameters)
+      ?buttonLayout   'OK
+    )
+  )
+)
+
+;; Helper function to extract device parameters based on device type
+procedure(getDeviceParameters(libName cellName)
+  let((result paramStr viewObj paramNames)
+    result = ""
+    
+    ;; Determine likely device type based on name
+    cond(
+      ((rexMatchp("n[a-z]*" cellName) || rexMatchp("nmos" cellName) || rexMatchp("nfet" cellName))
+        paramStr = "Device Type: NMOS Transistor\n"
+        paramNames = '("w" "l" "fingers" "m" "nf")
+      )
+      ((rexMatchp("p[a-z]*" cellName) || rexMatchp("pmos" cellName) || rexMatchp("pfet" cellName))
+        paramStr = "Device Type: PMOS Transistor\n"
+        paramNames = '("w" "l" "fingers" "m" "nf")
+      )
+      ((rexMatchp("ind" cellName) || rexMatchp("spiral" cellName) || rexMatchp("coil" cellName))
+        paramStr = "Device Type: Inductor\n"
+        paramNames = '("inductance" "q" "dcr")
+      )
+      ((rexMatchp("cap" cellName) || rexMatchp("mim" cellName) || rexMatchp("c[0-9]+" cellName))
+        paramStr = "Device Type: Capacitor\n"
+        paramNames = '("capacitance" "tc")
+      )
+      ((rexMatchp("res" cellName) || rexMatchp("poly" cellName) || rexMatchp("r[0-9]+" cellName))
+        paramStr = "Device Type: Resistor\n"
+        paramNames = '("resistance" "tc")
+      )
+      (t
+        paramStr = "Device Type: Unknown\n"
+        paramNames = '()
+      )
+    )
+    
+    ;; Try to get parameters from master
+    foreach(viewName '("symbol" "schematic" "spectre"))
+      when(ddGetObj(libName cellName viewName)
+        viewObj = dbOpenCellViewByType(libName cellName viewName "r")
+        when(viewObj
+          paramStr = strcat(paramStr "Default Values:\n")
+          foreach(param paramNames
+            paramValue = dbGetPropByName(viewObj param)
+            when(paramValue
+              paramStr = strcat(paramStr sprintf(nil "  %s: %L\n" param paramValue))
+            )
+          )
+          dbClose(viewObj)
+        )
+        break()
+      )
+    )
+    
+    ;; Add suitability assessment for our design
+    paramStr = strcat(paramStr "\nSuitability Assessment:\n")
+    cond(
+      ((rexMatchp("nmos" cellName) || rexMatchp("nfet" cellName))
+        paramStr = strcat(paramStr "  - Can be used for driver or power stage\n")
+        paramStr = strcat(paramStr "  - Check W/L ratio for current capability\n")
+        paramStr = strcat(paramStr "  - Verify ft/fmax at 3.3-3.8 GHz\n")
+      )
+      ((rexMatchp("ind" cellName))
+        paramStr = strcat(paramStr "  - Suitable for matching networks\n")
+        paramStr = strcat(paramStr "  - Check Q factor at 3.3-3.8 GHz\n")
+      )
+      ((rexMatchp("cap" cellName))
+        paramStr = strcat(paramStr "  - Suitable for DC blocking and matching\n")
+        paramStr = strcat(paramStr "  - Verify self-resonance > 3.8 GHz\n")
+      )
+      ((rexMatchp("res" cellName))
+        paramStr = strcat(paramStr "  - Can be used for bias networks\n")
+      )
+    )
+    
+    paramStr
+  )
+)
+
+;; New function to recommend devices from available libraries
+procedure(recommendDevices()
+  let((libs recommendations nmosRecs indRecs capRecs resRecs)
+    printf("Analyzing libraries for PA design recommendations...\n")
+    
+    ;; Get all libraries
+    libs = ddGetLibList()
+    
+    ;; Initialize recommendation lists
+    nmosRecs = '()
+    indRecs = '()
+    capRecs = '()
+    resRecs = '()
+    
+    ;; Search each library
+    foreach(lib libs
+      ;; Skip system libraries
+      unless(member(lib->name '("NCSU_TechLib_FreePDK45" "NCSU_Devices_FreePDK45" 
+                               "basic" "analogLib" "US_8ths"))
+        cellObjs = lib->cells
+        foreach(cell cellObjs
+          cellName = cell->name
+          
+          ;; Check for NMOS with appropriate specs
+          when(rexMatchp("n[a-z]*" cellName) || rexMatchp("nmos" cellName) || rexMatchp("nfet" cellName)
+            nmosRecs = append(nmosRecs list(list(lib->name cellName)))
+          )
+          
+          ;; Check for inductors with appropriate specs
+          when(rexMatchp("ind" cellName) || rexMatchp("spiral" cellName) || rexMatchp("coil" cellName)
+            indRecs = append(indRecs list(list(lib->name cellName)))
+          )
+          
+          ;; Check for capacitors with appropriate specs
+          when(rexMatchp("cap" cellName) || rexMatchp("mim" cellName) || rexMatchp("c[0-9]+" cellName)
+            capRecs = append(capRecs list(list(lib->name cellName)))
+          )
+          
+          ;; Check for resistors with appropriate specs
+          when(rexMatchp("res" cellName) || rexMatchp("poly" cellName) || rexMatchp("r[0-9]+" cellName)
+            resRecs = append(resRecs list(list(lib->name cellName)))
+          )
+        )
+      )
+    )
+    
+    ;; Display recommendations
+    displayRecommendations(nmosRecs indRecs capRecs resRecs)
+  )
+)
+
+;; Helper function to display device recommendations
+procedure(displayRecommendations(nmosRecs indRecs capRecs resRecs)
+  let((recText)
+    recText = "DEVICE RECOMMENDATIONS FOR CLASS AB PA DESIGN\n\n"
+    
+    ;; NMOS recommendations
+    recText = strcat(recText "NMOS TRANSISTORS (for driver and power stages):\n")
+    if(length(nmosRecs) > 0 then
+      foreach(rec nmosRecs
+        recText = strcat(recText sprintf(nil "  - %s::%s\n" car(rec) cadr(rec)))
+      )
+    else
+      recText = strcat(recText "  No suitable NMOS transistors found\n")
+    )
+    
+    ;; Inductor recommendations
+    recText = strcat(recText "\nINDUCTORS (for matching networks):\n")
+    if(length(indRecs) > 0 then
+      foreach(rec indRecs
+        recText = strcat(recText sprintf(nil "  - %s::%s\n" car(rec) cadr(rec)))
+      )
+    else
+      recText = strcat(recText "  No suitable inductors found\n")
+    )
+    
+    ;; Capacitor recommendations
+    recText = strcat(recText "\nCAPACITORS (for DC blocking & matching):\n")
+    if(length(capRecs) > 0 then
+      foreach(rec capRecs
+        recText = strcat(recText sprintf(nil "  - %s::%s\n" car(rec) cadr(rec)))
+      )
+    else
+      recText = strcat(recText "  No suitable capacitors found\n")
+    )
+    
+    ;; Resistor recommendations
+    recText = strcat(recText "\nRESISTORS (for biasing):\n")
+    if(length(resRecs) > 0 then
+      foreach(rec resRecs
+        recText = strcat(recText sprintf(nil "  - %s::%s\n" car(rec) cadr(rec)))
+      )
+    else
+      recText = strcat(recText "  No suitable resistors found\n")
+    )
+    
+    ;; Display recommendations in a dialog
+    hiDisplayAppDBox(
+      ?name           'recommendationsDialog
+      ?dboxBanner     "Device Recommendations"
+      ?dboxText       recText
+      ?buttonLayout   'OK
     )
   )
 )
