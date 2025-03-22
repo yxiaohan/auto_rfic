@@ -429,18 +429,16 @@ when(boundp('autoRficResults)
     autoRficResults['get] = 'autoRficGetSimResults
     autoRficResults['getResults] = 'autoRficGetSimResults  ; Alias for backward compatibility
     
-    ;; Add analysis functions to namespace using pairlis to create alist
-    autoRficResults = append(autoRficResults 
-        pairlis(
-            '(extractSignal calculateGain calculateNoiseFigure calculateInputImpedance
-              calculatePowerConsumption calculate1dBCompressionPoint calculateIIP3
-              exportToCsv generateReport)
-            '(autoRficExtractSignal autoRficCalculateGain autoRficCalculateNoiseFigure
-              autoRficCalculateInputImpedance autoRficCalculatePowerConsumption
-              autoRficCalculate1dBCompressionPoint autoRficCalculateIIP3
-              autoRficExportResultsToCsv autoRficGeneratePerformanceReport)
-        )
-    )
+    ;; Add analysis functions to namespace directly instead of using pairlis
+    autoRficResults['extractSignal] = 'autoRficExtractSignal
+    autoRficResults['calculateGain] = 'autoRficCalculateGain
+    autoRficResults['calculateNoiseFigure] = 'autoRficCalculateNoiseFigure
+    autoRficResults['calculateInputImpedance] = 'autoRficCalculateInputImpedance
+    autoRficResults['calculatePowerConsumption] = 'autoRficCalculatePowerConsumption
+    autoRficResults['calculate1dBCompressionPoint] = 'autoRficCalculate1dBCompressionPoint
+    autoRficResults['calculateIIP3] = 'autoRficCalculateIIP3
+    autoRficResults['exportToCsv] = 'autoRficExportResultsToCsv
+    autoRficResults['generateReport] = 'autoRficGeneratePerformanceReport
 )
 
 ;; Export the results namespace

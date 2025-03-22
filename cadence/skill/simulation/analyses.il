@@ -18,9 +18,9 @@ procedure(autoRficConfigureAcAnalysis(state params)
             ?start start
             ?stop stop
             ?dec dec
-            ?oprobe (if(member('oprobe params) params->oprobe nil)
-            ?iprobe (if(member('iprobe params) params->iprobe nil)
-            ?detail (if(member('detail params) params->detail "conservative")
+            ?oprobe if(member('oprobe params) params->oprobe nil)
+            ?iprobe if(member('iprobe params) params->iprobe nil)
+            ?detail if(member('detail params) params->detail "conservative")
         )
         
         when(result
@@ -44,7 +44,7 @@ procedure(autoRficConfigureDcAnalysis(state params)
             ?start start
             ?stop stop
             ?step step
-            ?detail (if(member('detail params) params->detail "conservative")
+            ?detail if(member('detail params) params->detail "conservative")
         )
         
         when(result
@@ -64,8 +64,8 @@ procedure(autoRficConfigureTransientAnalysis(state params)
         result = adeAddAnalysis(state "tran"
             ?stop stop
             ?step step
-            ?errpreset (if(member('errpreset params) params->errpreset "conservative")
-            ?method (if(member('method params) params->method "trap")
+            ?errpreset if(member('errpreset params) params->errpreset "conservative")
+            ?method if(member('method params) params->method "trap")
         )
         
         when(result
@@ -138,7 +138,7 @@ procedure(autoRficConfigureHbAnalysis(state params)
             ?fund fund
             ?nharm nharm
             ?order order
-            ?errpreset (if(member('errpreset params) params->errpreset "conservative")
+            ?errpreset if(member('errpreset params) params->errpreset "conservative")
             ?save t
         )
         
@@ -163,7 +163,7 @@ procedure(autoRficConfigurePssAnalysis(state params)
             ?nharm nharm
             ?order order
             ?tstab tstab
-            ?errpreset (if(member('errpreset params) params->errpreset "moderate")
+            ?errpreset if(member('errpreset params) params->errpreset "moderate")
             ?save t
         )
         
