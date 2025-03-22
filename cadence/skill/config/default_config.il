@@ -2,10 +2,16 @@
 
 ;; Set framework configuration parameters
 let((result)
-    ;; System settings
-    autoRficConfig["logLevel"] = "INFO"
+    ;; System settings - ensure logging is set up first
+    when(boundp('autoRficLogging)
+        autoRficConfig["logLevel"] = "INFO"
+    )
+    
+    ;; Base directory settings
     autoRficConfig["baseDir"] = getShellEnvVar("AUTO_RFIC_DIR")
-    autoRficConfig["logFile"] = strcat(autoRficConfig["baseDir"] "/logs/auto_rfic.log")
+    when(autoRficConfig["baseDir"]
+        autoRficConfig["logFile"] = strcat(autoRficConfig["baseDir"] "/logs/auto_rfic.log")
+    )
     
     ;; Design settings
     autoRficConfig["technology"] = getShellEnvVar("TSMC_PDK")

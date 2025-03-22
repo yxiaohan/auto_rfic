@@ -14,28 +14,34 @@ autoRficLogging['levels]['warning] = 2
 autoRficLogging['levels]['error] = 3
 autoRficLogging['levels]['none] = 4
 
+;; Default configuration (will be overridden by config files later)
+autoRficLogging['defaultLevel] = 'info
+autoRficLogging['currentLevel] = autoRficLogging['defaultLevel]
+
 ;; Helper function to safely get log level number
 defun(autoRficGetLevelNumber (level)
-    let((levelSymbol levelNum)
+    let((levelSymbol)
         ;; Convert string to symbol if needed, or use directly if already a symbol
         levelSymbol = cond(
             (symbolp(level) level)
             (stringp(level) car(parseString(strcat("(" level ")"))))
-            (t 'info)  ; default to info level for invalid inputs
+            (t autoRficLogging['defaultLevel])  ; use default level for invalid inputs
         )
         
-        ;; Get numeric value from levels table
-        levelNum = get(autoRficLogging['levels] levelSymbol)
-        if(numberp(levelNum) levelNum 1)  ; default to info (1) if not found
+        ;; Get numeric value from levels table, with fallback to info (1)
+        get(autoRficLogging['levels] levelSymbol) || 1
     )
 )
 
 ;; Core logging functions - define these first so they can be used later
 defun(autoRficLog (level message @optional details)
     let((timestamp logFile fileId formattedMessage currentLevel configLevel)
-        ;; Get configured log level first
-        configLevel = autoRficGetLevelNumber(autoRficGetParameter('logLevel "info"))
+        ;; Get level numbers directly
         currentLevel = autoRficGetLevelNumber(level)
+        configLevel = if(boundp('autoRficConfig)
+            autoRficGetLevelNumber(get(autoRficConfig "logLevel") || 'info)
+            1  ; default to INFO level if config not available
+        )
         
         ;; Only log if current level is at or above config level
         when(currentLevel >= configLevel
@@ -50,12 +56,14 @@ defun(autoRficLog (level message @optional details)
             ;; Print to CIW
             printf("%s\n" formattedMessage)
             
-            ;; Write to log file if enabled
-            logFile = autoRficGetParameter('logFile nil)
-            when(stringp(logFile)
-                fileId = outfile(logFile "a")
-                fprintf(fileId "%s\n" formattedMessage)
-                close(fileId)
+            ;; Write to log file if enabled and config exists
+            when(boundp('autoRficConfig)
+                logFile = get(autoRficConfig "logFile")
+                when(stringp(logFile)
+                    fileId = outfile(logFile "a")
+                    fprintf(fileId "%s\n" formattedMessage)
+                    close(fileId)
+                )
             )
             
             t

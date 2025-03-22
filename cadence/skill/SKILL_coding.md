@@ -31,6 +31,23 @@
    - Avoid reloading modules that define functions
    - Use main.il to control the loading sequence
 
+## Module Dependencies and Initialization
+
+1. **Default Values**
+   - Always provide default values for critical system variables
+   - Make modules work with defaults before configuration is loaded
+   - Use when() to safely override defaults with configuration
+
+2. **Circular Dependencies**
+   - Break circular dependencies using default values
+   - Check for module availability using boundp()
+   - Load core utility modules before configuration
+
+3. **Configuration Loading**
+   - Load configuration after core systems are initialized
+   - Use defensive checks when applying configuration
+   - Allow graceful fallback to defaults
+
 ## Module Organization
 
 1. **Namespace Management**
@@ -382,3 +399,41 @@ cadence/skill/skill_ref/skdfref/skdfref.xml
        currentValue = getValue(currentLevel)
    )
    ```
+
+## Module Independence and Safe Defaults
+
+1. **Module Self-Sufficiency**
+   - Each module should be able to function with safe defaults
+   - Don't rely on configuration being loaded for core functionality
+   - Use fallback values when dependencies aren't available
+   Example:
+   ```lisp
+   ;; Good - safe fallback
+   configLevel = if(boundp('autoRficConfig)
+       get(autoRficConfig "logLevel")
+       'info  ; default if config not available
+   )
+   
+   ;; Bad - assumes config exists
+   configLevel = autoRficConfig["logLevel"]
+   ```
+
+2. **Default Value Handling**
+   - Use the logical OR operator (||) for numeric/boolean defaults
+   - Use null-check with when() for complex defaults
+   - Keep defaults close to where they're used
+   Example:
+   ```lisp
+   ;; Numeric default using OR
+   level = get(levels symbolName) || 1  ; default to 1
+   
+   ;; Complex default using when
+   when(null result
+       result = makeTable("")  ; default to empty table
+   )
+   ```
+
+3. **Cross-Module Dependencies**
+   - Check for module availability using boundp()
+   - Provide meaningful error messages when dependencies missing
+   - Use conditional feature enabling based on available modules

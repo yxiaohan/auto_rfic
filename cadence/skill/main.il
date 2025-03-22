@@ -85,14 +85,18 @@ procedure(autoRficInit()
             baseDir = "/Volumes/970-1t/yuan/projects/auto_rfic/cadence/skill"
         )
         
-        ;; Load modules by type
+        ;; First load core utilities and logging
+        printf("Loading core modules...\n")
+        autoRficLoadModule(sprintf(nil "%s/lib/utils.il" baseDir))
+        autoRficLoadModule(sprintf(nil "%s/lib/logging.il" baseDir))
+        
+        ;; Then load configuration which may use logging
         printf("Loading configuration modules...\n")
         autoRficLoadModule(sprintf(nil "%s/config/default_config.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/config/user_config.il" baseDir))
         
+        ;; Load remaining library modules
         printf("Loading library modules...\n")
-        autoRficLoadModule(sprintf(nil "%s/lib/utils.il" baseDir))
-        autoRficLoadModule(sprintf(nil "%s/lib/logging.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/lib/gui.il" baseDir))
         autoRficLoadModule(sprintf(nil "%s/lib/db.il" baseDir))
         

@@ -1,6 +1,11 @@
 ;; templates.il - Schematic templates for auto_rfic
 ;; This file contains functions for creating and managing schematic templates
 
+;; Ensure logging module is available
+unless(boundp('autoRficLogging)
+    error("Logging module not loaded. Please load logging.il before templates.il")
+)
+
 ;; Initialize the templates namespace
 unless(boundp('autoRficTemplates)
     autoRficTemplates = makeTable("templates" nil)
@@ -13,28 +18,39 @@ unless(boundp('autoRficTemplateRegistry)
 
 ;; Function to register a new template
 defun(autoRficRegisterTemplate (templateName templateFunc paramDefs)
-    let((templateInfo templateSymbol)
+    let((templateInfo templateSymbol success)
+        success = nil
+        
         ;; Ensure templateName is a symbol
         templateSymbol = if(stringp(templateName)
                            car(parseString(strcat("(" templateName ")")))
                            templateName)
         
-        ;; Create template info table
-        templateInfo = makeTable("templateInfo")
-        templateInfo['func] = templateFunc
-        templateInfo['params] = paramDefs
-        
-        ;; Store in registry using symbol key
-        autoRficTemplateRegistry[templateSymbol] = templateInfo
-        
-        autoRficLogInfo(sprintf(nil "Registered template: %L" templateSymbol))
-        t
+        when(templateSymbol
+            ;; Create template info table
+            templateInfo = makeTable("templateInfo")
+            templateInfo['func] = templateFunc
+            templateInfo['params] = paramDefs
+            
+            ;; Store in registry using symbol key
+            autoRficTemplateRegistry[templateSymbol] = templateInfo
+            
+            autoRficLogInfo(sprintf(nil "Registered template: %L" templateSymbol))
+            success = t
+        )
+        success
     )
 )
 
 ;; Function to get a template by name
 defun(autoRficGetTemplate (templateName)
-    get(autoRficTemplateRegistry templateName)
+    let((template)
+        template = get(autoRficTemplateRegistry templateName)
+        unless(template
+            autoRficLogError(sprintf(nil "Template not found: %L" templateName))
+        )
+        template
+    )
 )
 
 ;; Function to list all available templates
@@ -210,27 +226,35 @@ procedure(autoRficMixerTemplate(params)
 )
 
 ;; Register the built-in templates
-autoRficRegisterTemplate(
-    "LNA"
-    'autoRficLnaTemplate
-    list(
-        list("library" "string" "Required library name")
-        list("cell" "string" "Required cell name")
-        list("width" "float" "Transistor width in um")
-        list("length" "float" "Transistor length in um")
-        list("fingers" "int" "Number of fingers")
-        list("inductance" "float" "Load inductance in nH")
+let((result)
+    result = autoRficRegisterTemplate(
+        "LNA"
+        'autoRficLnaTemplate
+        list(
+            list("library" "string" "Required library name")
+            list("cell" "string" "Required cell name")
+            list("width" "float" "Transistor width in um")
+            list("length" "float" "Transistor length in um")
+            list("fingers" "int" "Number of fingers")
+            list("inductance" "float" "Load inductance in nH")
+        )
     )
-)
+    unless(result
+        autoRficLogError("Failed to register LNA template")
+    )
 
-autoRficRegisterTemplate(
-    "Mixer"
-    'autoRficMixerTemplate
-    list(
-        list("library" "string" "Required library name")
-        list("cell" "string" "Required cell name")
-        list("width" "float" "Transistor width in um")
-        list("length" "float" "Transistor length in um")
+    result = autoRficRegisterTemplate(
+        "Mixer"
+        'autoRficMixerTemplate
+        list(
+            list("library" "string" "Required library name")
+            list("cell" "string" "Required cell name")
+            list("width" "float" "Transistor width in um")
+            list("length" "float" "Transistor length in um")
+        )
+    )
+    unless(result
+        autoRficLogError("Failed to register Mixer template")
     )
 )
 
