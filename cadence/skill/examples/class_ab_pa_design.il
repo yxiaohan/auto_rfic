@@ -10,9 +10,281 @@
 ;; - EVM: 5%
 ;; ================================================================
 
-;; Load required libraries
+;; Helper function to list available libraries
+procedure(listAvailableLibraries()
+  let((libs)
+    libs = ddGetLibList()
+    printf("Available libraries:\n")
+    foreach(lib libs
+      printf("  - %s\n", lib->name)
+    )
+    libs
+  )
+)
+
+;; Helper function to list cells in a library
+procedure(listCellsInLibrary(libName)
+  let((libObj cells)
+    libObj = ddGetObj(libName)
+    unless(libObj
+      printf("Library %s not found.\n", libName)
+      nil
+    )
+    
+    cells = libObj->cells
+    printf("Cells in library %s:\n", libName)
+    foreach(cell cells
+      printf("  - %s\n", cell->name)
+    )
+    cells
+  )
+)
+
+;; Helper function to list available views for a cell
+procedure(listViewsForCell(libName cellName)
+  let((cellObj views)
+    cellObj = ddGetObj(libName cellName)
+    unless(cellObj
+      printf("Cell %s not found in library %s.\n", cellName, libName)
+      nil
+    )
+    
+    views = cellObj->views
+    printf("Views for cell %s in library %s:\n", cellName, libName)
+    foreach(view views
+      printf("  - %s\n", view->name)
+    )
+    views
+  )
+)
+
+;; Helper function to display a form for device selection
+procedure(showDeviceSelectionForm(deviceLib)
+  let((form nmosChoices pmosChoices indChoices capChoices resChoices
+       nmosMaster pmosMaster indMaster capMaster resMaster)
+    
+    ;; Get all cells from the device library
+    libObj = ddGetObj(deviceLib)
+    unless(libObj
+      error("Library %s not found" deviceLib)
+      return(nil)
+    )
+    
+    ;; Initialize choice lists
+    nmosChoices = '()
+    pmosChoices = '()
+    indChoices = '()
+    capChoices = '()
+    resChoices = '()
+    
+    ;; Populate choice lists by examining cell names
+    foreach(cell libObj->cells
+      cellName = cell->name
+      
+      ;; Check for NMOS transistors
+      when(rexMatchp("n[a-z]*" cellName) || rexMatchp("nmos" cellName) || rexMatchp("nfet" cellName)
+        nmosChoices = append(nmosChoices list(cellName))
+      )
+      
+      ;; Check for PMOS transistors
+      when(rexMatchp("p[a-z]*" cellName) || rexMatchp("pmos" cellName) || rexMatchp("pfet" cellName)
+        pmosChoices = append(pmosChoices list(cellName))
+      )
+      
+      ;; Check for inductors
+      when(rexMatchp("ind" cellName) || rexMatchp("spiral" cellName) || rexMatchp("coil" cellName)
+        indChoices = append(indChoices list(cellName))
+      )
+      
+      ;; Check for capacitors
+      when(rexMatchp("cap" cellName) || rexMatchp("mim" cellName) || rexMatchp("c[0-9]+" cellName)
+        capChoices = append(capChoices list(cellName))
+      )
+      
+      ;; Check for resistors
+      when(rexMatchp("res" cellName) || rexMatchp("poly" cellName) || rexMatchp("r[0-9]+" cellName)
+        resChoices = append(resChoices list(cellName))
+      )
+    )
+    
+    ;; If no devices found, use generic names
+    when(length(nmosChoices) == 0 nmosChoices = '("nmos" "nfet"))
+    when(length(pmosChoices) == 0 pmosChoices = '("pmos" "pfet"))
+    when(length(indChoices) == 0 indChoices = '("inductor" "ind"))
+    when(length(capChoices) == 0 capChoices = '("capacitor" "cap"))
+    when(length(resChoices) == 0 resChoices = '("resistor" "res"))
+    
+    ;; Create form for device selection
+    form = hiCreateAppForm(
+      ?name           'deviceSelectionForm
+      ?formTitle      "Device Selection Form"
+      ?callback       nil
+      ?buttonLayout   'OKCancelApply
+      ?unmapAfterCB   t
+    )
+    
+    ;; Device Library field
+    hiCreateStringField(
+      ?parent         form 
+      ?name           'deviceLibField
+      ?prompt         "Device Library:"
+      ?value          deviceLib
+      ?editable       nil
+    )
+    
+    ;; NMOS device selection
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'nmosField
+      ?prompt         "NMOS Device:"
+      ?choices        nmosChoices
+      ?value          car(nmosChoices)
+    )
+    
+    ;; PMOS device selection
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'pmosField
+      ?prompt         "PMOS Device:"
+      ?choices        pmosChoices
+      ?value          car(pmosChoices)
+    )
+    
+    ;; Inductor selection
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'indField
+      ?prompt         "Inductor:"
+      ?choices        indChoices
+      ?value          car(indChoices)
+    )
+    
+    ;; Capacitor selection
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'capField
+      ?prompt         "Capacitor:"
+      ?choices        capChoices
+      ?value          car(capChoices)
+    )
+    
+    ;; Resistor selection
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'resField
+      ?prompt         "Resistor:"
+      ?choices        resChoices
+      ?value          car(resChoices)
+    )
+    
+    ;; Set form callback
+    hiSetFormCallbacks(form
+      ?okCallBack     "deviceSelectionFormOK()"
+    )
+    
+    ;; Display the form
+    hiDisplayForm(form)
+    
+    ;; Create global variables to store the selections
+    setq(_deviceSelectionForm form)
+    setq(_deviceLibrary deviceLib)
+    
+    ;; Return the form
+    form
+  )
+)
+
+;; Callback function for form OK button
+procedure(deviceSelectionFormOK()
+  let((form)
+    form = _deviceSelectionForm
+    
+    ;; Store selections in global variables
+    setq(_nmosDevice hiGetCyclicFieldValue(form 'nmosField))
+    setq(_pmosDevice hiGetCyclicFieldValue(form 'pmosField))
+    setq(_indDevice hiGetCyclicFieldValue(form 'indField))
+    setq(_capDevice hiGetCyclicFieldValue(form 'capField))
+    setq(_resDevice hiGetCyclicFieldValue(form 'resField))
+    
+    ;; Print selections
+    printf("Selected devices:\n")
+    printf("  NMOS: %s\n", _nmosDevice)
+    printf("  PMOS: %s\n", _pmosDevice)
+    printf("  Inductor: %s\n", _indDevice)
+    printf("  Capacitor: %s\n", _capDevice)
+    printf("  Resistor: %s\n", _resDevice)
+    
+    ;; Continue with design after selections are made
+    setq(_deviceSelectionComplete t)
+  )
+)
+
+;; Helper function to select library
+procedure(selectLibrary()
+  let((availLibs selectedLib)
+    availLibs = listAvailableLibraries()
+    
+    ;; Create form to select library
+    form = hiCreateAppForm(
+      ?name           'librarySelectionForm
+      ?formTitle      "Library Selection"
+      ?callback       nil
+      ?buttonLayout   'OKCancel
+      ?unmapAfterCB   t
+    )
+    
+    ;; Convert library list to string list for form display
+    libNames = '()
+    foreach(lib availLibs
+      libNames = append(libNames list(lib->name))
+    )
+    
+    ;; Sort library names alphabetically
+    libNames = sort(libNames 'alphLessp)
+    
+    ;; Library selection field
+    hiCreateCyclicField(
+      ?parent         form
+      ?name           'libField
+      ?prompt         "Select a device library:"
+      ?choices        libNames
+      ?value          if(member("analogLib" libNames) "analogLib" car(libNames))
+    )
+    
+    ;; Set form callback
+    hiSetFormCallbacks(form
+      ?okCallBack     "librarySelectionFormOK()"
+    )
+    
+    ;; Display the form
+    hiDisplayForm(form)
+    
+    ;; Create global variable to store form
+    setq(_librarySelectionForm form)
+    
+    ;; Wait for selection (this is a blocking approach)
+    setq(_librarySelectionComplete nil)
+    while(!_librarySelectionComplete 
+      hiDisplayForm(form)
+      sleep(1)
+    )
+    
+    ;; Return the selected library
+    _selectedLibrary
+  )
+)
+
+;; Callback function for library selection form
+procedure(librarySelectionFormOK()
+  form = _librarySelectionForm
+  setq(_selectedLibrary hiGetCyclicFieldValue(form 'libField))
+  setq(_librarySelectionComplete t)
+  printf("Selected library: %s\n", _selectedLibrary)
+)
+
+;; Modified function to load required libraries with user selection
 procedure(createClassABPA()
-  let((lib cell view cvId tech 
+  let((lib cell view cvId tech deviceLib
        driverNmos powerNmos
        inst1 inst2 inst3 inst4 inst5 inst6 inst7 inst8 inst9 inst10
        powerInst1 powerInst2 powerInst3 powerInst4)
@@ -31,13 +303,91 @@ procedure(createClassABPA()
     ;; Open a new cellview
     cvId = dbOpenCellViewByType(lib cell view "schematic" "w")
     
-    ;; Define instance masters for components
-    nmosMaster = "nmos_65nm"
-    pmosMaster = "pmos_65nm"
-    indMaster = "inductor"
-    capMaster = "capacitor"
-    resMaster = "resistor"
-
+    ;; First let user select library
+    printf("Please select a library for devices...\n")
+    deviceLib = selectLibrary()
+    
+    unless(deviceLib
+      error("No library selected.")
+      dbClose(cvId)
+      return(nil)
+    )
+    
+    ;; Show device selection form
+    printf("Please select devices from the form...\n")
+    showDeviceSelectionForm(deviceLib)
+    
+    ;; Wait for device selection to complete (blocking approach)
+    setq(_deviceSelectionComplete nil)
+    while(!_deviceSelectionComplete
+      sleep(1)
+    )
+    
+    ;; Use the selected devices
+    nmosLib = deviceLib
+    pmosLib = deviceLib
+    indLib = deviceLib
+    capLib = deviceLib
+    resLib = deviceLib
+    
+    nmosMaster = _nmosDevice
+    pmosMaster = _pmosDevice
+    indMaster = _indDevice
+    capMaster = _capDevice
+    resMaster = _resDevice
+    
+    ;; Check available views for each component
+    nmosCellView = nil
+    pmosCellView = nil
+    indCellView = nil
+    capCellView = nil
+    resCellView = nil
+    
+    ;; Try common view names
+    foreach(viewName '("symbol" "schematic"))
+      when(ddGetObj(nmosLib nmosMaster viewName)
+        nmosCellView = dbOpenCellViewByType(nmosLib nmosMaster viewName)
+        printf("Found NMOS view: %s\n", viewName)
+        break()
+      )
+    
+    foreach(viewName '("symbol" "schematic"))
+      when(ddGetObj(pmosLib pmosMaster viewName)
+        pmosCellView = dbOpenCellViewByType(pmosLib pmosMaster viewName)
+        printf("Found PMOS view: %s\n", viewName)
+        break()
+      )
+    
+    foreach(viewName '("symbol" "schematic"))
+      when(ddGetObj(indLib indMaster viewName)
+        indCellView = dbOpenCellViewByType(indLib indMaster viewName)
+        printf("Found inductor view: %s\n", viewName)
+        break()
+      )
+    
+    foreach(viewName '("symbol" "schematic"))
+      when(ddGetObj(capLib capMaster viewName)
+        capCellView = dbOpenCellViewByType(capLib capMaster viewName)
+        printf("Found capacitor view: %s\n", viewName)
+        break()
+      )
+    
+    foreach(viewName '("symbol" "schematic"))
+      when(ddGetObj(resLib resMaster viewName)
+        resCellView = dbOpenCellViewByType(resLib resMaster viewName)
+        printf("Found resistor view: %s\n", viewName)
+        break()
+      )
+    
+    ;; Check if we were able to open all required cell views
+    if(nmosCellView && pmosCellView && indCellView && capCellView && resCellView then
+      printf("All cell views opened successfully.\n")
+    else
+      error("Could not open all required cell views.")
+      dbClose(cvId)
+      return(nil)
+    )
+    
     ;; Create nets first
     vdd = dbCreateNet(cvId "VDD")
     gnd = dbCreateNet(cvId "GND")
@@ -51,127 +401,126 @@ procedure(createClassABPA()
     out_match = dbCreateNet(cvId "OUT_MATCH")
     ant_out = dbCreateNet(cvId "ANT_OUT")
     
-    ;; Create pins for the cell - using simple pin creation approach
-    ;; Create shape for pin
-    rf_in_pin = dbCreateRect(cvId "pin" list(25:25 75:75) "RF_IN")
-    rf_out_pin = dbCreateRect(cvId "pin" list(625:25 675:75) "RF_OUT")
-    vdd_pin = dbCreateRect(cvId "pin" list(25:325 75:375) "VDD") 
-    gnd_pin = dbCreateRect(cvId "pin" list(25:525 75:575) "GND")
-    ant_in_pin = dbCreateRect(cvId "pin" list(-25:25 -75:75) "ANT_IN")
-    ant_out_pin = dbCreateRect(cvId "pin" list(700:25 750:75) "ANT_OUT")
+    ;; Create pins using rectangle shapes (most compatible approach)
+    dbCreateRect(cvId "pin" list(25:25 75:75))
+    dbCreateRect(cvId "pin" list(625:25 675:75))
+    dbCreateRect(cvId "pin" list(25:325 75:375))
+    dbCreateRect(cvId "pin" list(25:525 75:575))
+    dbCreateRect(cvId "pin" list(-75:25 -25:75))
+    dbCreateRect(cvId "pin" list(700:25 750:75))
     
-    ;; Connect pins to nets
-    dbCreateWire(cvId "route" list(list(25:50 "auto") list(rf_in "auto")))
-    dbCreateWire(cvId "route" list(list(650:50 "auto") list(rf_out "auto")))
-    dbCreateWire(cvId "route" list(list(50:350 "auto") list(vdd "auto")))
-    dbCreateWire(cvId "route" list(list(50:550 "auto") list(gnd "auto")))
-    dbCreateWire(cvId "route" list(list(-50:50 "auto") list(ant_in "auto")))
-    dbCreateWire(cvId "route" list(list(725:50 "auto") list(ant_out "auto")))
-
+    ;; Place labels for visual identification
+    dbCreateLabel(cvId "pin" 50:50 "RF_IN" "centerRight" "R0" "stick" 1.0)
+    dbCreateLabel(cvId "pin" 650:50 "RF_OUT" "centerLeft" "R0" "stick" 1.0)
+    dbCreateLabel(cvId "pin" 50:350 "VDD" "centerRight" "R0" "stick" 1.0)
+    dbCreateLabel(cvId "pin" 50:550 "GND" "centerRight" "R0" "stick" 1.0)
+    dbCreateLabel(cvId "pin" -50:50 "ANT_IN" "centerLeft" "R0" "stick" 1.0)
+    dbCreateLabel(cvId "pin" 725:50 "ANT_OUT" "centerLeft" "R0" "stick" 1.0)
+    
     ;; ===== Driver Stage =====
     ;; Driver transistor - sized for pre-amplification
-    driverNmos = dbCreateInst(cvId nmosMaster "M1" list(100 100))
+    driverNmos = dbCreateInst(cvId nmosCellView "M1" list(100 100) "R0")
     schSetFigProperty(driverNmos list("w" 240u))
     schSetFigProperty(driverNmos list("l" 0.06u))
     schSetFigProperty(driverNmos list("fingers" 20))
     
-    ;; Connect M1 terminals to nets via wires
-    dbCreateWire(cvId "route" list(list(100:100 "auto") list(rf_in "auto")))
-    dbCreateWire(cvId "route" list(list(100:130 "auto") list(bias1 "auto")))
-    dbCreateWire(cvId "route" list(list(100:70 "auto") list(gnd "auto")))
-    dbCreateWire(cvId "route" list(list(130:100 "auto") list(gnd "auto")))
+    ;; Connect instances using dbCreateLine instead of dbCreateWire
+    dbCreateLine(cvId "route" list(100:100 rf_in))
+    dbCreateLine(cvId "route" list(100:130 bias1))
+    dbCreateLine(cvId "route" list(100:70 gnd))
+    dbCreateLine(cvId "route" list(130:100 gnd))
     
     ;; Driver bias circuit
-    inst1 = dbCreateInst(cvId resMaster "R1" list(100 200))
+    inst1 = dbCreateInst(cvId resCellView "R1" list(100 200) "R0")
     schSetFigProperty(inst1 list("resistance" 5k))
-    dbCreateWire(cvId "route" list(list(100:230 "auto") list(vdd "auto")))
-    dbCreateWire(cvId "route" list(list(100:170 "auto") list(bias1 "auto")))
+    dbCreateLine(cvId "route" list(100:230 vdd))
+    dbCreateLine(cvId "route" list(100:170 bias1))
     
     ;; Gate bias resistor
-    inst2 = dbCreateInst(cvId resMaster "R_BIAS1" list(50 100))
+    inst2 = dbCreateInst(cvId resCellView "R_BIAS1" list(50 100) "R0")
     schSetFigProperty(inst2 list("resistance" 10k))
-    dbCreateWire(cvId "route" list(list(50:130 "auto") list(bias1 "auto")))
-    dbCreateWire(cvId "route" list(list(50:70 "auto") list(rf_in "auto")))
+    dbCreateLine(cvId "route" list(50:130 bias1))
+    dbCreateLine(cvId "route" list(50:70 rf_in))
     
     ;; DC blocking capacitor for input
-    inst3 = dbCreateInst(cvId capMaster "C_IN" list(0 100))
+    inst3 = dbCreateInst(cvId capCellView "C_IN" list(0 100) "R0")
     schSetFigProperty(inst3 list("capacitance" 2p))
-    dbCreateWire(cvId "route" list(list(20:100 "auto") list(rf_in "auto")))
-    dbCreateWire(cvId "route" list(list(-20:100 "auto") list(rf_in_ext "auto")))
+    dbCreateLine(cvId "route" list(20:100 rf_in))
+    dbCreateLine(cvId "route" list(-20:100 rf_in_ext))
     
     ;; Input matching network for 3.3-3.8 GHz (L-network)
-    inst4 = dbCreateInst(cvId indMaster "L_IN" list(-50 100))
+    inst4 = dbCreateInst(cvId indCellView "L_IN" list(-50 100) "R0")
     schSetFigProperty(inst4 list("inductance" 1.8n))
-    dbCreateWire(cvId "route" list(list(-30:100 "auto") list(rf_in_ext "auto")))
-    dbCreateWire(cvId "route" list(list(-70:100 "auto") list(ant_in "auto")))
+    dbCreateLine(cvId "route" list(-30:100 rf_in_ext))
+    dbCreateLine(cvId "route" list(-70:100 ant_in))
     
-    inst5 = dbCreateInst(cvId capMaster "C_IN_SHUNT" list(0 50))
+    inst5 = dbCreateInst(cvId capCellView "C_IN_SHUNT" list(0 50) "R0")
     schSetFigProperty(inst5 list("capacitance" 0.8p))
-    dbCreateWire(cvId "route" list(list(0:70 "auto") list(rf_in "auto")))
-    dbCreateWire(cvId "route" list(list(0:30 "auto") list(gnd "auto")))
+    dbCreateLine(cvId "route" list(0:70 rf_in))
+    dbCreateLine(cvId "route" list(0:30 gnd))
     
     ;; Interstage matching (between driver and power stage)
-    inst6 = dbCreateInst(cvId capMaster "C_INTER" list(150 100))
+    inst6 = dbCreateInst(cvId capCellView "C_INTER" list(150 100) "R0")
     schSetFigProperty(inst6 list("capacitance" 1.2p))
-    dbCreateWire(cvId "route" list(list(130:100 "auto") list(bias1 "auto")))
-    dbCreateWire(cvId "route" list(list(170:100 "auto") list(interstage "auto")))
+    dbCreateLine(cvId "route" list(130:100 bias1))
+    dbCreateLine(cvId "route" list(170:100 interstage))
     
-    inst7 = dbCreateInst(cvId indMaster "L_INTER" list(200 150))
+    inst7 = dbCreateInst(cvId indCellView "L_INTER" list(200 150) "R0")
     schSetFigProperty(inst7 list("inductance" 1.5n))
-    dbCreateWire(cvId "route" list(list(180:150 "auto") list(interstage "auto")))
-    dbCreateWire(cvId "route" list(list(220:150 "auto") list(bias2 "auto")))
+    dbCreateLine(cvId "route" list(180:150 interstage))
+    dbCreateLine(cvId "route" list(220:150 bias2))
     
     ;; ===== Power Stage =====
     ;; Power transistor - sized for 23 dBm output power
-    powerNmos = dbCreateInst(cvId nmosMaster "M2" list(250 100))
+    powerNmos = dbCreateInst(cvId nmosCellView "M2" list(250 100) "R0")
     schSetFigProperty(powerNmos list("w" 1200u))
     schSetFigProperty(powerNmos list("l" 0.06u))
     schSetFigProperty(powerNmos list("fingers" 80))
     
-    dbCreateWire(cvId "route" list(list(250:100 "auto") list(bias2 "auto")))
-    dbCreateWire(cvId "route" list(list(250:130 "auto") list(bias2 "auto")))
-    dbCreateWire(cvId "route" list(list(250:70 "auto") list(gnd "auto")))
-    dbCreateWire(cvId "route" list(list(280:100 "auto") list(gnd "auto")))
+    dbCreateLine(cvId "route" list(250:100 bias2))
+    dbCreateLine(cvId "route" list(250:130 bias2))
+    dbCreateLine(cvId "route" list(250:70 gnd))
+    dbCreateLine(cvId "route" list(280:100 gnd))
     
     ;; Power bias circuit
-    inst8 = dbCreateInst(cvId resMaster "R2" list(250 200))
+    inst8 = dbCreateInst(cvId resCellView "R2" list(250 200) "R0")
     schSetFigProperty(inst8 list("resistance" 3k))
-    dbCreateWire(cvId "route" list(list(250:230 "auto") list(vdd "auto")))
-    dbCreateWire(cvId "route" list(list(250:170 "auto") list(bias2 "auto")))
+    dbCreateLine(cvId "route" list(250:230 vdd))
+    dbCreateLine(cvId "route" list(250:170 bias2))
     
     ;; Output matching network for 3.3-3.8 GHz
-    inst9 = dbCreateInst(cvId capMaster "C_OUT" list(300 100))
+    inst9 = dbCreateInst(cvId capCellView "C_OUT" list(300 100) "R0")
     schSetFigProperty(inst9 list("capacitance" 1.5p))
-    dbCreateWire(cvId "route" list(list(280:100 "auto") list(bias2 "auto")))
-    dbCreateWire(cvId "route" list(list(320:100 "auto") list(out_match "auto")))
+    dbCreateLine(cvId "route" list(280:100 bias2))
+    dbCreateLine(cvId "route" list(320:100 out_match))
     
-    inst10 = dbCreateInst(cvId indMaster "L_OUT" list(350 100))
+    inst10 = dbCreateInst(cvId indCellView "L_OUT" list(350 100) "R0")
     schSetFigProperty(inst10 list("inductance" 2.2n))
-    dbCreateWire(cvId "route" list(list(330:100 "auto") list(out_match "auto")))
-    dbCreateWire(cvId "route" list(list(370:100 "auto") list(rf_out "auto")))
+    dbCreateLine(cvId "route" list(330:100 out_match))
+    dbCreateLine(cvId "route" list(370:100 rf_out))
     
     ;; DC blocking capacitor for output
-    powerInst1 = dbCreateInst(cvId capMaster "C_OUT_DC" list(400 100))
+    powerInst1 = dbCreateInst(cvId capCellView "C_OUT_DC" list(400 100) "R0")
     schSetFigProperty(powerInst1 list("capacitance" 2p))
-    dbCreateWire(cvId "route" list(list(380:100 "auto") list(rf_out "auto")))
-    dbCreateWire(cvId "route" list(list(420:100 "auto") list(ant_out "auto")))
+    dbCreateLine(cvId "route" list(380:100 rf_out))
+    dbCreateLine(cvId "route" list(420:100 ant_out))
     
     ;; Supply choke
-    powerInst2 = dbCreateInst(cvId indMaster "L_CHOKE" list(250 250))
+    powerInst2 = dbCreateInst(cvId indCellView "L_CHOKE" list(250 250) "R0")
     schSetFigProperty(powerInst2 list("inductance" 5n))
-    dbCreateWire(cvId "route" list(list(230:250 "auto") list(vdd "auto")))
-    dbCreateWire(cvId "route" list(list(270:250 "auto") list(bias2 "auto")))
+    dbCreateLine(cvId "route" list(230:250 vdd))
+    dbCreateLine(cvId "route" list(270:250 bias2))
     
     ;; Stability network
-    powerInst3 = dbCreateInst(cvId resMaster "R_STAB" list(200 100))
+    powerInst3 = dbCreateInst(cvId resCellView "R_STAB" list(200 100) "R0")
     schSetFigProperty(powerInst3 list("resistance" 300))
-    dbCreateWire(cvId "route" list(list(200:130 "auto") list(bias2 "auto")))
-    dbCreateWire(cvId "route" list(list(200:70 "auto") list(gnd "auto")))
+    dbCreateLine(cvId "route" list(200:130 bias2))
+    dbCreateLine(cvId "route" list(200:70 gnd))
     
-    powerInst4 = dbCreateInst(cvId capMaster "C_STAB" list(200 50))
+    powerInst4 = dbCreateInst(cvId capCellView "C_STAB" list(200 50) "R0")
     schSetFigProperty(powerInst4 list("capacitance" 0.5p))
-    dbCreateWire(cvId "route" list(list(200:70 "auto") list(bias2 "auto")))
-    dbCreateWire(cvId "route" list(list(200:30 "auto") list(gnd "auto")))
+    dbCreateLine(cvId "route" list(200:70 bias2))
+    dbCreateLine(cvId "route" list(200:30 gnd))
     
     ;; Save the cellview
     dbSave(cvId)
@@ -195,10 +544,132 @@ procedure(createClassABPA()
   )
 )
 
-;; Function to load and run the PA design procedure
-procedure(runClassABPADesign()
-  createClassABPA()
+;; Improved procedure for displaying a GUI - using proper hiDisplayAppDBox format
+procedure(showDesignToolUI()
+  printf("Starting Class AB PA Design Tool UI...\n")
+  
+  let((form)
+    form = hiCreateAppForm(
+      ?name           'designToolDialog
+      ?formTitle      "Class AB Power Amplifier Design Tool"
+      ?buttonLayout   'OKCancel
+      ?unmapAfterCB   nil
+    )
+    
+    hiCreateLabel(
+      ?parent         form
+      ?name           'infoLabel
+      ?label          "Please select an operation:"
+    )
+    
+    hiCreateButton(
+      ?parent         form
+      ?name           'designButton
+      ?buttonText     "Design PA"
+      ?callback       "createClassABPA()"
+    )
+    
+    hiCreateButton(
+      ?parent         form
+      ?name           'listLibButton
+      ?buttonText     "List Libraries"
+      ?callback       "listAvailableLibraries()"
+    )
+    
+    hiCreateButton(
+      ?parent         form
+      ?name           'browseButton
+      ?buttonText     "Browse Libraries"
+      ?callback       "browseLibraries()"
+    )
+    
+    hiSetFormCallbacks(form
+      ?cancelCallBack "hiDBoxCancel()"
+    )
+    
+    hiDisplayForm(form)
+    
+    ; Store form reference globally to prevent garbage collection
+    setq(_designToolForm form)
+    
+    form
+  )
 )
 
-;; To run the design, evaluate: runClassABPADesign()
-runClassABPADesign()
+;; Helper function to browse libraries with GUI
+procedure(browseLibraries()
+  let((form libs libNames selectedLib)
+    ;; Get list of libraries
+    libs = ddGetLibList()
+    libNames = '()
+    foreach(lib libs
+      libNames = append(libNames list(lib->name))
+    )
+    
+    ;; Sort library names
+    libNames = sort(libNames 'alphLessp)
+    
+    ;; Display library list dialog
+    hiDisplayListBox(
+      ?name           'libListDialog
+      ?title          "Select a Library"
+      ?buttonLayout   'OKCancel
+      ?choices        libNames
+      ?numVisChoice   15
+      ?itemAction     "browseLibraryContents()"
+    )
+  )
+)
+
+;; Browse contents of selected library
+procedure(browseLibraryContents()
+  let((libName cells cellNames)
+    libName = hiGetSelectedItem()
+    
+    ;; Get cells
+    cells = listCellsInLibrary(libName)
+    
+    ;; Display in a new list box or dialog
+    if(cells != nil then
+      cellNames = '()
+      foreach(cell cells
+        cellNames = append(cellNames list(cell->name))
+      )
+      
+      ;; If there are cells, display them
+      if(length(cellNames) > 0 then
+        hiDisplayListBox(
+          ?name           'cellListDialog
+          ?title          sprintf(nil "Cells in %s" libName)
+          ?buttonLayout   'OKCancel
+          ?choices        cellNames
+          ?numVisChoice   15
+        )
+      else
+        hiDisplayAppDBox(
+          ?title          "No Cells"
+          ?prompt         sprintf(nil "No cells found in library %s" libName)
+          ?buttonLayout   'OK
+        )
+      )
+    )
+  )
+)
+
+;; Helper function to prompt for library and list cells
+procedure(promptAndListCells()
+  browseLibraries()
+)
+
+;; Main startup procedure - completely GUI-based
+procedure(main()
+  printf("Class AB Power Amplifier Design Tool (65nm CMOS)\n")
+  printf("=============================================\n")
+  printf("Starting GUI interface...\n")
+  
+  ;; Display the main interface with error handling
+  errset(showDesignToolUI())
+)
+
+;; Launch the main function directly with error protection
+errset(main())
