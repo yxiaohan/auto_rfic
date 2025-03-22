@@ -134,23 +134,30 @@ procedure(autoRficCreateTestbench(schematic)
                     1
                 )
                 
-                ;; Create ADE state and handle cleanup
-                prog((state)
+                ;; First create and validate ADE state
+                prog(() let((state)
                     state = createADEState(cv)
                     unless(state
                         autoRficLogError("Failed to create ADE state")
                         return(nil)
                     )
                     
-                    ;; Save and cleanup after state creation
+                    ;; Log success and save state
+                    autoRficLogInfo(sprintf(nil "Created testbench: %s" testbenchName))
                     dbSave(cv)
-                    when(sourceLib != cv->libName
+                    
+                    ;; Set result before cleanup
+                    result = cv
+                ))
+                
+                ;; Handle cleanup in separate block
+                prog(() 
+                    when(dbValidP(sourceCv)
                         dbClose(sourceCv)
                     )
-                    dbClose(cv)
-                    
-                    autoRficLogInfo(sprintf(nil "Created testbench: %s" testbenchName))
-                    result = cv
+                    when(dbValidP(cv)
+                        dbClose(cv)
+                    )
                 )
             )
             result
