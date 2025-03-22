@@ -18,6 +18,23 @@ autoRficLogging['levels]['none] = 4
 autoRficLogging['defaultLevel] = 'info
 autoRficLogging['currentLevel] = autoRficLogging['defaultLevel]
 
+;; Helper function to format log message
+defun(autoRficFormatLogMessage (level message details)
+    let((timestamp formattedMessage)
+        ;; Get timestamp first since it's just a string
+        timestamp = autoRficTimestamp()
+        
+        ;; Format the base message
+        formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp level message)
+        
+        ;; Add details if provided
+        when(boundp('details)
+            formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
+        )
+        formattedMessage
+    )
+)
+
 ;; Helper function to safely get log level number
 defun(autoRficGetLevelNumber (level)
     let((levelSymbol)
@@ -35,7 +52,7 @@ defun(autoRficGetLevelNumber (level)
 
 ;; Core logging functions - define these first so they can be used later
 defun(autoRficLog (level message @optional details)
-    let((timestamp logFile fileId formattedMessage currentLevel configLevel)
+    let((formattedMessage logFile fileId currentLevel configLevel)
         ;; Get level numbers directly
         currentLevel = autoRficGetLevelNumber(level)
         configLevel = if(boundp('autoRficConfig)
@@ -45,13 +62,8 @@ defun(autoRficLog (level message @optional details)
         
         ;; Only log if current level is at or above config level
         when(currentLevel >= configLevel
-            timestamp = autoRficTimestamp()
-            formattedMessage = sprintf(nil "[%s] [%L] %s" timestamp level message)
-            
-            ;; Add details if provided
-            when(boundp('details)
-                formattedMessage = sprintf(nil "%s\n  Details: %L" formattedMessage details)
-            )
+            ;; Format message with timestamp
+            formattedMessage = autoRficFormatLogMessage(level message details)
             
             ;; Print to CIW
             printf("%s\n" formattedMessage)

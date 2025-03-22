@@ -7,6 +7,13 @@ This document provides instructions for GitHub Copilot when working with SKILL l
 **Needs Update**
 You can update and take notes of (cadence/skill/SKILL_coding.md) as a coding guideline, if finding something needs special treatment for coding with SKILL, during error corrections.
 
+## Working Examples
+
+There are SKILL scripts should work, which can be taken as references:
+cadence/skill/examples/SKILL/utils/
+cadence/skill/examples/skill2/
+cadence/skillbridge/skillbridge/server/python_server.il
+
 ## Documentation References
 
 The project includes these documentation references for SKILL:
@@ -20,9 +27,9 @@ The project includes these documentation references for SKILL:
   - Complete index located at: `cadence/skill/skill_ref/skdfref/skdfref.xml`
   - Contains documentation for Cadence-specific API functions
 
+
 ## Project Structure
 
 This project involves SKILL programming for Cadence Virtuoso automation. When suggesting code:
 - Consider the existing files in the skill/ directory
-- Follow the project patterns for remote server operations
 - Reference the included documentation when suggesting functions and methods
