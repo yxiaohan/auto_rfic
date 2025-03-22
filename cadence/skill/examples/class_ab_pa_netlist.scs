@@ -1,0 +1,69 @@
+// ================================================================
+// Class AB Power Amplifier Netlist for 65nm CMOS Process
+// Frequency: 3.3-3.8 GHz
+// Specifications:
+// - Output Power: 23 dBm
+// - Gain: 25 dB
+// - Power Added Efficiency (PAE): 45%
+// - Supply Voltage: 3.3 V
+// - Linearity Requirement (ACLR): -35 dBc
+// - EVM: 5%
+// ================================================================
+
+// Include the 65nm PDK models
+include "/path/to/65nm_CMOS_models.scs"
+
+// Top-level circuit definition (SpiceIn requires this format)
+.subckt ClassAB_PA_65nm RF_IN ANT_IN RF_OUT ANT_OUT VDD GND
+
+// Driver Stage
+M1 bias1 RF_IN GND GND nmos_65nm w=240u l=0.06u fingers=20
+R1 VDD bias1 5k
+R_BIAS1 bias1 RF_IN 10k
+C_IN RF_IN RF_IN_ext 2p
+L_IN RF_IN_ext ANT_IN 1.8n
+C_IN_SHUNT RF_IN GND 0.8p
+
+// Interstage Matching
+C_INTER bias1 interstage 1.2p
+L_INTER interstage bias2 1.5n
+
+// Power Stage
+M2 bias2 bias2 GND GND nmos_65nm w=1200u l=0.06u fingers=80
+R2 VDD bias2 3k
+
+// Stability Network
+R_STAB bias2 GND 300
+C_STAB bias2 GND 0.5p
+
+// Output Matching Network
+C_OUT bias2 out_match 1.5p
+L_OUT out_match RF_OUT 2.2n
+C_OUT_DC RF_OUT ANT_OUT 2p
+
+// Supply Choke
+L_CHOKE VDD bias2 5n
+
+.ends ClassAB_PA_65nm
+
+// Test simulation setup
+simulator lang=spectre
+
+V1 (VDD 0) vsource dc=3.3
+V2 (ANT_IN 0) port=1 z0=50 mag=0.1 freq=3.5G
+R_load (ANT_OUT 0) resistor r=50
+
+// Instantiate the PA
+X1 (RF_IN_EXT ANT_IN RF_OUT ANT_OUT VDD 0) ClassAB_PA_65nm
+
+// Analysis statements
+ac ac freq=3G,4G step=10M
+sp sp freq=3G,4G step=10M
+pss pss fund=3.5G maxharms=10
+pnoise pnoise fund=3.5G
+
+// Measurements for verifying specifications
+// Output Power: target 23 dBm
+// Gain: target 25 dB 
+// PAE: target 45%
+// Linearity (ACLR): target -35 dBc
