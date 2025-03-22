@@ -1,24 +1,160 @@
 ;; results.il - Results processing for auto_rfic
 ;; This file contains functions for processing and analyzing simulation results
 
-;; Define the results namespace
-autoRficResults = list(nil)
+;; Initialize the results namespace
+unless(boundp('autoRficResults)
+    autoRficResults = makeTable("results" nil)
+)
 
-;; Function to get the current simulation results
-procedure(autoRficGetSimResults()
-  let((results)
-    results = adeGetResults()
-    if(results
-      prog(()
-        autoRficLogInfo("Retrieved simulation results")
-        results
-      )
-      prog(()
-        autoRficLogError("No simulation results available")
-        nil
-      )
+;; Function to get a list of plot names from a result directory
+procedure(autoRficGetPlotNames(resultsDir)
+    let((plotList)
+        plotList = ddGetFamilies(resultsDir)
+        plotList
     )
-  )
+)
+
+;; Function to get signals from a plot
+procedure(autoRficGetSignalNames(resultsDir plotName)
+    let((signalList)
+        signalList = ddGetWaveNames(resultsDir plotName)
+        signalList
+    )
+)
+
+;; Function to extract value from a result signal
+procedure(autoRficGetSignalValue(resultsDir plotName signalName @optional (index 0))
+    let((value waveform)
+        waveform = ddGetWave(resultsDir plotName signalName)
+        value = nth(index waveform->value)
+        value
+    )
+)
+
+;; Function to get a complete signal data as X-Y pairs
+procedure(autoRficGetSignalData(resultsDir plotName signalName)
+    let((wave data)
+        wave = ddGetWave(resultsDir plotName signalName)
+        data = list(wave->x wave->value)
+        data
+    )
+)
+
+;; Function to get S-parameters from simulation results
+procedure(autoRficGetSParameters(resultsDir)
+    let((sParams freq)
+        ;; Get frequency points
+        freq = ddGetWave(resultsDir "sp" "freq")
+        
+        ;; Extract S-parameters
+        sParams = makeTable("sparams" nil)
+        sParams['freq] = freq->value
+        sParams['s11] = ddGetWave(resultsDir "sp" "S11")
+        sParams['s12] = ddGetWave(resultsDir "sp" "S12")
+        sParams['s21] = ddGetWave(resultsDir "sp" "S21")
+        sParams['s22] = ddGetWave(resultsDir "sp" "S22")
+        
+        sParams
+    )
+)
+
+;; Function to get noise analysis results
+procedure(autoRficGetNoiseResults(resultsDir)
+    let((noiseData freq)
+        ;; Get frequency points
+        freq = ddGetWave(resultsDir "noise" "freq")
+        
+        ;; Extract noise data
+        noiseData = makeTable("noise" nil)
+        noiseData['freq] = freq->value
+        noiseData['nf] = ddGetWave(resultsDir "noise" "nf")
+        noiseData['sourceNoise] = ddGetWave(resultsDir "noise" "inoise")
+        noiseData['outputNoise] = ddGetWave(resultsDir "noise" "onoise")
+        
+        noiseData
+    )
+)
+
+;; Function to get PSS/HB results
+procedure(autoRficGetPeriodic(resultsDir analysisType)
+    let((periodicData)
+        periodicData = makeTable("periodic" nil)
+        
+        ;; Get time/frequency domain data based on analysis type
+        case(analysisType
+            ("pss"
+                ;; Time domain waveforms
+                periodicData['time] = ddGetWave(resultsDir "pss" "time")->value
+                periodicData['v] = ddGetWave(resultsDir "pss" "v")->value
+                periodicData['i] = ddGetWave(resultsDir "pss" "i")->value
+            )
+            ("hb"
+                ;; Frequency components
+                periodicData['freq] = ddGetWave(resultsDir "hb" "freq")->value
+                periodicData['vFreq] = ddGetWave(resultsDir "hb" "vf")->value
+                periodicData['iFreq] = ddGetWave(resultsDir "hb" "if")->value
+            )
+        )
+        
+        periodicData
+    )
+)
+
+;; Main function to get simulation results
+procedure(autoRficGetSimResults(testbench @optional (analysisType nil))
+    let((state results resultsDir plotNames)
+        ;; Get ADE state for testbench
+        state = adeGetState(testbench->libName testbench->cellName)
+        unless(state
+            autoRficLogError("Failed to get ADE state")
+            return(nil)
+        )
+        
+        ;; Get results directory
+        resultsDir = adeGetResultsDir(state)
+        unless(resultsDir
+            autoRficLogError("No simulation results found")
+            return(nil)
+        )
+        
+        ;; Initialize results table
+        results = makeTable("sim_results" nil)
+        results['plotNames] = autoRficGetPlotNames(resultsDir)
+        
+        ;; Extract results based on analysis type
+        if(analysisType then
+            case(analysisType
+                ("sp"
+                    results['sparam] = autoRficGetSParameters(resultsDir)
+                )
+                ("noise"
+                    results['noise] = autoRficGetNoiseResults(resultsDir)
+                )
+                ("pss"
+                    results['pss] = autoRficGetPeriodic(resultsDir "pss")
+                )
+                ("hb"
+                    results['hb] = autoRficGetPeriodic(resultsDir "hb")
+                )
+                (t
+                    autoRficLogError(sprintf(nil "Unknown analysis type: %s" analysisType))
+                )
+            )
+        else
+            ;; Get all available results
+            foreach(plotName results['plotNames]
+                results[plotName] = list()
+                foreach(signal autoRficGetSignalNames(resultsDir plotName)
+                    results[plotName] = append(
+                        results[plotName]
+                        list(signal autoRficGetSignalData(resultsDir plotName signal))
+                    )
+                )
+            )
+        )
+        
+        results
+    )
 )
 
 ;; Function to extract a specific output signal from results
@@ -281,18 +417,30 @@ procedure(autoRficGeneratePerformanceReport(results specs)
   )
 )
 
-;; Add all results functions to the namespace
+;; Add core functions to namespace first
+when(boundp('autoRficResults)
+    autoRficResults['getPlotNames] = 'autoRficGetPlotNames
+    autoRficResults['getSignalNames] = 'autoRficGetSignalNames
+    autoRficResults['getSignalValue] = 'autoRficGetSignalValue
+    autoRficResults['getSignalData] = 'autoRficGetSignalData
+    autoRficResults['getSParameters] = 'autoRficGetSParameters
+    autoRficResults['getNoiseResults] = 'autoRficGetNoiseResults
+    autoRficResults['getPeriodic] = 'autoRficGetPeriodic
+    autoRficResults['get] = 'autoRficGetSimResults
+    autoRficResults['getResults] = 'autoRficGetSimResults  ; Alias for backward compatibility
+)
+
+;; Add analysis functions to namespace 
 autoRficResults = append(autoRficResults list(
-  'getResults autoRficGetSimResults
-  'extractSignal autoRficExtractSignal
-  'calculateGain autoRficCalculateGain
-  'calculateNoiseFigure autoRficCalculateNoiseFigure
-  'calculateInputImpedance autoRficCalculateInputImpedance
-  'calculatePowerConsumption autoRficCalculatePowerConsumption
-  'calculate1dBCompressionPoint autoRficCalculate1dBCompressionPoint
-  'calculateIIP3 autoRficCalculateIIP3
-  'exportToCsv autoRficExportResultsToCsv
-  'generateReport autoRficGeneratePerformanceReport
+    'extractSignal 'autoRficExtractSignal
+    'calculateGain 'autoRficCalculateGain
+    'calculateNoiseFigure 'autoRficCalculateNoiseFigure
+    'calculateInputImpedance 'autoRficCalculateInputImpedance
+    'calculatePowerConsumption 'autoRficCalculatePowerConsumption
+    'calculate1dBCompressionPoint 'autoRficCalculate1dBCompressionPoint
+    'calculateIIP3 'autoRficCalculateIIP3
+    'exportToCsv 'autoRficExportResultsToCsv
+    'generateReport 'autoRficGeneratePerformanceReport
 ))
 
 ;; Export the results namespace

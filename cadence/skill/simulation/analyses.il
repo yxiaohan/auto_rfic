@@ -18,8 +18,8 @@ procedure(autoRficConfigureAcAnalysis(state params)
             ?start start
             ?stop stop
             ?dec dec
-            ?oprobe member('oprobe params)
-            ?iprobe member('iprobe params)
+            ?oprobe (if(member('oprobe params) params->oprobe nil)
+            ?iprobe (if(member('iprobe params) params->iprobe nil)
             ?detail (if(member('detail params) params->detail "conservative")
         )
         
@@ -178,34 +178,26 @@ procedure(autoRficConfigurePssAnalysis(state params)
 procedure(autoRficConfigureAnalysis(state analysisType params)
     case(analysisType
         ("ac"
-            autoRficConfigureAcAnalysis(state params)
-        )
+            autoRficConfigureAcAnalysis(state params))
         ("dc"
-            autoRficConfigureDcAnalysis(state params)
-        )
-        ("tran"
-            autoRficConfigureTransientAnalysis(state params)
-        )
+            autoRficConfigureDcAnalysis(state params))
+        ("tran" 
+            autoRficConfigureTransientAnalysis(state params))
         ("sp"
-            autoRficConfigureSpAnalysis(state params)
-        )
+            autoRficConfigureSpAnalysis(state params))
         ("noise"
-            autoRficConfigureNoiseAnalysis(state params)
-        )
+            autoRficConfigureNoiseAnalysis(state params))
         ("hb"
-            autoRficConfigureHbAnalysis(state params)
-        )
+            autoRficConfigureHbAnalysis(state params))
         ("pss"
-            autoRficConfigurePssAnalysis(state params)
-        )
+            autoRficConfigurePssAnalysis(state params))
         (t
             autoRficLogError(sprintf(nil "Unknown analysis type: %s" analysisType))
-            nil
-        )
+            nil)
     )
 )
 
-;; Add analysis functions to namespace
+;; Add functions to namespace
 when(boundp('autoRficAnalyses)
     autoRficAnalyses['configureAc] = 'autoRficConfigureAcAnalysis
     autoRficAnalyses['configureDc] = 'autoRficConfigureDcAnalysis
@@ -216,3 +208,6 @@ when(boundp('autoRficAnalyses)
     autoRficAnalyses['configurePss] = 'autoRficConfigurePssAnalysis
     autoRficAnalyses['configure] = 'autoRficConfigureAnalysis
 )
+
+;; Export the analyses namespace
+autoRficAnalyses
