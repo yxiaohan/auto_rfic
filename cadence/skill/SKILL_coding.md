@@ -642,3 +642,241 @@ tableVar = makeTable("tableName" nil)
        autoRficModule['func2] = 'funcSymbol2
    )
    ```
+
+# SKILL Coding Guidelines
+
+## Terminal and Pin Creation
+
+### Creating Cell Pins
+
+When creating pins for a cell in SKILL, use the correct API function:
+
+```skill
+dbCreatePin(cellViewId netObj pinName ioType)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `netObj` is the net object returned by dbCreateNet (not a string)
+- `pinName` is the pin name
+- `ioType` is the I/O type as a string:
+  - "inputOutput"
+  - "outputOutput"
+  - "inoutOutput"
+  - etc.
+
+### Creating Instance Connections
+
+When creating connections for instances, use:
+
+```skill
+dbCreateInstTerms(instId netList termList)
+```
+
+Where:
+- `instId` is the instance object ID
+- `netList` is a list of net objects
+- `termList` is a list of corresponding terminal names
+
+This is more efficient than multiple calls to create instance pins individually.
+
+## Common Mistakes
+
+1. **Using `dbCreateTerm` instead of `dbCreatePin`**
+   - For Cadence Virtuoso in modern versions, `dbCreatePin` is preferred
+   - `dbCreateTerm` is older and may not work correctly in all contexts
+
+2. **Passing net names instead of net objects**
+   - Many Cadence API functions expect net objects returned from `dbCreateNet`
+   - When creating pins, you pass the actual net object, not its name as a string
+
+3. **Using numeric constants for I/O types**
+   - While some older functions use numeric constants (0, 1, 2)
+   - Modern functions like `dbCreatePin` use string values like "inputOutput"
+
+## Efficient Connection Pattern
+
+A recommended pattern for creating nets and pins:
+
+1. Create all nets using `dbCreateNet`
+2. Create cell pins with `dbCreatePin` using net objects
+3. Connect instance terminals with `dbCreateInstTerms` for multiple connections at once
+
+This approach reduces the number of function calls and follows modern Cadence API best practices.
+
+## Terminal and Pin Creation
+
+### Creating Terminals
+
+When creating terminals in SKILL, use the correct syntax for `dbCreateTerm`:
+
+```skill
+dbCreateTerm(cellViewId netName termName direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `netName` is the name of the net as a STRING (not the net object)
+- `termName` is the terminal name
+- `direction` is an INTEGER, not a string:
+  - 0 = input
+  - 1 = output
+  - 2 = inputOutput (or inout)
+
+**Common mistake:** Using the net object instead of the net name, or using a string for direction.
+
+### Creating Instance Pins
+
+When creating instance pins, use the correct syntax for `dbCreateInstPin`:
+
+```skill
+dbCreateInstPin(cellViewId instId pinName termName netName direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `instId` is the instance object ID
+- `pinName` is the pin name
+- `termName` is the terminal name
+- `netName` is the name of the net as a STRING (not the net object)
+- `direction` is an INTEGER, not a string, following the same convention as above
+
+## Net and Terminal Workflow
+
+A typical workflow for creating nets and terminals:
+
+1. Create nets first using `dbCreateNet`
+2. Create terminals using `dbCreateTerm` with the net name (as string)
+3. Connect instance pins to nets using `dbCreateInstPin` with the net name (as string)
+
+## Common Errors
+
+- Invalid net error: This often occurs when passing a net object instead of its name
+- Invalid direction error: This occurs when using a string like "input" instead of the integer code 0
+
+# SKILL Coding Guidelines
+
+## Net and Terminal Management
+
+### Best Practices for Net and Terminal Creation
+
+When creating circuits programmatically in SKILL, follow these patterns:
+
+1. **Use Data Structures for Organization**
+   - Use tables (hash maps) to organize nets and instances
+   - This makes code more maintainable and less error-prone
+
+2. **Create All Nets First**
+   - Create all nets before creating pins or connecting instances
+   - Store nets in a table for easy reference: `netList["NET_NAME"] = dbCreateNet(cvId "NET_NAME")`
+
+3. **Terminal Creation**
+   - Use `dbCreateTerm` with correct syntax: `dbCreateTerm(cvId netObj termName direction)`
+   - Direction is a string value: "input", "output", "inputOutput"
+
+4. **Instance Terminal Connections**
+   - Use `dbCreateInstTerm` to connect instance terminals to nets
+   - Syntax: `dbCreateInstTerm(instObj termName netObj)`
+
+## Common Errors
+
+1. **Invalid Net Errors**
+   - May occur when using net names instead of net objects
+   - Always pass the actual net object (from dbCreateNet) to functions
+
+2. **Direction Parameter Inconsistencies**
+   - Different Cadence versions and functions may use different direction formats
+   - Some use strings ("input"), some use integers (0), some use IO-specific strings ("inputOutput")
+   - Consult documentation or working examples for your specific Cadence version
+
+3. **Pin vs. Term Confusion**
+   - In older Cadence versions: use `dbCreateTerm` and `dbCreateInstPin`
+   - In newer versions: might use `dbCreatePin` and `dbCreateInstTerm`
+   - The function names and signatures vary across versions
+
+## Debugging Tips
+
+1. **Print Objects**
+   - Use `println(object)` to debug object types and values
+   - Check if net objects are valid before using them
+
+2. **Use Tables for Organization**
+   - Tables help avoid variable name collisions and make code more readable
+   - Example: `netList["VDD"]` is clearer than having many similar variable names
+
+3. **Create All Objects Before Connecting**
+   - Create all nets, then all instances, then make all connections
+   - This separation makes debugging easier
+
+## Net and Terminal Management
+
+### Function Syntax for Different Cadence Versions
+
+Different versions of Cadence use different function signatures for creating terminals and pins. Here are the key differences:
+
+#### Terminal Creation
+
+```skill
+;; Create a terminal for a cell
+dbCreateTerm(cellViewId netObj termName direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `netObj` is the net object returned by dbCreateNet
+- `termName` is the terminal name
+- `direction` is an INTEGER:
+  - 0 = input
+  - 1 = output
+  - 2 = inputOutput/inout
+
+#### Instance Pin Creation
+
+```skill
+;; Connect an instance pin to a net
+dbCreateInstPin(cellViewId instId pinName displayName netObj direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `instId` is the instance object ID
+- `pinName` is the pin name
+- `displayName` is the display name for the pin
+- `netObj` is the net object
+- `direction` is an INTEGER (0=input, 1=output, 2=inout)
+
+### Organization Best Practices
+
+1. **Use Tables for Net Management**
+   ```skill
+   netList = makeTable("netList")
+   netList["VDD"] = dbCreateNet(cvId "VDD")
+   ```
+
+2. **Use Tables for Instance Management**
+   ```skill
+   instList = makeTable("instList")
+   instList["M1"] = dbCreateInst(cvId masterName "M1" position)
+   ```
+
+3. **Create All Objects Before Connecting**
+   - Create all nets
+   - Create all terminals
+   - Create all instances
+   - Set all instance properties
+   - Connect all instance pins
+
+## Common Errors
+
+1. **Direction Parameter Type Mismatch**
+   - Most Cadence SKILL functions expect numeric constants for direction parameters
+   - Using strings like "input" instead of integers (0) will cause errors
+   
+2. **Net Reference Issues**
+   - Pass the actual net object to functions, not just its name
+   - Store net objects in variables or tables for easy reference
+
+3. **API Version Inconsistencies**
+   - Some versions use `dbCreateTerm` while others prefer `dbCreatePin`
+   - Some versions use `dbCreateInstPin` while others use `dbCreateInstTerm`
+   - Check your specific Cadence version's documentation

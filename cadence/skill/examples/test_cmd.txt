@@ -1,0 +1,1 @@
+load("/home/zhoulong/projects/auto_rfic/cadence/skill/examples/class_ab_pa_design.il")
