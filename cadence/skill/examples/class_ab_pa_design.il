@@ -13,11 +13,9 @@
 ;; Load required libraries
 procedure(createClassABPA()
   let((lib cell view cvId tech 
-       inputMatching outputMatching
-       driverNmos powerNmos inductorId capacitorId resistorId
-       netList
-       instList
-       wireId)
+       driverNmos powerNmos
+       inst1 inst2 inst3 inst4 inst5 inst6 inst7 inst8 inst9 inst10
+       powerInst1 powerInst2 powerInst3 powerInst4)
     
     ;; Set technology library and views
     lib = "RFIC_Designs"
@@ -39,156 +37,141 @@ procedure(createClassABPA()
     indMaster = "inductor"
     capMaster = "capacitor"
     resMaster = "resistor"
+
+    ;; Create nets first
+    vdd = dbCreateNet(cvId "VDD")
+    gnd = dbCreateNet(cvId "GND")
+    rf_in = dbCreateNet(cvId "RF_IN")
+    rf_out = dbCreateNet(cvId "RF_OUT")
+    bias1 = dbCreateNet(cvId "BIAS1")
+    bias2 = dbCreateNet(cvId "BIAS2")
+    rf_in_ext = dbCreateNet(cvId "RF_IN_EXT")
+    ant_in = dbCreateNet(cvId "ANT_IN")
+    interstage = dbCreateNet(cvId "INTERSTAGE")
+    out_match = dbCreateNet(cvId "OUT_MATCH")
+    ant_out = dbCreateNet(cvId "ANT_OUT")
     
-    ;; Create a hash table for nets
-    netList = makeTable("netList")
+    ;; Create pins for the cell - using simple pin creation approach
+    ;; Create shape for pin
+    rf_in_pin = dbCreateRect(cvId "pin" list(25:25 75:75) "RF_IN")
+    rf_out_pin = dbCreateRect(cvId "pin" list(625:25 675:75) "RF_OUT")
+    vdd_pin = dbCreateRect(cvId "pin" list(25:325 75:375) "VDD") 
+    gnd_pin = dbCreateRect(cvId "pin" list(25:525 75:575) "GND")
+    ant_in_pin = dbCreateRect(cvId "pin" list(-25:25 -75:75) "ANT_IN")
+    ant_out_pin = dbCreateRect(cvId "pin" list(700:25 750:75) "ANT_OUT")
     
-    ;; Create nets
-    netList["VDD"] = dbCreateNet(cvId "VDD")
-    netList["GND"] = dbCreateNet(cvId "GND")
-    netList["RF_IN"] = dbCreateNet(cvId "RF_IN")
-    netList["RF_OUT"] = dbCreateNet(cvId "RF_OUT")
-    netList["BIAS1"] = dbCreateNet(cvId "BIAS1")
-    netList["BIAS2"] = dbCreateNet(cvId "BIAS2")
-    netList["RF_IN_EXT"] = dbCreateNet(cvId "RF_IN_EXT")
-    netList["ANT_IN"] = dbCreateNet(cvId "ANT_IN")
-    netList["INTERSTAGE"] = dbCreateNet(cvId "INTERSTAGE")
-    netList["OUT_MATCH"] = dbCreateNet(cvId "OUT_MATCH")
-    netList["ANT_OUT"] = dbCreateNet(cvId "ANT_OUT")
-    
-    ;; Create terminals with integer direction values
-    ;; 0=input, 1=output, 2=inputOutput
-    dbCreateTerm(cvId netList["RF_IN"] "RF_IN" 0)     ;; input = 0
-    dbCreateTerm(cvId netList["RF_OUT"] "RF_OUT" 1)   ;; output = 1
-    dbCreateTerm(cvId netList["VDD"] "VDD" 0)         ;; input = 0
-    dbCreateTerm(cvId netList["GND"] "GND" 0)         ;; input = 0
-    dbCreateTerm(cvId netList["ANT_IN"] "ANT_IN" 0)   ;; input = 0
-    dbCreateTerm(cvId netList["ANT_OUT"] "ANT_OUT" 1) ;; output = 1
-    
-    ;; Create a hash table for instances
-    instList = makeTable("instList")
-    
+    ;; Connect pins to nets
+    dbCreateWire(cvId "route" list(list(25:50 "auto") list(rf_in "auto")))
+    dbCreateWire(cvId "route" list(list(650:50 "auto") list(rf_out "auto")))
+    dbCreateWire(cvId "route" list(list(50:350 "auto") list(vdd "auto")))
+    dbCreateWire(cvId "route" list(list(50:550 "auto") list(gnd "auto")))
+    dbCreateWire(cvId "route" list(list(-50:50 "auto") list(ant_in "auto")))
+    dbCreateWire(cvId "route" list(list(725:50 "auto") list(ant_out "auto")))
+
     ;; ===== Driver Stage =====
     ;; Driver transistor - sized for pre-amplification
-    instList["M1"] = dbCreateInst(cvId nmosMaster "M1" list(100 100))
-    schSetFigProperty(instList["M1"] list("w" 240u))
-    schSetFigProperty(instList["M1"] list("l" 0.06u))
-    schSetFigProperty(instList["M1"] list("fingers" 20))
+    driverNmos = dbCreateInst(cvId nmosMaster "M1" list(100 100))
+    schSetFigProperty(driverNmos list("w" 240u))
+    schSetFigProperty(driverNmos list("l" 0.06u))
+    schSetFigProperty(driverNmos list("fingers" 20))
+    
+    ;; Connect M1 terminals to nets via wires
+    dbCreateWire(cvId "route" list(list(100:100 "auto") list(rf_in "auto")))
+    dbCreateWire(cvId "route" list(list(100:130 "auto") list(bias1 "auto")))
+    dbCreateWire(cvId "route" list(list(100:70 "auto") list(gnd "auto")))
+    dbCreateWire(cvId "route" list(list(130:100 "auto") list(gnd "auto")))
     
     ;; Driver bias circuit
-    instList["R1"] = dbCreateInst(cvId resMaster "R1" list(100 200))
-    schSetFigProperty(instList["R1"] list("resistance" 5k))
+    inst1 = dbCreateInst(cvId resMaster "R1" list(100 200))
+    schSetFigProperty(inst1 list("resistance" 5k))
+    dbCreateWire(cvId "route" list(list(100:230 "auto") list(vdd "auto")))
+    dbCreateWire(cvId "route" list(list(100:170 "auto") list(bias1 "auto")))
     
     ;; Gate bias resistor
-    instList["R_BIAS1"] = dbCreateInst(cvId resMaster "R_BIAS1" list(50 100))
-    schSetFigProperty(instList["R_BIAS1"] list("resistance" 10k))
+    inst2 = dbCreateInst(cvId resMaster "R_BIAS1" list(50 100))
+    schSetFigProperty(inst2 list("resistance" 10k))
+    dbCreateWire(cvId "route" list(list(50:130 "auto") list(bias1 "auto")))
+    dbCreateWire(cvId "route" list(list(50:70 "auto") list(rf_in "auto")))
     
     ;; DC blocking capacitor for input
-    instList["C_IN"] = dbCreateInst(cvId capMaster "C_IN" list(0 100))
-    schSetFigProperty(instList["C_IN"] list("capacitance" 2p))
+    inst3 = dbCreateInst(cvId capMaster "C_IN" list(0 100))
+    schSetFigProperty(inst3 list("capacitance" 2p))
+    dbCreateWire(cvId "route" list(list(20:100 "auto") list(rf_in "auto")))
+    dbCreateWire(cvId "route" list(list(-20:100 "auto") list(rf_in_ext "auto")))
     
     ;; Input matching network for 3.3-3.8 GHz (L-network)
-    instList["L_IN"] = dbCreateInst(cvId indMaster "L_IN" list(-50 100))
-    schSetFigProperty(instList["L_IN"] list("inductance" 1.8n))
+    inst4 = dbCreateInst(cvId indMaster "L_IN" list(-50 100))
+    schSetFigProperty(inst4 list("inductance" 1.8n))
+    dbCreateWire(cvId "route" list(list(-30:100 "auto") list(rf_in_ext "auto")))
+    dbCreateWire(cvId "route" list(list(-70:100 "auto") list(ant_in "auto")))
     
-    instList["C_IN_SHUNT"] = dbCreateInst(cvId capMaster "C_IN_SHUNT" list(0 50))
-    schSetFigProperty(instList["C_IN_SHUNT"] list("capacitance" 0.8p))
+    inst5 = dbCreateInst(cvId capMaster "C_IN_SHUNT" list(0 50))
+    schSetFigProperty(inst5 list("capacitance" 0.8p))
+    dbCreateWire(cvId "route" list(list(0:70 "auto") list(rf_in "auto")))
+    dbCreateWire(cvId "route" list(list(0:30 "auto") list(gnd "auto")))
     
     ;; Interstage matching (between driver and power stage)
-    instList["C_INTER"] = dbCreateInst(cvId capMaster "C_INTER" list(150 100))
-    schSetFigProperty(instList["C_INTER"] list("capacitance" 1.2p))
+    inst6 = dbCreateInst(cvId capMaster "C_INTER" list(150 100))
+    schSetFigProperty(inst6 list("capacitance" 1.2p))
+    dbCreateWire(cvId "route" list(list(130:100 "auto") list(bias1 "auto")))
+    dbCreateWire(cvId "route" list(list(170:100 "auto") list(interstage "auto")))
     
-    instList["L_INTER"] = dbCreateInst(cvId indMaster "L_INTER" list(200 150))
-    schSetFigProperty(instList["L_INTER"] list("inductance" 1.5n))
+    inst7 = dbCreateInst(cvId indMaster "L_INTER" list(200 150))
+    schSetFigProperty(inst7 list("inductance" 1.5n))
+    dbCreateWire(cvId "route" list(list(180:150 "auto") list(interstage "auto")))
+    dbCreateWire(cvId "route" list(list(220:150 "auto") list(bias2 "auto")))
     
     ;; ===== Power Stage =====
     ;; Power transistor - sized for 23 dBm output power
-    instList["M2"] = dbCreateInst(cvId nmosMaster "M2" list(250 100))
-    schSetFigProperty(instList["M2"] list("w" 1200u))
-    schSetFigProperty(instList["M2"] list("l" 0.06u))
-    schSetFigProperty(instList["M2"] list("fingers" 80))
+    powerNmos = dbCreateInst(cvId nmosMaster "M2" list(250 100))
+    schSetFigProperty(powerNmos list("w" 1200u))
+    schSetFigProperty(powerNmos list("l" 0.06u))
+    schSetFigProperty(powerNmos list("fingers" 80))
+    
+    dbCreateWire(cvId "route" list(list(250:100 "auto") list(bias2 "auto")))
+    dbCreateWire(cvId "route" list(list(250:130 "auto") list(bias2 "auto")))
+    dbCreateWire(cvId "route" list(list(250:70 "auto") list(gnd "auto")))
+    dbCreateWire(cvId "route" list(list(280:100 "auto") list(gnd "auto")))
     
     ;; Power bias circuit
-    instList["R2"] = dbCreateInst(cvId resMaster "R2" list(250 200))
-    schSetFigProperty(instList["R2"] list("resistance" 3k))
+    inst8 = dbCreateInst(cvId resMaster "R2" list(250 200))
+    schSetFigProperty(inst8 list("resistance" 3k))
+    dbCreateWire(cvId "route" list(list(250:230 "auto") list(vdd "auto")))
+    dbCreateWire(cvId "route" list(list(250:170 "auto") list(bias2 "auto")))
     
     ;; Output matching network for 3.3-3.8 GHz
-    instList["C_OUT"] = dbCreateInst(cvId capMaster "C_OUT" list(300 100))
-    schSetFigProperty(instList["C_OUT"] list("capacitance" 1.5p))
+    inst9 = dbCreateInst(cvId capMaster "C_OUT" list(300 100))
+    schSetFigProperty(inst9 list("capacitance" 1.5p))
+    dbCreateWire(cvId "route" list(list(280:100 "auto") list(bias2 "auto")))
+    dbCreateWire(cvId "route" list(list(320:100 "auto") list(out_match "auto")))
     
-    instList["L_OUT"] = dbCreateInst(cvId indMaster "L_OUT" list(350 100))
-    schSetFigProperty(instList["L_OUT"] list("inductance" 2.2n))
+    inst10 = dbCreateInst(cvId indMaster "L_OUT" list(350 100))
+    schSetFigProperty(inst10 list("inductance" 2.2n))
+    dbCreateWire(cvId "route" list(list(330:100 "auto") list(out_match "auto")))
+    dbCreateWire(cvId "route" list(list(370:100 "auto") list(rf_out "auto")))
     
     ;; DC blocking capacitor for output
-    instList["C_OUT_DC"] = dbCreateInst(cvId capMaster "C_OUT_DC" list(400 100))
-    schSetFigProperty(instList["C_OUT_DC"] list("capacitance" 2p))
+    powerInst1 = dbCreateInst(cvId capMaster "C_OUT_DC" list(400 100))
+    schSetFigProperty(powerInst1 list("capacitance" 2p))
+    dbCreateWire(cvId "route" list(list(380:100 "auto") list(rf_out "auto")))
+    dbCreateWire(cvId "route" list(list(420:100 "auto") list(ant_out "auto")))
     
     ;; Supply choke
-    instList["L_CHOKE"] = dbCreateInst(cvId indMaster "L_CHOKE" list(250 250))
-    schSetFigProperty(instList["L_CHOKE"] list("inductance" 5n))
+    powerInst2 = dbCreateInst(cvId indMaster "L_CHOKE" list(250 250))
+    schSetFigProperty(powerInst2 list("inductance" 5n))
+    dbCreateWire(cvId "route" list(list(230:250 "auto") list(vdd "auto")))
+    dbCreateWire(cvId "route" list(list(270:250 "auto") list(bias2 "auto")))
     
     ;; Stability network
-    instList["R_STAB"] = dbCreateInst(cvId resMaster "R_STAB" list(200 100))
-    schSetFigProperty(instList["R_STAB"] list("resistance" 300))
+    powerInst3 = dbCreateInst(cvId resMaster "R_STAB" list(200 100))
+    schSetFigProperty(powerInst3 list("resistance" 300))
+    dbCreateWire(cvId "route" list(list(200:130 "auto") list(bias2 "auto")))
+    dbCreateWire(cvId "route" list(list(200:70 "auto") list(gnd "auto")))
     
-    instList["C_STAB"] = dbCreateInst(cvId capMaster "C_STAB" list(200 50))
-    schSetFigProperty(instList["C_STAB"] list("capacitance" 0.5p))
-    
-    ;; Connect instance terminals to nets
-    ;; Driver stage connections
-    dbCreateInstTerm(instList["M1"] "G" netList["RF_IN"])
-    dbCreateInstTerm(instList["M1"] "D" netList["BIAS1"])
-    dbCreateInstTerm(instList["M1"] "S" netList["GND"])
-    dbCreateInstTerm(instList["M1"] "B" netList["GND"])
-    
-    dbCreateInstTerm(instList["R1"] "PLUS" netList["VDD"])
-    dbCreateInstTerm(instList["R1"] "MINUS" netList["BIAS1"])
-    
-    dbCreateInstTerm(instList["R_BIAS1"] "PLUS" netList["BIAS1"])
-    dbCreateInstTerm(instList["R_BIAS1"] "MINUS" netList["RF_IN"])
-    
-    dbCreateInstTerm(instList["C_IN"] "PLUS" netList["RF_IN"])
-    dbCreateInstTerm(instList["C_IN"] "MINUS" netList["RF_IN_EXT"])
-    
-    dbCreateInstTerm(instList["L_IN"] "PLUS" netList["RF_IN_EXT"])
-    dbCreateInstTerm(instList["L_IN"] "MINUS" netList["ANT_IN"])
-    
-    dbCreateInstTerm(instList["C_IN_SHUNT"] "PLUS" netList["RF_IN"])
-    dbCreateInstTerm(instList["C_IN_SHUNT"] "MINUS" netList["GND"])
-    
-    ;; Interstage connections
-    dbCreateInstTerm(instList["C_INTER"] "PLUS" netList["BIAS1"])
-    dbCreateInstTerm(instList["C_INTER"] "MINUS" netList["INTERSTAGE"])
-    
-    dbCreateInstTerm(instList["L_INTER"] "PLUS" netList["INTERSTAGE"])
-    dbCreateInstTerm(instList["L_INTER"] "MINUS" netList["BIAS2"])
-    
-    ;; Power stage connections
-    dbCreateInstTerm(instList["M2"] "G" netList["BIAS2"])
-    dbCreateInstTerm(instList["M2"] "D" netList["BIAS2"])
-    dbCreateInstTerm(instList["M2"] "S" netList["GND"])
-    dbCreateInstTerm(instList["M2"] "B" netList["GND"])
-    
-    dbCreateInstTerm(instList["R2"] "PLUS" netList["VDD"])
-    dbCreateInstTerm(instList["R2"] "MINUS" netList["BIAS2"])
-    
-    dbCreateInstTerm(instList["C_OUT"] "PLUS" netList["BIAS2"])
-    dbCreateInstTerm(instList["C_OUT"] "MINUS" netList["OUT_MATCH"])
-    
-    dbCreateInstTerm(instList["L_OUT"] "PLUS" netList["OUT_MATCH"])
-    dbCreateInstTerm(instList["L_OUT"] "MINUS" netList["RF_OUT"])
-    
-    dbCreateInstTerm(instList["C_OUT_DC"] "PLUS" netList["RF_OUT"])
-    dbCreateInstTerm(instList["C_OUT_DC"] "MINUS" netList["ANT_OUT"])
-    
-    dbCreateInstTerm(instList["L_CHOKE"] "PLUS" netList["VDD"])
-    dbCreateInstTerm(instList["L_CHOKE"] "MINUS" netList["BIAS2"])
-    
-    dbCreateInstTerm(instList["R_STAB"] "PLUS" netList["BIAS2"])
-    dbCreateInstTerm(instList["R_STAB"] "MINUS" netList["GND"])
-    
-    dbCreateInstTerm(instList["C_STAB"] "PLUS" netList["BIAS2"])
-    dbCreateInstTerm(instList["C_STAB"] "MINUS" netList["GND"])
+    powerInst4 = dbCreateInst(cvId capMaster "C_STAB" list(200 50))
+    schSetFigProperty(powerInst4 list("capacitance" 0.5p))
+    dbCreateWire(cvId "route" list(list(200:70 "auto") list(bias2 "auto")))
+    dbCreateWire(cvId "route" list(list(200:30 "auto") list(gnd "auto")))
     
     ;; Save the cellview
     dbSave(cvId)

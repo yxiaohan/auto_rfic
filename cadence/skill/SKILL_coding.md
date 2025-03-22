@@ -880,3 +880,204 @@ Where:
    - Some versions use `dbCreateTerm` while others prefer `dbCreatePin`
    - Some versions use `dbCreateInstPin` while others use `dbCreateInstTerm`
    - Check your specific Cadence version's documentation
+
+# SKILL Coding Guidelines
+
+## Net and Terminal Management in Cadence SKILL
+
+### Terminal Creation
+
+When working with terminals in Cadence SKILL, there are important distinctions in how to use the API functions:
+
+```skill
+;; Create a terminal for a cell
+dbCreateTerm(cellViewId netName termName direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `netName` is the NET NAME as a STRING (not the net object)
+- `termName` is the terminal name
+- `direction` is an INTEGER:
+  - 0 = input
+  - 1 = output
+  - 2 = inputOutput/inout
+
+### Instance Pin Creation
+
+```skill
+;; Connect an instance pin to a net
+dbCreateInstPin(cellViewId instId pinName displayName netName direction)
+```
+
+Where:
+- `cellViewId` is the cellview object ID
+- `instId` is the instance object ID
+- `pinName` is the pin name
+- `displayName` is the display name for the pin
+- `netName` is the NET NAME as a STRING (not the net object)
+- `direction` is an INTEGER (0=input, 1=output, 2=inout)
+
+## Critical Mistakes to Avoid
+
+1. **Passing Net Objects Instead of Net Names**
+   - For `dbCreateTerm` and `dbCreateInstPin`, always use net names (strings)
+   - Don't pass the net object returned by `dbCreateNet`
+   - Example: Use `"VDD"` instead of the variable `vdd`
+
+2. **Direction Parameter Type Mismatch**
+   - Most Cadence SKILL functions expect numeric constants for direction
+   - Use integers (0, 1, 2) instead of strings ("input", "output", "inout")
+
+3. **Variable Organization**
+   - Create all nets first, then create terminals
+   - Store nets in variables with clear names (`vdd`, `gnd`, etc.)
+   - Create all instances before setting their properties and connections
+
+## Working Pattern
+
+A recommended pattern for creating a schematic:
+
+1. Create all nets with meaningful variable names
+2. Create cell terminals using net names (strings)
+3. Create all instances with meaningful variable names
+4. Set properties for all instances
+5. Connect all instance pins using net names (strings)
+6. Save and close the cell
+
+This approach provides clarity and minimizes errors in the code.
+
+# SKILL Coding Guidelines
+
+## Creating Circuit Elements in Cadence Virtuoso
+
+### Pin and Net Creation Workflow
+
+When creating pins and nets in Cadence SKILL, follow this pattern:
+
+1. **Create IO Pins First**
+   ```skill
+   inPin = dbCreateIoPin(cellViewId "PIN_NAME" "direction")
+   ```
+   Where direction is "input", "output", or "inputOutput"
+
+2. **Create Nets**
+   ```skill
+   myNet = dbCreateNet(cellViewId "NET_NAME")
+   ```
+
+3. **Connect Nets to Pins**
+   ```skill
+   dbCreateNetPin(netObj pinObj)
+   ```
+
+### Instance Creation and Connection
+
+1. **Create Instances**
+   ```skill
+   myInst = dbCreateInst(cellViewId masterName instName position)
+   ```
+
+2. **Set Instance Properties**
+   ```skill
+   schSetFigProperty(instObj list("propName" propValue))
+   ```
+
+3. **Connect Instances to Nets using Wires**
+   ```skill
+   dbCreateWire(cellViewId "route" list(list(dbGetInstEndPoint(instObj "PIN_NAME") "auto") list(dbGetNetEndPoint(netObj) "auto")))
+   ```
+
+## Common Issues and Their Solutions
+
+1. **Invalid Net Error with dbCreateTerm**
+   - Incorrect: `dbCreateTerm(cvId netObj "TERM_NAME" 0)`
+   - Correct approach: Use `dbCreateIoPin` and `dbCreateNetPin` instead
+
+2. **Connection Methods**
+   - Avoid `dbCreateInstPin` which has version-specific requirements
+   - Instead, create wires between instance pins and nets using `dbCreateWire`
+
+3. **Proper Object References**
+   - Always store and use object references (not just names)
+   - Example: `myNet = dbCreateNet(cvId "NET_NAME")`
+   - Then use `myNet` in subsequent operations
+
+## Version-Safe Coding Pattern
+
+For maximum compatibility across Cadence versions:
+
+1. Create pins with `dbCreateIoPin`
+2. Create nets with `dbCreateNet` 
+3. Connect pins to nets with `dbCreateNetPin`
+4. Create instances with `dbCreateInst`
+5. Connect instances to nets with `dbCreateWire`
+
+This pattern avoids the `dbCreateTerm` and `dbCreateInstPin` functions which have inconsistent behavior across Cadence versions.
+
+# SKILL Coding Guidelines
+
+## Basic Circuit Creation in SKILL
+
+### Compatible Approach for Net and Pin Creation
+
+When creating schematics programmatically in SKILL, use simple, widely compatible functions:
+
+1. **Creating Nets**
+   ```skill
+   myNet = dbCreateNet(cvId "NET_NAME")
+   ```
+
+2. **Creating Pins for External Connections**
+   ```skill
+   ;; Create pin as a rectangle shape
+   myPin = dbCreateRect(cvId "pin" list(x1:y1 x2:y2) "PIN_NAME")
+   ```
+
+3. **Connecting Components with Wires**
+   ```skill
+   ;; Connect points with wires
+   dbCreateWire(cvId "route" list(list(x1:y1 "auto") list(x2:y2 "auto")))
+   ;; Connect to a net
+   dbCreateWire(cvId "route" list(list(x:y "auto") list(netObj "auto")))
+   ```
+
+### Instance Creation and Properties
+
+1. **Creating Instances**
+   ```skill
+   myInst = dbCreateInst(cvId masterName instName position)
+   ```
+
+2. **Setting Instance Properties**
+   ```skill
+   schSetFigProperty(instObj list("propName" propValue))
+   ```
+
+### Version Compatibility Issues
+
+Different Cadence versions have different API functions:
+
+1. **Avoid Version-Specific Functions**
+   - `dbCreateIoPin` - not available in some versions
+   - `dbCreateTerm` - inconsistent behavior across versions
+   - `dbCreateInstPin` - parameter requirements vary by version
+
+2. **Use Basic Shape-Based Approach**
+   - Create pins as shapes with `dbCreateRect`
+   - Create explicit wire connections with `dbCreateWire`
+   - This approach works across more Cadence versions
+
+## Debugging Guidelines
+
+1. **Check Function Availability**
+   - If you encounter "undefined function" errors, use more basic functions
+   - Functions like `dbCreateNet`, `dbCreateRect`, `dbCreateWire`, and `dbCreateInst` are available in most versions
+
+2. **Use Explicit Coordinates**
+   - Use explicit coordinates for connecting elements
+   - Example: `dbCreateWire(cvId "route" list(list(100:100 "auto") list(netObj "auto")))`
+
+3. **Save and Reload Often**
+   - Use frequent saving to avoid losing work
+   - Test small portions of code to isolate issues
